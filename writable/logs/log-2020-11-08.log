@@ -1,0 +1,48 @@
+CRITICAL - 2020-11-08 13:08:28 --> Table 'soluc275_iot_arduino.clientes' doesn't exist
+#0 /home4/soluc275/public_html/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /home4/soluc275/public_html/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home4/soluc275/public_html/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home4/soluc275/public_html/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home4/soluc275/public_html/system/Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#5 /home4/soluc275/public_html/app/Controllers/Inicio.php(28): CodeIgniter\Model->findAll()
+#6 /home4/soluc275/public_html/system/CodeIgniter.php(921): App\Controllers\Inicio->getClientes()
+#7 /home4/soluc275/public_html/system/CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#8 /home4/soluc275/public_html/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home4/soluc275/public_html/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2020-11-08 13:12:55 --> Table 'soluc275_iot_arduino.clientes' doesn't exist
+#0 /home4/soluc275/public_html/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /home4/soluc275/public_html/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home4/soluc275/public_html/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home4/soluc275/public_html/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home4/soluc275/public_html/system/Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#5 /home4/soluc275/public_html/app/Controllers/Inicio.php(28): CodeIgniter\Model->findAll()
+#6 /home4/soluc275/public_html/system/CodeIgniter.php(921): App\Controllers\Inicio->getClientes()
+#7 /home4/soluc275/public_html/system/CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#8 /home4/soluc275/public_html/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home4/soluc275/public_html/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2020-11-08 13:17:51 --> Table 'soluc275_iot_arduino.clientes' doesn't exist
+#0 /home4/soluc275/public_html/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /home4/soluc275/public_html/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home4/soluc275/public_html/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home4/soluc275/public_html/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home4/soluc275/public_html/system/Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#5 /home4/soluc275/public_html/app/Controllers/Inicio.php(28): CodeIgniter\Model->findAll()
+#6 /home4/soluc275/public_html/system/CodeIgniter.php(921): App\Controllers\Inicio->getClientes()
+#7 /home4/soluc275/public_html/system/CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#8 /home4/soluc275/public_html/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home4/soluc275/public_html/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2020-11-08 13:17:51 --> Table 'soluc275_iot_arduino.clientes' doesn't exist
+#0 /home4/soluc275/public_html/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /home4/soluc275/public_html/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home4/soluc275/public_html/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home4/soluc275/public_html/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home4/soluc275/public_html/system/Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#5 /home4/soluc275/public_html/app/Controllers/Inicio.php(28): CodeIgniter\Model->findAll()
+#6 /home4/soluc275/public_html/system/CodeIgniter.php(921): App\Controllers\Inicio->getClientes()
+#7 /home4/soluc275/public_html/system/CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#8 /home4/soluc275/public_html/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home4/soluc275/public_html/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}

@@ -1,0 +1,919 @@
+CRITICAL - 2021-02-23 19:24:25 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(21): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-23 19:24:26 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(21): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-23 19:24:36 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(21): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-23 19:37:40 --> Invalid file: Admin/header.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Admin/header.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('Admin/header', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(36): view('Admin/header')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 19:42:12 --> Invalid file: admin/header.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/header.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('admin/header', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(36): view('admin/header')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 19:42:14 --> Invalid file: inicio.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('inicio.php')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('inicio', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(12): view('inicio')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->index()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 19:42:17 --> Invalid file: inicio.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('inicio.php')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('inicio', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(12): view('inicio')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->index()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 19:42:21 --> Invalid file: inicio.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('inicio.php')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('inicio', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(12): view('inicio')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->index()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 19:47:11 --> Invalid file: admin/header.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/header.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('admin/header', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(36): view('admin/header')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 19:47:36 --> Invalid file: aheader.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('aheader.php')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('aheader', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(36): view('aheader')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 19:47:38 --> Invalid file: aheader.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('aheader.php')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('aheader', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(36): view('aheader')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 19:47:38 --> Invalid file: aheader.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('aheader.php')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('aheader', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(36): view('aheader')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 19:47:38 --> Invalid file: aheader.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('aheader.php')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('aheader', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(36): view('aheader')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 19:47:38 --> Invalid file: aheader.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('aheader.php')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('aheader', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(36): view('aheader')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 19:47:38 --> Invalid file: aheader.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('aheader.php')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('aheader', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(36): view('aheader')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 20:45:48 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:51:39 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 84, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:51:46 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 84, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:53:29 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:55:09 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:55:17 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:55:17 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:55:17 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:57:35 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:58:41 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:58:41 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:58:41 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:58:41 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:58:42 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:59:46 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:59:46 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:59:46 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:59:46 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:59:47 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:59:47 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 20:59:47 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 21:01:46 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 21:01:58 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 21:04:42 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 21:04:59 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 21:06:05 --> Object of class App\Models\UsuariosModel could not be converted to string
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(83): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-23 21:06:26 --> Column 'email' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:06:52 --> Column 'email' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:36:44 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:40:09 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:40:10 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:40:10 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:40:10 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:40:11 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:40:11 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:40:11 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:40:11 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:40:11 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:40:21 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:41:46 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:43:38 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:46:12 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:48:23 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:48:35 --> Column 'email' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:52:03 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:52:09 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:52:09 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:53:25 --> Column 'email' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:54:09 --> Column 'email' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 21:55:36 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 22:21:43 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 22:22:13 --> Column 'documento' cannot be null
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('INSERT INTO `us...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\agroplaza\system\Model.php(574): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\agroplaza\app\Controllers\Administrador.php(84): CodeIgniter\Model->save(Array)
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Administrador->insertar()
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrador))
+#9 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-02-23 22:27:22 --> Invalid file: admin/InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/InicioAdm...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('admin/InicioAdm...', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('admin/InicioAdm...')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:38:09 --> Invalid file: header.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('header.php')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('header', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(36): view('header')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:39:31 --> Invalid file: header.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('header.php')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('header', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(36): view('header')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:43:22 --> Invalid file: InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('InicioAdmin.php')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:43:27 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:43:50 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:43:59 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:44:11 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:44:46 --> Invalid file: admin/InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/InicioAdm...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('admin/InicioAdm...', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('admin/InicioAdm...')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:44:48 --> Invalid file: admin/InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/InicioAdm...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('admin/InicioAdm...', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('admin/InicioAdm...')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:44:49 --> Invalid file: admin/InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/InicioAdm...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('admin/InicioAdm...', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('admin/InicioAdm...')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:44:55 --> Invalid file: /admin/InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/admin/InicioAd...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/admin/InicioAd...', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/admin/InicioAd...')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:45:04 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:45:34 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:45:35 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:45:35 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:46:28 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:46:29 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:46:29 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:46:36 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:47:01 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:47:04 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:47:04 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:47:04 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:47:04 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:47:04 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:47:04 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:47:05 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-23 22:47:17 --> Invalid file: /InicioAdmin.php
+#0 C:\xampp\htdocs\agroplaza\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/InicioAdmin.ph...')
+#1 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('/InicioAdmin', Array, true)
+#2 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(37): view('/InicioAdmin')
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
