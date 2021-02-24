@@ -40,11 +40,12 @@ function enviarInfoNuevoAdmin() {
         
 
         if (data == "OK#CORRECT#DATA") {
-          alert(base_url+"Inicio/cargarVistaInicio");
+          alert("Registro Existoso");
           window.location = base_url+"/InicioAdmin";
 
         } else{
-          
+          alert("Ocurrio un erorr en el insert");
+
           $("#documento").val("");
           $("#nombres").val("");
           $("#apellidos").val("");

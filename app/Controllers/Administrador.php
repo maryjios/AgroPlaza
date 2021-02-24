@@ -80,7 +80,7 @@ class Administrador extends BaseController
 		$genero = $this->request->getPostGet('genero');	
 
 		$usuarios = new UsuariosModel();
-		$registros = $usuarios->save(['email' => $email, 'password' => md5($documento), 'documento' => $documento, 'nombres' => $nombres, 'apellidos' => $apellidos, 'direccion' => $direccion,
+		$registros = $usuarios->save(['email' => $email, 'password' => md5($documento), 'documento' => $documento, 'nombres' => $nombres, 'apellidos' => $apellidos, 'id_ciudad' => 1, 'direccion' => $direccion,
 		'telefono' => $telefono, 'genero' => $genero, 'avatar' => 'avatar.png', 'tipo_usuario' => 'ADMINISTRADOR']);
 
 		if ($registros) {

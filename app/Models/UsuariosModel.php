@@ -12,7 +12,7 @@ class UsuariosModel extends Model {
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['email', 'password', 'documento', 'nombres', 'apellidos', 'direccion', 'telefono', 'genero', 'avatar', 'tipo_usuario'];
+    protected $allowedFields = ['email', 'password', 'documento', 'nombres', 'apellidos', 'id_ciudad', 'direccion', 'telefono', 'genero', 'avatar', 'tipo_usuario'];
 
     protected $useTimestamps = false;
     protected $createdField  = 'fecha_insert';

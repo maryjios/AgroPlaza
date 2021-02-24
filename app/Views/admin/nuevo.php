@@ -69,8 +69,8 @@
                   </select>
                 </div>
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-info">Registrar</button>
-                  <button type="submit" class="btn btn-default float-right">Cancelar</button>
+                  <button type="submit" class="btn btn-info col-md-2">Registrar</button>
+                  <button type="button" class="btn btn-default">Atras</button>
                 </div>
               </div>
             </form>
