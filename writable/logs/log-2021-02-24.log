@@ -1,0 +1,167 @@
+CRITICAL - 2021-02-24 16:44:22 --> Undefined index: tipo_usuario
+#0 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(156): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 156, Array)
+#1 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\RegistrarAdministrador.php(17): view('template/header')
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\RegistrarAdministrador->index()
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\RegistrarAdministrador))
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-24 16:49:23 --> Invalid file: {0}
+#0 C:\xampp\htdocs\agroplaza-master\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/index.php')
+#1 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('admin/index', Array, true)
+#2 C:\xampp\htdocs\agroplaza-master\app\Controllers\Inicio.php(43): view('admin/index')
+#3 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-24 16:49:49 --> Invalid file: {0}
+#0 C:\xampp\htdocs\agroplaza-master\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/index.php')
+#1 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('admin/index', Array, true)
+#2 C:\xampp\htdocs\agroplaza-master\app\Controllers\Inicio.php(43): view('admin/index')
+#3 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-24 16:50:06 --> Invalid file: {0}
+#0 C:\xampp\htdocs\agroplaza-master\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/index.php')
+#1 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('admin/index', Array, true)
+#2 C:\xampp\htdocs\agroplaza-master\app\Controllers\Inicio.php(43): view('admin/index')
+#3 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-24 16:50:09 --> Invalid file: {0}
+#0 C:\xampp\htdocs\agroplaza-master\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/index.php')
+#1 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('admin/index', Array, true)
+#2 C:\xampp\htdocs\agroplaza-master\app\Controllers\Inicio.php(43): view('admin/index')
+#3 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\Inicio->cargarVistaInicio()
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-02-24 16:59:23 --> Undefined variable: _SESSION
+#0 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(156): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 156, Array)
+#1 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(9): view('template/header')
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-24 16:59:38 --> Undefined variable: _SESSION
+#0 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(156): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 156, Array)
+#1 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(9): view('template/header')
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-24 17:00:05 --> Undefined variable: _SESSION
+#0 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(156): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 156, Array)
+#1 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(9): view('template/header')
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-24 17:02:16 --> Undefined variable: _SESSION
+#0 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(156): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 156, Array)
+#1 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(9): view('template/header')
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-24 17:02:41 --> Undefined variable: _SESSION
+#0 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(156): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 156, Array)
+#1 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(9): view('template/header')
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-24 17:03:02 --> Undefined variable: _SESSION
+#0 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(156): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 156, Array)
+#1 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(9): view('template/header')
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-24 17:03:33 --> Undefined variable: _SESSION
+#0 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(156): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 156, Array)
+#1 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(9): view('template/header')
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-24 17:04:15 --> session_start(): A session had already been started - ignoring
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8, 'session_start()...', 'C:\\xampp\\htdocs...', 2, Array)
+#1 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(2): session_start()
+#2 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#4 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\RegistrarAdministrador.php(26): view('template/header', Array)
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\RegistrarAdministrador->registrarAdmin()
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\RegistrarAdministrador))
+#7 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-02-24 17:04:48 --> Undefined variable: _SESSION
+#0 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(156): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 156, Array)
+#1 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(9): view('template/header')
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-24 17:05:29 --> Undefined index: tipo_usuario
+#0 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(156): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 156, Array)
+#1 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(10): view('template/header')
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-24 17:05:54 --> Undefined index: tipo_usuario
+#0 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(156): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 156, Array)
+#1 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(10): view('template/header')
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-24 17:05:54 --> Undefined index: tipo_usuario
+#0 C:\xampp\htdocs\agroplaza-master\app\Views\template\header.php(156): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 156, Array)
+#1 C:\xampp\htdocs\agroplaza-master\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza-master\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza-master\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(10): view('template/header')
+#4 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
+#5 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+#6 C:\xampp\htdocs\agroplaza-master\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza-master\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

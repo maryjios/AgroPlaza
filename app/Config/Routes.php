@@ -32,11 +32,19 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/Login', 'Inicio::index');
 $routes->get('/InicioAdmin', 'Inicio::cargarVistaInicio');
-$routes->get('/RegistrarAdmin', 'Administrador::nuevo');
 $routes->post('/InsertAdmin', 'Administrador::insertar');
 
+// Rutas para el modulo de GestionUsuarios
+$routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios'],function($routes){
+    $routes->add('RegistrarAdmin', 'RegistrarAdministrador::registrarAdmin');
+    $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
+    $routes->add('PerfilUsuario', 'PerfilUsuario::index');
+    $routes->add('Permisos', 'Permisos::index'); 
+});
 
-
+$routes->group('ModuloPublicaciones', ['namespace'=>'App\Controllers\ModuloPublicaciones'],function($routes){
+    $routes->add('ListarPublicaciones', 'ListarPublicaciones::index');
+});
 
 
 /**

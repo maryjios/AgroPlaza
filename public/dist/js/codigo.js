@@ -37,15 +37,8 @@ function enviarInfoNuevoAdmin() {
       },
     })
       .done(function (data) {
-        
-
         if (data == "OK#CORRECT#DATA") {
           alert("Registro Existoso");
-          window.location = base_url+"/InicioAdmin";
-
-        } else{
-          alert("Ocurrio un erorr en el insert");
-
           $("#documento").val("");
           $("#nombres").val("");
           $("#apellidos").val("");
@@ -53,9 +46,9 @@ function enviarInfoNuevoAdmin() {
           $("#telefono").val("");
           $("#email").val("");
           $("#genero").val("");
-
+        } else{
+          alert("Ocurrio un erorr en el insert");
         }
-
       })
       .fail(function (data) {
         console.log("error en el proceso");
