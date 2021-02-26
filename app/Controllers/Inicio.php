@@ -21,16 +21,9 @@ class Inicio extends BaseController{
 			$mensaje = 'ERROR##INVALID##DATA';
 		} else {
 			unset($registros[0]['password']);
-			$reg_permisos = $usuarios_db->select(['permisos.id', 'permisos.nombre'])
-							->join('permisos_temp', 'usuarios.id = permisos_temp.id_usuario', 'inner')
-							->join('permisos', 'permisos_temp.id_permiso = permisos.id', 'inner')
-							->where(['usuarios.id' => $registros[0]['id'], 'permisos_temp.estado'=>'ACTIVO'])
-							->find();
-			$registros[0]['lista_permisos'] = array();
-			foreach ($reg_permisos as $key => $value) {
-				array_push($registros[0]['lista_permisos'], $value['nombre']);
-			}
-
+			
+			
+			
 			$this->session->set($registros[0]);
 			$mensaje = 'OK##DATA##LOGIN';
 		}

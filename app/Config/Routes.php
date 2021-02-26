@@ -31,12 +31,13 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/Login', 'Inicio::index');
-$routes->get('/InicioAdmin', 'Inicio::cargarVistaInicio');
-$routes->post('/InsertAdmin', 'Administrador::insertar');
+$routes->get('/Inicio', 'Inicio::cargarVistaInicio');
+
 
 // Rutas para el modulo de GestionUsuarios
 $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios'],function($routes){
     $routes->add('RegistrarAdmin', 'RegistrarAdministrador::registrarAdmin');
+    $routes->add('InsertarAdmin', 'RegistrarAdministrador::insertar');
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
     $routes->add('Permisos', 'Permisos::index'); 
@@ -44,7 +45,17 @@ $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios']
 
 $routes->group('ModuloPublicaciones', ['namespace'=>'App\Controllers\ModuloPublicaciones'],function($routes){
     $routes->add('ListarPublicaciones', 'ListarPublicaciones::index');
+    $routes->add('ListarPublicaciones', 'CrearPublicacion::index');
+
 });
+
+
+
+$routes->group('ModuloPedidos', ['namespace'=>'App\Controllers\ModuloPedidos'],function($routes){
+    $routes->add('Pedidos', 'Pedidos::index');
+    $routes->add('HistorialPedidos', 'Pedidos::historial');
+});
+
 
 
 /**

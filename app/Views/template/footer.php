@@ -14,8 +14,7 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="<?php echo base_url('/public/plugins/jquery/jquery.min.js'); ?>"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url('/public/plugins/jquery-ui/jquery-ui.min.js'); ?>"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -28,9 +27,7 @@
 <script src="<?php echo base_url('/public/plugins/chart.js/Chart.min.js'); ?>"></script>
 <!-- Sparkline -->
 <script src="<?php echo base_url('/public/plugins/sparklines/sparkline.js'); ?>"></script>
-<!-- JQVMap -->
-<script src="<?php echo base_url('/public/plugins/jqvmap/jquery.vmap.min.js'); ?>"></script>
-<script src="<?php echo base_url('/public/plugins/jqvmap/maps/jquery.vmap.usa.js'); ?>"></script>
+
 <!-- jQuery Knob Chart -->
 <script src="<?php echo base_url('/public/plugins/jquery-knob/jquery.knob.min.js'); ?>"></script>
 <!-- daterangepicker -->
@@ -48,8 +45,6 @@
 <script src="<?php echo base_url('/public/dist/js/demo.js'); ?>"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url('/public/dist/js/pages/dashboard.js'); ?>"></script>
-<script>var base_url = '<?php echo base_url() ?>';</script>
-<script src="<?php echo base_url('/public/dist/js/codigo.js'); ?>"></script>
 
 </body>
 </html>

@@ -98,7 +98,7 @@
 					.done(function(data) {
 
 						if (data == "OK##DATA##LOGIN") {
-							window.location = "<?php echo base_url('InicioAdmin'); ?>";
+							window.location = "<?php echo base_url('Inicio'); ?>";
 						} else {
 							$("#campo_password").val("");
 							alert("Error en los datos ingresados.");

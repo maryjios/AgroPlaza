@@ -3,15 +3,15 @@
 use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 
-class ListarPublicaciones extends BaseController {
+class CrearPublicacion extends BaseController {
 
 	public function index(){
 		$data['modulo_selected'] = "Publicaciones";
-		$data['opcion_selected'] = "ListarPublicaciones";
+		$data['opcion_selected'] = "CrearPublicacion";
 
 
 		echo view('template/header', $data);
-		echo view('ModuloPublicaciones/listar_publicaciones');
+		echo view('ModuloPublicaciones/crear_publicacion');
 		echo view('template/footer');
 	}
 
