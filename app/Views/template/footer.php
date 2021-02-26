@@ -45,7 +45,16 @@
 <script src="<?php echo base_url('/public/dist/js/demo.js'); ?>"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url('/public/dist/js/pages/dashboard.js'); ?>"></script>
-
+<!-- Datatables -->
+<script src="<?php echo base_url('/public/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/dataTables.buttons.min.js')?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.html5.min.js')?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
 </body>
 </html>
 
