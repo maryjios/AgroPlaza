@@ -19,3 +19,33 @@ CRITICAL - 2021-02-26 13:11:55 --> Call to undefined method App\Models\CiudadesM
 #3 /var/www/agroplaza/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest()
 #4 /var/www/agroplaza/index.php(45): CodeIgniter\CodeIgniter->run()
 #5 {main}
+CRITICAL - 2021-02-26 13:34:03 --> Unable to connect to the database.
+#0 /var/www/agroplaza/system/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /var/www/agroplaza/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query()
+#2 /var/www/agroplaza/system/Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 /var/www/agroplaza/app/Controllers/ModuloUsuarios/RegistrarUsuario.php(36): CodeIgniter\Model->find()
+#4 /var/www/agroplaza/system/CodeIgniter.php(921): App\Controllers\ModuloUsuarios\RegistrarUsuario->registrarAdmin()
+#5 /var/www/agroplaza/system/CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/agroplaza/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/agroplaza/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-26 13:57:28 --> Unable to connect to the database.
+#0 /var/www/agroplaza/system/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /var/www/agroplaza/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query()
+#2 /var/www/agroplaza/system/Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 /var/www/agroplaza/app/Controllers/ModuloUsuarios/RegistrarUsuario.php(36): CodeIgniter\Model->find()
+#4 /var/www/agroplaza/system/CodeIgniter.php(921): App\Controllers\ModuloUsuarios\RegistrarUsuario->registrarAdmin()
+#5 /var/www/agroplaza/system/CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/agroplaza/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/agroplaza/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-26 14:26:31 --> Unable to connect to the database.
+#0 /var/www/agroplaza/system/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /var/www/agroplaza/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query()
+#2 /var/www/agroplaza/system/Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 /var/www/agroplaza/app/Controllers/ModuloUsuarios/RegistrarUsuario.php(36): CodeIgniter\Model->find()
+#4 /var/www/agroplaza/system/CodeIgniter.php(921): App\Controllers\ModuloUsuarios\RegistrarUsuario->registrarAdmin()
+#5 /var/www/agroplaza/system/CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/agroplaza/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/agroplaza/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

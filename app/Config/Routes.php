@@ -36,8 +36,8 @@ $routes->get('/Inicio', 'Inicio::cargarVistaInicio');
 
 // Rutas para el modulo de GestionUsuarios
 $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios'],function($routes){
-    $routes->add('RegistrarAdmin', 'RegistrarAdministrador::registrarAdmin');
-    $routes->add('InsertarAdmin', 'RegistrarAdministrador::insertar');
+    $routes->add('RegistrarAdmin', 'RegistrarUsuario::registrarAdmin');
+    $routes->add('InsertarAdmin', 'RegistrarUsuario::insertar');
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
     $routes->add('Permisos', 'Permisos::index'); 

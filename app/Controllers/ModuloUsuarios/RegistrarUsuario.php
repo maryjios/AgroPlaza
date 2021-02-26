@@ -88,4 +88,52 @@ class RegistrarUsuario extends BaseController
 
 		echo $mensaje;
 	}
+
+	public function insertarMovil()
+	{
+		$email = $this->request->getPostGet('email');
+		$documento = $this->request->getPostGet('documento');
+		$nombres = $this->request->getPostGet('nombres');
+		$apellidos = $this->request->getPostGet('apellidos');
+		$direccion = $this->request->getPostGet('direccion');
+		$telefono = $this->request->getPostGet('telefono');
+		$genero = $this->request->getPostGet('genero');
+		$ciudad = $this->request->getPostGet('ciudad');
+
+		$usuarios = new UsuariosModel();
+
+		$consulta = $usuarios->where(['documento' => $documento])->find();
+
+		if (sizeof($consulta) > 0) {
+			$mensaje = "FAIL#DOCUMENTO";
+		} else {
+			$consulta = $usuarios->where(['email' => $email])->find();
+
+			if (sizeof($consulta) > 0) {
+				$mensaje = "FAIL#EMAIL";
+			} else {
+				$registros = $usuarios->save([	
+					'email' => $email,
+					'password' => md5($documento),
+					'documento' => $documento,
+					'nombres' => $nombres,
+					'apellidos' => $apellidos,
+					'id_ciudad' => $ciudad,
+					'direccion' => $direccion,
+					'telefono' => $telefono,
+					'genero' => $genero,
+					'avatar' => 'avatar.png',
+					'tipo_usuario' => 'ADMINISTRADOR'
+				]);
+
+				if ($registros) {
+					$mensaje = "OK#CORRECT#DATA";
+				} else {
+					$mensaje = "OK#INVALID#DATA";
+				}
+			}
+		}
+
+		echo $mensaje;
+	}
 }

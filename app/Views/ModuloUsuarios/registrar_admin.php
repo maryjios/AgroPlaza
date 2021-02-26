@@ -1,19 +1,19 @@
- <!-- Content Wrapper. Contains page content -->
- <div class="content-wrapper">
-   <!-- Content Header (Page header) -->
-   <section class="content-header">
-     <div class="container-fluid">
-       <div class="row mb-2">
-         <div class="col-sm-6">
-           <h1>Registrar Administrador</h1>
-         </div>
-       </div>
-     </div><!-- /.container-fluid -->
-   </section>
-   <!-- Main content -->
-   <section class="content">
-     <div class="container-fluid">
-       <!-- <div class="row">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Registrar Administrador</h1>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <!-- <div class="row">
         <div class="col-6">
           
           <div class="alert alert-info alert-dismissible">
@@ -23,133 +23,144 @@
           </div>
         </div>
       </div> -->
-       <div class="row">
-         <!-- left column -->
-         <div class="col">
-           <!-- general form elements -->
-           <div class="card card-primary">
-             <div class="card-header">
-               <h3 class="card-title">Nuevo</h3>
-             </div>
-             <!-- /.card-header -->
-             <form id="form_nuevoAdmin" method="post" action="#" autocomplete="of">
-               <div class="card-body">
-                 <div class="row">
-                   <div class="form-group col">
-                     <input type="text" class="form-control form-control-border" id="documento" placeholder="Cedula" required>
-                   </div>
-                   <div class="form-group col">
-                     <input type="text" class="form-control form-control-border border-width-2" id="nombres" placeholder="Nombres" required>
-                   </div>
-                 </div>
-                 <div class="row">
-                   <div class="form-group col">
-                     <input type="text" class="form-control form-control-border border-width-2" id="apellidos" placeholder="Apellidos" required>
-                   </div>
-                   <div class="form-group col">
-                     <input type="text" class="form-control form-control-border border-width-2" id="direccion" placeholder="Direccion" required>
-                   </div>
-                 </div>
-                 <div class="row">
-                   <div class="form-group col">
-                     <input type="text" class="form-control form-control-border border-width-2" id="telefono" placeholder="Telefono" required>
-                   </div>
-                   <div class="form-group col">
-                     <input type="email" class="form-control form-control-border border-width-2" id="email" placeholder="Correo" required>
-                   </div>
-                 </div>
+      <div class="row">
+        <!-- left column -->
+        <div class="col">
+          <!-- general form elements -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Nuevo</h3>
+            </div>
+            <!-- /.card-header -->
+            <form id="form_nuevoAdmin" method="post" action="#" autocomplete="of">
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col">
+                    <input type="text" class="form-control form-control-border" id="documento" placeholder="Cedula" required>
+                  </div>
+                  <div class="form-group col">
+                    <input type="email" class="form-control form-control-border border-width-2" id="email" placeholder="Correo" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col">
+                    <input type="text" class="form-control form-control-border border-width-2" id="nombres" placeholder="Nombres" required>
+                  </div>
+                  <div class="form-group col">
+                    <input type="text" class="form-control form-control-border border-width-2" id="apellidos" placeholder="Apellidos" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col">
+                    <input type="text" class="form-control form-control-border border-width-2" id="telefono" placeholder="Telefono" required>
+                  </div>
+                  <div class="form-group col">
+                    <select class="custom-select form-control-border" id="genero">
+                      <option value="" disabled selected>Seleccione Genero</option>
+                      <option value="FEMENINO">Femenino</option>
+                      <option value="MASCULINO">Masculino</option>
+                      <option value="OTRO">Otro</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col">
+                    <select class="custom-select form-control-border" id="ciudad">
+                      <option value="" disabled selected>Seleccione Ciudad</option>
+                      <?php foreach ($ciudades as $ciudad) { ?>
+                        <option value="<?php echo $ciudad['id']; ?>"><?php echo $ciudad['nombre']; ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                  <div class="form-group col">
+                    <input type="text" class="form-control form-control-border border-width-2" id="direccion" placeholder="Direccion" required>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info col-md-2">Registrar</button>
+                  <button type="button" class="btn btn-default">Atras</button>
+                </div>
+              </div>
+            </form>
+            <!-- /.card-body -->
+          </div>
+        </div>
+        <!--/.col (left) -->
+        <!--/.col (right) -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
 
-                 <div class="form-group">
-                   <select class="custom-select form-control-border" id="genero">
-                     <option value="0" disabled selected>Seleccione Genero</option>
-                     <option>Femenino</option>
-                     <option>Masculino</option>
-                     <option>Otro</option>
-                   </select>
-                 </div>
-                 <div class="card-footer">
-                   <button type="submit" class="btn btn-info col-md-2">Registrar</button>
-                   <button type="button" class="btn btn-default">Atras</button>
-                 </div>
-               </div>
-             </form>
-             <!-- /.card-body -->
-           </div>
-         </div>
-         <!--/.col (left) -->
-         <!--/.col (right) -->
-       </div>
-       <!-- /.row -->
-     </div><!-- /.container-fluid -->
-   </section>
-   <!-- /.content -->
- </div>
- <!-- /.content-wrapper -->
+<script>
+  $(document).ready(iniciar);
 
- <script>
-   $(document).ready(iniciar);
+  function iniciar() {
+    $("#form_nuevoAdmin").submit(formRegistrarAdmin);
+  }
 
-   function iniciar() {
-     $("#form_nuevoAdmin").submit(formRegistrarAdmin);
-   }
+  function formRegistrarAdmin(e) {
+    e.preventDefault();
 
-   function formRegistrarAdmin(e) {
-     e.preventDefault();
+    enviarInfoNuevoAdmin();
+  }
 
-     enviarInfoNuevoAdmin();
-   }
+  function enviarInfoNuevoAdmin() {
 
-   function enviarInfoNuevoAdmin() {
+    email = $("#email").val();
+    documento = $("#documento").val();
+    nombres = $("#nombres").val();
+    apellidos = $("#apellidos").val();
+    direccion = $("#direccion").val();
+    telefono = $("#telefono").val();
+    genero = $("#genero").val();
+    ciudad = $("#ciudad").val();
 
-     email = $("#email").val();
-     documento = $("#documento").val();
-     nombres = $("#nombres").val();
-     apellidos = $("#apellidos").val();
-     direccion = $("#direccion").val();
-     telefono = $("#telefono").val();
-     genero = $("#genero").val();
+    if (documento != "" && nombres != "") {
+      $.ajax({
+          url: '<?php echo base_url('/ModuloUsuarios/InsertarAdmin'); ?>',
+          type: "POST",
+          dataType: "text",
+          data: {
+            email: email,
+            documento: documento,
+            nombres: nombres,
+            apellidos: apellidos,
+            direccion: direccion,
+            telefono: telefono,
+            genero: genero,
+            ciudad: ciudad
+          },
+        })
+        .done(function(data) {
 
-     if (documento != "" && nombres != "") {
-       $.ajax({
-           url: '<?php echo base_url('/ModuloUsuarios/InsertarAdmin'); ?>',
-           type: "POST",
-           dataType: "text",
-           data: {
-             email: email,
-             documento: documento,
-             nombres: nombres,
-             apellidos: apellidos,
-             direccion: direccion,
-             telefono: telefono,
-             genero: genero,
+          if (data == "FAIL#DOCUMENTO") {
+            alert("El documento ingresado ya existe...");
 
-           },
-         })
-         .done(function(data) {
+          } else if (data == "FAIL#EMAIL") {
 
-           if (data == "FAIL#DOCUMENTO") {
-             alert("El documento ingresado ya existe...");
+            alert("El email ingresado ya existe...");
 
-           } else if (data == "FAIL#EMAIL") {
+          } else if (data == "OK#CORRECT#DATA") {
+            alert("Registro Exitoso!");
 
-             alert("El email ingresado ya existe...");
-
-           } else if (data == "OK#CORRECT#DATA") {
-             alert("Registro Exitoso!");
-
-             $("#documento").val("");
-             $("#nombres").val("");
-             $("#apellidos").val("");
-             $("#direccion").val("");
-             $("#telefono").val("");
-             $("#email").val("");
-             $("#genero").val("");
-           }
-         })
-         .fail(function(data) {
-           console.log("error en el proceso");
-           console.log(data);
-         });
-     }
-   }
- </script>
+            $("#documento").val("");
+            $("#nombres").val("");
+            $("#apellidos").val("");
+            $("#direccion").val("");
+            $("#telefono").val("");
+            $("#email").val("");
+            $("#genero").val("");
+            $("#ciudad").val("");
+          }
+        })
+        .fail(function(data) {
+          console.log("error en el proceso");
+          console.log(data);
+        });
+    }
+  }
+</script>
