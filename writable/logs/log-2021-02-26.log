@@ -1,0 +1,21 @@
+CRITICAL - 2021-02-26 13:10:16 --> Call to undefined method App\Models\CiudadesModel::order_by
+#0 /var/www/agroplaza/app/Controllers/ModuloUsuarios/RegistrarAdministrador.php(36): CodeIgniter\Model->__call()
+#1 /var/www/agroplaza/system/CodeIgniter.php(921): App\Controllers\ModuloUsuarios\RegistrarAdministrador->registrarAdmin()
+#2 /var/www/agroplaza/system/CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/agroplaza/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/agroplaza/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-26 13:10:27 --> Call to undefined method App\Models\CiudadesModel::order_by
+#0 /var/www/agroplaza/app/Controllers/ModuloUsuarios/RegistrarAdministrador.php(36): CodeIgniter\Model->__call()
+#1 /var/www/agroplaza/system/CodeIgniter.php(921): App\Controllers\ModuloUsuarios\RegistrarAdministrador->registrarAdmin()
+#2 /var/www/agroplaza/system/CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/agroplaza/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/agroplaza/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-26 13:11:55 --> Call to undefined method App\Models\CiudadesModel::order_by
+#0 /var/www/agroplaza/app/Controllers/ModuloUsuarios/RegistrarAdministrador.php(36): CodeIgniter\Model->__call()
+#1 /var/www/agroplaza/system/CodeIgniter.php(921): App\Controllers\ModuloUsuarios\RegistrarAdministrador->registrarAdmin()
+#2 /var/www/agroplaza/system/CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/agroplaza/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/agroplaza/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
