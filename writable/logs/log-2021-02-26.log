@@ -49,3 +49,13 @@ CRITICAL - 2021-02-26 14:26:31 --> Unable to connect to the database.
 #6 /var/www/agroplaza/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest()
 #7 /var/www/agroplaza/index.php(45): CodeIgniter\CodeIgniter->run()
 #8 {main}
+CRITICAL - 2021-02-26 19:09:47 --> Undefined index: tipo_usuario
+#0 /var/www/agroplaza/app/Views/template/header.php(162): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/agroplaza/system/View/View.php(246): include('/var/www/agropl...')
+#2 /var/www/agroplaza/system/Common.php(1119): CodeIgniter\View\View->render()
+#3 /var/www/agroplaza/app/Controllers/ModuloUsuarios/RegistrarUsuario.php(38): view()
+#4 /var/www/agroplaza/system/CodeIgniter.php(921): App\Controllers\ModuloUsuarios\RegistrarUsuario->registrarAdmin()
+#5 /var/www/agroplaza/system/CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/agroplaza/system/CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/agroplaza/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

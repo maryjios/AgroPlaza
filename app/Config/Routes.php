@@ -38,6 +38,7 @@ $routes->get('/Inicio', 'Inicio::cargarVistaInicio');
 $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios'],function($routes){
     $routes->add('RegistrarAdmin', 'RegistrarUsuario::registrarAdmin');
     $routes->add('InsertarAdmin', 'RegistrarUsuario::insertar');
+    $routes->add('CargarCiudades', 'RegistrarUsuario::cargarCiudadesMovil');
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
     $routes->add('Permisos', 'Permisos::index'); 

@@ -25,15 +25,20 @@ class RegistrarUsuario extends BaseController
 		echo view('template/footer');
 	}
 
+	public function cargarCiudades()
+	{
+		$ciudades = new CiudadesModel();
+		$ciudades->orderBy('nombre', 'ASC');
+
+		return $ciudades->select('*')->find();
+	}
+
 	public function registrarAdmin()
 	{
 		$data['modulo_selected'] = "Usuarios";
 		$data['opcion_selected'] = "RegistrarAdministrador";
 
-		$ciudades = new CiudadesModel();
-		
-		$ciudades->orderBy('nombre', 'ASC');
-		$registros['ciudades'] = $ciudades->select('*')->find();
+		$registros['ciudades'] = $this->cargarCiudades();
 
 		echo view('template/header', $data);
 		echo view('ModuloUsuarios/registrar_admin', $registros);
@@ -64,7 +69,7 @@ class RegistrarUsuario extends BaseController
 			if (sizeof($consulta) > 0) {
 				$mensaje = "FAIL#EMAIL";
 			} else {
-				$registros = $usuarios->save([	
+				$registros = $usuarios->save([
 					'email' => $email,
 					'password' => md5($documento),
 					'documento' => $documento,
@@ -89,48 +94,46 @@ class RegistrarUsuario extends BaseController
 		echo $mensaje;
 	}
 
+	public function cargarCiudadesMovil()
+	{
+		$registros['ciudades'] = $this->cargarCiudades();
+
+		return json_encode($registros);
+	}
+
 	public function insertarMovil()
 	{
 		$email = $this->request->getPostGet('email');
-		$documento = $this->request->getPostGet('documento');
+		$password = $this->request->getPostGet('password');
 		$nombres = $this->request->getPostGet('nombres');
 		$apellidos = $this->request->getPostGet('apellidos');
-		$direccion = $this->request->getPostGet('direccion');
 		$telefono = $this->request->getPostGet('telefono');
 		$genero = $this->request->getPostGet('genero');
 		$ciudad = $this->request->getPostGet('ciudad');
 
 		$usuarios = new UsuariosModel();
 
-		$consulta = $usuarios->where(['documento' => $documento])->find();
+		$consulta = $usuarios->where(['email' => $email])->find();
 
 		if (sizeof($consulta) > 0) {
-			$mensaje = "FAIL#DOCUMENTO";
+			$mensaje = "FAIL#EMAIL";
 		} else {
-			$consulta = $usuarios->where(['email' => $email])->find();
+			$registros = $usuarios->save([
+				'email' => $email,
+				'password' => md5($password),
+				'nombres' => $nombres,
+				'apellidos' => $apellidos,
+				'id_ciudad' => $ciudad,
+				'telefono' => $telefono,
+				'genero' => $genero,
+				'avatar' => 'avatar.png',
+				'tipo_usuario' => 'CLIENTE'
+			]);
 
-			if (sizeof($consulta) > 0) {
-				$mensaje = "FAIL#EMAIL";
+			if ($registros) {
+				$mensaje = "OK#CORRECT#DATA";
 			} else {
-				$registros = $usuarios->save([	
-					'email' => $email,
-					'password' => md5($documento),
-					'documento' => $documento,
-					'nombres' => $nombres,
-					'apellidos' => $apellidos,
-					'id_ciudad' => $ciudad,
-					'direccion' => $direccion,
-					'telefono' => $telefono,
-					'genero' => $genero,
-					'avatar' => 'avatar.png',
-					'tipo_usuario' => 'ADMINISTRADOR'
-				]);
-
-				if ($registros) {
-					$mensaje = "OK#CORRECT#DATA";
-				} else {
-					$mensaje = "OK#INVALID#DATA";
-				}
+				$mensaje = "OK#INVALID#DATA";
 			}
 		}
 
