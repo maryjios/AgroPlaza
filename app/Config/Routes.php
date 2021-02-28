@@ -32,6 +32,13 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/Login', 'Inicio::index');
 $routes->get('/Inicio', 'Inicio::cargarVistaInicio');
+$routes->get('/Registrar', 'Inicio::RegistrarVendedor');
+$routes->get('/InsertarVendedor', 'Inicio::insertarVendedor');
+$routes->get('/CompletarDatosDeRegistro', 'Inicio::RegistrarDatosEspecializacion');
+
+
+
+
 
 
 // Rutas para el modulo de GestionUsuarios
