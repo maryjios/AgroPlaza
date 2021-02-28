@@ -288,7 +288,7 @@
                             alert("El email ingresado ya existe...");
 
                         } else if (data == "OK#CORRECT#DATA") {
-                            contentDatosDeExtras();
+                           window.location = "<?php echo base_url('/CompletarDatosDeRegistro'); ?>";
                         }
                     })
                     .fail(function(data) {
@@ -298,12 +298,6 @@
             }
         }
 
-
-        function contentDatosDeExtras(){
-            $('#formulario_registro').hide();
-            
-
-        }
     </script>
 
 </body>
