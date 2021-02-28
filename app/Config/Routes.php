@@ -45,10 +45,10 @@ $routes->get('/CompletarDatosDeRegistro', 'Inicio::RegistrarDatosEspecializacion
 $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios'],function($routes){
     $routes->add('RegistrarAdmin', 'RegistrarUsuario::registrarAdmin');
     $routes->add('InsertarAdmin', 'RegistrarUsuario::insertar');
+    $routes->add('InsertarMovil', 'RegistrarUsuario::insertarMovil');
     $routes->add('CargarCiudades', 'RegistrarUsuario::cargarCiudadesMovil');
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
-    $routes->add('Permisos', 'Permisos::index'); 
 });
 
 $routes->group('ModuloPublicaciones', ['namespace'=>'App\Controllers\ModuloPublicaciones'],function($routes){
@@ -57,13 +57,10 @@ $routes->group('ModuloPublicaciones', ['namespace'=>'App\Controllers\ModuloPubli
 
 });
 
-
-
 $routes->group('ModuloPedidos', ['namespace'=>'App\Controllers\ModuloPedidos'],function($routes){
     $routes->add('Pedidos', 'Pedidos::index');
     $routes->add('HistorialPedidos', 'Pedidos::historial');
 });
-
 
 
 /**
