@@ -197,8 +197,6 @@
 
         function iniciar() {
             $('#ciudad').attr("disabled", true);
-            $('#insertar').attr("disabled", true);
-
 
             $("#departamento").on('change', elegirDepartamento);
 
@@ -214,7 +212,6 @@
             if (departamento != '0') {
 
                 $('#ciudad').attr("disabled", false);
-                $('#insertar').attr("disabled", false);
 
                 $.ajax({
                         url: '<?php echo base_url('/Inicio/getCiudades'); ?>',
@@ -260,9 +257,9 @@
             password = $("#password").val();
 
 
-            if (documento != "" && nombres != "") {
+            if (documento != "" && nombres != "" && apellidos != "" && email != "" && direccion != "" && genero != "" && ciudad != "" && password != "") {
                 $.ajax({
-                        url: '<?php echo base_url('/Inicio/insertarVendedor'); ?>',
+                        url: '<?php echo base_url('/CompletarDatosDeRegistro'); ?>',
                         type: "POST",
                         dataType: "text",
                         data: {
@@ -288,22 +285,20 @@
                             alert("El email ingresado ya existe...");
 
                         } else if (data == "OK#CORRECT#DATA") {
-                            contentDatosDeExtras();
+                            window.location = "<?php echo base_url('/CompletarDatosDeRegistro'); ?>";
+
                         }
                     })
                     .fail(function(data) {
                         alert("error en el proceso");
                         console.log(data);
                     });
+            }else{
+                
+                alert('todos los campos son oblicatorios')
             }
         }
 
-
-        function contentDatosDeExtras(){
-            $('#formulario_registro').hide();
-            
-
-        }
     </script>
 
 </body>

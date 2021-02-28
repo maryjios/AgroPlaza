@@ -44,7 +44,7 @@
                                 <h3 class="mb-0">Completá los siguientes datos</h3>
                             </div>
                             <div class="card-body">
-                                <form id="formulario_registro" class="" method="post">
+                                <form id="formulario_registro" class="" method="post" autocomplete="off">
                                     <label>¿Que quieres vender?</label>
 
 
@@ -88,7 +88,7 @@
 
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label"  for="exampleInputFile"></label>
+                                        <label class="custom-file-label"  for="exampleInputFile">Subir targeta profesional</label>
                                     </div>
                                 </form>
                             </div>

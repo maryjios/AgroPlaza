@@ -39,8 +39,6 @@ $routes->get('/CompletarDatosDeRegistro', 'Inicio::RegistrarDatosEspecializacion
 
 
 
-
-
 // Rutas para el modulo de GestionUsuarios
 $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios'],function($routes){
     $routes->add('RegistrarAdmin', 'RegistrarUsuario::registrarAdmin');
