@@ -54,7 +54,7 @@
                                     <div class="row text-center">
                                         <div class="col-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" name="loQueVaAVender" type="radio" value="Productos" id="defaultCheck1">
+                                                <input class="form-check-input radio" name="loQueVaAVender" type="radio" value="Productos">
                                                 <label class="form-check-label" for="defaultCheck1">
                                                     Productos
                                                 </label>
@@ -63,7 +63,7 @@
                                         <!-- /.col -->
                                         <div class="col-4">
                                             <div class="form-check">
-                                                <input class="form-check-input" name="loQueVaAVender" type="radio" value="Servicios" id="defaultCheck1">
+                                                <input class="form-check-input radio" name="loQueVaAVender" type="radio" value="Servicios">
                                                 <label class="form-check-label" for="defaultCheck1">
                                                     Servicios
                                                 </label>
@@ -72,7 +72,7 @@
 
                                         <div class="col-5">
                                             <div class="form-check text-left">
-                                                <input class="form-check-input" name="loQueVaAVender" type="radio" value="Productos y Servicios" id="defaultCheck1">
+                                                <input class="form-check-input radio    " name="loQueVaAVender" type="radio" value="Productos y Servicios">
                                                 <label class="form-check-label" for="defaultCheck1">
                                                     Productos y Servicios
                                                 </label>
@@ -123,8 +123,10 @@
         $(document).ready(iniciar);
 
         function iniciar() {
+            $('#divInputFile').hide();
 
-            $('#divInputFile').on('change', 'mostrarInputFile');
+            $("input[name='loQueVaAVender']").on('click', mostrarInputFile);
+
 
 
         }
@@ -133,10 +135,10 @@
         function mostrarInputFile() {
             valor_seleccionado = $("input[name='loQueVaAVender']:checked").val();
 
-            if (valor_seleccionado != 'Productos') {
-                $('#divInputFile').slideUp();
+            if (valor_seleccionado != 'Productos' && valor_seleccionado != undefined) {
+                $('#divInputFile').show();
             } else {
-                $('#divInputFile').slideDown();
+                $('#divInputFile').hide();
 
             }
         }
