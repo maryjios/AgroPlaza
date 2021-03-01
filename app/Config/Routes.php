@@ -34,10 +34,6 @@ $routes->get('/Login', 'Inicio::index');
 $routes->get('/Inicio', 'Inicio::cargarVistaInicio');
 $routes->get('/Registrar', 'Inicio::RegistrarVendedor');
 $routes->get('/InsertarVendedor', 'Inicio::InsertarVendedor');
-$routes->get('/CompletarDatosDeRegistro', 'Inicio::RegistrarDatosEspecializacion');
-
-
-
 
 // Rutas para el modulo de GestionUsuarios
 $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios'],function($routes){

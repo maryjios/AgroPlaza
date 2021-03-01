@@ -61,7 +61,7 @@ class Inicio extends BaseController
 
 		echo json_encode($registros);
 	}
-	
+
 
 	public function RegistrarVendedor()
 	{
@@ -117,10 +117,4 @@ class Inicio extends BaseController
 		echo $mensaje;
 	}
 
-	public function RegistrarDatosEspecializacion()
-	{
-
-		$data['vendedor'] = $_GET['vendedor'];
-		return view('registrar_datos_especializacion', $data);
-	}
 }
