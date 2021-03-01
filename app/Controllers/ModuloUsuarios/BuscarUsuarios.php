@@ -2,6 +2,7 @@
 
 use CodeIgniter\Controller;
 use App\Controllers\BaseController;
+use App\Models\UsuariosModel;
 
 class BuscarUsuarios extends BaseController {
 
@@ -12,6 +13,20 @@ class BuscarUsuarios extends BaseController {
 		echo view('template/header', $data);
 		echo view('ModuloUsuarios/buscar_usuarios');
 		echo view('template/footer');
+	}
+    public function listarusuarios(){
+		$usuarios = new UsuariosModel();
+		$usuarios = $usuarios->select('*')->findAll();
+		if ($usuarios) {
+			 echo json_encode($usuarios);
+			
+		} else {
+			echo json_encode('error');
+		
+		}
+		
+	   
+		
 	}
 
 }

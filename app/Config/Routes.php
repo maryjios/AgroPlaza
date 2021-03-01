@@ -46,6 +46,8 @@ $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios']
     $routes->add('InsertarMovil', 'RegistrarUsuario::insertarMovil');
     $routes->add('CargarCiudades', 'RegistrarUsuario::cargarCiudadesMovil');
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
+    $routes->add('MostrarUsuarios', 'BuscarUsuarios::listarusuarios');
+
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
 });
 

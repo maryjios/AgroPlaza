@@ -28,11 +28,16 @@
   <!-- jQuery -->
   <script src="<?php echo base_url('/public/plugins/jquery/jquery.min.js'); ?>"></script>
 
-   <!-- Datatables -->
-  <link rel="stylesheet" href="<?php echo base_url('/public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
-  <link rel="stylesheet" href="<?php echo base_url('/public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
-  <link rel="stylesheet" href="<?php echo base_url('/public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')?>">
-
+  <!-- Datatables -->
+<script src="<?php echo base_url('/public/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/dataTables.buttons.min.js')?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.html5.min.js')?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

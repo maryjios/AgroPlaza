@@ -1,0 +1,120 @@
+CRITICAL - 2021-02-28 17:53:58 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(24): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-28 17:54:00 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(24): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-28 17:54:00 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(24): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-28 17:54:00 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(24): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-28 17:54:01 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(24): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-28 17:54:01 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(24): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-28 17:54:01 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(24): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-28 17:54:01 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(24): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-28 17:54:01 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(24): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-28 17:54:19 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(24): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-28 17:54:19 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(24): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-28 17:54:19 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\agroplaza\system\Model.php(404): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(24): CodeIgniter\Model->find()
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->validarDatosIngreso()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
