@@ -33,7 +33,7 @@ $routes->setAutoRoute(true);
 $routes->get('/Login', 'Inicio::index');
 $routes->get('/Inicio', 'Inicio::cargarVistaInicio');
 $routes->get('/Registrar', 'Inicio::RegistrarVendedor');
-$routes->get('/InsertarVendedor', 'Inicio::insertarVendedor');
+$routes->get('/InsertarVendedor', 'Inicio::InsertarVendedor');
 $routes->get('/CompletarDatosDeRegistro', 'Inicio::RegistrarDatosEspecializacion');
 
 

@@ -71,7 +71,7 @@ class Inicio extends BaseController
 		echo view('registrar_vendedor', $registros);
 	}
 
-	public function insertarVendedor()
+	public function InsertarVendedor()
 	{
 
 

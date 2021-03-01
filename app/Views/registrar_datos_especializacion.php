@@ -2,6 +2,7 @@
 <html>
 
 <!-- aqui estoy dandole al codigo people ya casi terminada esta parte :v -->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,14 +45,16 @@
                                 <h3 class="mb-0">Completá los siguientes datos</h3>
                             </div>
                             <div class="card-body">
-                                <form id="formulario_registro" class="" method="post" autocomplete="off">
-                                    <label>¿Que quieres vender?</label>
+                                <form id="formularioDatosCertificacion" enctype="multipart/form-data" method="post" autocomplete="off">
 
+                                    <div class="text-center">
+                                        <label>¿Que quieres vender?</label>
+                                    </div>
 
-                                    <div class="row">
+                                    <div class="row text-center">
                                         <div class="col-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                <input class="form-check-input" name="loQueVaAVender" type="radio" value="Productos" id="defaultCheck1">
                                                 <label class="form-check-label" for="defaultCheck1">
                                                     Productos
                                                 </label>
@@ -60,7 +63,7 @@
                                         <!-- /.col -->
                                         <div class="col-4">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                <input class="form-check-input" name="loQueVaAVender" type="radio" value="Servicios" id="defaultCheck1">
                                                 <label class="form-check-label" for="defaultCheck1">
                                                     Servicios
                                                 </label>
@@ -68,27 +71,26 @@
                                         </div>
 
                                         <div class="col-5">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <div class="form-check text-left">
+                                                <input class="form-check-input" name="loQueVaAVender" type="radio" value="Productos y Servicios" id="defaultCheck1">
                                                 <label class="form-check-label" for="defaultCheck1">
                                                     Productos y Servicios
                                                 </label>
                                             </div>
                                         </div>
                                         <!-- /.col -->
-
                                     </div>
 
                                     <div class="row mt-5">
                                         <label class="ml-2">Descripción:</label>
-                                        <textarea class="form-control bg-light" name="descricion" id="descricion" class="" cols="30" rows="4" placeholder="Cuentanos a que te dedicas..."></textarea>
+                                        <textarea class="form-control bg-light" name="descripcion" id="descripcion" class="" cols="30" rows="4" placeholder="Cuentanos a que te dedicas..."></textarea>
                                     </div>
 
                                     <br>
 
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label"  for="exampleInputFile">Subir targeta profesional</label>
+                                    <div class="col-12 custom-file" id="divInputFile">
+                                        <input type="file" class="custom-file-input" id="certificado">
+                                        <label class="custom-file-label" for="exampleInputFile" data-browse="📁 Seleccionar Archivo">Ningun archivo seleccionado...</label>
                                     </div>
                                 </form>
                             </div>
@@ -113,122 +115,32 @@
     <!-- AdminLTE App -->
     <script src="<?php echo base_url('public/dist/js/adminlte.min.js') ?>"></script>
 
-
+    <!-- AdminLTE input file custom -->
     <script src="<?php echo base_url('public/plugins/bs-custom-file-input/bs-custom-file-input.min.js') ?>"></script>
 
-    <!-- <script>
+
+    <script>
         $(document).ready(iniciar);
 
         function iniciar() {
-            $('#ciudad').attr("disabled", true);
-            $('#insertar').attr("disabled", true);
 
+            $('#divInputFile').on('change', 'mostrarInputFile');
 
-            $("#departamento").on('change', elegirDepartamento);
-
-            $("#formulario_registro").submit(formRegistrarVendedor);
 
         }
 
-        function elegirDepartamento() {
 
-            let departamento = $(this).val();
-            var ciudades = $("#ciudad");
+        function mostrarInputFile() {
+            valor_seleccionado = $("input[name='loQueVaAVender']:checked").val();
 
-            if (departamento != '0') {
+            if (valor_seleccionado != 'Productos') {
+                $('#divInputFile').slideUp();
+            } else {
+                $('#divInputFile').slideDown();
 
-                $('#ciudad').attr("disabled", false);
-                $('#insertar').attr("disabled", false);
-
-                $.ajax({
-                        url: '<?php echo base_url('/Inicio/getCiudades'); ?>',
-                        type: "POST",
-                        dataType: "json",
-                        data: {
-                            departamento: departamento,
-                        },
-                    })
-                    .done(function(data) {
-
-                        ciudades.find('option').remove();
-
-                        $(data).each(function(i, v) { // indice, valor
-                            ciudades.append('<option value="' + v.id + '">' + v.nombre + '</option>');
-                        });
-                    })
-
-                    .fail(function(data) {
-                        console.log("error en el proceso");
-                        alert("sdsd");
-                    });
             }
         }
-
-
-        function formRegistrarVendedor(e) {
-            e.preventDefault();
-
-            enviarInfoNuevoVendedor();
-        }
-
-        function enviarInfoNuevoVendedor() {
-
-            email = $("#email").val();
-            documento = $("#documento").val();
-            nombres = $("#nombres").val();
-            apellidos = $("#apellidos").val();
-            direccion = $("#direccion").val();
-            telefono = $("#telefono").val();
-            genero = $("#genero").val();
-            ciudad = $("#ciudad").val();
-            password = $("#password").val();
-
-
-            if (documento != "" && nombres != "") {
-                $.ajax({
-                        url: '<?php echo base_url('/Inicio/insertarVendedor'); ?>',
-                        type: "POST",
-                        dataType: "text",
-                        data: {
-                            email: email,
-                            password: password,
-                            documento: documento,
-                            nombres: nombres,
-                            apellidos: apellidos,
-                            direccion: direccion,
-                            telefono: telefono,
-                            genero: genero,
-                            ciudad: ciudad
-                        },
-                    })
-                    .done(function(data) {
-
-                        if (data == "FAIL#DOCUMENTO") {
-
-                            alert("El documento ingresado ya existe...");
-
-                        } else if (data == "FAIL#EMAIL") {
-
-                            alert("El email ingresado ya existe...");
-
-                        } else if (data == "OK#CORRECT#DATA") {
-                            contentDatosDeExtras();
-                        }
-                    })
-                    .fail(function(data) {
-                        alert("error en el proceso");
-                        console.log(data);
-                    });
-            }
-        }
-
-
-        function contentDatosDeExtras() {
-            $('#formulario_registro').hide();
-
-
-        }
-    </script> -->
+    </script>
 
     <script type="text/javascript">
         $(document).ready(function() {
