@@ -87,7 +87,7 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="direccion"  placeholder="Dirección">
+                                        <input type="text" class="form-control" id="direccion" placeholder="Dirección">
                                         <div class="input-group-append">
                                             <div class="input-group-text">
                                                 <span class="fas fa-map-marker-alt"></span>
@@ -142,6 +142,45 @@
                                         </div>
                                     </div>
 
+
+                                    <div class="text-center mt-4">
+                                        <label>¿Que quieres vender?</label>
+                                    </div>
+
+                                    <div class="row text-center mb-5">
+                                        <div class="col-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input radio" name="loQueVaAVender" type="radio" value="Productos">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                    Productos
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input radio" name="loQueVaAVender" type="radio" value="Servicios">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                    Servicios
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-5">
+                                            <div class="form-check text-left">
+                                                <input class="form-check-input radio    " name="loQueVaAVender" type="radio" value="Productos y Servicios">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                    Productos y Servicios
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+
+                                    <div id="datosEspecialista" class="mb-4 mt-2">
+
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="icheck-primary">
@@ -169,6 +208,7 @@
                                         </div>
                                         <!-- /.col -->
                                     </div>
+
                                 </form>
                             </div>
                             <!--/card-block-->
@@ -196,13 +236,19 @@
         $(document).ready(iniciar);
 
         function iniciar() {
+
+
             $('#ciudad').attr("disabled", true);
 
             $("#departamento").on('change', elegirDepartamento);
 
             $("#formulario_registro").submit(formRegistrarVendedor);
 
+            $("input[name='loQueVaAVender']").on('click', mostrarInputFile);
+
+
         }
+
 
         function elegirDepartamento() {
 
@@ -234,6 +280,38 @@
                         console.log("error en el proceso");
                         alert("sdsd");
                     });
+            }
+        }
+
+
+        function mostrarInputFile() {
+            valor_seleccionado = $("input[name='loQueVaAVender']:checked").val();
+
+            if (valor_seleccionado != 'Productos' && valor_seleccionado != undefined) {
+
+                datos = `<div class="row mt-5" id="divProfesion">
+                                        <label class="ml-2">Profesion:</label><br>
+                                        <input type="text" class="form-control" name="n_especializacion" id="n_especializacion"></textarea>
+                                    </div>
+
+                                    <div class="row mt-5">
+                                        <label class="ml-2">Descripción:</label>
+                                        <textarea class="form-control bg-light" name="descripcion" id="descripcion" class="" cols="30" rows="4" placeholder="Cuentanos mas de ti..."></textarea>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="col-12 custom-file" id="divInputFile">
+                                        <input type="file" class="custom-file-input" id="certificado">
+                                        <label class="custom-file-label" for="exampleInputFile" data-browse="📁 Seleccionar Archivo">Ningun archivo seleccionado...</label>
+                                    </div>`;
+
+                $('#datosEspecialista').html(datos);
+                $('#datosEspecialista').show();
+
+            } else {
+                $('#datosEspecialista').hide();
+
             }
         }
 
@@ -284,7 +362,7 @@
                             alert("El email ingresado ya existe...");
 
                         } else if (data == "OK#CORRECT#DATA") {
-                            window.location.href = "<?php echo base_url('/CompletarDatosDeRegistro?vendedor='); ?>"+documento;
+                            window.location.href = "<?php echo base_url('/CompletarDatosDeRegistro?vendedor='); ?>" + documento;
 
                         }
                     })
@@ -292,12 +370,11 @@
                         alert("error en el proceso");
                         console.log(data);
                     });
-            }else{
-                
+            } else {
+
                 alert('todos los campos son oblicatorios')
             }
         }
-
     </script>
 
 </body>

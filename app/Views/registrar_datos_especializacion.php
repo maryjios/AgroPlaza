@@ -101,7 +101,6 @@
                                         <label class="custom-file-label" for="exampleInputFile" data-browse="📁 Seleccionar Archivo">Ningun archivo seleccionado...</label>
                                     </div>
 
-
                                     <button type="submit" id="insertar" class="btn btn-primary float-right mt-4">Completar Registro</button>
 
                                 </form>
@@ -135,7 +134,7 @@
         $(document).ready(iniciar);
 
         function iniciar() {
-            $('#divInputFile').hide();
+            $('#datosEspecialista').hide();
 
             $("input[name='loQueVaAVender']").on('click', mostrarInputFile);
 

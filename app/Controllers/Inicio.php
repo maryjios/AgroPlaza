@@ -61,7 +61,7 @@ class Inicio extends BaseController
 
 		echo json_encode($registros);
 	}
-
+	
 
 	public function RegistrarVendedor()
 	{
