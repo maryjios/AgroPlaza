@@ -14,16 +14,23 @@
 	<link rel="stylesheet" href="<?php echo base_url('public/plugins/icheck-bootstrap/icheck-bootstrap.min.css'); ?>">
 	<!-- Theme style -->
 	<link rel="stylesheet" href="<?php echo base_url('public/dist/css/adminlte.min.css'); ?>">
+
+	<style type="text/css">
+		body {
+			background-image: url('<?php echo base_url('public/dist/img/background-login.jpg') ?>');
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
 </head>
 
 <body class="hold-transition login-page">
 	<div class="login-box">
-		<div class="login-logo">
-			<a href="<?php echo base_url(); ?>"><b>Agro</b>Plaza</a>
-		</div>
-		<!-- /.login-logo -->
 		<div class="card">
 			<div class="card-body login-card-body">
+
+				<img class="ml-5" src="<?php echo base_url('public/dist/img/logo.png') ?>" alt="" style="width:210px;
+    height:210px;">
 				<p class="login-box-msg">INICIAR SESION</p>
 
 				<form id="formulario_ingreso" action="#" method="post">
@@ -57,7 +64,7 @@
 					<a href="forgot-password.html">He olvidado mi contraseña</a>
 				</p>
 				<p class="mb-0">
-					<a href="register.html" class="text-center">Deseo registrarme!</a>
+					<a href="<?php echo base_url('Registrar') ?>" class="text-center">Deseo registrarme!</a>
 				</p>
 			</div>
 			<!-- /.login-card-body -->

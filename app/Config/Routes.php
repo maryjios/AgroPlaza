@@ -32,6 +32,11 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/Login', 'Inicio::index');
 $routes->get('/Inicio', 'Inicio::cargarVistaInicio');
+$routes->get('/Registrar', 'Inicio::RegistrarVendedor');
+$routes->get('/InsertarVendedor', 'Inicio::InsertarVendedor');
+$routes->get('/CompletarDatosDeRegistro', 'Inicio::RegistrarDatosEspecializacion');
+
+
 
 
 // Rutas para el modulo de GestionUsuarios
@@ -41,6 +46,8 @@ $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios']
     $routes->add('InsertarMovil', 'RegistrarUsuario::insertarMovil');
     $routes->add('CargarCiudades', 'RegistrarUsuario::cargarCiudadesMovil');
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
+    $routes->add('MostrarUsuarios', 'BuscarUsuarios::listarusuarios');
+
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
 });
 
