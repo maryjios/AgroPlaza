@@ -47,6 +47,8 @@
                             <div class="card-body">
                                 <form id="formularioDatosCertificacion" enctype="multipart/form-data" method="post" autocomplete="off">
 
+                                    <input type="hidden" id="id" value="<?php echo $vendedor ?>">
+
                                     <div class="text-center">
                                         <label>¿Que quieres vender?</label>
                                     </div>
@@ -81,9 +83,15 @@
                                         <!-- /.col -->
                                     </div>
 
+
+                                    <div class="row mt-5" id="divProfesion">
+                                        <label class="ml-2">Profesion:</label><br>
+                                        <input type="text" class="form-control" name="n_especializacion" id="n_especializacion"></textarea>
+                                    </div>
+
                                     <div class="row mt-5">
                                         <label class="ml-2">Descripción:</label>
-                                        <textarea class="form-control bg-light" name="descripcion" id="descripcion" class="" cols="30" rows="4" placeholder="Cuentanos a que te dedicas..."></textarea>
+                                        <textarea class="form-control bg-light" name="descripcion" id="descripcion" class="" cols="30" rows="4" placeholder="Cuentanos mas de ti..."></textarea>
                                     </div>
 
                                     <br>
@@ -92,6 +100,10 @@
                                         <input type="file" class="custom-file-input" id="certificado">
                                         <label class="custom-file-label" for="exampleInputFile" data-browse="📁 Seleccionar Archivo">Ningun archivo seleccionado...</label>
                                     </div>
+
+
+                                    <button type="submit" id="insertar" class="btn btn-primary float-right mt-4">Completar Registro</button>
+
                                 </form>
                             </div>
                             <!--/card-block-->
@@ -127,8 +139,7 @@
 
             $("input[name='loQueVaAVender']").on('click', mostrarInputFile);
 
-
-
+            $("#formularioDatosCertificacion").submit(CompletarRegistroVendedor);
         }
 
 
@@ -136,11 +147,22 @@
             valor_seleccionado = $("input[name='loQueVaAVender']:checked").val();
 
             if (valor_seleccionado != 'Productos' && valor_seleccionado != undefined) {
-                $('#divInputFile').show();
+                $('#divInputFile').slideDown();
             } else {
-                $('#divInputFile').hide();
+                $('#divInputFile').slideUp();
 
             }
+        }
+
+        function CompletarRegistroVendedor(e) {
+            e.preventDefault();
+
+            id = $("#id").val();
+            documento = $("#documento").val();
+            n_especializacion = $("#n_especializacion").val();
+            descripcion = $("#descripcion").val();
+            certificado = $("#certificado").val();
+
         }
     </script>
 

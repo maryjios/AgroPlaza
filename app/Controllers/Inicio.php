@@ -117,7 +117,10 @@ class Inicio extends BaseController
 		echo $mensaje;
 	}
 
-	public function RegistrarDatosEspecializacion(){
-		return view('registrar_datos_especializacion');
+	public function RegistrarDatosEspecializacion()
+	{
+
+		$data['vendedor'] = $_GET['vendedor'];
+		return view('registrar_datos_especializacion', $data);
 	}
 }

@@ -240,7 +240,6 @@
 
         function formRegistrarVendedor(e) {
             e.preventDefault();
-
             enviarInfoNuevoVendedor();
         }
 
@@ -285,7 +284,7 @@
                             alert("El email ingresado ya existe...");
 
                         } else if (data == "OK#CORRECT#DATA") {
-                            window.location = "<?php echo base_url('/CompletarDatosDeRegistro'); ?>";
+                            window.location.href = "<?php echo base_url('/CompletarDatosDeRegistro?vendedor='); ?>"+documento;
 
                         }
                     })
