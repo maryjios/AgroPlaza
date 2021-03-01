@@ -259,7 +259,7 @@
 
             if (documento != "" && nombres != "" && apellidos != "" && email != "" && direccion != "" && genero != "" && ciudad != "" && password != "") {
                 $.ajax({
-                        url: '<?php echo base_url('/CompletarDatosDeRegistro'); ?>',
+                        url: '<?php echo base_url('/Inicio/InsertarVendedor'); ?>',
                         type: "POST",
                         dataType: "text",
                         data: {
