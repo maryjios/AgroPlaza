@@ -19,13 +19,27 @@
                     <th>Tipo</th>
                     <th>Vendedor</th>
                     <th>Fecha de publicación</th>
-                    <th class="text-info">Opciones</th>
+                    <th>Estado</th>
+                    <th class="text-info">Detalle</th>
                   </tr>
                   </thead>
-                  <tbody>
-
+                  <tbody id="publicaciones">
+                    <?php foreach ($resultados as $resultado): ?>
+                      <tr>
+                        <td><?php echo $resultado['id_publicaciones'] ?></td>
+                        <td><?php echo $resultado['titulo'] ?></td>
+                        <td><?php echo $resultado['tipo_publicacion'] ?></td>
+                        <td><?php echo $resultado['nombres']." ".$resultado['apellidos'] ?></td>
+                        <td><?php echo $resultado['fecha_insert'] ?></td>
+                        <td><?php echo $resultado['estado_publicacion'] ?></td>
+                        <td><button type='button' class='btn btn-info editar'><i class="far fa-eye"></i></button>
+                      </tr>
+                    <?php endforeach ?>
                   </tbody>
                 </table>
+                <div>
+                  <?php print_r($resultados)?>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>
@@ -52,5 +66,14 @@
       "responsive": true,
     });
   });
-</script>
+  </script>
+  <script>
+    $(document).ready(inicio);
+
+    function inicio() {
+      $.ajax({
+
+      });
+    }
+  </script>
   
