@@ -38,6 +38,10 @@
 <script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.html5.min.js')?>"></script>
 <script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
 <script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
+
+<link rel="stylesheet" href="<?php echo base_url('/public/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css'); ?>">
+  <!-- Toastr -->
+<link rel="stylesheet" href="<?php echo base_url('/public/plugins/toastr/toastr.min.css');?>">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

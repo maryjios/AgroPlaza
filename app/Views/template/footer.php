@@ -46,6 +46,8 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url('/public/dist/js/pages/dashboard.js'); ?>"></script>
 
+<script src="<?php echo base_url('/public/plugins/toastr/toastr.min.js');?>"></script>
+<script src="<?php echo base_url('/public/plugins/sweetalert2/sweetalert2.min.js');?>"></script>
 </script>
 </body>
 </html>
