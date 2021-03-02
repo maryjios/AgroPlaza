@@ -1,0 +1,10 @@
+CRITICAL - 2021-03-02 13:50:55 --> Undefined index: tipo_usuario
+#0 C:\xampp\htdocs\agroplaza\app\Views\template\header.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 171, Array)
+#1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\ModuloPublicaciones\Unidades.php(24): view('template/header', Array)
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\ModuloPublicaciones\Unidades->index()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloPublicaciones\Unidades))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

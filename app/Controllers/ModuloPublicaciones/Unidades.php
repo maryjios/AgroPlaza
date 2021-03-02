@@ -4,6 +4,7 @@
 
     use CodeIgniter\Controller;
     use App\Controllers\BaseController;
+    use App\Models\UnidadesModel;
 
     class Unidades extends BaseController{
 
@@ -24,10 +25,25 @@
             echo view('ModuloPublicaciones/Unidades');
             echo view('template/footer');
         }
+
+        public function listarunidades(){
+            $unidades = new UnidadesModel();
+            $consulta = $unidades->where(['id' => $id])->find();
+            if ($unidades) {
+                 echo json_encode($unidades);
+                
+            } else {
+                echo json_encode('error');
+            
+            }
+            
+           
+            
+        }
     }
 
 
-
+   
 
 
 

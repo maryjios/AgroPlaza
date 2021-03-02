@@ -95,8 +95,8 @@
                 for (var i = 0; i < data.length; i++) {
 
                     listarunidades += '<tr>' +
-                        '<td>' + data[i].id + '</td>' +
-                        '<td>' + data[i].nombre + '<input type="hidden" value="' + data[i].id + '"class="id"> </td>' +
+                        '<td>' + data[i].id + '<input type="hidden" value="' + data[i].id + '"class="id"> </td>' +
+                        '<td>' + data[i].nombre + '</td>' +
                         '<td>' + data[i].abreviatura + '</td>' +
 
 
