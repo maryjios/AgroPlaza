@@ -2,8 +2,8 @@
 
 use CodeIgniter\Model;
 
-class CiudadesModel extends Model {
-    protected $table      = 'ciudad';
+class UnidadesModel extends Model {
+    protected $table      = 'unidades';
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
@@ -11,7 +11,7 @@ class CiudadesModel extends Model {
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['nombre', 'id_departamento'];
+    protected $allowedFields = ['nombre', 'abreviatura'];
 
     protected $useTimestamps = false;
     protected $createdField  = '';
