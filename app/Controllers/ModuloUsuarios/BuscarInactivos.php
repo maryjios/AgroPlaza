@@ -4,19 +4,19 @@ use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 use App\Models\UsuariosModel;
 
-class BuscarUsuarios extends BaseController {
+class BuscarInactivos extends BaseController {
 
 	public function index(){
 		$data['modulo_selected'] = "Usuarios";
-		$data['opcion_selected'] = "BuscarUsuarios";
+		$data['opcion_selected'] = "BuscarInactivos";
 
 		echo view('template/header', $data);
-		echo view('ModuloUsuarios/buscar_usuarios');
+		echo view('ModuloUsuarios/buscar_inactivos');
 		echo view('template/footer');
-	}
-    public function listarusuarios(){
+	}	
+	public function listarinactivos(){
 		$usuarios = new UsuariosModel();
-		$usuarios = $usuarios->select('*')->where('estado','ACTIVO')->findAll();
+		$usuarios = $usuarios->select('*')->where('estado','INACTIVO')->findAll();
 		if ($usuarios) {
 			 echo json_encode($usuarios);
 			
@@ -28,5 +28,5 @@ class BuscarUsuarios extends BaseController {
 	   
 		
 	}
-
+  
 }

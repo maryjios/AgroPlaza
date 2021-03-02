@@ -34,10 +34,6 @@ $routes->get('/Login', 'Inicio::index');
 $routes->get('/Inicio', 'Inicio::cargarVistaInicio');
 $routes->get('/Registrar', 'Inicio::RegistrarVendedor');
 $routes->get('/InsertarVendedor', 'Inicio::InsertarVendedor');
-$routes->get('/CompletarDatosDeRegistro', 'Inicio::RegistrarDatosEspecializacion');
-
-
-
 
 // Rutas para el modulo de GestionUsuarios
 $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios'],function($routes){
@@ -46,7 +42,12 @@ $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios']
     $routes->add('InsertarMovil', 'RegistrarUsuario::insertarMovil');
     $routes->add('CargarCiudades', 'RegistrarUsuario::cargarCiudadesMovil');
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
+    $routes->add('BuscarInactivos', 'BuscarInactivos::index');
     $routes->add('MostrarUsuarios', 'BuscarUsuarios::listarusuarios');
+    $routes->add('MostrarInactivos', 'BuscarInactivos::listarinactivos');
+  
+    // $routes->add('ModificarUsuarios', 'BuscarUsuarios::editarusuarios');
+
 
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
 });

@@ -1,0 +1,118 @@
+CRITICAL - 2021-03-01 12:23:17 --> Undefined index: vendedor
+#0 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(123): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 123, Array)
+#1 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->RegistrarDatosEspecializacion()
+#2 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-01 12:36:36 --> Undefined variable: vendedor
+#0 C:\xampp\htdocs\agroplaza\app\Views\registrar_datos_especializacion.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 50, Array)
+#1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('registrar_datos...', Array, true)
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(124): view('registrar_datos...')
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->RegistrarDatosEspecializacion()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-01 12:36:41 --> Undefined variable: vendedor
+#0 C:\xampp\htdocs\agroplaza\app\Views\registrar_datos_especializacion.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 50, Array)
+#1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('registrar_datos...', Array, true)
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(124): view('registrar_datos...')
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->RegistrarDatosEspecializacion()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-01 12:36:43 --> Undefined variable: vendedor
+#0 C:\xampp\htdocs\agroplaza\app\Views\registrar_datos_especializacion.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 50, Array)
+#1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('registrar_datos...', Array, true)
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(124): view('registrar_datos...')
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->RegistrarDatosEspecializacion()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-01 12:36:52 --> Undefined variable: vendedor
+#0 C:\xampp\htdocs\agroplaza\app\Views\registrar_datos_especializacion.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 50, Array)
+#1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('registrar_datos...', Array, true)
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(124): view('registrar_datos...')
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->RegistrarDatosEspecializacion()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-01 12:36:57 --> Undefined variable: vendedor
+#0 C:\xampp\htdocs\agroplaza\app\Views\registrar_datos_especializacion.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 50, Array)
+#1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('registrar_datos...', Array, true)
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(124): view('registrar_datos...')
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->RegistrarDatosEspecializacion()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-01 12:37:49 --> Undefined variable: vendedor
+#0 C:\xampp\htdocs\agroplaza\app\Views\registrar_datos_especializacion.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 50, Array)
+#1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('registrar_datos...', Array, true)
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\Inicio.php(124): view('registrar_datos...')
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\Inicio->RegistrarDatosEspecializacion()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-01 13:17:42 --> Unknown column 'estado_publicacion' in 'where clause'
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\agroplaza\app\Controllers\ModuloPublicaciones\ListarPublicaciones.php(15): CodeIgniter\Model->findAll()
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\ModuloPublicaciones\ListarPublicaciones->index()
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloPublicaciones\ListarPublicaciones))
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-03-01 13:17:55 --> Unknown column 'estado_publicacion' in 'where clause'
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\agroplaza\app\Controllers\ModuloPublicaciones\ListarPublicaciones.php(15): CodeIgniter\Model->findAll()
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\ModuloPublicaciones\ListarPublicaciones->index()
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloPublicaciones\ListarPublicaciones))
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-03-01 14:59:50 --> Unknown column 'estado_publicacion' in 'where clause'
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\agroplaza\app\Controllers\ModuloPublicaciones\ListarPublicaciones.php(15): CodeIgniter\Model->findAll()
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\ModuloPublicaciones\ListarPublicaciones->index()
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloPublicaciones\ListarPublicaciones))
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-03-01 17:48:05 --> Unknown column 'estado_publicacion' in 'where clause'
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\agroplaza\app\Controllers\ModuloPublicaciones\ListarPublicaciones.php(15): CodeIgniter\Model->findAll()
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\ModuloPublicaciones\ListarPublicaciones->index()
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloPublicaciones\ListarPublicaciones))
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-03-01 19:05:31 --> Cannot redeclare App\Controllers\ModuloUsuarios\BuscarUsuarios::listarusuarios()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}

@@ -117,7 +117,4 @@ class Inicio extends BaseController
 		echo $mensaje;
 	}
 
-	public function RegistrarDatosEspecializacion(){
-		return view('registrar_datos_especializacion');
-	}
 }

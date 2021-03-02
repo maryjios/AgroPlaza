@@ -6,21 +6,13 @@
   <div class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
-      
+
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Lista de usuarios activos</h3>
+              <h3 class="card-title">Lista de usuarios Inactivos</h3>
             </div>
-              <div class="d-grid gap-2 d-md-flex mt-4 mr-4 justify-content-md-end">
-               
-                  <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos')?>" class="btn btn-primary <?php echo (isset($opcion_selected) && $opcion_selected == 'listarInactivos') ? 'active' : ''; ?> ">
-                  <i class="fas fa-user-lock"></i>
-                  Usuarios Inactivos</a>
-               </div>     
-                  
-  
-
+        
             <!-- /.card-header -->
             <div class="card-body">
             <table id="" class="table table-bordered table-striped">
@@ -89,22 +81,22 @@
 
 $(document).ready(iniciar);
 function iniciar(){
-   listarusuarios();
+ listarinactivos();
   
 }
 
-function listarusuarios() {
+function listarinactivos() {
   $.ajax({
-    url: '<?php echo base_url('/ModuloUsuarios/MostrarUsuarios');?>',
+    url: '<?php echo base_url('/ModuloUsuarios/MostrarInactivos');?>',
     type: 'POST',
     dataType:"json",
      success: function(data) {
 
-       var listarusuarios="";
+       var listarinactivos="";
        
        for (var i = 0; i < data.length; i++) {
          
-         listarusuarios+='<tr>' +
+         listarinactivos+='<tr>' +
          '<td>' + data[i].email + '</td>' +
          '<td>' + data[i].documento + '<input type="hidden" value="'+data[i].id+'"class="id"> </td>' +
          '<td>' + data[i].nombres + '</td>' +
@@ -114,7 +106,7 @@ function listarusuarios() {
          '<td>' + data[i].genero + '</td>' +
          '<td>' + data[i].avatar + '</td>' +
          '<td>' + data[i].tipo_usuario + '</td>' +
-         '<td><span class="btn btn-success ">'+data[i].estado+'</span></td>'+
+         '<td><span class="btn btn-danger ">'+data[i].estado+'</span></td>'+
          '<td><a href="" class="btn btn-primary" data-toggle="modal" data-target="#modal-default"><i class="far fa-eye"></i></a></td>'+
          '<td><a  class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
          '</tr>';
@@ -125,10 +117,14 @@ function listarusuarios() {
           $(".td_estado").css("background","red")
          }
      }
-      $("#tbodyusuarios").html(listarusuarios);
+      $("#tbodyusuarios").html(listarinactivos);
     }   
   });
 
 }
+
+
+
+
 
 </script>
