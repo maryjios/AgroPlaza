@@ -26,20 +26,21 @@
             echo view('template/footer');
         }
 
-        public function listarunidades(){
-            $unidades = new UnidadesModel();
-            $consulta = $unidades->where(['id' => $id])->find();
-            if ($unidades) {
-                 echo json_encode($unidades);
-                
-            } else {
-                echo json_encode('error');
-            
-            }
-            
-           
-            
-        }
+        public function consultarTodo()
+	{
+		$unidades = new UnidadesModel();
+
+        $id = $this->request->getPostGet('id');
+		$datos = $unidades->where(['id',$id])->find();
+
+		if ($datos) {
+			echo json_encode($datos);
+		}else{
+			echo json_encode("Error");
+		}
+	}
+
+
     }
 
 
