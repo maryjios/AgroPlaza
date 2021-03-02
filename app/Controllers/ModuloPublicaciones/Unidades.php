@@ -17,11 +17,11 @@
 
         public function index(){
             $data['modulo_selected'] = "Publicaciones";
-            $data['opcion_selected'] = "CrearPublicacion";
+            $data['opcion_selected'] = "Unidades";
     
     
             echo view('template/header', $data);
-            echo view('ModuloPublicaciones/crear_publicacion');
+            echo view('ModuloPublicaciones/Unidades');
             echo view('template/footer');
         }
     }
