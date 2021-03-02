@@ -247,6 +247,13 @@
                   </a>
                 </li>
 
+                <li class="nav-item">
+                  <a href="<?php echo base_url('/ModuloPublicaciones/Unidades') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'Unidades') ? 'active' : ''; ?> ">
+                    <i class="nav-icon fas fa-circle"></i>
+                    <p>Unidades</p>
+                  </a>
+                </li>
+
               </ul>
             </li>
 
