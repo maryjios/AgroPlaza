@@ -53,6 +53,8 @@ $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios']
 
 $routes->group('ModuloPublicaciones', ['namespace'=>'App\Controllers\ModuloPublicaciones'],function($routes){
     $routes->add('ListarPublicaciones', 'ListarPublicaciones::index');
+    $routes->add('ConsultarPublicaciones', 'ListarPublicaciones::consultarTodo');
+    $routes->add('ConsultaIndividual', 'ListarPublicaciones::consultarId');
     $routes->add('ListarPublicaciones', 'CrearPublicacion::index');
 
 });
