@@ -42,13 +42,20 @@ $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios']
     $routes->add('InsertarMovil', 'RegistrarUsuario::insertarMovil');
     $routes->add('CargarCiudades', 'RegistrarUsuario::cargarCiudadesMovil');
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
+    $routes->add('BuscarInactivos', 'BuscarInactivos::index');
     $routes->add('MostrarUsuarios', 'BuscarUsuarios::listarusuarios');
+    $routes->add('MostrarInactivos', 'BuscarInactivos::listarinactivos');
+  
+    // $routes->add('ModificarUsuarios', 'BuscarUsuarios::editarusuarios');
+
 
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
 });
 
 $routes->group('ModuloPublicaciones', ['namespace'=>'App\Controllers\ModuloPublicaciones'],function($routes){
     $routes->add('ListarPublicaciones', 'ListarPublicaciones::index');
+    $routes->add('ConsultarPublicaciones', 'ListarPublicaciones::consultarTodo');
+    $routes->add('ConsultaIndividual', 'ListarPublicaciones::consultarId');
     $routes->add('ListarPublicaciones', 'CrearPublicacion::index');
 
 });
