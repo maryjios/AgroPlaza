@@ -2,3 +2,5 @@
 *.env
 
 writable/session/
+
+writable/logs/
