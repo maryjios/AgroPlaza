@@ -11,7 +11,7 @@ class PublicacionesModel extends Model {
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['titulo', 'descripcion','tipo_publicacion','stock','id_unidad','precio','precio_envio','descuento','id_ciudad', 'id_usuario','estado_publicacion'];
+    protected $allowedFields = ['titulo', 'descripcion','tipo_publicacion','stock','id_unidad','precio','precio_envio','descuento','id_ciudad', 'id_usuario','estado'];
 
     protected $useTimestamps = false;
     protected $createdField  = '';

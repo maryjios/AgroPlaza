@@ -2,21 +2,20 @@
 
 use CodeIgniter\Model;
 
-class UsuariosModel extends Model {
-    protected $table      = 'usuarios';
+class EspecializacionModel extends Model {
+    protected $table      = 'especializacion';
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
 
-
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['email', 'password', 'documento', 'nombres', 'apellidos', 'id_ciudad', 'direccion', 'telefono', 'genero', 'avatar', 'tipo_usuario', 'estado'];
+    protected $allowedFields = ['nombre','descripcion', 'id_usuario'];
 
     protected $useTimestamps = false;
-    protected $createdField  = 'fecha_insert';
-    protected $updatedField  = 'fecha_edit';
+    protected $createdField  = '';
+    protected $updatedField  = '';
     protected $deletedField  = '';
 
     protected $validationRules    = [];

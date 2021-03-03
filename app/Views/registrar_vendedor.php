@@ -25,7 +25,7 @@
 
 
     <nav class="navbar navbar-light" style="background-color: #ffe140;">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="<?php echo base_url() ?>">
             <img src="<?php echo base_url('public/dist/img/logo.png') ?>" alt="" style="margin-top: -3.5em; margin-bottom: -3.5em;">
         </a>
     </nav>
@@ -43,9 +43,9 @@
                                 <h3 class="mb-0">Crear Cuenta</h3>
                             </div>
                             <div class="card-body">
-                                <form id="formulario_registro" method="post">
+                                <form id="formulario_registro" enctype="multipart/form-data" method="post">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="documento" placeholder="Documento de Identidad">
+                                        <input type="text" class="form-control" name="documento" id="documento" placeholder="Documento de Identidad">
                                         <div class="input-group-append">
                                             <div class="input-group-text">
                                                 <span class="fas fa-address-card"></span>
@@ -53,14 +53,14 @@
                                         </div>
                                     </div>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="nombres" placeholder="Nombre">
+                                        <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Nombre">
                                         <div class="input-group-append mr-2">
                                             <div class="input-group-text">
                                                 <span class="fas fa-user"></span>
                                             </div>
                                         </div>
 
-                                        <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+                                        <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos">
                                         <div class="input-group-append">
                                             <div class="input-group-text">
                                                 <span class="fas fa-user"></span>
@@ -69,7 +69,7 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input type="email" class="form-control" id="email" placeholder="Correo Electronico">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electronico">
                                         <div class="input-group-append">
                                             <div class="input-group-text">
                                                 <span class="fas fa-envelope"></span>
@@ -78,7 +78,7 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input type="number" class="form-control" id="telefono" placeholder="Telefono">
+                                        <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Telefono">
                                         <div class="input-group-append">
                                             <div class="input-group-text">
                                                 <span class="fas fa-phone"></span>
@@ -87,7 +87,7 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+                                        <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Dirección">
                                         <div class="input-group-append">
                                             <div class="input-group-text">
                                                 <span class="fas fa-map-marker-alt"></span>
@@ -100,7 +100,7 @@
                                             <option value="0">Seleccione Genero</option>
                                             <option value="MASCULINO">Masculino</option>
                                             <option value="FEMENINO">Femenino</option>
-                                            <option value="OTRO">Otro</option>
+                                            <option value="OTROS">Otro</option>
                                         </select>
                                     </div>
 
@@ -127,14 +127,14 @@
 
 
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="password" placeholder="Contraseña">
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
                                         <div class="input-group-append mr-2">
                                             <div class="input-group-text">
                                                 <span class="fas fa-unlock"></span>
                                             </div>
                                         </div>
 
-                                        <input type="text" class="form-control" id="passwordconfirm" placeholder="Confirmar Contraseña">
+                                        <input type="password" class="form-control" id="passwordconfirm" placeholder="Confirmar Contraseña">
                                         <div class="input-group-append">
                                             <div class="input-group-text">
                                                 <span class="fas fa-lock"></span>
@@ -200,7 +200,7 @@
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-3">
-                                            <a type="button" href="<?php echo base_url('Login'); ?>" class="btn btn-secondary btn-block">Ir al login</a>
+                                            <a type="button" href="<?php echo base_url(); ?>" class="btn btn-secondary btn-block">Ir al login</a>
                                         </div>
 
                                         <div class="col-4">
@@ -232,6 +232,11 @@
     <!-- AdminLTE App -->
     <script src="<?php echo base_url('public/dist/js/adminlte.min.js') ?>"></script>
 
+    <!-- Custument input -->
+    <script src="<?php echo base_url('public/plugins/bs-custom-file-input/bs-custom-file-input.min.js') ?>"></script>
+
+
+
     <script>
         $(document).ready(iniciar);
 
@@ -246,6 +251,7 @@
 
             $("input[name='loQueVaAVender']").on('click', mostrarInputFile);
 
+            preview();
 
         }
 
@@ -300,19 +306,34 @@
                                     </div>
 
                                     <br>
+                                    <div>
+                                        <input type="file" class="form-control" id="certificado" name="foto_certificado" accept="image/*">
+                                        <br>
+                                        <br>
+                                        <img id="frame" src="" width="100px" height="100px"/>
+                                        <p class="text-danger">El formato de la imagen debe ser jpg, png o jpeg</p>
+                                    </div>
+                                   `;
 
-                                    <div class="col-12 custom-file" id="divInputFile">
-                                        <input type="file" class="custom-file-input" id="certificado">
-                                        <label class="custom-file-label" for="exampleInputFile" data-browse="📁 Seleccionar Archivo">Ningun archivo seleccionado...</label>
-                                    </div>`;
+                //    <div class="col-12 custom-file" id="divInputFile">
+                //         <input type="file" class="custom-file-input" id="certificado">
+                //         <label class="custom-file-label" for="exampleInputFile" data-browse="📁 Seleccionar Archivo">Ningun archivo seleccionado...</label>
+                //     </div>
 
                 $('#datosEspecialista').html(datos);
                 $('#datosEspecialista').show();
+                $('#frame').hide();
+                $('#certificado').on('change', preview);
 
             } else {
                 $('#datosEspecialista').hide();
 
             }
+        }
+
+        function preview() {
+            $('#frame').show();
+            frame.src = URL.createObjectURL(event.target.files[0]);
         }
 
 
@@ -332,27 +353,25 @@
             genero = $("#genero").val();
             ciudad = $("#ciudad").val();
             password = $("#password").val();
+            certificado = $("#certificado").val();
+
 
 
             if (documento != "" && nombres != "" && apellidos != "" && email != "" && direccion != "" && genero != "" && ciudad != "" && password != "") {
+
+                var datos_formulario = new FormData($('#formulario_registro')[0]);
+
                 $.ajax({
                         url: '<?php echo base_url('/Inicio/InsertarVendedor'); ?>',
                         type: "POST",
                         dataType: "text",
-                        data: {
-                            email: email,
-                            password: password,
-                            documento: documento,
-                            nombres: nombres,
-                            apellidos: apellidos,
-                            direccion: direccion,
-                            telefono: telefono,
-                            genero: genero,
-                            ciudad: ciudad
-                        },
+                        data: datos_formulario,
+                        contentType: false,
+                        processData: false
                     })
                     .done(function(data) {
 
+                        console.log(data);
                         if (data == "FAIL#DOCUMENTO") {
 
                             alert("El documento ingresado ya existe...");
@@ -362,8 +381,20 @@
                             alert("El email ingresado ya existe...");
 
                         } else if (data == "OK#CORRECT#DATA") {
-                            window.location.href = "<?php echo base_url('/CompletarDatosDeRegistro?vendedor='); ?>" + documento;
+                            
+                            alert("DEBES ESPERAR TU VALIDACION")
 
+                        } else if (data == "OK#INVALID#DATA") {
+
+                            alert("Ocurrio un error al insertar la información en el servidor...");
+
+                        } else if ("ERROR#TIPO#INCORRECTO") {
+
+                            alert("Por favor ingrese un formato valido para la imagen...");
+
+                        } else if ("ERROR#SUBIENDO#CERTIFICADO") {
+
+                            alert("Se ha presentado un error al subir la foto, intentalo de nuevo.");
                         }
                     })
                     .fail(function(data) {
@@ -376,7 +407,11 @@
             }
         }
     </script>
-
+    <script>
+        $(document).ready(function() {
+            bsCustomFileInput.init();
+        });
+    </script>
 </body>
 
 </html>

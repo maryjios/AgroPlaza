@@ -79,6 +79,7 @@
 	<!-- AdminLTE App -->
 	<script src="<?php echo base_url('public/dist/js/adminlte.min.js'); ?>"></script>
 
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#formulario_ingreso").submit(function(event) {
@@ -123,6 +124,7 @@
 			}
 		}
 	</script>
+
 
 </body>
 

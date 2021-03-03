@@ -5,6 +5,9 @@ namespace App\Controllers;
 use App\Models\CiudadesModel;
 use App\Models\UsuariosModel;
 use App\Models\DepartamentosModel;
+use App\Models\EspecializacionModel;
+use App\Models\CertificadosModel;
+
 
 
 class Inicio extends BaseController
@@ -74,7 +77,6 @@ class Inicio extends BaseController
 	public function InsertarVendedor()
 	{
 
-
 		$email = $this->request->getPostGet('email');
 		$documento = $this->request->getPostGet('documento');
 		$nombres = $this->request->getPostGet('nombres');
@@ -84,37 +86,105 @@ class Inicio extends BaseController
 		$genero = $this->request->getPostGet('genero');
 		$ciudad = $this->request->getPostGet('ciudad');
 		$password = $this->request->getPostGet('password');
+		$n_especializacion = $this->request->getPostGet('n_especializacion');
+		$descripcion = $this->request->getPostGet('descripcion');
 
+		$loQueVaAVender = $this->request->getPostGet('loQueVaAVender');
 
+		$tipo_usuario = "";
+		if ($loQueVaAVender == 'Productos') {
+			$tipo_usuario = "VENDEDOR";
 
-		$usuarios = new UsuariosModel();
-
-		$consulta = $usuarios->where(['documento' => $documento])->find();
-
-		if (sizeof($consulta) > 0) {
-
-			$mensaje = "FAIL#DOCUMENTO";
-		} else {
-
-			$consulta = $usuarios->where(['email' => $email])->find();
-
+			// Creando usuario
+			$usuarios = new UsuariosModel();
+			$consulta = $usuarios->where(['documento' => $documento])->find();
 			if (sizeof($consulta) > 0) {
-				$mensaje = "FAIL#EMAIL";
+				$mensaje = "FAIL#DOCUMENTO";
 			} else {
-				$registros = $usuarios->save([
-					'email' => $email, 'password' => md5($password), 'documento' => $documento, 'nombres' => $nombres, 'apellidos' => $apellidos, 'id_ciudad' => $ciudad, 'direccion' => $direccion,
-					'telefono' => $telefono, 'genero' => $genero, 'avatar' => 'avatar.png', 'tipo_usuario' => 'VENDEDOR'
-				]);
-
-				if ($registros) {
-					$mensaje = "OK#CORRECT#DATA";
+				$consulta = $usuarios->where(['email' => $email])->find();
+				if (sizeof($consulta) > 0) {
+					$mensaje = "FAIL#EMAIL";
 				} else {
-					$mensaje = "OK#INVALID#DATA";
+					$registros = $usuarios->insert([
+						'email' => $email, 'password' => md5($password), 'documento' => $documento, 'nombres' => $nombres, 'apellidos' => $apellidos, 'id_ciudad' => $ciudad, 'direccion' => $direccion,
+						'telefono' => $telefono, 'genero' => $genero, 'avatar' => 'avatar.png', 'tipo_usuario' => $tipo_usuario
+					]);
+
+					if ($registros) {
+						$mensaje = "OK#CORRECT#DATA";
+					} else {
+						$mensaje = "OK#INVALID#DATA";
+					}
 				}
+			}
+
+		} else if ($loQueVaAVender == 'Productos y Servicios' || $loQueVaAVender == 'Servicios') {
+			$tipo_usuario = "VENDEDOR_ESPECIALISTA";
+
+			date_default_timezone_set('America/Bogota');
+
+			$extension = explode(".", $_FILES['foto_certificado']['name']);
+			$extension = strtolower($extension[sizeof($extension) - 1]);
+			$nombre_certificado = date("d-m-Y_h_i_s_") . $documento . '.' . $extension;
+
+			if (in_array($extension, array('png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'))) {
+				$file = $this->request->getFiles()['foto_certificado'];
+				
+				if ($file->isValid() && !$file->hasMoved()) {
+
+					// Creando usuario
+					$usuarios = new UsuariosModel();
+					$consulta = $usuarios->where(['documento' => $documento])->find();
+					if (sizeof($consulta) > 0) {
+						$mensaje = "FAIL#DOCUMENTO";
+					} else {
+						$consulta = $usuarios->where(['email' => $email])->find();
+						if (sizeof($consulta) > 0) {
+							$mensaje = "FAIL#EMAIL";
+						} else {
+
+
+							$registros = $usuarios->insert([
+								'email' => $email, 'password' => md5($password), 'documento' => $documento, 'nombres' => $nombres, 'apellidos' => $apellidos, 'id_ciudad' => $ciudad, 'direccion' => $direccion,
+								'telefono' => $telefono, 'genero' => $genero, 'avatar' => 'avatar.png', 'tipo_usuario' => $tipo_usuario, 'estado' => 'PENDIENTE'
+							]);
+
+							if ($registros) {
+
+								// Creando especializacion||
+								$db_especializacion = new EspecializacionModel();
+								$db_especializacion->insert([
+									'nombre' => $n_especializacion,
+									'descripcion' => $descripcion,
+									'id_usuario' => $usuarios->getInsertID()
+								]);
+
+								$db_certificados = new CertificadosModel();
+								$db_certificados->insert([
+									'certificado' => $nombre_certificado,
+									'id_especializacion' => $db_especializacion->getInsertID()
+								]);
+
+								// Subiendo foto al servidor
+								$file->move('./public/dist/img/certificados/', $nombre_certificado);
+
+								$mensaje = "OK#CORRECT#DATA";
+							} else {
+								$mensaje = "OK#INVALID#DATA";
+							}
+						}
+					}
+				} else {
+					$mensaje = "ERROR#SUBIENDO#CERTIFICADO";
+				}
+			} else {
+				$mensaje = "ERROR#TIPO#INCORRECTO";
 			}
 		}
 
+
+
+
 		echo $mensaje;
 	}
-
 }

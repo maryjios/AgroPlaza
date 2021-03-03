@@ -1,0 +1,42 @@
+CRITICAL - 2021-03-02 09:59:47 --> Undefined index: tipo_usuario
+#0 C:\xampp\htdocs\agroplaza\app\Views\template\header.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 171, Array)
+#1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(13): view('template/header', Array)
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-02 20:36:25 --> Undefined index: tipo_usuario
+#0 C:\xampp\htdocs\agroplaza\app\Views\template\header.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 171, Array)
+#1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\ModuloPublicaciones\CrearPublicacion.php(13): view('template/header', Array)
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\ModuloPublicaciones\CrearPublicacion->index()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloPublicaciones\CrearPublicacion))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-02 21:58:17 --> Unknown column 'estado_publicacion' in 'where clause'
+#0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT `Publica...')
+#1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Publica...')
+#2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Publica...')
+#3 C:\xampp\htdocs\agroplaza\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT `Publica...', Array, false)
+#4 C:\xampp\htdocs\agroplaza\system\Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\agroplaza\app\Controllers\ModuloPublicaciones\ListarPublicaciones.php(26): CodeIgniter\Model->findAll()
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\ModuloPublicaciones\ListarPublicaciones->consultarTodo()
+#7 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloPublicaciones\ListarPublicaciones))
+#8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-03-02 22:07:23 --> Undefined index: tipo_usuario
+#0 C:\xampp\htdocs\agroplaza\app\Views\template\header.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 171, Array)
+#1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\ModuloPublicaciones\CrearPublicacion.php(13): view('template/header', Array)
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\ModuloPublicaciones\CrearPublicacion->index()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloPublicaciones\CrearPublicacion))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

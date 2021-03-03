@@ -15,4 +15,8 @@ class CrearPublicacion extends BaseController {
 		echo view('template/footer');
 	}
 
+	public function insertar(){
+		
+	}
+
 }
