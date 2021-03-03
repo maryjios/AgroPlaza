@@ -110,6 +110,27 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal confirma-->
+  <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar Registro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>¿Desea Eliminar el registro?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <a class="btn btn-primary btn-ok">Si</a>
+        </div>
+      </div>
+    </div>
+  </div>
   <script>
     /*$(document).ready(function() {
       $("#").DataTable({
@@ -164,6 +185,7 @@
         $('#publicaciones').html(listarPublicacion);
 
         $('.editar').click(consultarPublicacion);
+        $('.eliminar').click(eliminarPublicacion);
 
       }
     });
@@ -201,6 +223,33 @@
       console.log("complete");
     });
     
+  }
+
+  function eliminarPublicacion(){
+
+    var id = $(this).parents("tr").find(".id_publicacion").text();
+    alert(id)
+
+
+    $.ajax({
+      url: '<?php echo base_url('/ModuloPublicaciones/EliminarPublicacion');?>',
+      type: 'POST',
+      dataType: 'text',
+      data: {id: id},
+    })
+    .done(function(data) {
+
+      if (data == "Eliminado") {
+        alert("se elimino")
+      }
+      
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
 
   }
 
