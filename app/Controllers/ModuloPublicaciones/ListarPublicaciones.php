@@ -54,4 +54,20 @@ class ListarPublicaciones extends BaseController {
 		echo view('template/footer');
 	}
 
+
+	public function eliminarPublicacion(){
+		$publicaciones = new PublicacionesModel();
+
+		$id = $this->request->getPostGet('id');
+		$datos = $publicaciones->update($id,['estado'=>'INACTIVA']);
+
+		if ($datos) {
+			$mensaje = "Eliminado";
+		}else{
+			$mensaje = "No##eliminado";
+		}
+
+		echo $mensaje;
+	}
+
 }
