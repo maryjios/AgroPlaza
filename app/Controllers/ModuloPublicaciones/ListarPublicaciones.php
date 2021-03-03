@@ -47,4 +47,27 @@ class ListarPublicaciones extends BaseController {
 		}
 	}
 
+	public function detallePublicacion()
+	{
+		echo view('template/header');
+		echo view('ModuloPublicaciones/detalle_publicacion');
+		echo view('template/footer');
+	}
+
+
+	public function eliminarPublicacion(){
+		$publicaciones = new PublicacionesModel();
+
+		$id = $this->request->getPostGet('id');
+		$datos = $publicaciones->update($id,['estado'=>'INACTIVA']);
+
+		if ($datos) {
+			$mensaje = "Eliminado";
+		}else{
+			$mensaje = "No##eliminado";
+		}
+
+		echo $mensaje;
+	}
+
 }
