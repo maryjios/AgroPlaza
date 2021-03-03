@@ -56,6 +56,7 @@ $routes->group('ModuloPublicaciones', ['namespace'=>'App\Controllers\ModuloPubli
     $routes->add('ListarPublicaciones', 'ListarPublicaciones::index');
     $routes->add('ConsultarPublicaciones', 'ListarPublicaciones::consultarTodo');
     $routes->add('ConsultaIndividual', 'ListarPublicaciones::consultarId');
+     $routes->add('ConsultaDetalle', 'ListarPublicaciones::detallePublicacion');
     $routes->add('ListarPublicaciones', 'CrearPublicacion::index');
 
 });
