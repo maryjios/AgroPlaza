@@ -31,7 +31,7 @@
                                         <th>Opcion</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tbodyunidades">
+                                <tbody id="unidades">
 
                                 </tbody>
                             </table>
@@ -75,35 +75,89 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
 <script>
-    $(document).ready(iniciar);
+    /*$(document).ready(function() {
+      $("#").DataTable({
+        "language": {"url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json"},
+        "dom": 'Bfrtip',
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy","print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
 
-    function iniciar() {
-        listarunidades();
+      listarPublicaciones();
+    });
+*/
+  $(document).ready(iniciar);
 
-    }
+  function iniciar(){
+    listarUnidades();
+  }
 
-    function listarunidades() {
-        $.ajax({
-            url: '<?php echo base_url('/ModuloPublicaciones/MostrarUnidades'); ?>',
-            type: 'POST',
-            dataType: "json",
-            success: function(data) {
+  function listarUnidades() {
 
-                var listarunidades = "";
+    $.ajax({
+      url: '<?php echo base_url('/ModuloPublicaciones/ConsultarUnidades');?>',
+      type: 'POST',
+      dataType: 'json',
+      success: function(data) {
+        
+        let listarUnidades="";
+        for (var i = 0; i < data.length; i++) {
+          
+            listarUnidades+=
+          '<tr>' +
+            '<td class="id_publicacion">' + data[i].id + '</td>' +
+            '<td >' + data[i].nombre + '</td>' +
+            '<td >' + data[i].abreviatura + '</td>' +
+            '<td><button type="button" class="btn btn-info mr-2 toastrDefaultSuccess detalle "><i class="far fa-eye"></i></button><button type="button" class="btn btn-info toastrDefaultSuccess detalle"><i class="far fa-edit"></i></button></td>'+
+          '</tr>';
+        
+        }
 
-                for (var i = 0; i < data.length; i++) {
+        $('#unidades').html(listarUnidades);
 
-                    listarunidades += '<tr>' +
-                        '<td>' + data[i].id + '</td>' +
-                        '<td>' + data[i].nombre + '<input type="hidden" value="' + data[i].id + '"class="id"> </td>' +
-                        '<td>' + data[i].abreviatura + '</td>' +
+        $('.detalle').click(consultarPublicacion);
 
+      }
+    });
+    
+  }
 
-                }
-                $("#tbodyunidades").html(listarunidades);
-            }
-        });
+  function consultarPublicacion() {
 
-    }
-</script>
+    var id = $(this).parents("tr").find(".id_publicacion").text();
+    
+    //alert(id);
+
+    $('#editar_modal').modal();
+
+    $.ajax({
+      url: '<?php echo base_url('/ModuloPublicaciones/ConsultaIndividual');?>',
+      type: 'POST',
+      dataType: 'json',
+      data: {id: id},
+    })
+    .done(function(data) {
+      console.log(data);
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+    
+
+  }
+
+  </script>
