@@ -47,4 +47,11 @@ class ListarPublicaciones extends BaseController {
 		}
 	}
 
+	public function detallePublicacion()
+	{
+		echo view('template/header');
+		echo view('ModuloPublicaciones/detalle_publicacion');
+		echo view('template/footer');
+	}
+
 }
