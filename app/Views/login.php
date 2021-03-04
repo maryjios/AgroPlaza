@@ -1,5 +1,11 @@
+<?php
+if (isset($_SESSION['tipo_usuario'])) {
+    header("Location: " . base_url('Inicio'));
+    die();
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 	<meta charset="utf-8">
