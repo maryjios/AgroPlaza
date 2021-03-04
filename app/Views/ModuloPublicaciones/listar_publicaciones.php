@@ -15,7 +15,7 @@
                   <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Titulo de publicacion</th>
+                    <th>Titulo</th>
                     <th>Tipo</th>
                     <th>Vendedor</th>
                     <th>Fecha de publicación</th>
