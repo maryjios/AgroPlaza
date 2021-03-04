@@ -29,8 +29,7 @@
 		<div class="card">
 			<div class="card-body login-card-body">
 
-				<img class="ml-5" src="<?php echo base_url('public/dist/img/logo.png') ?>" alt="" style="width:210px;
-    height:210px;">
+				<img class="ml-5" src="<?php echo base_url('public/dist/img/logo.png') ?>" alt="" style="width:210px; height:210px;">
 				<p class="login-box-msg">INICIAR SESION</p>
 
 				<form id="formulario_ingreso" action="#" method="post">
@@ -107,6 +106,9 @@
 
 						if (data == "OK##DATA##LOGIN") {
 							window.location = "<?php echo base_url('Inicio'); ?>";
+						} else if (data == "NOT##ACCESS") {
+							$("#campo_password").val("");
+							alert("Acceso negado para clientes. Si quieres acceder hazlo desde nuestra aplicacion movil: Agroplaza");
 						} else {
 							$("#campo_password").val("");
 							alert("Error en los datos ingresados.");
