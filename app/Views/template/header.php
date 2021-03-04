@@ -164,11 +164,11 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-success elevation-4">
       <!-- Brand Logo -->
       <a href="<?php echo base_url('Inicio'); ?>" class="brand-link">
         <img src="<?php echo base_url('public/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light"><?php echo $_SESSION['tipo_usuario']; ?></span>
+        <span class="brand-text font-weight-light"><?php echo ($_SESSION['tipo_usuario'] == "VENDEDOR_ESPECIALISTA")? "ESPECIALISTA" : $_SESSION['tipo_usuario']; ?></span>
       </a>
 
       <!-- Sidebar -->
@@ -223,6 +223,9 @@
               </ul>
             </li>
 
+            <?php if ($_SESSION['tipo_usuario'] != 'ADMINISTRADOR') { ?>
+
+
             <li class="nav-item <?php echo (isset($modulo_selected) && $modulo_selected == 'Publicaciones') ? 'menu-is-opening menu-open' : ''; ?> ">
               <a href="#" class="nav-link <?php echo (isset($modulo_selected) && $modulo_selected == 'Publicaciones') ? 'active' : ''; ?> ">
                 <i class="nav-icon fas fa-newspaper"></i>
@@ -256,6 +259,8 @@
 
               </ul>
             </li>
+
+            <?php } ?>
 
             <!-- Modulo Pedidos -->
             <li class="nav-item <?php echo (isset($modulo_selected) && $modulo_selected == 'Pedidos') ? 'menu-is-opening menu-open' : ''; ?> ">
