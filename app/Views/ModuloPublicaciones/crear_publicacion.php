@@ -30,6 +30,8 @@
                     <?php } ?>
 
                     <a class="nav-link disabled" id="btncontentDescribirProducto" data-toggle="pill" href="#contentDescribirProducto" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Describe tu producto</a>
+=======
+                    <a class="nav-link disabled" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Describe tu producto</a>
                     <a class="nav-link disabled" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Precio y Otros Detalles</a>
                     <a class="nav-link disabled" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings" role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Carga tus imagenes</a>
                   </div>

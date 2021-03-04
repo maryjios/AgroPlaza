@@ -12,10 +12,20 @@
             <div class="card-header">
               <h3 class="card-title">Lista de usuarios Inactivos</h3>
             </div>
+            <div class="d-grid gap-2 d-md-flex mt-4 mr-4 justify-content-md-end">
+               
+               <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios')?>" class="btn btn-success mr-4">
+               <i class="fas fa-lock-open"></i>
+               Usuarios Activos</a>
+
+               <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes')?>" class="btn btn-warning mr-4">
+               <i class="fas fa-user-clock"></i>
+                Usuarios Pendientes</a>
+            </div> 
         
             <!-- /.card-header -->
             <div class="card-body">
-            <table id="" class="table table-bordered table-striped">
+            <table id="" class="table table-striped table-valign-middle">
                 <thead>
                   <tr>
                    
@@ -29,8 +39,7 @@
                     <th>Avatar</th>
                     <th>Tipo Usuario</th>
                     <th>Estado</th>
-                    <th>opcion</th>
-                    <th>opcion</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody id="tbodyusuarios">
@@ -107,8 +116,7 @@ function listarinactivos() {
          '<td>' + data[i].avatar + '</td>' +
          '<td>' + data[i].tipo_usuario + '</td>' +
          '<td><span class="btn btn-danger ">'+data[i].estado+'</span></td>'+
-         '<td><a href="" class="btn btn-primary" data-toggle="modal" data-target="#modal-default"><i class="far fa-eye"></i></a></td>'+
-         '<td><a  class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
+         '<td><a href="" class="btn btn-primary mr-2" data-toggle="modal" data-target="#modal-default"><i class="far fa-eye"></i></a><a  class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
          '</tr>';
          if(data[i].estado=='ACTIVO'){
           $(".td_estado").css("background","green")
