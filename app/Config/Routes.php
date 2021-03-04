@@ -44,10 +44,9 @@ $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios']
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
     $routes->add('MostrarUsuarios', 'BuscarUsuarios::listarusuarios');
     $routes->add('BuscarusuId', 'BuscarUsuarios::buscarporId');
-
+    
     $routes->add('BuscarInactivos', 'BuscarInactivos::index');
     $routes->add('MostrarInactivos', 'BuscarInactivos::listarinactivos');
-
     $routes->add('BuscarPendientes', 'BuscarPendientes::index');
     $routes->add('MostrarPendientes', 'BuscarPendientes::listarpendientes');
 

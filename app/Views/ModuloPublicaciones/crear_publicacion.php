@@ -19,7 +19,11 @@
                 <div class="col-5 col-sm-3">
 
                   <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+<<<<<<< Updated upstream
                     <?php if ($_SESSION['tipo_usuario'] == 'VENDEDOR_ESPECIALISTA') { ?>
+=======
+                    <?php if ($_SESSION['tipo_usuario'] == 'ADMINISTRADOR') { ?>
+>>>>>>> Stashed changes
 
                       <a class="nav-link active" id="vert-tabs-home-tab-admin" data-toggle="pill" href="#vert-tabs-home-admin" role="tab" aria-controls="vert-tabs-home-admin" aria-selected="true">Elige el tipo de Producto</a>
 
@@ -29,14 +33,23 @@
 
                     <?php } ?>
 
+<<<<<<< Updated upstream
                     <a class="nav-link disabled" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Describe tu producto</a>
                     <a class="nav-link disabled" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Precio y Otros Detalles</a>
+=======
+                    <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Describe tu producto</a>
+                    <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Precio y Otros Detalles</a>
+>>>>>>> Stashed changes
                     <a class="nav-link disabled" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings" role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Carga tus imagenes</a>
                   </div>
                 </div>
                 <div class="col-7 col-sm-9">
                   <div class="tab-content" id="vert-tabs-tabContent">
+<<<<<<< Updated upstream
                     <?php if ($_SESSION['tipo_usuario'] == 'VENDEDOR_ESPECIALISTA') { ?>
+=======
+                    <?php if ($_SESSION['tipo_usuario'] == 'ADMINISTRADOR') { ?>
+>>>>>>> Stashed changes
 
                       <div class="tab-pane text-left fade active show" id="vert-tabs-home-admin" role="tabpanel" aria-labelledby="vert-tabs-home-tab-admin">
                         <div class="container" align="center">
