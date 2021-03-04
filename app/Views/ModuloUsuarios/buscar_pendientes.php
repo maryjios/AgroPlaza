@@ -6,26 +6,23 @@
   <div class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
-      
+
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Lista de usuarios activos</h3>
+              <h3 class="card-title">Lista de usuarios en Proceso </h3>
             </div>
-              <div class="d-grid d-md-flex mt-4 mr-4 ml-2 justify-content-md-end">
-                           
-                  <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos')?>" class="btn btn-danger mr-4">
-                  <i class="fas fa-user-lock"></i>
-                  Usuarios Inactivos</a>
-                  <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes')?>" class="btn btn-warning mr-4">
-                  <i class="fas fa-user-clock"></i>
-                  Usuarios Pendientes</a>
-                  
-                
-               </div> 
-              
-  
-
+            <div class="d-grid gap-2 d-md-flex mt-4 mr-4 justify-content-md-end">
+               
+               <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios')?>" class="btn btn-success mr-4">
+               <i class="fas fa-lock-open"></i>
+               Usuarios Activos</a>
+               <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos')?>" class="btn btn-danger mr-4">
+               <i class="fas fa-user-lock"></i>
+                Usuarios Inactivos</a>
+               
+            </div> 
+        
             <!-- /.card-header -->
             <div class="card-body">
             <table id="" class="table table-striped table-valign-middle">
@@ -73,7 +70,7 @@
            </div>
             <div class="form-group">
               <label>Estado</label>
-              <select class="form-control" name="estado_edit" id="estado_edit">
+              <select class="form-control" name="estado_edit">
                 <option value="Activo">Activo</option>
                 <option value="Inactivo">Inactivo</option>
                 <option value="Pendiente">Pendiente</option>
@@ -91,50 +88,51 @@
   </div>
 <script>
 
-    $(document).ready(iniciar);
-    function iniciar(){
-      listarusuarios();
-      
-    }
+$(document).ready(iniciar);
+function iniciar(){
+  listarPendientes();
+  
+}
 
-    function listarusuarios() {
-      $.ajax({
-        url: '<?php echo base_url('/ModuloUsuarios/MostrarUsuarios');?>',
-        type: 'POST',
-        dataType:"json",
-        success: function(data) {
+function listarPendientes() {
+  $.ajax({
+    url: '<?php echo base_url('/ModuloUsuarios/MostrarPendientes');?>',
+    type: 'POST',
+    dataType:"json",
+     success: function(data) {
 
-          var listarusuarios="";
-          
-          for (var i = 0; i < data.length; i++) {
-            listarusuarios+='<tr>' +
-            '<td>' + data[i].email + '</td>' +
+       var listarPendientes="";
+       
+       for (var i = 0; i < data.length; i++) {
+         
+         listarPendientes+='<tr>' +
+         '<td>' + data[i].email + '</td>' +
+         '<td>' + data[i].documento + '<input type="hidden" value="'+data[i].id+'"class="id"> </td>' +
+         '<td>' + data[i].nombres + '</td>' +
+         '<td>' + data[i].apellidos + '</td>' +
+         '<td>' + data[i].direccion + '</td>' +
+         '<td>' + data[i].telefono + '</td>' +
+         '<td>' + data[i].genero + '</td>' +
+         '<td>' + data[i].avatar + '</td>' +
+         '<td>' + data[i].tipo_usuario + '</td>' +
+         '<td><span class="btn btn-warning ">'+data[i].estado+'</span></td>'+
+         '<td><a href="" class="btn btn-primary mr-2" data-toggle="modal" data-target="#modal-default"><i class="far fa-eye"></i></a><a  class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
+         '</tr>';
+         if(data[i].estado=='ACTIVO'){
+          $(".td_estado").css("background","green")
 
-            '<td >' + data[i].documento + '<input type="hidden" id="id_us" value="'+data[i].id+'"class="id"> </td>' +
-            '<td>' + data[i].nombres + '</td>' +
-            '<td>' + data[i].apellidos + '</td>' +
-            '<td>' + data[i].direccion + '</td>' +
-            '<td>' + data[i].telefono + '</td>' +
-            '<td>' + data[i].genero + '</td>' +
-            '<td>' + data[i].avatar + '</td>' +
-            '<td>' + data[i].tipo_usuario + '</td>' +
-            '<td><span class="btn btn-success td_estado">'+data[i].estado+'</span></td>'+
-            '<td><a href="" class="btn btn-primary mr-2" data-toggle="modal" data-target="#modal-default"><i class="far fa-eye"></i></a><a  id="mod_estado" class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
-            '</tr>';
-        }
-          $("#tbodyusuarios").html(listarusuarios);
-          $("#mod_estado").click(buscarporId);
-        }   
-      });
-    }
+         }else{
+          $(".td_estado").css("background","red")
+         }
+     }
+      $("#tbodyusuarios").html(listarPendientes);
+    }   
+  });
 
-    function buscarporId(){
-      var $id = $(this).parents("tr").find("#id_us").val();
-      var $estado = $(this).parents("tr").find(".td_estado").text();
+}
 
-      $("#documento_edit").val($id);
-      $("#estado_edit").val($estado);
-      
-    }
+
+
+
 
 </script>

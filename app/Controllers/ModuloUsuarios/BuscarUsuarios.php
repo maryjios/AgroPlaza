@@ -24,9 +24,20 @@ class BuscarUsuarios extends BaseController {
 			echo json_encode('error');
 		
 		}
-		
+	}
+	public function buscarporId(){
+		$usuarios = new UsuariosModel();
+		$id = $this->request->getPostGet('id');
+		$dato = $usuarios->select('*')->where('id',$id)->find();
+
+		if ($dato) {
+			echo json_encode($dato);
+		   
+	   } else {
+		   echo json_encode('error');
 	   
-		
+	   }
 	}
 
 }
+

@@ -11,11 +11,11 @@ class PublicacionesModel extends Model {
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['titulo', 'descripcion','tipo_publicacion','stock','id_unidad','precio','precio_envio','descuento','id_ciudad', 'id_usuario','estado'];
+    protected $allowedFields = ['titulo', 'descripcion','tipo_publicacion','stock','id_unidad','precio','precio_envio','descuento','id_ciudad', 'id_usuario','estado_publicacion'];
 
     protected $useTimestamps = false;
-    protected $createdField  = '';
-    protected $updatedField  = '';
+    protected $createdField  = 'fecha_insert';
+    protected $updatedField  = 'fecha_edit';
     protected $deletedField  = '';
 
     protected $validationRules    = [];

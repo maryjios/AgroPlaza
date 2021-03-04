@@ -19,9 +19,9 @@
                 <div class="col-5 col-sm-3">
 
                   <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
-                    <?php if ($_SESSION['tipo_usuario'] == 'ADMINISTRADOR') { ?>
+                    <?php if ($_SESSION['tipo_usuario'] == 'VENDEDOR_ESPECIALISTA') { ?>
 
-                      <a class="nav-link active" id="vert-tabs-home-tab-admin" data-toggle="pill" href="#vert-tabs-home-admin" role="tab" aria-controls="vert-tabs-home-admin" aria-selected="true">Elige el tipo de Producto</a>
+                      <a class="nav-link active" id="vert-tabs-home-tab-vendedor-especialista" data-toggle="pill" href="#vert-tabs-home-vendedor-especialista" role="tab" aria-controls="vert-tabs-home-vendedor-especialista" aria-selected="true">Elige el tipo de Producto</a>
 
                     <?php } else { ?>
 
@@ -29,20 +29,22 @@
 
                     <?php } ?>
 
-                    <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Describe tu producto</a>
-                    <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Precio y Otros Detalles</a>
+                    <a class="nav-link disabled" id="btncontentDescribirProducto" data-toggle="pill" href="#contentDescribirProducto" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Describe tu producto</a>
+
+                    <a class="nav-link disabled" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Describe tu producto</a>
+                    <a class="nav-link disabled" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Precio y Otros Detalles</a>
                     <a class="nav-link disabled" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings" role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Carga tus imagenes</a>
                   </div>
                 </div>
                 <div class="col-7 col-sm-9">
                   <div class="tab-content" id="vert-tabs-tabContent">
-                    <?php if ($_SESSION['tipo_usuario'] == 'ADMINISTRADOR') { ?>
+                    <?php if ($_SESSION['tipo_usuario'] == 'VENDEDOR_ESPECIALISTA') { ?>
 
-                      <div class="tab-pane text-left fade active show" id="vert-tabs-home-admin" role="tabpanel" aria-labelledby="vert-tabs-home-tab-admin">
+                      <div class="tab-pane text-left fade active show" id="vert-tabs-home-vendedor-especialista" role="tabpanel" aria-labelledby="vert-tabs-home-tab-vendedor-especialista">
                         <div class="container" align="center">
 
                           <input type="radio" value="productos" name="tipo_de_producto" id="productos">
-                          <label for="productos">
+                          <label for="productos" class="labelRadio">
                             <i class="fa fa-box" aria-hidden="true"></i>
                             <span>Productos</span>
                           </label>
@@ -52,22 +54,35 @@
                             <span>Servicios</span>
                           </label>
                         </div>
-                        <br><a class="btn btn-primary float-right btnContinuar1 disabled">Continuar</a>
+                        <br>
+                        <a class="btn btn-success float-right btnContinuar disabled">Continuar</a>
                       </div>
 
                     <?php } else { ?>
 
-                      <div class="tab-pane text-left fade active show" id="vert-tabs-home-vendedor" role="tabpanel" aria-labelledby="vert-tabs-home-tab-vendedor">
-                        xx Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada lacus ullamcorper dui molestie, sit amet congue quam finibus. Etiam ultricies nunc non magna feugiat commodo. Etiam odio magna, mollis auctor felis vitae, ullamcorper ornare ligula. Proin pellentesque tincidunt nisi, vitae ullamcorper felis aliquam id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin id orci eu lectus blandit suscipit. Phasellus porta, ante et varius ornare, sem enim sollicitudin eros, at commodo leo est vitae lacus. Etiam ut porta sem. Proin porttitor porta nisl, id tempor risus rhoncus quis. In in quam a nibh cursus pulvinar non consequat neque. Mauris lacus elit, condimentum ac condimentum at, semper vitae lectus. Cras lacinia erat eget sapien porta consectetur.
-                        <br><a class="btn btn-primary float-right btnContinuar">Continuar</a>
+                      <div class="tab-pane text-left fade active show contentInicioVendedor" id="vert-tabs-home-vendedor" role="tabpanel" aria-labelledby="vert-tabs-home-tab-vendedor">
+                        <div>
+                          <h6 class="text-success">HOLA, RECUERDA QUE PARA PUBLICAR UN PRODUCTO DEBES CARGAR MINIMO 1 FOTO DE LO QUE QUIERES VENDER, ESTA LISTO PARA EMPEZAR PRESIONA EL BOTON CONTINUAR! </h6>
+                        </div>
+                        <br><button type="button" class="btn btn-success btnContinuar float-right mt-5">Continuar</button>
                       </div>
 
 
                     <?php } ?>
 
-                    <div class="tab-pane fade" id="vert-tabs-profile" role="tabpanel" aria-labelledby="vert-tabs-profile-tab">
-                      Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam.
+                    <div class="tab-pane fade describir_producto" align="center" id="contentDescribirProducto" role="tabpanel" aria-labelledby="btncontentDescribirProducto">
+
+                      <div class="row col-6 justify-content-center text-center mb-2">
+                        <label for="titulo">Titulo del Producto</label>
+                        <input type="text" class="form-control" placeholder="Agrega un titulo a tu producto">
+                      </div>
+
+                      <div class="row col-6 justify-content-center text-center mb-2">
+                        <label for="titulo">Descripcion</label>
+                        <textarea name="descripcion" class="form-control" id="" cols="30" rows="4"></textarea>
+                      </div>
                     </div>
+
 
                     <div class="tab-pane fade" id="vert-tabs-messages" role="tabpanel" aria-labelledby="vert-tabs-messages-tab">
                       Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
@@ -92,7 +107,7 @@
     -webkit-appearance: none;
   }
 
-  label {
+  .labelRadio {
     height: 180px;
     width: 240px;
     border: 6px solid #18f98d;
@@ -111,7 +126,7 @@
     transform: translate(-50%, -80%);
   }
 
-  label>span {
+  .labelRadio>span {
     font-size: 25px;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
@@ -134,9 +149,8 @@
   $(document).ready(iniciar);
 
   function iniciar() {
-
     $("input[name='tipo_de_producto']").on('click', HabilitarBotones1);
-
+    $('.btnContinuar').on('click', SiguentePaso);
 
 
   }
@@ -151,9 +165,26 @@
 
     } else {
 
+
       $(".btnContinuar1").addClass("disabled")
 
 
     }
+  }
+
+  function SiguentePaso() {
+    alert("as")
+    $('#vert-tabs-home-tab-vendedor').removeClass('active')
+    $('.contentInicioVendedor').removeClass('active')
+    $('.contentInicioVendedor').removeClass('show')
+
+
+
+    $('#btncontentDescribirProducto').removeClass("disabled")
+    $('#btncontentDescribirProducto').addClass('active')
+    $('.describir_producto').addClass('active')
+    $('.describir_producto').addClass('show')
+
+
   }
 </script>

@@ -27,7 +27,7 @@
         <!-- left column -->
         <div class="col">
           <!-- general form elements -->
-          <div class="card card-primary">
+          <div class="card card-success">
             <div class="card-header">
               <h3 class="card-title">Nuevo</h3>
             </div>
@@ -59,7 +59,7 @@
                       <option value="" disabled selected>Seleccione Genero</option>
                       <option value="FEMENINO">Femenino</option>
                       <option value="MASCULINO">Masculino</option>
-                      <option value="OTRO">Otro</option>
+                      <option value="OTROS">Otro</option>
                     </select>
                   </div>
                 </div>
@@ -77,8 +77,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-info col-md-2">Registrar</button>
-                  <button type="button" class="btn btn-default">Atras</button>
+                  <button type="submit" class="btn btn-success col-md-2">Registrar</button>
                 </div>
               </div>
             </form>
