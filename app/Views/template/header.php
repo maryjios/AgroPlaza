@@ -226,7 +226,9 @@ if (!isset($_SESSION['tipo_usuario'])) {
               </ul>
             </li>
 
-            <?php if ($_SESSION['tipo_usuario'] != 'ADMINISTRADOR') { ?>
+            <?php } ?>
+
+
 
 
             <li class="nav-item <?php echo (isset($modulo_selected) && $modulo_selected == 'Publicaciones') ? 'menu-is-opening menu-open' : ''; ?> ">
@@ -271,7 +273,6 @@ if (!isset($_SESSION['tipo_usuario'])) {
               </ul>
             </li>
 
-            <?php } ?>
 
             <!-- Modulo Pedidos -->
             <li class="nav-item <?php echo (isset($modulo_selected) && $modulo_selected == 'Pedidos') ? 'menu-is-opening menu-open' : ''; ?> ">
