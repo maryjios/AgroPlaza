@@ -126,38 +126,6 @@
 
         $('#unidades').html(listarUnidades);
 
-        $('.detalle').click(consultarPublicacion);
-
-      }
-    });
     
-  }
-
-  function consultarPublicacion() {
-
-    var id = $(this).parents("tr").find(".id_publicacion").text();
-    
-    //alert(id);
-
-    $('#editar_modal').modal();
-
-    $.ajax({
-      url: '<?php echo base_url('/ModuloPublicaciones/ConsultaIndividual');?>',
-      type: 'POST',
-      dataType: 'json',
-      data: {id: id},
-    })
-    .done(function(data) {
-      console.log(data);
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
-    });
-    
-
-  }
 
   </script>
