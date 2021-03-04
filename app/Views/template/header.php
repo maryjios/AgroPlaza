@@ -226,8 +226,12 @@ if (!isset($_SESSION['tipo_usuario'])) {
               </ul>
             </li>
 
+<<<<<<< HEAD
             <?php if ($_SESSION['tipo_usuario'] != 'ADMINISTRADOR') { ?>
 
+=======
+            <?php } ?>
+>>>>>>> 90fc4869574b4fb6a297d1d13aa81d5abbb94754
 
             <li class="nav-item <?php echo (isset($modulo_selected) && $modulo_selected == 'Publicaciones') ? 'menu-is-opening menu-open' : ''; ?> ">
               <a href="#" class="nav-link <?php echo (isset($modulo_selected) && $modulo_selected == 'Publicaciones') ? 'active' : ''; ?> ">
