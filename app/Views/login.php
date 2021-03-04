@@ -1,10 +1,17 @@
+<?php
+if (isset($_SESSION['tipo_usuario'])) {
+    header("Location: " . base_url('Inicio'));
+    die();
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>INICIO DE SESION</title>
+	<link rel="icon" href="<?php echo base_url('public/dist/agroplaza.ico'); ?>" type="image/ico" />
 
 	<!-- Google Font: Source Sans Pro -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -29,8 +36,7 @@
 		<div class="card">
 			<div class="card-body login-card-body">
 
-				<img class="ml-5" src="<?php echo base_url('public/dist/img/logo.png') ?>" alt="" style="width:210px;
-    height:210px;">
+				<img class="ml-5" src="<?php echo base_url('public/dist/img/logo.png') ?>" alt="" style="width:210px; height:210px;">
 				<p class="login-box-msg">INICIAR SESION</p>
 
 				<form id="formulario_ingreso" action="#" method="post">
@@ -107,6 +113,9 @@
 
 						if (data == "OK##DATA##LOGIN") {
 							window.location = "<?php echo base_url('Inicio'); ?>";
+						} else if (data == "NOT##ACCESS") {
+							$("#campo_password").val("");
+							alert("Acceso negado para clientes. Si quieres acceder hazlo desde nuestra aplicacion movil: Agroplaza");
 						} else {
 							$("#campo_password").val("");
 							alert("Error en los datos ingresados.");
