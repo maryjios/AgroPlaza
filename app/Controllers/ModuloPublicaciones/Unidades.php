@@ -22,7 +22,7 @@
     
     
             echo view('template/header', $data);
-            echo view('ModuloPublicaciones/Unidades');
+            echo view('ModuloPublicaciones/unidades');
             echo view('template/footer');
         }
 
@@ -30,8 +30,7 @@
 	{
 		$unidades = new UnidadesModel();
 
-        $id = $this->request->getPostGet('id');
-		$datos = $unidades->where(['id',$id])->find();
+		$datos = $unidades->findAll();
 
 		if ($datos) {
 			echo json_encode($datos);

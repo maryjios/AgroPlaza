@@ -13,22 +13,22 @@
                         </div>
                         <div>
 
-                            <a href="<?php echo base_url(); ?>/unidades/nuevo" class="btn btn-primary">Agregar</a>
+                            
                         </div>
 
 
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="" class="table table-bordered table-striped">
+                          <a href="<?php echo base_url(); ?>/unidades/nuevo" class="btn btn-primary">Agregar</a>
+                            <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
 
                                         <th>Id</th>
                                         <th>Nombre</th>
                                         <th>Abreviatura</th>
-                                        <th>Opcion</th>
-                                        <th>Opcion</th>
+                                        <th>Accionnes</th>
                                     </tr>
                                 </thead>
                                 <tbody id="unidades">
@@ -43,38 +43,98 @@
         </div><!-- /.container-fluid -->
     </div><!-- /.content-header -->
 </div>
-<div class="modal fade " id="modal-default">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Editar Datos Usuarios</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Documento</label>
-                    <input type="email" class="form-control" id="documento_edit" name="documento_edit" disabled="">
-                </div>
-                <div class="form-group">
-                    <label>Estado</label>
-                    <select class="form-control" name="estado_edit">
-                        <option value="Activo">Activo</option>
-                        <option value="Inactivo">Inactivo</option>
-                        <option value="Pendiente">Pendiente</option>
-                    </select>
-                </div>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar cambios</button>
-            </div>
+<div class="modal fade" id="editar_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar publicación</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
         </div>
-        <!-- /.modal-content -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="form-group col">
+              <select class="custom-select form-control-border" id="tipo_publicacion">
+                <option value="PRODUCTO">Producto</option>
+                <option value="SERVICIO">Servicio</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col">
+              <input type="text" class="form-control form-control-border" id="titulo" placeholder="Titulo" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col">
+              <textarea class="form-control" id="descripcion" placeholder="Descripción"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col">
+              <img src="" alt="Publicacion">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col">
+              <input type="number" class="form-control form-control-border" id="stock" placeholder="Stock" required>
+            </div>
+            <div class="form-group col">
+              <select class="custom-select form-control-border" id="tipo_publicacion">
+                <option value="PRODUCTO">Unidad</option>
+                <option value="SERVICIO">###</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col">
+              <input type="number" class="form-control form-control-border" id="precio" placeholder="Precio" required>
+            </div>
+            <div class="form-group col">
+              <input type="number" class="form-control form-control-border" id="precio_envio" placeholder="Precio de envio" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col">
+              <input type="number" class="form-control form-control-border" id="descuento" placeholder="Descuento" required>
+            </div>
+            <div class="form-group col">
+              <select class="custom-select form-control-border" id="tipo_publicacion">
+                <option value="PRODUCTO">Ciudad</option>
+                <option value="SERVICIO">###</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Actualizar</button>
+        </div>
+      </div>
     </div>
-    <!-- /.modal-dialog -->
-</div>
+  </div>
+
+  <!-- Modal confirma-->
+  <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar Registro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>¿Desea Eliminar el registro?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <a class="btn btn-primary btn-ok">Si</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script>
     /*$(document).ready(function() {
@@ -97,67 +157,67 @@
       listarPublicaciones();
     });
 */
-  $(document).ready(iniciar);
+$(document).ready(iniciar);
 
-  function iniciar(){
-    listarUnidades();
-  }
+function iniciar(){
+  listarUnidades();
+}
 
-  function listarUnidades() {
+function listarUnidades() {
 
-    $.ajax({
-      url: '<?php echo base_url('/ModuloPublicaciones/ConsultarUnidades');?>',
-      type: 'POST',
-      dataType: 'json',
-      success: function(data) {
+  $.ajax({
+    url: '<?php echo base_url('/ModuloPublicaciones/ConsultarUnidades');?>',
+    type: 'POST',
+    dataType: 'json',
+    success: function(data) {
+      
+      let listarUnidades="";
+      for (var i = 0; i < data.length; i++) {
         
-        let listarUnidades="";
-        for (var i = 0; i < data.length; i++) {
-          
-            listarUnidades+=
-          '<tr>' +
-            '<td class="id_publicacion">' + data[i].id + '</td>' +
-            '<td >' + data[i].nombre + '</td>' +
-            '<td >' + data[i].abreviatura + '</td>' +
-            '<td><button type="button" class="btn btn-info mr-2 toastrDefaultSuccess detalle "><i class="far fa-eye"></i></button><button type="button" class="btn btn-info toastrDefaultSuccess detalle"><i class="far fa-edit"></i></button></td>'+
-          '</tr>';
-        
-        }
-
-        $('#unidades').html(listarUnidades);
-
-        $('.detalle').click(consultarPublicacion);
-
+          listarUnidades+=
+        '<tr>' +
+          '<td class="id_publicacion">' + data[i].id + '</td>' +
+          '<td >' + data[i].nombre + '</td>' +
+          '<td >' + data[i].abreviatura + '</td>' +
+          '<td><button type="button" class="btn btn-info mr-2 toastrDefaultSuccess detalle "><i class="far fa-eye"></i></button><button type="button" class="btn btn-info toastrDefaultSuccess detalle"><i class="far fa-edit"></i></button></td>'+
+        '</tr>';
+      
       }
-    });
-    
-  }
 
-  function consultarPublicacion() {
+      $('#unidades').html(listarUnidades);
 
-    var id = $(this).parents("tr").find(".id_publicacion").text();
-    
-    //alert(id);
+      
 
-    $('#editar_modal').modal();
+    }
+  });
+  
+}
 
-    $.ajax({
-      url: '<?php echo base_url('/ModuloPublicaciones/ConsultaIndividual');?>',
-      type: 'POST',
-      dataType: 'json',
-      data: {id: id},
-    })
-    .done(function(data) {
-      console.log(data);
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
-    });
-    
+function consultarPublicacion() {
 
-  }
+  var id = $(this).parents("tr").find(".id_publicacion").text();
+  
+  //alert(id);
 
-  </script>
+  $('#editar_modal').modal();
+
+  $.ajax({
+    url: '<?php echo base_url('/ModuloPublicaciones/ConsultaIndividual');?>',
+    type: 'POST',
+    dataType: 'json',
+    data: {id: id},
+  })
+  .done(function(data) {
+    console.log(data);
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+  
+
+}
+
+</script>

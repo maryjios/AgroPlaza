@@ -1,3 +1,10 @@
+<?php
+if (!isset($_SESSION['tipo_usuario'])) {
+    header("Location: " . base_url());
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,6 +12,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PANEL ADMIN</title>
+  <link rel="icon" href="<?php echo base_url('public/dist/agroplaza.ico'); ?>" type="image/ico" />
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="<?php echo base_url('/public/dist/css/font.css'); ?>">
@@ -33,15 +41,15 @@
 <script src="<?php echo base_url('/public/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
 <script src="<?php echo base_url('/public/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
 <script src="<?php echo base_url('/public/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
-<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/dataTables.buttons.min.js')?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/dataTables.buttons.min.js') ?>"></script>
 <script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') ?>"></script>
-<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.html5.min.js')?>"></script>
+<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.html5.min.js') ?>"></script>
 <script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
 <script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
 
 <link rel="stylesheet" href="<?php echo base_url('/public/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css'); ?>">
   <!-- Toastr -->
-<link rel="stylesheet" href="<?php echo base_url('/public/plugins/toastr/toastr.min.css');?>">
+<link rel="stylesheet" href="<?php echo base_url('/public/plugins/toastr/toastr.min.css'); ?>">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -187,7 +195,9 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+              with font-awesome or any other icon font library -->
+
+            <?php if ($_SESSION['tipo_usuario'] == "ADMINISTRADOR") { ?>
 
             <li class="nav-item <?php echo (isset($modulo_selected) && $modulo_selected == 'Usuarios') ? 'menu-is-opening menu-open' : ''; ?> ">
               <a href="#" class="nav-link <?php echo (isset($modulo_selected) && $modulo_selected == 'Usuarios') ? 'active' : ''; ?> ">
@@ -213,13 +223,6 @@
                   </a>
                 </li>
 
-                <li class="nav-item">
-                  <a href="<?php echo base_url('/ModuloUsuarios/Permisos') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'Permisos') ? 'active' : ''; ?> ">
-                    <i class="nav-icon fas fa-circle "></i>
-                    <p>Permisos</p>
-                  </a>
-                </li>
-
               </ul>
             </li>
 
@@ -236,12 +239,16 @@
               </a>
               <ul class="nav nav-treeview">
 
+                <?php if ($_SESSION['tipo_usuario'] == "VENDEDOR" || $_SESSION['tipo_usuario'] == "VENDEDOR_ESPECIALISTA") { ?>
+
                 <li class="nav-item">
                   <a href="<?php echo base_url('/ModuloPublicaciones/CrearPublicacion') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'CrearPublicacion') ? 'active' : ''; ?> ">
                     <i class="nav-icon fas fa-circle"></i>
                     <p>Crear Publicacion</p>
                   </a>
                 </li>
+
+                <?php } ?>
 
                 <li class="nav-item">
                   <a href="<?php echo base_url('/ModuloPublicaciones/ListarPublicaciones') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'ListarPublicaciones') ? 'active' : ''; ?> ">
@@ -250,12 +257,16 @@
                   </a>
                 </li>
 
+                <?php if ($_SESSION['tipo_usuario'] == "ADMINISTRADOR") { ?>
+
                 <li class="nav-item">
                   <a href="<?php echo base_url('/ModuloPublicaciones/Unidades') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'Unidades') ? 'active' : ''; ?> ">
                     <i class="nav-icon fas fa-circle"></i>
                     <p>Unidades</p>
                   </a>
                 </li>
+
+                <?php } ?>
 
               </ul>
             </li>
@@ -279,7 +290,7 @@
                     <p>Pedidos</p>
                   </a>
                 </li>
-                
+
                 <li class="nav-item">
                   <a href="<?php echo base_url('/ModuloPedidos/HistorialPedidos') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'Historial') ? 'active' : ''; ?> ">
                     <i class="nav-icon fas fa-circle "></i>
