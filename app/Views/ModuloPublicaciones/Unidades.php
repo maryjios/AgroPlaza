@@ -13,13 +13,14 @@
                         </div>
                         <div>
 
-                            <a href="<?php echo base_url(); ?>/unidades/nuevo" class="btn btn-primary">Agregar</a>
+                            
                         </div>
 
 
 
                         <!-- /.card-header -->
                         <div class="card-body">
+                          <a href="<?php echo base_url(); ?>/unidades/nuevo" class="btn btn-primary">Agregar</a>
                             <table id="" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -27,8 +28,7 @@
                                         <th>Id</th>
                                         <th>Nombre</th>
                                         <th>Abreviatura</th>
-                                        <th>Opcion</th>
-                                        <th>Opcion</th>
+                                        <th>Accionnes</th>
                                     </tr>
                                 </thead>
                                 <tbody id="unidades">
