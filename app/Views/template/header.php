@@ -12,6 +12,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PANEL ADMIN</title>
+  <link rel="icon" href="<?php echo base_url('public/dist/agroplaza.ico'); ?>" type="image/ico" />
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="<?php echo base_url('/public/dist/css/font.css'); ?>">
@@ -174,7 +175,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="<?php echo base_url('Inicio'); ?>" class="brand-link">
-        <img src="<?php echo base_url('public/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="<?php echo base_url('public/dist/agroplaza.png') ?>" alt="AgroPlaza" class="brand-image img-circle elevation-3" style="opacity: .8; background-color: yellow;">
         <span class="brand-text font-weight-light"><?php echo $_SESSION['tipo_usuario']; ?></span>
       </a>
 
