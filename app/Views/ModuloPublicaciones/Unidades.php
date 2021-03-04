@@ -97,35 +97,67 @@
       listarPublicaciones();
     });
 */
-  $(document).ready(iniciar);
+$(document).ready(iniciar);
 
-  function iniciar(){
-    listarUnidades();
-  }
+function iniciar(){
+  listarUnidades();
+}
 
-  function listarUnidades() {
+function listarUnidades() {
 
-    $.ajax({
-      url: '<?php echo base_url('/ModuloPublicaciones/ConsultarUnidades');?>',
-      type: 'POST',
-      dataType: 'json',
-      success: function(data) {
+  $.ajax({
+    url: '<?php echo base_url('/ModuloPublicaciones/ConsultarUnidades');?>',
+    type: 'POST',
+    dataType: 'json',
+    success: function(data) {
+      
+      let listarUnidades="";
+      for (var i = 0; i < data.length; i++) {
         
-        let listarUnidades="";
-        for (var i = 0; i < data.length; i++) {
-          
-            listarUnidades+=
-          '<tr>' +
-            '<td class="id_publicacion">' + data[i].id + '</td>' +
-            '<td >' + data[i].nombre + '</td>' +
-            '<td >' + data[i].abreviatura + '</td>' +
-            '<td><button type="button" class="btn btn-info mr-2 toastrDefaultSuccess detalle "><i class="far fa-eye"></i></button><button type="button" class="btn btn-info toastrDefaultSuccess detalle"><i class="far fa-edit"></i></button></td>'+
-          '</tr>';
-        
-        }
+          listarUnidades+=
+        '<tr>' +
+          '<td class="id_publicacion">' + data[i].id + '</td>' +
+          '<td >' + data[i].nombre + '</td>' +
+          '<td >' + data[i].abreviatura + '</td>' +
+          '<td><button type="button" class="btn btn-info mr-2 toastrDefaultSuccess detalle "><i class="far fa-eye"></i></button><button type="button" class="btn btn-info toastrDefaultSuccess detalle"><i class="far fa-edit"></i></button></td>'+
+        '</tr>';
+      
+      }
 
-        $('#unidades').html(listarUnidades);
+      $('#unidades').html(listarUnidades);
 
-    
+      
 
-  </script>
+    }
+  });
+  
+}
+
+function consultarPublicacion() {
+
+  var id = $(this).parents("tr").find(".id_publicacion").text();
+  
+  //alert(id);
+
+  $('#editar_modal').modal();
+
+  $.ajax({
+    url: '<?php echo base_url('/ModuloPublicaciones/ConsultaIndividual');?>',
+    type: 'POST',
+    dataType: 'json',
+    data: {id: id},
+  })
+  .done(function(data) {
+    console.log(data);
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+  
+
+}
+
+</script>
