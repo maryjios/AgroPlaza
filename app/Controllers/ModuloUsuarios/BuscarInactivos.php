@@ -24,9 +24,20 @@ class BuscarInactivos extends BaseController {
 			echo json_encode('error');
 		
 		}
-		
+	}
+
+	public function buscarinactivoId(){
+		$usuarios = new UsuariosModel();
+		$id = $this->request->getPostGet('id');
+		$dato = $usuarios->where('id',$id)->find();
+
+		if ($dato) {
+			echo json_encode($dato);
+		   
+	   } else {
+		   echo json_encode('error');
 	   
-		
+	   }
 	}
   
 }

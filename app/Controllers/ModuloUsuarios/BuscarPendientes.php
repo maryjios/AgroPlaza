@@ -4,19 +4,19 @@ use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 use App\Models\UsuariosModel;
 
-class BuscarUsuarios extends BaseController {
+class BuscarPendientes extends BaseController {
 
 	public function index(){
 		$data['modulo_selected'] = "Usuarios";
-		$data['opcion_selected'] = "BuscarUsuarios";
+		$data['opcion_selected'] = "BuscarPendientes";
 
 		echo view('template/header', $data);
-		echo view('ModuloUsuarios/buscar_usuarios');
+		echo view('ModuloUsuarios/buscar_pendientes');
 		echo view('template/footer');
-	}
-    public function listarusuarios(){
+	}	
+	public function listarPendientes(){
 		$usuarios = new UsuariosModel();
-		$usuarios = $usuarios->select('*')->where('estado','ACTIVO')->findAll();
+		$usuarios = $usuarios->select('*')->where('estado','PENDIENTE')->findAll();
 		if ($usuarios) {
 			 echo json_encode($usuarios);
 			
@@ -25,10 +25,11 @@ class BuscarUsuarios extends BaseController {
 		
 		}
 	}
-	public function buscarporId(){
+
+	public function buscarinactivoId(){
 		$usuarios = new UsuariosModel();
 		$id = $this->request->getPostGet('id');
-		$dato = $usuarios->select('*')->where('id',$id)->first();
+		$dato = $usuarios->where('id',$id)->find();
 
 		if ($dato) {
 			echo json_encode($dato);
@@ -38,6 +39,5 @@ class BuscarUsuarios extends BaseController {
 	   
 	   }
 	}
-
+  
 }
-
