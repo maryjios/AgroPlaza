@@ -13,14 +13,14 @@
                         </div>
                         <div>
 
-                            
+
                         </div>
 
 
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                          <a href="<?php echo base_url(); ?>/unidades/nuevo" class="btn btn-primary">Agregar</a>
+                            <a href="<?php echo base_url(); ?>/unidades/nuevo" class="btn btn-primary">Agregar</a>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -45,96 +45,58 @@
 </div>
 <div class="modal fade" id="editar_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar publicación</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar unidad</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col">
+                        <input type="text" class="form-control form-control-border" id="id" placeholder="id">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <input type="text" class="form-control form-control-border" id="nombre" placeholder="nombre" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <textarea class="form-control" id="abreviatura" placeholder="abreviatura"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Actualizar</button>
+            </div>
         </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="form-group col">
-              <select class="custom-select form-control-border" id="tipo_publicacion">
-                <option value="PRODUCTO">Producto</option>
-                <option value="SERVICIO">Servicio</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col">
-              <input type="text" class="form-control form-control-border" id="titulo" placeholder="Titulo" required>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col">
-              <textarea class="form-control" id="descripcion" placeholder="Descripción"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col">
-              <img src="" alt="Publicacion">
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col">
-              <input type="number" class="form-control form-control-border" id="stock" placeholder="Stock" required>
-            </div>
-            <div class="form-group col">
-              <select class="custom-select form-control-border" id="tipo_publicacion">
-                <option value="PRODUCTO">Unidad</option>
-                <option value="SERVICIO">###</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col">
-              <input type="number" class="form-control form-control-border" id="precio" placeholder="Precio" required>
-            </div>
-            <div class="form-group col">
-              <input type="number" class="form-control form-control-border" id="precio_envio" placeholder="Precio de envio" required>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col">
-              <input type="number" class="form-control form-control-border" id="descuento" placeholder="Descuento" required>
-            </div>
-            <div class="form-group col">
-              <select class="custom-select form-control-border" id="tipo_publicacion">
-                <option value="PRODUCTO">Ciudad</option>
-                <option value="SERVICIO">###</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Actualizar</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
-  <!-- Modal confirma-->
-  <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal confirma-->
+<div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Eliminar Registro</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Registro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¿Desea Eliminar el registro?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <a class="btn btn-primary btn-ok">Si</a>
+            </div>
         </div>
-        <div class="modal-body">
-          <p>¿Desea Eliminar el registro?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary btn-ok">Si</a>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
 <script>
     /*$(document).ready(function() {
@@ -157,67 +119,101 @@
       listarPublicaciones();
     });
 */
-$(document).ready(iniciar);
+    $(document).ready(iniciar);
 
-function iniciar(){
-  listarUnidades();
-}
+    function iniciar() {
+        listarUnidades();
+    }
 
-function listarUnidades() {
+    function listarUnidades() {
 
-  $.ajax({
-    url: '<?php echo base_url('/ModuloPublicaciones/ConsultarUnidades');?>',
-    type: 'POST',
-    dataType: 'json',
-    success: function(data) {
-      
-      let listarUnidades="";
-      for (var i = 0; i < data.length; i++) {
-        
-          listarUnidades+=
-        '<tr>' +
-          '<td class="id_publicacion">' + data[i].id + '</td>' +
-          '<td >' + data[i].nombre + '</td>' +
-          '<td >' + data[i].abreviatura + '</td>' +
-          '<td><button type="button" class="btn btn-info mr-2 toastrDefaultSuccess detalle "><i class="far fa-eye"></i></button><button type="button" class="btn btn-info toastrDefaultSuccess detalle"><i class="far fa-edit"></i></button></td>'+
-        '</tr>';
-      
-      }
+        $.ajax({
+            url: '<?php echo base_url('/ModuloPublicaciones/ConsultarUnidades'); ?>',
+            type: 'POST',
+            dataType: 'json',
+            success: function(data) {
 
-      $('#unidades').html(listarUnidades);
+                let listarUnidades = "";
+                for (var i = 0; i < data.length; i++) {
 
-      
+                    listarUnidades +=
+                        '<tr>' +
+                        '<td class="id">' + data[i].id + '</td>' +
+                        '<td >' + data[i].nombre + '</td>' +
+                        '<td >' + data[i].abreviatura + '</td>' +
+                        '<td><button type="button" class="btn btn-info mr-2 toastrDefaultSuccess detalle "><i class="far fa-eye"></i></button><button type="button" class="btn btn-info toastrDefaultSuccess detalle"><i class="far fa-edit"></i></button></td>' +
+                        '</tr>';
+
+                }
+
+                $('#unidades').html(listarUnidades);
+
+                $('.editar').click(consultarUnidades);
+                $('.eliminar').click(eliminarUnidades);
+
+
+
+            }
+        });
 
     }
-  });
-  
-}
 
-function consultarPublicacion() {
+    function consultarUnidades() {
 
-  var id = $(this).parents("tr").find(".id_publicacion").text();
-  
-  //alert(id);
+        var id = $(this).parents("tr").find(".id").text();
 
-  $('#editar_modal').modal();
+        //alert(id);
 
-  $.ajax({
-    url: '<?php echo base_url('/ModuloPublicaciones/ConsultaIndividual');?>',
-    type: 'POST',
-    dataType: 'json',
-    data: {id: id},
-  })
-  .done(function(data) {
-    console.log(data);
-  })
-  .fail(function() {
-    console.log("error");
-  })
-  .always(function() {
-    console.log("complete");
-  });
-  
+        $('#editar_modal').modal();
 
-}
+        $.ajax({
+                url: '<?php echo base_url('/ModuloPublicaciones/ConsultarUno'); ?>',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    id: id
+                },
+            })
+            .done(function(data) {
+                console.log(data);
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                console.log("complete");
+            });
 
+
+    }
+
+    function eliminarUnidades() {
+
+        var id = $(this).parents("tr").find(".id").text();
+        alert(id)
+
+
+        $.ajax({
+                url: '<?php echo base_url('/ModuloPublicaciones/EliminarUni'); ?>',
+                type: 'POST',
+                dataType: 'text',
+                data: {
+                    id: id
+                },
+            })
+            .done(function(data) {
+
+                if (data == "Eliminado") {
+                    alert("se elimino")
+                }
+
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                console.log("complete");
+            });
+
+    }
 </script>

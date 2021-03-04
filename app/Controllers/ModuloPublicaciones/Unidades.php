@@ -27,7 +27,7 @@
         }
 
         public function consultarTodo()
-	{
+{
 		$unidades = new UnidadesModel();
 
 		$datos = $unidades->findAll();
@@ -38,6 +38,23 @@
 			echo json_encode("Error");
 		}
 	}
+
+    public function consultarId()
+	{
+		$unidades = new UnidadesModel();
+
+		$id = $this->request->getPostGet('id');
+		$datos = $unidades->where('id',$id)->find();
+
+		if ($datos) {
+			echo json_encode($datos);
+		}else{
+			echo json_encode("Error");
+		}
+	}
+
+
+    
 
 
     }

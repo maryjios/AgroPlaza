@@ -207,12 +207,9 @@
     .done(function(data) {
 
       for (var i = 0; i < data.length; i++) {
-        $('#titulo').val(data[i].titulo);
-        $('#descripcion').val(data[i].descripcion);
-        $('#stock').val(data[i].stock);
-        $('#precio').val(data[i].precio);
-        $('#precio_envio').val(data[i].precio_envio);
-        $('#descuento').val(data[i].descuento);
+        $('#nombre').val(data[i].nombre);
+        $('#abreviatura').val(data[i].abreviatura);
+       
       }
 
     })

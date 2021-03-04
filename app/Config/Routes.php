@@ -60,6 +60,7 @@ $routes->group('ModuloPublicaciones', ['namespace'=>'App\Controllers\ModuloPubli
     $routes->add('EliminarPublicacion', 'ListarPublicaciones::eliminarPublicacion');
     $routes->add('Unidades', 'Unidades::index');
     $routes->add('ConsultarUnidades', 'Unidades::consultarTodo');
+    $routes->add('ConsultarUno', 'Unidades::consultarUni');
     
   ;
 
