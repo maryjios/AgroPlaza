@@ -28,7 +28,7 @@
 
             <!-- /.card-header -->
             <div class="card-body">
-            <table id="" class="table table-bordered table-striped">
+            <table id="" class="table table-striped table-valign-middle">
                 <thead>
                   <tr>
                    
@@ -42,8 +42,7 @@
                     <th>Avatar</th>
                     <th>Tipo Usuario</th>
                     <th>Estado</th>
-                    <th>opcion</th>
-                    <th>opcion</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody id="tbodyusuarios">
@@ -108,7 +107,6 @@
           var listarusuarios="";
           
           for (var i = 0; i < data.length; i++) {
-            
             listarusuarios+='<tr>' +
             '<td>' + data[i].email + '</td>' +
 
@@ -121,10 +119,8 @@
             '<td>' + data[i].avatar + '</td>' +
             '<td>' + data[i].tipo_usuario + '</td>' +
             '<td><span class="btn btn-success td_estado">'+data[i].estado+'</span></td>'+
-            '<td><a href="" class="btn btn-primary" data-toggle="modal" data-target="#modal-default"><i class="far fa-eye"></i></a></td>'+
-            '<td><a  id="mod_estado" class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
+            '<td><a href="" class="btn btn-primary mr-2" data-toggle="modal" data-target="#modal-default"><i class="far fa-eye"></i></a><a  id="mod_estado" class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
             '</tr>';
-            
         }
           $("#tbodyusuarios").html(listarusuarios);
           $("#mod_estado").click(buscarporId);
@@ -137,7 +133,7 @@
       var $estado = $(this).parents("tr").find(".td_estado").text();
 
       $("#documento_edit").val($id);
-      $("#estado_edit").val($nombre);
+      $("#estado_edit").val($estado);
       
     }
 

@@ -1,8 +1,15 @@
 <<<<<<< HEAD
+<<<<<<< Updated upstream
 CRITICAL - 2021-03-02 09:59:47 --> Undefined index: tipo_usuario
 =======
 CRITICAL - 2021-03-02 10:59:14 --> Undefined index: tipo_usuario
 >>>>>>> c8d1353 (Configuracion de rutas y modulo pendientes..)
+=======
+CRITICAL - 2021-03-02 10:59:14 --> Undefined index: tipo_usuario
+=======
+CRITICAL - 2021-03-02 09:59:47 --> Undefined index: tipo_usuario
+>>>>>>> 90fc4869574b4fb6a297d1d13aa81d5abbb94754
+>>>>>>> Stashed changes
 #0 C:\xampp\htdocs\agroplaza\app\Views\template\header.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 171, Array)
 #1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
 #2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
@@ -13,6 +20,7 @@ CRITICAL - 2021-03-02 10:59:14 --> Undefined index: tipo_usuario
 #7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
 #8 {main}
 <<<<<<< HEAD
+<<<<<<< Updated upstream
 CRITICAL - 2021-03-02 20:36:25 --> Undefined index: tipo_usuario
 #0 C:\xampp\htdocs\agroplaza\app\Views\template\header.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 171, Array)
 #1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
@@ -25,6 +33,8 @@ CRITICAL - 2021-03-02 20:36:25 --> Undefined index: tipo_usuario
 #8 {main}
 CRITICAL - 2021-03-02 21:58:17 --> Unknown column 'estado_publicacion' in 'where clause'
 =======
+=======
+>>>>>>> Stashed changes
 CRITICAL - 2021-03-02 10:59:25 --> Unknown column 'estado_publicacion' in 'where clause'
 #0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT `Publica...')
 #1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Publica...')
@@ -120,6 +130,19 @@ CRITICAL - 2021-03-02 14:53:18 --> Unknown column 'estado_publicacion' in 'where
 #9 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2021-03-02 14:54:58 --> Unknown column 'estado_publicacion' in 'where clause'
+=======
+CRITICAL - 2021-03-02 20:36:25 --> Undefined index: tipo_usuario
+#0 C:\xampp\htdocs\agroplaza\app\Views\template\header.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 171, Array)
+#1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\ModuloPublicaciones\CrearPublicacion.php(13): view('template/header', Array)
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\ModuloPublicaciones\CrearPublicacion->index()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloPublicaciones\CrearPublicacion))
+#6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-02 21:58:17 --> Unknown column 'estado_publicacion' in 'where clause'
+>>>>>>> 90fc4869574b4fb6a297d1d13aa81d5abbb94754
 #0 C:\xampp\htdocs\agroplaza\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT `Publica...')
 #1 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Publica...')
 #2 C:\xampp\htdocs\agroplaza\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Publica...')
@@ -131,6 +154,7 @@ CRITICAL - 2021-03-02 14:54:58 --> Unknown column 'estado_publicacion' in 'where
 #8 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
 #10 {main}
+<<<<<<< HEAD
 CRITICAL - 2021-03-02 21:36:01 --> Undefined index: tipo_usuario
 #0 C:\xampp\htdocs\agroplaza\app\Views\template\header.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 171, Array)
 #1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
@@ -148,7 +172,19 @@ CRITICAL - 2021-03-02 21:58:19 --> Undefined index: tipo_usuario
 #3 C:\xampp\htdocs\agroplaza\app\Controllers\ModuloUsuarios\BuscarUsuarios.php(13): view('template/header', Array)
 #4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\ModuloUsuarios\BuscarUsuarios->index()
 #5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloUsuarios\BuscarUsuarios))
+<<<<<<< Updated upstream
 >>>>>>> c8d1353 (Configuracion de rutas y modulo pendientes..)
+=======
+=======
+CRITICAL - 2021-03-02 22:07:23 --> Undefined index: tipo_usuario
+#0 C:\xampp\htdocs\agroplaza\app\Views\template\header.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 171, Array)
+#1 C:\xampp\htdocs\agroplaza\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\agroplaza\system\Common.php(1119): CodeIgniter\View\View->render('template/header', Array, true)
+#3 C:\xampp\htdocs\agroplaza\app\Controllers\ModuloPublicaciones\CrearPublicacion.php(13): view('template/header', Array)
+#4 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(921): App\Controllers\ModuloPublicaciones\CrearPublicacion->index()
+#5 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(407): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ModuloPublicaciones\CrearPublicacion))
+>>>>>>> 90fc4869574b4fb6a297d1d13aa81d5abbb94754
+>>>>>>> Stashed changes
 #6 C:\xampp\htdocs\agroplaza\system\CodeIgniter.php(315): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #7 C:\xampp\htdocs\agroplaza\index.php(45): CodeIgniter\CodeIgniter->run()
 #8 {main}
