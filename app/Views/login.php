@@ -36,7 +36,7 @@ if (isset($_SESSION['tipo_usuario'])) {
 		<div class="card">
 			<div class="card-body login-card-body">
 
-				<img class="ml-5" src="<?php echo base_url('public/dist/img/logo.png') ?>" alt="" style="width:210px; height:210px;">
+				<img class="ml-5 mb-4" src="<?php echo base_url('public/dist/img/logo3.png') ?>" alt="">
 				<p class="login-box-msg">INICIAR SESION</p>
 
 				<form id="formulario_ingreso" action="#" method="post">
