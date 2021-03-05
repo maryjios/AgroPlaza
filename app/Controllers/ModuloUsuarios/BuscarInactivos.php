@@ -39,5 +39,20 @@ class BuscarInactivos extends BaseController {
 	   
 	   }
 	}
+
+	public function restaurarestado(){
+		$usuarios = new UsuariosModel();
+
+		$doc = $this->request->getPostGet('doc');
+		$data = $usuarios->update($doc,['estado'=>'ACTIVO']);
+
+		if ($data) {
+			$mensaje = "El usuario ha sido activado ";
+		}else{
+			$mensaje = "No se ha podido modificar el estado de usuario";
+		}
+
+		echo $mensaje;
+	}
   
 }

@@ -61,11 +61,11 @@
         <div class="modal-body">
            <div class="form-group">
              <label for="exampleInputEmail1">Documento</label>
-             <input type="email" class="form-control" id="documento_edit" name="documento_edit" value="" disabled="">
+             <input type="email" class="form-control" id="documento_edit" name="documento_edit"  disabled="">
            </div>
             <div class="form-group">
               <label>Estado</label>
-              <select class="form-control" name="estado_edit"  value="" id="estado_edit">
+              <select class="form-control" name="estado_edit"  id="estado_edit">
                 <option value="ACTIVO">Activo</option>
                 <option value="INACTIVO">Inactivo</option>
                 <option value="PENDIENTE">Pendiente</option>
@@ -74,7 +74,7 @@
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar cambios</button>
+          <button type="button" class="btn btn-primary act_cambios" data-dismiss="modal">Guardar cambios</button>
         </div>
       </div>
       <!-- /.modal-content -->
@@ -135,11 +135,31 @@
           $('#documento_edit').val(data[i].documento);
           $('#estado_edit').val(data[i].estado);
         }
-      
       })
       .fail(function() {
         console.log("error");
       });
+      $('.act_cambios').click(actualizarest);
       }
+
+      function actualizarest(){
+        var documento = $('#documento_edit').val();
+        var new_estado = $('#estado_edit').val();
+        $.ajax({
+          url: '<?php echo base_url('/ModuloUsuarios/Actuaestado');?>',
+          type: 'POST',
+          dataType:"text",
+          data:{ documento :documento,
+                 new_estado : new_estado}
+        }).done(function(data){
+        console.log(data);
+
+        }).fail(function() {
+        console.log("error al enviar los datos");
+
+      });
+      }
+
+
 
 </script>
