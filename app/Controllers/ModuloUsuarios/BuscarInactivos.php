@@ -26,13 +26,13 @@ class BuscarInactivos extends BaseController {
 		}
 	}
 
-	public function buscarinactivoId(){
+	public function buscarinacId(){
 		$usuarios = new UsuariosModel();
-		$id = $this->request->getPostGet('id');
-		$dato = $usuarios->where('id',$id)->find();
+		$docum = $this->request->getPostGet('docum');
+		$data = $usuarios->where('documento',$docum)->find();
 
-		if ($dato) {
-			echo json_encode($dato);
+		if ($data) {
+			echo json_encode($data);
 		   
 	   } else {
 		   echo json_encode('error');

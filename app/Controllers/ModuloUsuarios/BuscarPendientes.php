@@ -26,13 +26,13 @@ class BuscarPendientes extends BaseController {
 		}
 	}
 
-	public function buscarinactivoId(){
+	public function buscarpenId(){
 		$usuarios = new UsuariosModel();
-		$id = $this->request->getPostGet('id');
-		$dato = $usuarios->where('id',$id)->find();
+		$docPen = $this->request->getPostGet('docPen');
+		$data = $usuarios->where('documento',$docPen)->find();
 
-		if ($dato) {
-			echo json_encode($dato);
+		if ($data) {
+			echo json_encode($data);
 		   
 	   } else {
 		   echo json_encode('error');

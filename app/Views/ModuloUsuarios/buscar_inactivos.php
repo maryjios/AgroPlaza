@@ -13,7 +13,7 @@
               <h3 class="card-title">Lista de usuarios Inactivos</h3>
             </div>
             <div class="d-grid gap-2 d-md-flex mt-4 mr-4 justify-content-md-end">
-               
+              
                <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios')?>" class="btn btn-success mr-4">
                <i class="fas fa-lock-open"></i>
                Usuarios Activos</a>
@@ -28,14 +28,11 @@
             <table id="" class="table table-striped table-valign-middle">
                 <thead>
                   <tr>
-                   
+                    <th>Id</th>
                     <th>Email</th>
                     <th>Documento</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
-                    <th>Direccion</th>
-                    <th>Telefono</th>
-                    <th>Genero</th>
                     <th>Avatar</th>
                     <th>Tipo Usuario</th>
                     <th>Estado</th>
@@ -43,7 +40,6 @@
                   </tr>
                 </thead>
                 <tbody id="tbodyusuarios">
-                
                 </tbody>
               </table>
             </div>
@@ -54,7 +50,7 @@
     </div><!-- /.container-fluid -->
   </div><!-- /.content-header -->
 </div>
-<div class="modal fade " id="modal-default">
+<div class="modal fade " id="mod_inactivos">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -70,15 +66,15 @@
            </div>
             <div class="form-group">
               <label>Estado</label>
-              <select class="form-control" name="estado_edit">
-                <option value="Activo">Activo</option>
-                <option value="Inactivo">Inactivo</option>
-                <option value="Pendiente">Pendiente</option>
+              <select class="form-control" name="estado_edit" >
+              <option value="INACTIVO">Inactivo</option>
+                <option value="ACTIVO">Activo</option>
+                <option value="PENDIENTE">Pendiente</option>
               </select>
             </div>
         </div>
         <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar cambios</button>
         </div>
       </div>
@@ -106,31 +102,46 @@ function listarinactivos() {
        for (var i = 0; i < data.length; i++) {
          
          listarinactivos+='<tr>' +
+         '<td>' + data[i].id + '</td>' +
          '<td>' + data[i].email + '</td>' +
-         '<td>' + data[i].documento + '<input type="hidden" value="'+data[i].id+'"class="id"> </td>' +
+         '<td class="doc_in">' + data[i].documento + '</td>' +
          '<td>' + data[i].nombres + '</td>' +
          '<td>' + data[i].apellidos + '</td>' +
-         '<td>' + data[i].direccion + '</td>' +
-         '<td>' + data[i].telefono + '</td>' +
-         '<td>' + data[i].genero + '</td>' +
          '<td>' + data[i].avatar + '</td>' +
          '<td>' + data[i].tipo_usuario + '</td>' +
          '<td><span class="btn btn-danger ">'+data[i].estado+'</span></td>'+
-         '<td><a href="" class="btn btn-primary mr-2" data-toggle="modal" data-target="#modal-default"><i class="far fa-eye"></i></a><a  class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
+         '<td><button type="button" class="btn btn-primary mr-2 mod_edit"><i class="far fa-eye"></i></button><a  class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
          '</tr>';
-         if(data[i].estado=='ACTIVO'){
-          $(".td_estado").css("background","green")
-
-         }else{
-          $(".td_estado").css("background","red")
-         }
+       
      }
       $("#tbodyusuarios").html(listarinactivos);
+      $(".mod_edit").click(buscarinacId);
     }   
   });
-
 }
+function buscarinacId(){
+      var docum = $(this).parents("tr").find(".doc_in").text();
+      $('#mod_inactivos').modal();
 
+
+      $.ajax({
+        url: '<?php echo base_url('/ModuloUsuarios/BuscarInacId');?>',
+        type: 'POST',
+        dataType:"json",
+        data:{docum : docum}
+
+      }).done(function(data) {
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        $('#documento_edit').val(data[i].documento);
+        $('#estado_edit').val(data[i].estado);
+      }
+     
+    })
+    .fail(function() {
+      console.log("error");
+    });
+    }
 
 
 

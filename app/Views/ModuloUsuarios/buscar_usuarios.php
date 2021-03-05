@@ -12,20 +12,14 @@
             <div class="card-header">
               <h3 class="card-title">Lista de usuarios activos</h3>
             </div>
-              <div class="d-grid d-md-flex mt-4 mr-4 ml-2 justify-content-md-end">
-                           
+              <div class="d-grid d-md-flex mt-4 mr-4 ml-2 justify-content-md-end">      
                   <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos')?>" class="btn btn-danger mr-4">
                   <i class="fas fa-user-lock"></i>
                   Usuarios Inactivos</a>
                   <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes')?>" class="btn btn-warning mr-4">
                   <i class="fas fa-user-clock"></i>
                   Usuarios Pendientes</a>
-                  
-                
                </div> 
-              
-  
-
             <!-- /.card-header -->
             <div class="card-body">
             <table id="" class="table table-striped table-valign-middle">
@@ -43,7 +37,7 @@
                   </tr>
                 </thead>
                 <tbody id="tbodyusuarios">
-                
+
                 </tbody>
               </table>
             </div>
@@ -54,6 +48,7 @@
     </div><!-- /.container-fluid -->
   </div><!-- /.content-header -->
 </div>
+
 <div class="modal fade " id="mod_editar">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -86,8 +81,8 @@
     </div>
     <!-- /.modal-dialog -->
   </div>
-<script>
 
+<script>
     $(document).ready(iniciar);
     function iniciar(){
       listarusuarios();
@@ -122,29 +117,29 @@
       });
     }
 
-    function buscarporId(){
-      var doc = $(this).parents("tr").find(".doc").text();
-      $('#mod_editar').modal();
-      // var $estado = $(this).parents("tr").find(".td_estado").text();
-      // alert(doc);
+      function buscarporId(){
+        var doc = $(this).parents("tr").find(".doc").text();
+        $('#mod_editar').modal();
+        // var $estado = $(this).parents("tr").find(".td_estado").text();
+        // alert(doc);
 
-      $.ajax({
-        url: '<?php echo base_url('/ModuloUsuarios/BuscarusuId');?>',
-        type: 'POST',
-        dataType:"json",
-        data:{doc : doc}
+        $.ajax({
+          url: '<?php echo base_url('/ModuloUsuarios/BuscarusuId');?>',
+          type: 'POST',
+          dataType:"json",
+          data:{doc : doc}
 
-      }).done(function(data) {
-      console.log(data);
-      for (var i = 0; i < data.length; i++) {
-        $('#documento_edit').val(data[i].documento);
-        $('#estado_edit').val(data[i].estado);
+        }).done(function(data) {
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          $('#documento_edit').val(data[i].documento);
+          $('#estado_edit').val(data[i].estado);
+        }
+      
+      })
+      .fail(function() {
+        console.log("error");
+      });
       }
-     
-    })
-    .fail(function() {
-      console.log("error");
-    });
-    }
 
 </script>
