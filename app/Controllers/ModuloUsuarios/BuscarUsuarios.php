@@ -27,11 +27,11 @@ class BuscarUsuarios extends BaseController {
 	}
 	public function buscarporId(){
 		$usuarios = new UsuariosModel();
-		$id = $this->request->getPostGet('id');
-		$dato = $usuarios->select('*')->where('id',$id)->find();
+		$doc = $this->request->getPostGet('doc');
+		$data = $usuarios->where('documento',$doc)->find();
 
-		if ($dato) {
-			echo json_encode($dato);
+		if ($data) {
+			echo json_encode($data);
 		   
 	   } else {
 		   echo json_encode('error');

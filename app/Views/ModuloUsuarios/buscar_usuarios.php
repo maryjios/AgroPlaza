@@ -31,14 +31,11 @@
             <table id="" class="table table-striped table-valign-middle">
                 <thead>
                   <tr>
-                   
+                    <th>Id</th>
                     <th>Email</th>
                     <th>Documento</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
-                    <th>Direccion</th>
-                    <th>Telefono</th>
-                    <th>Genero</th>
                     <th>Avatar</th>
                     <th>Tipo Usuario</th>
                     <th>Estado</th>
@@ -57,7 +54,7 @@
     </div><!-- /.container-fluid -->
   </div><!-- /.content-header -->
 </div>
-<div class="modal fade " id="modal-default">
+<div class="modal fade " id="mod_editar">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -69,14 +66,14 @@
         <div class="modal-body">
            <div class="form-group">
              <label for="exampleInputEmail1">Documento</label>
-             <input type="email" class="form-control" id="documento_edit" name="documento_edit" disabled="">
+             <input type="email" class="form-control" id="documento_edit" name="documento_edit" value="" disabled="">
            </div>
             <div class="form-group">
               <label>Estado</label>
-              <select class="form-control" name="estado_edit" id="estado_edit">
-                <option value="Activo">Activo</option>
-                <option value="Inactivo">Inactivo</option>
-                <option value="Pendiente">Pendiente</option>
+              <select class="form-control" name="estado_edit"  value="" id="estado_edit">
+                <option value="ACTIVO">Activo</option>
+                <option value="INACTIVO">Inactivo</option>
+                <option value="PENDIENTE">Pendiente</option>
               </select>
             </div>
         </div>
@@ -108,33 +105,46 @@
           
           for (var i = 0; i < data.length; i++) {
             listarusuarios+='<tr>' +
+            '<td>' + data[i].id + '</td>' +
             '<td>' + data[i].email + '</td>' +
-
-            '<td >' + data[i].documento + '<input type="hidden" id="id_us" value="'+data[i].id+'"class="id"> </td>' +
+            '<td class="doc">' + data[i].documento + '</td>' +
             '<td>' + data[i].nombres + '</td>' +
             '<td>' + data[i].apellidos + '</td>' +
-            '<td>' + data[i].direccion + '</td>' +
-            '<td>' + data[i].telefono + '</td>' +
-            '<td>' + data[i].genero + '</td>' +
             '<td>' + data[i].avatar + '</td>' +
             '<td>' + data[i].tipo_usuario + '</td>' +
             '<td><span class="btn btn-success td_estado">'+data[i].estado+'</span></td>'+
-            '<td><a href="" class="btn btn-primary mr-2" data-toggle="modal" data-target="#modal-default"><i class="far fa-eye"></i></a><a  id="mod_estado" class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
+            '<td><button  type="button" class="btn btn-primary mr-2 mod_estado"><i class="far fa-eye"></i></button><a class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
             '</tr>';
         }
           $("#tbodyusuarios").html(listarusuarios);
-          $("#mod_estado").click(buscarporId);
+          $(".mod_estado").click(buscarporId);
         }   
       });
     }
 
     function buscarporId(){
-      var $id = $(this).parents("tr").find("#id_us").val();
-      var $estado = $(this).parents("tr").find(".td_estado").text();
+      var doc = $(this).parents("tr").find(".doc").text();
+      $('#mod_editar').modal();
+      // var $estado = $(this).parents("tr").find(".td_estado").text();
+      // alert(doc);
 
-      $("#documento_edit").val($id);
-      $("#estado_edit").val($estado);
-      
+      $.ajax({
+        url: '<?php echo base_url('/ModuloUsuarios/BuscarusuId');?>',
+        type: 'POST',
+        dataType:"json",
+        data:{doc : doc}
+
+      }).done(function(data) {
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        $('#documento_edit').val(data[i].documento);
+        $('#estado_edit').val(data[i].estado);
+      }
+     
+    })
+    .fail(function() {
+      console.log("error");
+    });
     }
 
 </script>
