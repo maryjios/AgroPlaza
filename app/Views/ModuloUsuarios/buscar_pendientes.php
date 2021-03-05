@@ -139,7 +139,7 @@ function buscarpenId(){
         $('#documento_edit').val(data[i].documento);
         $('#estado_edit').val(data[i].estado);
       }
-     
+      $('.')
     })
     .fail(function() {
       console.log("error");
