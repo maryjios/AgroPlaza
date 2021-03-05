@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION['tipo_usuario'])) {
-    header("Location: " . base_url());
-    die();
+  header("Location: " . base_url());
+  die();
 }
 ?>
 
@@ -32,24 +32,26 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <link rel="stylesheet" href="<?php echo base_url('public/plugins/daterangepicker/daterangepicker.css') ?>">
   <!-- summernote -->
   <link rel="stylesheet" href="<?php echo base_url('public/plugins/summernote/summernote-bs4.min.css') ?>">
-
+  <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard_theme_arrows.min.css" rel="stylesheet" type="text/css" />
   <!-- jQuery -->
   <script src="<?php echo base_url('/public/plugins/jquery/jquery.min.js'); ?>"></script>
 
   <!-- Datatables -->
-<script src="<?php echo base_url('/public/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
-<script src="<?php echo base_url('/public/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
-<script src="<?php echo base_url('/public/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
-<script src="<?php echo base_url('/public/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
-<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/dataTables.buttons.min.js') ?>"></script>
-<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') ?>"></script>
-<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.html5.min.js') ?>"></script>
-<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
-<script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
+  <script src="<?php echo base_url('/public/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+  <script src="<?php echo base_url('/public/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+  <script src="<?php echo base_url('/public/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
+  <script src="<?php echo base_url('/public/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
+  <script src="<?php echo base_url('/public/plugins/datatables-buttons/js/dataTables.buttons.min.js') ?>"></script>
+  <script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') ?>"></script>
+  <script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.html5.min.js') ?>"></script>
+  <script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
+  <script src="<?php echo base_url('/public/plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
 
-<link rel="stylesheet" href="<?php echo base_url('/public/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css'); ?>">
+
+  <link rel="stylesheet" href="<?php echo base_url('/public/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css'); ?>">
   <!-- Toastr -->
-<link rel="stylesheet" href="<?php echo base_url('/public/plugins/toastr/toastr.min.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('/public/plugins/toastr/toastr.min.css'); ?>">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -176,7 +178,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
       <!-- Brand Logo -->
       <a href="<?php echo base_url('Inicio'); ?>" class="brand-link">
         <img src="<?php echo base_url('public/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light"><?php echo ($_SESSION['tipo_usuario'] == "VENDEDOR_ESPECIALISTA")? "ESPECIALISTA" : $_SESSION['tipo_usuario']; ?></span>
+        <span class="brand-text font-weight-light"><?php echo ($_SESSION['tipo_usuario'] == "VENDEDOR_ESPECIALISTA") ? "ESPECIALISTA" : $_SESSION['tipo_usuario']; ?></span>
       </a>
 
       <!-- Sidebar -->
@@ -199,32 +201,32 @@ if (!isset($_SESSION['tipo_usuario'])) {
 
             <?php if ($_SESSION['tipo_usuario'] == "ADMINISTRADOR") { ?>
 
-            <li class="nav-item <?php echo (isset($modulo_selected) && $modulo_selected == 'Usuarios') ? 'menu-is-opening menu-open' : ''; ?> ">
-              <a href="#" class="nav-link <?php echo (isset($modulo_selected) && $modulo_selected == 'Usuarios') ? 'active' : ''; ?> ">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                  Usuarios
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview  ">
+              <li class="nav-item <?php echo (isset($modulo_selected) && $modulo_selected == 'Usuarios') ? 'menu-is-opening menu-open' : ''; ?> ">
+                <a href="#" class="nav-link <?php echo (isset($modulo_selected) && $modulo_selected == 'Usuarios') ? 'active' : ''; ?> ">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    Usuarios
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview  ">
 
-                <li class="nav-item">
-                  <a href="<?php echo base_url('/ModuloUsuarios/RegistrarAdmin') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'RegistrarAdministrador') ? 'active' : ''; ?> ">
-                    <i class="nav-icon fas fa-user-plus fa-xs"></i>
-                    <p>Registrar Administrador</p>
-                  </a>
-                </li>
+                  <li class="nav-item">
+                    <a href="<?php echo base_url('/ModuloUsuarios/RegistrarAdmin') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'RegistrarAdministrador') ? 'active' : ''; ?> ">
+                      <i class="nav-icon fas fa-user-plus fa-xs"></i>
+                      <p>Registrar Administrador</p>
+                    </a>
+                  </li>
 
-                <li class="nav-item">
-                  <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'BuscarUsuarios') ? 'active' : ''; ?> ">
-                    <i class="nav-icon fas fa-circle "></i>
-                    <p>Buscar Usuarios</p>
-                  </a>
-                </li>
+                  <li class="nav-item">
+                    <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'BuscarUsuarios') ? 'active' : ''; ?> ">
+                      <i class="nav-icon fas fa-circle "></i>
+                      <p>Buscar Usuarios</p>
+                    </a>
+                  </li>
 
-              </ul>
-            </li>
+                </ul>
+              </li>
 
             <?php } ?>
 
@@ -243,12 +245,12 @@ if (!isset($_SESSION['tipo_usuario'])) {
 
                 <?php if ($_SESSION['tipo_usuario'] == "VENDEDOR" || $_SESSION['tipo_usuario'] == "VENDEDOR_ESPECIALISTA") { ?>
 
-                <li class="nav-item">
-                  <a href="<?php echo base_url('/ModuloPublicaciones/CrearPublicacion') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'CrearPublicacion') ? 'active' : ''; ?> ">
-                    <i class="nav-icon fas fa-circle"></i>
-                    <p>Crear Publicacion</p>
-                  </a>
-                </li>
+                  <li class="nav-item">
+                    <a href="<?php echo base_url('/ModuloPublicaciones/CrearPublicacion') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'CrearPublicacion') ? 'active' : ''; ?> ">
+                      <i class="nav-icon fas fa-circle"></i>
+                      <p>Crear Publicacion</p>
+                    </a>
+                  </li>
 
                 <?php } ?>
 
@@ -261,12 +263,12 @@ if (!isset($_SESSION['tipo_usuario'])) {
 
                 <?php if ($_SESSION['tipo_usuario'] == "ADMINISTRADOR") { ?>
 
-                <li class="nav-item">
-                  <a href="<?php echo base_url('/ModuloPublicaciones/Unidades') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'Unidades') ? 'active' : ''; ?> ">
-                    <i class="nav-icon fas fa-circle"></i>
-                    <p>Unidades</p>
-                  </a>
-                </li>
+                  <li class="nav-item">
+                    <a href="<?php echo base_url('/ModuloPublicaciones/Unidades') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'Unidades') ? 'active' : ''; ?> ">
+                      <i class="nav-icon fas fa-circle"></i>
+                      <p>Unidades</p>
+                    </a>
+                  </li>
 
                 <?php } ?>
 
