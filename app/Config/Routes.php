@@ -1,13 +1,14 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
-{
-	require SYSTEMPATH . 'Config/Routes.php';
+if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
+    require SYSTEMPATH . 'Config/Routes.php';
 }
 
 /**
@@ -36,7 +37,7 @@ $routes->get('/Registrar', 'Inicio::RegistrarVendedor');
 $routes->get('/InsertarVendedor', 'Inicio::InsertarVendedor');
 
 // Rutas para el modulo de GestionUsuarios
-$routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios'],function($routes){
+$routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios'], function ($routes) {
     $routes->add('RegistrarAdmin', 'RegistrarUsuario::registrarAdmin');
     $routes->add('InsertarAdmin', 'RegistrarUsuario::insertar');
     $routes->add('InsertarMovil', 'RegistrarUsuario::insertarMovil');
@@ -46,7 +47,7 @@ $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios']
     $routes->add('BuscarusuId', 'BuscarUsuarios::buscarporId');
     $routes->add('Actuaestado', 'BuscarUsuarios::actualizarest');
     $routes->add('DesactivarUs', 'BuscarUsuarios::desacusuario');
-    
+
     $routes->add('BuscarInactivos', 'BuscarInactivos::index');
     $routes->add('MostrarInactivos', 'BuscarInactivos::listarinactivos');
     $routes->add('BuscarInacId', 'BuscarInactivos::buscarinacId');
@@ -62,7 +63,8 @@ $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios']
     $routes->add('VerperfilUsuario', 'PerfilUsuario::detalleperfil');
 });
 
-$routes->group('ModuloPublicaciones', ['namespace'=>'App\Controllers\ModuloPublicaciones'],function($routes){
+$routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPublicaciones'], function ($routes) {
+    $routes->add('InsertarPublicacion', 'CrearPublicacion::insertar');
     $routes->add('ListarPublicaciones', 'ListarPublicaciones::index');
     $routes->add('ConsultarPublicaciones', 'ListarPublicaciones::consultarTodo');
     $routes->add('ConsultaIndividual', 'ListarPublicaciones::consultarId');
@@ -70,14 +72,10 @@ $routes->group('ModuloPublicaciones', ['namespace'=>'App\Controllers\ModuloPubli
     $routes->add('EliminarPublicacion', 'ListarPublicaciones::eliminarPublicacion');
     $routes->add('Unidades', 'Unidades::index');
     $routes->add('ConsultarUnidades', 'Unidades::consultarTodo');
-    $routes->add('ConsultarUno', 'Unidades::consultarUni');
-    
-  ;
-
-
+    $routes->add('ConsultarUno', 'Unidades::consultarUni');;
 });
 
-$routes->group('ModuloPedidos', ['namespace'=>'App\Controllers\ModuloPedidos'],function($routes){
+$routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos'], function ($routes) {
     $routes->add('Pedidos', 'Pedidos::index');
     $routes->add('HistorialPedidos', 'Pedidos::historial');
 });
@@ -96,7 +94,6 @@ $routes->group('ModuloPedidos', ['namespace'=>'App\Controllers\ModuloPedidos'],f
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
-{
-	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
+    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

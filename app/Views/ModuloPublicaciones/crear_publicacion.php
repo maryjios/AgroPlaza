@@ -6,217 +6,142 @@
       <div class="row mb-2">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">
-                <i class="fas fa-plus"></i>
+            <div class="card-header bg-light">
+              <p class="card-title text-secondary font-weight-bold pr-2">
+                <i class="fas fa-plus mr-1"></i>
                 Crear Publicación
-              </h3>
+              <p class="text-secondary font-weight-bold small mt-1"> (todos los campos son obligatorios)</p>
+              </p>
             </div>
             <div class="card-body">
-              <input type="hidden" id="tipoUser" value="<?php echo $_SESSION['tipo_usuario']; ?>">
-              <form action="" method="post">
+              <form enctype="multipart/form-data" method="post" id="registrar_publicacion">
+                <input type="hidden" id="tipoUser" name="tipoUser" value="<?php echo $_SESSION['tipo_usuario']; ?>">
+                <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $_SESSION['id']; ?>">
 
-                <div id="smartwizard">
-                  <ul>
-                    <?php if ($_SESSION['tipo_usuario'] == 'VENDEDOR_ESPECIALISTA') { ?>
-                      <li><a href="#comenzar">Comenezar<br /><small>¿Que quieres vender?</small></a></li>
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="float-right text-secondary">Nombre del producto :</p>
+                  </div>
+                  <div class="col-md-9"> <input type="text" name="titulo" id="titulo" class="form-control" required> </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="float-right">Descripción del Producto :</p>
+                  </div>
+                  <div class="col-md-9"> <input type="text" name="descripcion" id="descripcion" class="form-control" required> </div>
+                </div>
+                <br>
+                <?php if ($_SESSION['tipo_usuario'] == "VENDEDOR_ESPECIALISTA") { ?>
 
-                    <?php } ?>
-                    <li><a href="#step-1">Paso 1<br /><small>Describe tu producto</small></a></li>
-                    <li><a href="#step-2">Paso 2<br /><small>Ingresa un precio y cantidad</small></a></li>
-                    <li><a href="#step-3">Paso 3<br /><small>Asignale beneficios y/o promociones</small></a></li>
-                    <li><a href="#step-4">Step 4<br /><small>Sube las fotos del producto</small></a></li>
-                  </ul>
-                  <div class="mt-4">
-
-                    <?php if ($_SESSION['tipo_usuario'] == 'VENDEDOR_ESPECIALISTA') { ?>
-                      <div id="comenzar">
-
-                        <div class="container">
-                          <div class="container" align="center">
-                            <input type="radio" value="productos" name="tipo_de_producto" id="productos">
-                            <label for="productos" class="labelRadio">
-                              <i class="fa fa-box" aria-hidden="true"></i>
-                              <span>Productos</span>
-                            </label>
-                            <input type="radio" value="servicios" name="tipo_de_producto" id="servicios">
-                            <label for="servicios" class="labelRadio">
-                              <i class="fa fa-user-tie" aria-hidden="true"></i>
-                              <span>Servicios</span>
-                            </label>
-                          </div>
-                          <div class="mt-3 mb-3" align="center">
-                            <a href="#step-1" class="btn btn-success btnContinuar">Continuar</a>
-                          </div>
-                        </div>
-                      </div>
-
-                    <?php }  ?>
-
-                    <div id="step-1">
-                      <div class="justify-content-center mb-3" align="center">
-                        <div class="col-md-6">
-                          <input type="text" class="form-control" name="titulo" placeholder="Titulo" required>
-                        </div>
-                      </div>
-
-                      <div class="justify-content-center mb-3" align="center">
-                        <div class="col-md-6">
-                          <textarea name="descripcion" placeholder="Descripcion" class="form-control" rows="4"></textarea>
-                        </div>
-                      </div>
-
-
+                  <div class="row">
+                    <div class="col-md-3">
+                      <p class="float-right">Tipo de Publicación :</p>
                     </div>
-                    <div id="step-2">
-                      <div class="justify-content-center mb-3" align="center">
-                        <div class="col-md-6">
-                          <input type="nomber" name="precio" id="" placeholder="precio">
-                        </div>
-                      </div>
-                      <div class="justify-content-center mb-3" align="center">
-                        <div class="col-md-6">
-                          <input type="nomber" name="stock" id="" placeholder="stock">
-                        </div>
-                      </div>
-
-                      <div class="justify-content-center mb-3" align="center">
-                        <div class="col-md-6">
-                          <select name="unidad" id="">
-                            <?php foreach ($unidades as $unidad) { ?>
-                              <option value="<?php echo $unidad['id'] ?>"><?php echo $unidad['nombre'] ?></option>
-                            <?php } ?>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="step-3" class="">
-                      <div class="justify-content-center mb-3" align="center">
-                        <div class="col-md-6">
-                          <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
-                            <label class="custom-control-label" for="customSwitch1">Ofrecer Envio </label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="justify-content-center mb-3" align="center">
-                        <div class="col-md-3">
-                          <input type="number" class="form-control" placeholder="Descuento %">
-                        </div>
-                      </div>
-                    </div>
-                    <div id="step-4" class="">
-                      <div class="justify-content-center mb-3" align="center">
-                        <div class="col-md-6">
-                          <input id="fileupload" type="file" multiple="multiple" />
-                          <hr />
-                          <b>Vista Previa</b>
-                          <br />
-                          <br />
-                          <div id="dvPreview">
-                          </div>
-                        </div>
-                      </div>
+                    <div class="col-md-9">
+                      <select name="tipo_publicacion" id="tipo_producto" class="form-control">
+                        <option disabled selected value="producto">Seleccione un tipo</option>
+                        <option value="producto">Producto</option>
+                        <option value="servicio">Servicio</option>
+                      </select>
                     </div>
                   </div>
-              </form>
+                  <br>
+                <?php } ?>
 
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="float-right">Stock :</p>
+                  </div>
+                  <div class="col-md-9"> <input type="number" name="stock" id="stock" class="form-scontrol" required> </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="float-right">Unidad :</p>
+                  </div>
+                  <div class="col-md-9">
+                    <select name="unidad" id="unidad" class="form-control">
+                      <option disabled selected value="producto" aria-readonly="true">Seleccione unidad</option>
+                      <?php foreach ($unidades as $unidad) { ?>
+                        <option value=" <?php echo $unidad['id'] ?>"><?php echo $unidad['nombre'] ?></option>
+                      <?php }  ?>
+
+                    </select>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="float-right">Precio:</p>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="input-group mb-3">
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <span class="fas fa-dollar-sign"></span>
+                        </div>
+                      </div>
+                      <input type="text" class="form-control" id="precio" name="precio" id="precio">
+
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="float-right">Descuento :</p>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="input-group mb-3">
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <span class="fas fa-percent"></span>
+                        </div>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Opcional" name="descuento" id="descuento">
+
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="float-right">Ofrecer envio :</p>
+                  </div>
+                  <div class="col-md-9">
+                    <!-- Checked switch -->
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" name="precio_envio" class="custom-control-input" id="customSwitches">
+                      <label class="custom-control-label" for="customSwitches"></label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="col-md-12" align="center">
+
+                  <input id="fotos" type="file" name="fotos[]" multiple="multiple" accept="image/*" />
+                  <hr />
+                  <b>Vista Previa</b>
+                  <br />
+                  <br />
+                  <div id="dvPreview">
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-success">Publicar</button>
+              </form>
             </div>
-          </div>
+            <!-- /.card -->
+          </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div><!-- /.content-header -->
   </div>
 </div>
 
-<style>
-  input[type="radio"] {
-    -webkit-appearance: none;
-  }
-
-  .labelRadio {
-    height: 180px;
-    width: 240px;
-    border: 6px solid #18f98d;
-    margin: auto;
-    border-radius: 10px;
-    position: relative;
-    color: #18f98d;
-    transition: 0.5s;
-  }
-
-  .fa {
-    font-size: 80px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -80%);
-  }
-
-  .labelRadio>span {
-    font-size: 25px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 80%);
-  }
-
-  input[type="radio"]:checked+.labelRadio {
-    background-color: #18f98d;
-    color: #ffffff;
-    box-shadow: 0 15px 45px rgb(24, 249, 141, 0.2);
-  }
-
-  .form-control:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0rem rgba(0, 123, 255, .25)
-  }
-
-  .btn-secondary:focus {
-    box-shadow: 0 0 0 0rem rgba(108, 117, 125, .5)
-  }
-
-  .close:focus {
-    box-shadow: 0 0 0 0rem rgba(108, 117, 125, .5)
-  }
-
-  .mt-200 {
-    margin-top: 200px
-  }
-</style>
-
-
-
-<script>
-  $(document).ready(function() {
-
-    $('#smartwizard').smartWizard({
-      selected: 0,
-      theme: 'arrows',
-      autoAdjustHeight: true,
-      transitionEffect: 'fade',
-      showStepURLhash: false,
-      lang: { // Language variables for button
-        next: 'Siguiente',
-        previous: 'Atras'
-      }
-
-    });
-
-
-  });
-</script>
-
 <script language="javascript" type="text/javascript">
   $(function() {
-    $("#fileupload").change(function() {
+    $("#fotos").change(function() {
       if (typeof(FileReader) != "undefined") {
         var dvPreview = $("#dvPreview");
         dvPreview.html("");
@@ -226,8 +151,8 @@
           if (regex.test(file[0].name.toLowerCase())) {
             var reader = new FileReader();
             reader.onload = function(e) {
-              var img = $("<img class='mr-3' />");
-              img.attr("style", "height:200px;width: 200px");
+              var img = $("<img />");
+              img.attr("style", "height:100px;width: 100px");
               img.attr("src", e.target.result);
               dvPreview.append(img);
             }
@@ -243,4 +168,75 @@
       }
     });
   });
+</script>
+
+<script>
+  $(document).ready(iniciar);
+
+  function iniciar() {
+
+    $("#registrar_publicacion").submit(formRegistrarPublicacion);
+
+  }
+
+
+  function formRegistrarPublicacion(e) {
+    e.preventDefault();
+
+    titulo = $("#titulo").val();
+    descripcion = $("#descripcion").val();
+    precio = $("#precio").val();
+
+
+    if (titulo != "" && descripcion != "" && precio != "") {
+
+      var datos_formulario = new FormData($('#registrar_publicacion')[0]);
+
+      $.ajax({
+          url: '<?php echo base_url('/ModuloPublicaciones/InsertarPublicacion'); ?>',
+          type: "POST",
+          dataType: "text",
+          data: datos_formulario,
+          contentType: false,
+          processData: false
+        })
+        .done(function(data) {
+
+          console.log(data);
+          if (data == "OK#CORRECTO") {
+
+            alert("PUBLICACION INSETADA CORRECTAMENTE");
+
+            $("#titulo").val('');
+            $("#descripcion").val('');
+            $("#stock").val('');
+            $("#precio").val('');
+            $("#precio_envio").val('');
+            $("#fotos").val('');
+            $("#unidad").val('');
+            $("#descuento").val('');
+            $("#dvPreview").html('');
+
+
+
+          } else if (data == "OK#INVALID#DATA") {
+
+            alert("OCURRIO UN ERROR AL INSERTAR LA PUBLICACION");
+
+          } else {
+
+            alert(data);
+
+          }
+        })
+        .fail(function(data) {
+          alert("error en el proceso");
+          console.log(data);
+        });
+    } else {
+
+      alert('todos los campos son oblicatorios')
+    }
+
+  }
 </script>
