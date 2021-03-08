@@ -44,16 +44,22 @@ $routes->group('ModuloUsuarios', ['namespace'=>'App\Controllers\ModuloUsuarios']
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
     $routes->add('MostrarUsuarios', 'BuscarUsuarios::listarusuarios');
     $routes->add('BuscarusuId', 'BuscarUsuarios::buscarporId');
+    $routes->add('Actuaestado', 'BuscarUsuarios::actualizarest');
+    $routes->add('DesactivarUs', 'BuscarUsuarios::desacusuario');
     
     $routes->add('BuscarInactivos', 'BuscarInactivos::index');
     $routes->add('MostrarInactivos', 'BuscarInactivos::listarinactivos');
     $routes->add('BuscarInacId', 'BuscarInactivos::buscarinacId');
+    $routes->add('ActualizarInac', 'BuscarInactivos::actualizarinac');
+    $routes->add('RestaurarUsu', 'BuscarInactivos::restaurarestado');
 
     $routes->add('BuscarPendientes', 'BuscarPendientes::index');
     $routes->add('MostrarPendientes', 'BuscarPendientes::listarpendientes');
     $routes->add('BuscarPenId', 'BuscarPendientes::buscarpenId');
+    $routes->add('ActualizarPen', 'BuscarPendientes::actualizarpen');
 
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
+    $routes->add('VerperfilUsuario', 'PerfilUsuario::detalleperfil');
 });
 
 $routes->group('ModuloPublicaciones', ['namespace'=>'App\Controllers\ModuloPublicaciones'],function($routes){

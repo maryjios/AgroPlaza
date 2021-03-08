@@ -110,12 +110,13 @@ function listarinactivos() {
          '<td>' + data[i].avatar + '</td>' +
          '<td>' + data[i].tipo_usuario + '</td>' +
          '<td><span class="btn btn-danger ">'+data[i].estado+'</span></td>'+
-         '<td><button type="button" class="btn btn-primary mr-2 mod_edit"><i class="far fa-eye"></i></button><a  class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
+         '<td><button type="button" class="btn btn-primary mr-2 mod_edit"><i class="far fa-eye"></i></button><button type="button" class="btn btn-success toastrDefaultSuccess activar"><i class="fas fa-trash-restore"></i></button></td>'+
          '</tr>';
        
      }
       $("#tbodyusuarios").html(listarinactivos);
       $(".mod_edit").click(buscarinacId);
+      $(".activar").click(restaurarestado);
     }   
   });
 }
@@ -136,12 +137,32 @@ function buscarinacId(){
         $('#documento_edit').val(data[i].documento);
         $('#estado_edit').val(data[i].estado);
       }
-     
     })
     .fail(function() {
       console.log("error");
     });
     }
+
+
+
+    function restaurarestado(){
+
+      var doc = $(this).parents("tr").find(".doc_in").text();
+      alert(doc);
+      $.ajax({
+        url: '<?php echo base_url('/ModuloUsuarios/RestaurarUsu');?>',
+        type: 'POST',
+        dataType:"text",
+        data:{doc : doc}
+
+      }).done(function(data) {
+        alert('El usuario ha sido Restaurado al estado de Activo');
+    }).fail(function() {
+      console.log("error al enviar ");
+    });
+    }
+
+
 
 
 

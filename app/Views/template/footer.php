@@ -1,16 +1,16 @@
 <footer class="main-footer">
-    <strong>Copyright &copy;<?php echo date('Y'); ?> <a href="<?php echo base_url('Inicio/cerrarSession'); ?>">AgroPlaza</a>.</strong>
-    Privacidad &amp Politica son reservadas
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 1.2 <b>ADSI</b>
-    </div>
-  </footer>
+  <strong>Copyright &copy;<?php echo date('Y'); ?> <a href="<?php echo base_url('Inicio/cerrarSession'); ?>">AgroPlaza</a>.</strong>
+  Privacidad &amp Politica son reservadas
+  <div class="float-right d-none d-sm-inline-block">
+    <b>Version</b> 1.2 <b>ADSI</b>
+  </div>
+</footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -46,9 +46,13 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url('/public/dist/js/pages/dashboard.js'); ?>"></script>
 
-<script src="<?php echo base_url('/public/plugins/toastr/toastr.min.js');?>"></script>
-<script src="<?php echo base_url('/public/plugins/sweetalert2/sweetalert2.min.js');?>"></script>
-</script>
-</body>
-</html>
+<script src="<?php echo base_url('/public/plugins/toastr/toastr.min.js'); ?>"></script>
+<script src="<?php echo base_url('/public/plugins/sweetalert2/sweetalert2.min.js'); ?>"></script>
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/jquery.smartWizard.min.js"></script>
+
+
+
+</body>
+
+</html>

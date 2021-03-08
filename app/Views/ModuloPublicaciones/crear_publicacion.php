@@ -5,7 +5,6 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-12">
-
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">
@@ -14,92 +13,122 @@
               </h3>
             </div>
             <div class="card-body">
-              <h4>Completa los datos</h4>
-              <div class="row">
-                <div class="col-5 col-sm-3">
+              <input type="hidden" id="tipoUser" value="<?php echo $_SESSION['tipo_usuario']; ?>">
+              <form action="" method="post">
 
-                  <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+                <div id="smartwizard">
+                  <ul>
                     <?php if ($_SESSION['tipo_usuario'] == 'VENDEDOR_ESPECIALISTA') { ?>
-
-                      <a class="nav-link active" id="vert-tabs-home-tab-vendedor-especialista" data-toggle="pill" href="#vert-tabs-home-vendedor-especialista" role="tab" aria-controls="vert-tabs-home-vendedor-especialista" aria-selected="true">Elige el tipo de Producto</a>
-
-                    <?php } else { ?>
-
-                      <a class="nav-link active" id="vert-tabs-home-tab-vendedor" data-toggle="pill" href="#vert-tabs-home-vendedor" role="tab" disabled="true" aria-readonly="true" aria-controls="vert-tabs-home-vendedor" aria-selected="true">Empezar</a>
+                      <li><a href="#comenzar">Comenezar<br /><small>¿Que quieres vender?</small></a></li>
 
                     <?php } ?>
+                    <li><a href="#step-1">Paso 1<br /><small>Describe tu producto</small></a></li>
+                    <li><a href="#step-2">Paso 2<br /><small>Ingresa un precio y cantidad</small></a></li>
+                    <li><a href="#step-3">Paso 3<br /><small>Asignale beneficios y/o promociones</small></a></li>
+                    <li><a href="#step-4">Step 4<br /><small>Sube las fotos del producto</small></a></li>
+                  </ul>
+                  <div class="mt-4">
 
-                    <a class="nav-link disabled" id="btncontentDescribirProducto" data-toggle="pill" href="#contentDescribirProducto" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Describe tu producto</a>
-
-                    <a class="nav-link disabled" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Describe tu producto</a>
-                    <a class="nav-link disabled" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Precio y Otros Detalles</a>
-                    <a class="nav-link disabled" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings" role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Carga tus imagenes</a>
-                  </div>
-                </div>
-                <div class="col-7 col-sm-9">
-                  <div class="tab-content" id="vert-tabs-tabContent">
                     <?php if ($_SESSION['tipo_usuario'] == 'VENDEDOR_ESPECIALISTA') { ?>
+                      <div id="comenzar">
 
-                      <div class="tab-pane text-left fade active show" id="vert-tabs-home-vendedor-especialista" role="tabpanel" aria-labelledby="vert-tabs-home-tab-vendedor-especialista">
-                        <div class="container" align="center">
-
-                          <input type="radio" value="productos" name="tipo_de_producto" id="productos">
-                          <label for="productos" class="labelRadio">
-                            <i class="fa fa-box" aria-hidden="true"></i>
-                            <span>Productos</span>
-                          </label>
-                          <input type="radio" value="servicios" name="tipo_de_producto" id="servicios">
-                          <label for="servicios">
-                            <i class="fa fa-user-tie" aria-hidden="true"></i>
-                            <span>Servicios</span>
-                          </label>
+                        <div class="container">
+                          <div class="container" align="center">
+                            <input type="radio" value="productos" name="tipo_de_producto" id="productos">
+                            <label for="productos" class="labelRadio">
+                              <i class="fa fa-box" aria-hidden="true"></i>
+                              <span>Productos</span>
+                            </label>
+                            <input type="radio" value="servicios" name="tipo_de_producto" id="servicios">
+                            <label for="servicios" class="labelRadio">
+                              <i class="fa fa-user-tie" aria-hidden="true"></i>
+                              <span>Servicios</span>
+                            </label>
+                          </div>
+                          <div class="mt-3 mb-3" align="center">
+                            <a href="#step-1" class="btn btn-success btnContinuar">Continuar</a>
+                          </div>
                         </div>
-                        <br>
-                        <a class="btn btn-success float-right btnContinuar disabled">Continuar</a>
                       </div>
 
-                    <?php } else { ?>
+                    <?php }  ?>
 
-                      <div class="tab-pane text-left fade active show contentInicioVendedor" id="vert-tabs-home-vendedor" role="tabpanel" aria-labelledby="vert-tabs-home-tab-vendedor">
-                        <div>
-                          <h6 class="text-success">HOLA, RECUERDA QUE PARA PUBLICAR UN PRODUCTO DEBES CARGAR MINIMO 1 FOTO DE LO QUE QUIERES VENDER, ESTA LISTO PARA EMPEZAR PRESIONA EL BOTON CONTINUAR! </h6>
+                    <div id="step-1">
+                      <div class="justify-content-center mb-3" align="center">
+                        <div class="col-md-6">
+                          <input type="text" class="form-control" name="titulo" placeholder="Titulo" required>
                         </div>
-                        <br><button type="button" class="btn btn-success btnContinuar float-right mt-5">Continuar</button>
+                      </div>
+
+                      <div class="justify-content-center mb-3" align="center">
+                        <div class="col-md-6">
+                          <textarea name="descripcion" placeholder="Descripcion" class="form-control" rows="4"></textarea>
+                        </div>
                       </div>
 
 
-                    <?php } ?>
-
-                    <div class="tab-pane fade describir_producto" align="center" id="contentDescribirProducto" role="tabpanel" aria-labelledby="btncontentDescribirProducto">
-
-                      <div class="row col-6 justify-content-center text-center mb-2">
-                        <label for="titulo">Titulo del Producto</label>
-                        <input type="text" class="form-control" placeholder="Agrega un titulo a tu producto">
+                    </div>
+                    <div id="step-2">
+                      <div class="justify-content-center mb-3" align="center">
+                        <div class="col-md-6">
+                          <input type="nomber" name="precio" id="" placeholder="precio">
+                        </div>
+                      </div>
+                      <div class="justify-content-center mb-3" align="center">
+                        <div class="col-md-6">
+                          <input type="nomber" name="stock" id="" placeholder="stock">
+                        </div>
                       </div>
 
-                      <div class="row col-6 justify-content-center text-center mb-2">
-                        <label for="titulo">Descripcion</label>
-                        <textarea name="descripcion" class="form-control" id="" cols="30" rows="4"></textarea>
+                      <div class="justify-content-center mb-3" align="center">
+                        <div class="col-md-6">
+                          <select name="unidad" id="">
+                            <?php foreach ($unidades as $unidad) { ?>
+                              <option value="<?php echo $unidad['id'] ?>"><?php echo $unidad['nombre'] ?></option>
+                            <?php } ?>
+                          </select>
+                        </div>
                       </div>
                     </div>
 
+                    <div id="step-3" class="">
+                      <div class="justify-content-center mb-3" align="center">
+                        <div class="col-md-6">
+                          <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+                            <label class="custom-control-label" for="customSwitch1">Ofrecer Envio </label>
+                          </div>
+                        </div>
+                      </div>
 
-                    <div class="tab-pane fade" id="vert-tabs-messages" role="tabpanel" aria-labelledby="vert-tabs-messages-tab">
-                      Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
+                      <div class="justify-content-center mb-3" align="center">
+                        <div class="col-md-3">
+                          <input type="number" class="form-control" placeholder="Descuento %">
+                        </div>
+                      </div>
                     </div>
-                    <div class="tab-pane fade" id="vert-tabs-settings" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
-                      Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
+                    <div id="step-4" class="">
+                      <div class="justify-content-center mb-3" align="center">
+                        <div class="col-md-6">
+                          <input id="fileupload" type="file" multiple="multiple" />
+                          <hr />
+                          <b>Vista Previa</b>
+                          <br />
+                          <br />
+                          <div id="dvPreview">
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+              </form>
+
             </div>
           </div>
-          <!-- /.card -->
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-  </div><!-- /.content-header -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div><!-- /.content-header -->
+  </div>
 </div>
 
 <style>
@@ -136,55 +165,82 @@
     transform: translate(-50%, 80%);
   }
 
-  input[type="radio"]:checked+label {
+  input[type="radio"]:checked+.labelRadio {
     background-color: #18f98d;
     color: #ffffff;
     box-shadow: 0 15px 45px rgb(24, 249, 141, 0.2);
+  }
+
+  .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0rem rgba(0, 123, 255, .25)
+  }
+
+  .btn-secondary:focus {
+    box-shadow: 0 0 0 0rem rgba(108, 117, 125, .5)
+  }
+
+  .close:focus {
+    box-shadow: 0 0 0 0rem rgba(108, 117, 125, .5)
+  }
+
+  .mt-200 {
+    margin-top: 200px
   }
 </style>
 
 
 
 <script>
-  $(document).ready(iniciar);
+  $(document).ready(function() {
 
-  function iniciar() {
-    $("input[name='tipo_de_producto']").on('click', HabilitarBotones1);
-    $('.btnContinuar').on('click', SiguentePaso);
+    $('#smartwizard').smartWizard({
+      selected: 0,
+      theme: 'arrows',
+      autoAdjustHeight: true,
+      transitionEffect: 'fade',
+      showStepURLhash: false,
+      lang: { // Language variables for button
+        next: 'Siguiente',
+        previous: 'Atras'
+      }
 
-
-  }
-
-  function HabilitarBotones1() {
-
-    valor_seleccionado = $("input[name='tipo_de_producto']:checked").val();
-
-    if (valor_seleccionado != undefined) {
-
-      $(".btnContinuar1").removeClass("disabled")
-
-    } else {
+    });
 
 
-      $(".btnContinuar1").addClass("disabled")
+  });
+</script>
 
-
-    }
-  }
-
-  function SiguentePaso() {
-    alert("as")
-    $('#vert-tabs-home-tab-vendedor').removeClass('active')
-    $('.contentInicioVendedor').removeClass('active')
-    $('.contentInicioVendedor').removeClass('show')
-
-
-
-    $('#btncontentDescribirProducto').removeClass("disabled")
-    $('#btncontentDescribirProducto').addClass('active')
-    $('.describir_producto').addClass('active')
-    $('.describir_producto').addClass('show')
-
-
-  }
+<script language="javascript" type="text/javascript">
+  $(function() {
+    $("#fileupload").change(function() {
+      if (typeof(FileReader) != "undefined") {
+        var dvPreview = $("#dvPreview");
+        dvPreview.html("");
+        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+        $($(this)[0].files).each(function() {
+          var file = $(this);
+          if (regex.test(file[0].name.toLowerCase())) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+              var img = $("<img class='mr-3' />");
+              img.attr("style", "height:200px;width: 200px");
+              img.attr("src", e.target.result);
+              dvPreview.append(img);
+            }
+            reader.readAsDataURL(file[0]);
+          } else {
+            alert(file[0].name + " is not a valid image file.");
+            dvPreview.html("");
+            return false;
+          }
+        });
+      } else {
+        alert("This browser does not support HTML5 FileReader.");
+      }
+    });
+  });
 </script>
