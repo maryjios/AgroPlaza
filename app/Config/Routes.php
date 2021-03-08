@@ -62,6 +62,11 @@ $routes->group('ModuloPublicaciones', ['namespace'=>'App\Controllers\ModuloPubli
     $routes->add('ConsultaIndividual', 'ListarPublicaciones::consultarId');
     $routes->add('ConsultaDetalle', 'ListarPublicaciones::detallePublicacion');
     $routes->add('EliminarPublicacion', 'ListarPublicaciones::eliminarPublicacion');
+
+    $routes->add('PublicacionesInactivas', 'ListarPublicacionesInactivas::index');
+    $routes->add('ConsultarPublicacionesInactivas', 'ListarPublicacionesInactivas::consultarTodo');
+    $routes->add('ActivarPublicacion', 'ListarPublicacionesInactivas::activarPublicacion');
+
     $routes->add('Unidades', 'Unidades::index');
     $routes->add('ConsultarUnidades', 'Unidades::consultarTodo');
     $routes->add('ConsultarUno', 'Unidades::consultarUni');
