@@ -177,7 +177,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
     <aside class="main-sidebar sidebar-dark-success elevation-4">
       <!-- Brand Logo -->
       <a href="<?php echo base_url('Inicio'); ?>" class="brand-link">
-        <img src="<?php echo base_url('public/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="<?php echo base_url('public/dist/agroplaza.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8; background-color: white;">
         <span class="brand-text font-weight-light"><?php echo ($_SESSION['tipo_usuario'] == "VENDEDOR_ESPECIALISTA") ? "ESPECIALISTA" : $_SESSION['tipo_usuario']; ?></span>
       </a>
 
