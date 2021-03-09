@@ -65,7 +65,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group col">
-                        <textarea class="form-control" id="abreviatura" placeholder="abreviatura"></textarea>
+                        <input type="text" class="form-control form-control-border" id="abreviatura" placeholder="abreviatura" required>
                     </div>
                 </div>
             </div>
@@ -141,14 +141,14 @@
                         '<td class="id">' + data[i].id + '</td>' +
                         '<td >' + data[i].nombre + '</td>' +
                         '<td >' + data[i].abreviatura + '</td>' +
-                        '<td><button type="button" class="btn btn-info mr-2 toastrDefaultSuccess detalle "><i class="far fa-eye"></i></button><button type="button" class="btn btn-info toastrDefaultSuccess detalle"><i class="far fa-edit"></i></button></td>' +
+                        '<td><button  type="button" class="btn btn-success mr-2 mod_edit"><i class="far fa-eye"></i></button><a class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
                         '</tr>';
 
                 }
 
                 $('#unidades').html(listarUnidades);
 
-                $('.editar').click(consultarUnidades);
+                $('.mod_edit').click(consultarUnidades);
                 $('.eliminar').click(eliminarUnidades);
 
 
@@ -162,7 +162,6 @@
 
         var id = $(this).parents("tr").find(".id").text();
 
-        //alert(id);
 
         $('#editar_modal').modal();
 
@@ -175,7 +174,15 @@
                 },
             })
             .done(function(data) {
-                console.log(data);
+
+                for (var i = 0; i < data.length; i++) {
+                    $('#id').val(data[i].id);
+                    $('#nombre').val(data[i].nombre);
+                    $('#abreviatura').val(data[i].abreviatura);
+                    
+
+                }
+
             })
             .fail(function() {
                 console.log("error");
@@ -183,7 +190,6 @@
             .always(function() {
                 console.log("complete");
             });
-
 
     }
 

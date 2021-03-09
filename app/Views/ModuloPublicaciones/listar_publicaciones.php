@@ -177,7 +177,7 @@
             '<td >' + data[i].nombre_usuario +' '+data[i].apellido_usuario + '</td>' +
             '<td >' + data[i].fecha_insert + '</td>' +
             '<td >' + data[i].estado_publicacion + '</td>' +
-            '<td><button type="button" class="btn btn-info mr-2 toastrDefaultSuccess editar "><i class="far fa-edit"></i></button><a type="button" href="<?php echo base_url('ModuloPublicaciones/ConsultaDetalle') ?>" class="btn btn-success mr-2 toastrDefaultSuccess detalle"><i class="far fa-eye"></i></a><button type="button" class="btn btn-danger toastrDefaultSuccess eliminar"><i class="far fa-trash-alt"></i></button></td>'+
+            '<td><button type="button" class="btn btn-success mr-2 toastrDefaultSuccess editar "><i class="far fa-edit"></i></button><a type="button" href="<?php echo base_url('ModuloPublicaciones/ConsultaDetalle') ?>" class="btn btn-success mr-2 toastrDefaultSuccess detalle"><i class="far fa-eye"></i></a><button type="button" class="btn btn-success toastrDefaultSuccess eliminar"><i class="far fa-trash-alt"></i></button></td>'+
           '</tr>';
         
         }
