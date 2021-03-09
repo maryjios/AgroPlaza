@@ -107,7 +107,7 @@
                                     <div class="input-group mb-3">
 
                                         <select name="departamento" id="departamento" class="form-control mr-3  ">
-                                            <option value="0">Seleccione Departamento</option>
+                                            <option value="">Seleccione Departamento</option>
 
                                             <?php
 
@@ -121,7 +121,7 @@
 
 
                                         <select name="ciudad" id="ciudad" class="form-control">
-                                            <option value="0">Seleccione Ciudad</option>
+                                            <option value="">Seleccione Ciudad</option>
                                         </select>
                                     </div>
 
@@ -354,7 +354,6 @@
             ciudad = $("#ciudad").val();
             password = $("#password").val();
             certificado = $("#certificado").val();
-
 
 
             if (documento != "" && nombres != "" && apellidos != "" && email != "" && direccion != "" && genero != "" && ciudad != "" && password != "") {
