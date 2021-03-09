@@ -42,7 +42,6 @@ class BuscarInactivos extends BaseController {
 
 	public function restaurarestado(){
 		$usuarios = new UsuariosModel();
-
 		$doc = $this->request->getPostGet('doc');
 		$data = $usuarios->update($doc,['estado'=>'ACTIVO']);
 

@@ -14,11 +14,11 @@
             </div>
             <div class="d-grid gap-2 d-md-flex mt-4 mr-4 justify-content-md-end">
               
-               <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios')?>" class="btn btn-success mr-4">
+               <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios')?>" class="btn btn-app bg-success mr-4">
                <i class="fas fa-lock-open"></i>
                Usuarios Activos</a>
 
-               <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes')?>" class="btn btn-warning mr-4">
+               <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes')?>" class="btn btn-app bg-warning mr-4">
                <i class="fas fa-user-clock"></i>
                 Usuarios Pendientes</a>
             </div> 
@@ -82,6 +82,29 @@
     </div>
     <!-- /.modal-dialog -->
   </div>
+
+   <!-- Modal -->
+   <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog modal-dialog-centered" role="document">
+             <div class="modal-content sm">
+               <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Retaurar Usuario</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+               <div class="modal-body">
+                  <p>¿Desea Restaurar este Usuario?</p>
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-ligth" data-dismiss="modal">Cancelar</button>
+                 <a class="btn btn-primary btn-ok" data-dismiss="modal">Si</a>
+               </div>
+             </div>
+           </div>
+         </div>
+
+
 <script>
 
 $(document).ready(iniciar);
@@ -110,7 +133,7 @@ function listarinactivos() {
          '<td>' + data[i].avatar + '</td>' +
          '<td>' + data[i].tipo_usuario + '</td>' +
          '<td><span class="btn btn-danger ">'+data[i].estado+'</span></td>'+
-         '<td><button type="button" class="btn btn-primary mr-2 mod_edit"><i class="far fa-eye"></i></button><button type="button" class="btn btn-success toastrDefaultSuccess activar"><i class="fas fa-trash-restore"></i></button></td>'+
+         '<td><button type="button" class="btn btn-primary mr-2 mod_edit"><i class="far fa-eye"></i></button><button type="button" class="btn btn-success toastrDefaultSuccess activar" data-toggle="modal"  data-target="#modal-confirma"  data-placement="top" class="btn btn-danger"><i class="fas fa-trash-restore"></i></button></td>'+
          '</tr>';
        
      }
@@ -156,7 +179,7 @@ function buscarinacId(){
         data:{doc : doc}
 
       }).done(function(data) {
-        alert('El usuario ha sido Restaurado al estado de Activo');
+        console.log(data);
     }).fail(function() {
       console.log("error al enviar ");
     });

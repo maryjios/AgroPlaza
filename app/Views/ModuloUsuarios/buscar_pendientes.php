@@ -14,10 +14,11 @@
             </div>
             <div class="d-grid gap-2 d-md-flex mt-4 mr-4 justify-content-md-end">
                
-               <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios')?>" class="btn btn-success mr-4">
+               <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios')?>" class="btn btn-app bg-success mr-4">
                <i class="fas fa-lock-open"></i>
                Usuarios Activos</a>
-               <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos')?>" class="btn btn-danger mr-4">
+
+               <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos')?>" class="btn btn-app bg-danger mr-4">
                <i class="fas fa-user-lock"></i>
                 Usuarios Inactivos</a>
                

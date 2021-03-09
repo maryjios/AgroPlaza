@@ -13,10 +13,10 @@
               <h3 class="card-title">Lista de usuarios activos</h3>
             </div>
               <div class="d-grid d-md-flex mt-4 mr-4 ml-2 justify-content-md-end">      
-                  <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos')?>" class="btn btn-danger mr-4">
+                  <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos')?>" class="btn btn-app bg-danger mr-4">
                   <i class="fas fa-user-lock"></i>
                   Usuarios Inactivos</a>
-                  <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes')?>" class="btn btn-warning mr-4">
+                  <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes')?>" class="btn btn-app bg-warning mr-4">
                   <i class="fas fa-user-clock"></i>
                   Usuarios Pendientes</a>
                </div> 
@@ -145,6 +145,7 @@
       function actualizarest(){
         var documento = $('#documento_edit').val();
         var new_estado = $('#estado_edit').val();
+        
         $.ajax({
           url: '<?php echo base_url('/ModuloUsuarios/Actuaestado');?>',
           type: 'POST',

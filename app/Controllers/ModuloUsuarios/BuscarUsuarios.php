@@ -43,8 +43,7 @@ class BuscarUsuarios extends BaseController {
 		// $documento = $this->request->getPostGet('documento');
 		// $new_estado = $this->request->getPostGet('new_estado');
 
-		$data = $usuarios->update($this->request->getPost('documento'),['estado'=> $this->request->getPostGet('new_estado')]);
-
+		$data = $usuarios->update($this->request->getPostGet('documento'),['estado'=> $this->request->getPostGet('new_estado')]);
 		if ($data) {
 			$mensaje ='EL USUARIO ESTA ACTUALIZADO';
 		}else{
