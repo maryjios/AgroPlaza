@@ -57,7 +57,7 @@
     {
         $unidades = new UnidadesModel();
 
-        $datos = $unidades->update($this->request->getPostGet('documento'),['estado'=> $this->request->getPostGet('new_estado')]);
+        $datos = $unidades->update($this->request->getPostGet('id'),['nombre'=> $this->request->getPostGet('nombre')]);
 		if ($datos) {
 			$mensaje ='La unidad ah sido actualizada ';
 		}else{
