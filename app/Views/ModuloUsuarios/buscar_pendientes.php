@@ -25,7 +25,7 @@
 
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="" class="table table-striped table-valign-middle">
+              <table id="" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>Id</th>
@@ -73,7 +73,7 @@
             <input type="email" class="form-control" id="email_us" name="email_us" disabled>
           </div>
         </div>
-         <div class="form-group row md-2">
+        <div class="form-group row md-2">
           <div class="form-group col-4">
             <label for="exampleInputEmail1">Nombres</label>
             <input type="text" class="form-control" id="nombre_us" name="nombre_us" disabled>
@@ -82,13 +82,13 @@
             <label for="exampleInputEmail1">Apellidos</label>
             <input type="email" class="form-control" id="apellido_us" name="eapellido_us" disabled>
           </div>
-           <div class="form-group col-4">
+          <div class="form-group col-4">
             <label for="exampleInputEmail1">Genero</label>
             <input type="email" class="form-control" id="genero_us" name="genero_us" disabled>
           </div>
         </div>
 
-         <div class="form-group row md-2">
+        <div class="form-group row md-2">
           <div class="form-group col-4">
             <label for="exampleInputEmail1">Tipo Usuario</label>
             <input type="text" class="form-control" id="tipo_usuario" name="tipo_usuario" disabled>
@@ -185,7 +185,7 @@
           $('#ciudad_us').val(data[i].id_ciudad);
           $('#fecha_reg').val(data[i].fecha_insert);
         }
-        
+
       })
       .fail(function() {
         console.log("error");
@@ -210,7 +210,18 @@
     }).done(function(data) {
 
       if (data == "USUARIO#ACTUALIZADO") {
-        window.location = '<?php echo base_url('/ModuloUsuarios/BuscarPendientes'); ?>';
+
+        Swal.fire({
+          text: "Se ha modificado el estado del Usuario",
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+
+        }).then((result) => {
+
+          window.location = '<?php echo base_url('/ModuloUsuarios/BuscarPendientes'); ?>';
+        })
+
       } else {
         alert('no funciona');
       }

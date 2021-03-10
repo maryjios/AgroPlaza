@@ -24,7 +24,7 @@
 
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="" class="table table-striped table-valign-middle">
+              <table id="" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>Id</th>
@@ -182,7 +182,16 @@
 
     }).done(function(data) {
       if (data == "OK#UPDATE") {
-        window.location = '<?php echo base_url('/ModuloUsuarios/BuscarUsuarios'); ?>';
+        Swal.fire({
+          text: "Se ha modificado el estado del Usuario",
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+
+        }).then((result) => {
+
+          window.location = '<?php echo base_url('/ModuloUsuarios/BuscarUsuarios'); ?>';
+        })
       } else {
         alert('no funciona');
       }
