@@ -49,31 +49,36 @@
 </div>
 
 <div class="modal fade " id="mod_editar">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Editar Datos Usuarios</h4>
+      <div class="modal-header ">
+        <h4 class="modal-title "><b>Datos Nuevo Usuario</b></h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Documento</label>
-          <input type="email" class="form-control" id="documento_edit" name="documento_edit" disabled="">
+
+        <div class="form-group row md-2">
+          <div class="form-group col-6">
+            <label for="exampleInputEmail1">Documento</label>
+            <input type="text" class="form-control" id="documento_us" name="documento_us" disabled>
+          </div>
+          <div class="form-group col-6">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" id="email_us" name="email_us" disabled>
+          </div>
         </div>
         <div class="form-group">
           <label>Estado</label>
-          <select class="form-control" name="estado_edit" >
-            <option selected>Seleccione el nuevo estado</option>
-            <option value="INACTIVO">Inactivo</option>
-            <option value="PENDIENTE">Pendiente</option>
+          <input type="text" class="form-control" id="estado_us" name="estado_us" disabled>
+
           </select>
         </div>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary act_cambios" data-dismiss="modal">Guardar cambios</button>
+        <button type="button" class="btn btn-primary admitir" data-dismiss="modal">Guardar cambios</button>
       </div>
     </div>
     <!-- /.modal-content -->
@@ -95,27 +100,27 @@
       type: 'POST',
       dataType: "json",
       success: function(data) {
-             
+
         var listarusuarios = "";
         if (data != 'error') {
-        for (var i = 0; i < data.length; i++) {
-          listarusuarios += '<tr>' +
-            '<td class="id">' + data[i].id + '</td>' +
-            '<td>' + data[i].email + '</td>' +
-            '<td class="doc">' + data[i].documento + '</td>' +
-            '<td>' + data[i].nombres + '</td>' +
-            '<td>' + data[i].apellidos + '</td>' +
-            '<td>' + data[i].avatar + '</td>' +
-            '<td>' + data[i].tipo_usuario + '</td>' +
-            '<td><span class="btn btn-success td_estado">' + data[i].estado + '</span></td>' +
-            '<td><button  type="button" class="btn btn-primary mr-2 mod_estado"><i class="far fa-eye"></i></button><a class="btn btn-danger toastrDefaultSuccess desactivar"><i class="fas fa-user-lock"></i></a></td>' +
-            '</tr>';
+          for (var i = 0; i < data.length; i++) {
+            listarusuarios += '<tr>' +
+              '<td>' + data[i].id + '</td>' +
+              '<td>' + data[i].email + '</td>' +
+              '<td class="doc">' + data[i].documento + '</td>' +
+              '<td>' + data[i].nombres + '</td>' +
+              '<td>' + data[i].apellidos + '</td>' +
+              '<td>' + data[i].avatar + '</td>' +
+              '<td>' + data[i].tipo_usuario + '</td>' +
+              '<td><span class="btn btn-success td_estado">' + data[i].estado + '</span></td>' +
+              '<td><button  type="button" class="btn btn-primary mr-2 mod_estado"><i class="far fa-eye"></i></button><a class="btn btn-danger toastrDefaultSuccess desactivar"><i class="fas fa-user-lock"></i></a></td>' +
+              '</tr>';
+          }
         }
-         }
-         
+
         $("#tbodyusuarios").html(listarusuarios);
         $(".mod_estado").click(buscarporId);
-         $(".desactivar").click(inactivarusuario);
+        $(".desactivar").click(inactivarusuario);
       }
     });
   }
@@ -137,8 +142,9 @@
       }).done(function(data) {
         console.log(data);
         for (var i = 0; i < data.length; i++) {
-          $('#documento_edit').val(data[i].documento);
-          $('#estado_edit').val(data[i].estado);
+          $('#documento_us').val(data[i].documento);
+          $('#estado_us').val(data[i].estado);
+
         }
       })
       .fail(function() {
@@ -148,33 +154,10 @@
 
   }
 
-  function actualizarest() {
-    var doc = $('#documento_edit').val();
-    var new_estado = $('#estado_edit').val();
 
-    $.ajax({
-      url: '<?php echo base_url('/ModuloUsuarios/Actuaestado'); ?>',
-      type: 'POST',
-      dataType: "text",
-      data: {
-        doc: doc,
-        new_estado: new_estado
-      },
-    }).done(function(data) {
+  function inactivarusuario() {
 
-      if (data == "EL#USUARIO#ESTA#ACTUALIZADO") {
-          window.location = '<?php echo base_url('/ModuloUsuarios/BuscarUsuarios'); ?>';
-      } else {
-        alert('no funciona');
-      }
-    }).fail(function() {
-      alert("error al enviar ");
-    });
-  }
-
-   function inactivarusuario() {
-
-    var doc = $(this).parents("tr").find(".id").text();
+    var doc = $(this).parents("tr").find(".doc").text();
     $.ajax({
       url: '<?php echo base_url('/ModuloUsuarios/DesactivarUs'); ?>',
       type: 'POST',
@@ -193,5 +176,4 @@
       alert("error al enviar ");
     });
   }
-
 </script>

@@ -51,25 +51,61 @@
     </div><!-- /.container-fluid -->
   </div><!-- /.content-header -->
 </div>
+
 <div class="modal fade " id="modal_editar">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Editar Datos Usuarios</h4>
+      <div class="modal-header ">
+        <h4 class="modal-title "><b>Datos Nuevo Usuario</b></h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Documento</label>
-          <input type="email" class="form-control" id="documento" name="documento_edit" disabled="">
 
-          <!-- <input type="email" class="form-control" id="estado_edit" name="estado_edit" disabled=""> -->
+        <div class="form-group row md-2">
+          <div class="form-group col-6">
+            <label for="exampleInputEmail1">Documento</label>
+            <input type="text" class="form-control" id="documento" name="documento" disabled>
+          </div>
+          <div class="form-group col-6">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" id="email_us" name="email_us" disabled>
+          </div>
         </div>
+         <div class="form-group row md-2">
+          <div class="form-group col-4">
+            <label for="exampleInputEmail1">Nombres</label>
+            <input type="text" class="form-control" id="nombre_us" name="nombre_us" disabled>
+          </div>
+          <div class="form-group col-4">
+            <label for="exampleInputEmail1">Apellidos</label>
+            <input type="email" class="form-control" id="apellido_us" name="eapellido_us" disabled>
+          </div>
+           <div class="form-group col-4">
+            <label for="exampleInputEmail1">Genero</label>
+            <input type="email" class="form-control" id="genero_us" name="genero_us" disabled>
+          </div>
+        </div>
+
+         <div class="form-group row md-2">
+          <div class="form-group col-4">
+            <label for="exampleInputEmail1">Tipo Usuario</label>
+            <input type="text" class="form-control" id="tipo_usuario" name="tipo_usuario" disabled>
+          </div>
+          <div class="form-group col-4">
+            <label for="exampleInputEmail1">Ciudad</label>
+            <input type="email" class="form-control" id="ciudad_us" name="ciudad_us" disabled>
+          </div>
+          <div class="form-group col-4">
+            <label for="exampleInputEmail1">Fecha de Registro</label>
+            <input type="email" class="form-control" id="fecha_reg" name="fecha_reg" disabled>
+          </div>
+        </div>
+
         <div class="form-group">
           <label>Estado</label>
-          <select class="form-control" name="nuevo_estado">
+          <select class="form-control" id="nuevo_estado">
             <option selected>Seleccione el nuevo estado</option>
             <option value="ACTIVO">Activo</option>
             <option value="INACTIVO">Inactivo</option>
@@ -141,9 +177,15 @@
         console.log(data);
         for (var i = 0; i < data.length; i++) {
           $('#documento').val(data[i].documento);
-          $('#nuevo_estado').val(data[i].estado);
+          $('#nombre_us').val(data[i].nombres);
+          $('#apellido_us').val(data[i].apellidos);
+          $('#genero_us').val(data[i].genero);
+          $('#email_us').val(data[i].email);
+          $('#tipo_usuario').val(data[i].tipo_usuario);
+          $('#ciudad_us').val(data[i].id_ciudad);
+          $('#fecha_reg').val(data[i].fecha_insert);
         }
-        $('.')
+        
       })
       .fail(function() {
         console.log("error");
