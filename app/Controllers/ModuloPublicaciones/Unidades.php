@@ -56,8 +56,12 @@
     public function actualizarUni()
     {
         $unidades = new UnidadesModel();
+        $id = $this->request->getPostGet('id');
+		$nombre = $this->request->getPostGet('nombre');
+        $abreviatura = $this->request->getPostGet('abreviatura');
+		
 
-        $datos = $unidades->update($this->request->getPostGet('id'),['nombre'=> $this->request->getPostGet('nombre')]);
+        $datos = $unidades->set('nombre', $nombre, 'abreviatura', $abreviatura)->where('id', $id)->update();
 		if ($datos) {
 			$mensaje ='La unidad ah sido actualizada ';
 		}else{
@@ -69,7 +73,7 @@
 		$unidades = new UnidadesModel();
 
 		$id = $this->request->getPostGet('id');
-		$datos = $unidades->update($id,['estado'=>'INACTIVA']);
+		$datos = $unidades->update('id', $id)->find();
 
 		if ($datos) {
 			$mensaje = "Eliminado";
