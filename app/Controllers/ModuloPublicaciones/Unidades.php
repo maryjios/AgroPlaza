@@ -53,6 +53,18 @@
 		}
 	}
 
+    public function actualizarUni()
+    {
+        $unidades = new UnidadesModel();
+
+        $datos = $unidades->update($this->request->getPostGet('documento'),['estado'=> $this->request->getPostGet('new_estado')]);
+		if ($datos) {
+			$mensaje ='La unidad ah sido actualizada ';
+		}else{
+			$mensaje = "Error al actualizar unidad";
+		}
+    }
+
 
     
 

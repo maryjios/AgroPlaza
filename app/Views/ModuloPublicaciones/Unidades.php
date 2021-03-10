@@ -71,7 +71,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Actualizar</button>
+                <button type="button" class="btn btn-primary cambios_modal">Actualizar</button>
             </div>
         </div>
     </div>
@@ -141,7 +141,7 @@
                         '<td class="id">' + data[i].id + '</td>' +
                         '<td >' + data[i].nombre + '</td>' +
                         '<td >' + data[i].abreviatura + '</td>' +
-                        '<td><button  type="button" class="btn btn-success mr-2 mod_edit"><i class="far fa-eye"></i></button><a class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>'+
+                        '<td><button  type="button" class="btn btn-success mr-2 mod_edit"><i class="far fa-eye"></i></button><a class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>' +
                         '</tr>';
 
                 }
@@ -179,7 +179,7 @@
                     $('#id').val(data[i].id);
                     $('#nombre').val(data[i].nombre);
                     $('#abreviatura').val(data[i].abreviatura);
-                    
+
 
                 }
 
@@ -191,7 +191,31 @@
                 console.log("complete");
             });
 
+        ('.cambios_modal').click(actualizar);
+
     }
+
+    function actualizar() {
+        var nombre = $('#nombre').val();
+        var abreviatura = $('#abreviatura').val();
+
+        $.ajax({
+            url: '<?php echo base_url('/ModuloPublicaciones/Cambios'); ?>',
+            type: 'POST',
+            dataType: "text",
+            data: {
+                nombre: nombre,
+                abreviatura: abreviatura
+            }
+        }).done(function(data) {
+            console.log(data);
+
+        }).fail(function() {
+            console.log("error al enviar los datos");
+
+        });
+    }
+
 
     function eliminarUnidades() {
 

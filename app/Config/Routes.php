@@ -79,7 +79,8 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
 
     $routes->add('Unidades', 'Unidades::index');
     $routes->add('ConsultarUnidades', 'Unidades::consultarTodo');
-    $routes->add('ConsultarUno', 'Unidades::consultarId');;
+    $routes->add('ConsultarUno', 'Unidades::consultarId');
+    
 });
 
 $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos'], function ($routes) {
