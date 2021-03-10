@@ -269,7 +269,7 @@ if (isset($_SESSION['tipo_usuario'])) {
          $('#ciudad').attr("disabled", false);
 
          $.ajax({
-            url: '<?php echo base_url('/ModuloUsuarios/getCiudades'); ?>',
+            url: '<?php echo base_url('/Inicio/getCiudades'); ?>',
             type: "POST",
             dataType: "json",
             data: {
@@ -285,7 +285,7 @@ if (isset($_SESSION['tipo_usuario'])) {
          })
          .fail(function(data) {
             console.log("error en el proceso");
-            alert("sdsd");
+            alert("ups");
          });
       }
    }
@@ -296,29 +296,23 @@ if (isset($_SESSION['tipo_usuario'])) {
       if (valor_seleccionado != 'Productos' && valor_seleccionado != undefined) {
 
          datos = `<div class="row mt-5" id="divProfesion">
-         <label class="ml-2">Profesion:</label><br>
-         <input type="text" class="form-control" name="n_especializacion" id="n_especializacion"></textarea>
-         </div>
+                     <label class="ml-2">Profesion:</label><br>
+                     <input type="text" class="form-control" name="n_especializacion" id="n_especializacion"></textarea>
+                  </div>
 
-         <div class="row mt-5">
-         <label class="ml-2">Descripción:</label>
-         <textarea class="form-control bg-light" name="descripcion" id="descripcion" class="" cols="30" rows="4" placeholder="Cuentanos mas de ti..."></textarea>
-         </div>
+                  <div class="row mt-5">
+                     <label class="ml-2">Descripción:</label>
+                     <textarea class="form-control bg-light" name="descripcion" id="descripcion" class="" cols="30" rows="4" placeholder="Cuentanos mas de ti..."></textarea>
+                  </div>
 
-         <br>
-         <div>
-         <input type="file" class="form-control" id="certificado" name="foto_certificado" accept="image/*">
-         <br>
-         <br>
-         <img id="frame" src="" width="100px" height="100px"/>
-         <p class="text-danger">El formato de la imagen debe ser jpg, png o jpeg</p>
-         </div>
-         `;
-
-         //    <div class="col-12 custom-file" id="divInputFile">
-         //         <input type="file" class="custom-file-input" id="certificado">
-         //         <label class="custom-file-label" for="exampleInputFile" data-browse="📁 Seleccionar Archivo">Ningun archivo seleccionado...</label>
-         //     </div>
+                  <br>
+                  <div>
+                     <input type="file" class="form-control" id="certificado" name="foto_certificado" accept="image/*">
+                     <br>
+                     <br>
+                     <img id="frame" src="" width="100px" height="100px"/>
+                     <p class="text-danger">El formato de la imagen debe ser jpg, png o jpeg</p>
+                  </div>`;
 
          $('#datosEspecialista').html(datos);
          $('#datosEspecialista').show();
@@ -327,7 +321,6 @@ if (isset($_SESSION['tipo_usuario'])) {
 
       } else {
          $('#datosEspecialista').hide();
-
       }
    }
 
