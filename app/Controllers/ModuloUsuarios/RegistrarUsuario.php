@@ -6,6 +6,7 @@ use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 use App\Models\UsuariosModel;
 use App\Models\CiudadesModel;
+use App\Models\DepartamentosModel;
 
 class RegistrarUsuario extends BaseController
 {
@@ -25,12 +26,14 @@ class RegistrarUsuario extends BaseController
 		echo view('template/footer');
 	}
 
-	public function cargarCiudades()
+	public function getCiudades()
 	{
-		$ciudades = new CiudadesModel();
-		$ciudades->orderBy('nombre', 'ASC');
+		$valor_departamento = $this->request->getPostGet('departamento');
+		$ciudades_db = new CiudadesModel();
+		$registros = $ciudades_db->where(["id_departamento" => $valor_departamento]);
+		$registros = $ciudades_db->findAll();
 
-		return $ciudades->select('*')->find();
+		echo json_encode($registros);
 	}
 
 	public function registrarAdmin()
@@ -38,7 +41,8 @@ class RegistrarUsuario extends BaseController
 		$data['modulo_selected'] = "Usuarios";
 		$data['opcion_selected'] = "RegistrarAdministrador";
 
-		$registros['ciudades'] = $this->cargarCiudades();
+		$departamentos_db = new DepartamentosModel();
+		$registros['departamentos'] = $departamentos_db->select()->findAll();
 
 		echo view('template/header', $data);
 		echo view('ModuloUsuarios/registrar_admin', $registros);

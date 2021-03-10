@@ -1,14 +1,14 @@
 <footer class="main-footer">
-  <strong>Copyright &copy;<?php echo date('Y'); ?> <a href="<?php echo base_url('Inicio/cerrarSession'); ?>">AgroPlaza</a>.</strong>
-  Privacidad &amp Politica son reservadas
-  <div class="float-right d-none d-sm-inline-block">
-    <b>Version</b> 1.2 <b>ADSI</b>
-  </div>
+    <strong>Copyright &copy;<?php echo date('Y'); ?> <a href="<?php echo base_url('Inicio/cerrarSession'); ?>">AgroPlaza</a>.</strong>
+    Privacidad &amp Politica son reservadas
+    <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 1.2 <b>ADSI</b>
+    </div>
 </footer>
 
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
-  <!-- Control sidebar content goes here -->
+    <!-- Control sidebar content goes here -->
 </aside>
 <!-- /.control-sidebar -->
 </div>
@@ -19,7 +19,7 @@
 <script src="<?php echo base_url('/public/plugins/jquery-ui/jquery-ui.min.js'); ?>"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo base_url('/public/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
@@ -47,8 +47,6 @@
 <script src="<?php echo base_url('/public/dist/js/pages/dashboard.js'); ?>"></script>
 
 <script src="<?php echo base_url('/public/plugins/toastr/toastr.min.js'); ?>"></script>
-<script src="<?php echo base_url('/public/plugins/sweetalert2/sweetalert2.min.js'); ?>"></script>
-
 
 </body>
 

@@ -62,7 +62,7 @@ class CrearPublicacion extends BaseController
 		$id_unidad = ($this->request->getPostGet('unidad') != null) ? $this->request->getPostGet('unidad') : null;
 		$precio = $this->request->getPostGet('precio');
 		$descuento = $this->request->getPostGet('descuento');
-		$envio = $this->request->getPostGet('envio');
+		$envio = ($this->request->getPostGet('envio') != null) ? $this->request->getPostGet('envio') : "NO";
 		$id_usuario = $this->request->getPostGet('id_usuario');
 		$ciudad = $this->request->getPostGet('ciudad');
 
