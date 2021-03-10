@@ -73,7 +73,7 @@
 		$unidades = new UnidadesModel();
 
 		$id = $this->request->getPostGet('id');
-		$datos = $unidades->where('id', $id)->update();
+		$datos = $unidades->update('id', $id);
 
 		if ($datos) {
 			$mensaje = "Eliminado";
