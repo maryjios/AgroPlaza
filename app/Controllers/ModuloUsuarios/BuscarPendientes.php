@@ -39,5 +39,20 @@ class BuscarPendientes extends BaseController {
 	   
 	   }
 	}
+
+	public function actualizarpen(){
+		$usuarios = new UsuariosModel();
+		$doc = $this->request->getPostGet('doc');
+		$new_estado = $this->request->getPostGet('new_estado');
+
+		$dato=$usuarios->set('estado', $new_estado)->where('documento', $doc)->update();
+		if ($dato) {
+			$mensaje ='USUARIO#ACTUALIZADO';
+		}else{
+			$mensaje = "ERROR#ACTUALIZAR#DATOS";
+		}
+
+		echo $mensaje;
+	}
   
 }

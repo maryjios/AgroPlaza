@@ -43,16 +43,16 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('InsertarMovil', 'RegistrarUsuario::insertarMovil');
     $routes->add('CargarCiudades', 'RegistrarUsuario::cargarCiudadesMovil');
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
+
     $routes->add('MostrarUsuarios', 'BuscarUsuarios::listarusuarios');
     $routes->add('BuscarusuId', 'BuscarUsuarios::buscarporId');
     $routes->add('Actuaestado', 'BuscarUsuarios::actualizarest');
-    $routes->add('DesactivarUs', 'BuscarUsuarios::desacusuario');
+    $routes->add('DesactivarUs', 'BuscarUsuarios::inactivarusuario');
 
     $routes->add('BuscarInactivos', 'BuscarInactivos::index');
     $routes->add('MostrarInactivos', 'BuscarInactivos::listarinactivos');
     $routes->add('BuscarInacId', 'BuscarInactivos::buscarinacId');
     $routes->add('ActualizarInac', 'BuscarInactivos::actualizarinac');
-
     $routes->add('RestaurarUsuario', 'BuscarInactivos::restaurarestado');
 
     $routes->add('BuscarPendientes', 'BuscarPendientes::index');
