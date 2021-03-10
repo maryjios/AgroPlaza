@@ -67,6 +67,7 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
 
 $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPublicaciones'], function ($routes) {
     $routes->add('ListarPublicaciones', 'ListarPublicaciones::index');
+    $routes->add('InsertarPublicacion', 'CrearPublicacion::insertar');
     $routes->add('ConsultaIndividual', 'ListarPublicaciones::consultarId');
     $routes->add('ConsultaImagenes', 'ListarPublicaciones::consultarImagenes');
     $routes->add('ConsultaDetalle', 'ListarPublicaciones::detallePublicacion');
@@ -81,9 +82,6 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('ConsultarUno', 'Unidades::consultarId');
     $routes->add('Cambios', 'Unidades::actualizarUni');
     $routes->add('EliminarUni', 'Unidades::eliminarUnidades');
-
-    
-
 });
 
 $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos'], function ($routes) {
