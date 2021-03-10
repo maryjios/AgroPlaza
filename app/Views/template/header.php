@@ -32,8 +32,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <link rel="stylesheet" href="<?php echo base_url('public/plugins/daterangepicker/daterangepicker.css') ?>">
   <!-- summernote -->
   <link rel="stylesheet" href="<?php echo base_url('public/plugins/summernote/summernote-bs4.min.css') ?>">
- 
-  
+
+
   <!-- jQuery -->
   <script src="<?php echo base_url('/public/plugins/jquery/jquery.min.js'); ?>"></script>
 
@@ -303,16 +303,16 @@ if (!isset($_SESSION['tipo_usuario'])) {
 
               </ul>
             </li>
-            <?php if ($_SESSION['tipo_usuario'] == "VENDEDOR" || $_SESSION['tipo_usuario'] == "VENDEDOR_ESPECIALISTA") { ?>
 
-              <li class="nav-item">
-                <a href="<?php echo base_url('/ModuloUsuarios/PerfilUsuario') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'configuracionPerfil') ? 'active' : ''; ?> ">
-                  <i class="nav-icon fas fa-user-alt"></i>
-                  <p>Ver Perfil</p>
-                </a>
-              </li>
 
-            <?php } ?>
+            <li class="nav-item">
+              <a href="<?php echo base_url('/ModuloUsuarios/PerfilUsuario') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'configuracionPerfil') ? 'active' : ''; ?> ">
+                <i class="nav-icon fas fa-user-cog"></i>
+                <p>Ver Perfil</p>
+              </a>
+            </li>
+
+
 
             <li class="nav-item ">
               <a href="<?php echo base_url('Inicio/cerrarSession') ?>" class="nav-link">

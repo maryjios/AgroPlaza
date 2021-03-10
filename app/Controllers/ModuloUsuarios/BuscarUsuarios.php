@@ -40,18 +40,35 @@ class BuscarUsuarios extends BaseController {
 	}
 	public function actualizarest(){
 		$usuarios = new UsuariosModel();
-		// $documento = $this->request->getPostGet('documento');
-		// $new_estado = $this->request->getPostGet('new_estado');
+		$doc = $this->request->getPostGet('doc');
+		$new_estado = $this->request->getPostGet('new_estado');
 
-		$data = $usuarios->update($this->request->getPostGet('documento'),['estado'=> $this->request->getPostGet('new_estado')]);
-		if ($data) {
-			$mensaje ='EL USUARIO ESTA ACTUALIZADO';
+		$dato=$usuarios->set('estado', $new_estado)->where('documento', $doc)->update();
+		if ($dato) {
+			$mensaje ='EL#USUARIO#ESTA#ACTUALIZADO';
 		}else{
-			$mensaje = "ERROR AL INACTIVAR EL USUARIO";
+			$mensaje = "ERROR#DE#INACTIVAR#";
 		}
 
 		echo $mensaje;
 	}
+
+
+
+	public function inactivarusuario(){
+		$usuarios = new UsuariosModel();
+		$doc = $this->request->getPostGet('doc');
+		$datos=$usuarios->set('estado', 'INACTIVO')->where('id', $doc)->update();
+
+		if ($datos) {
+			$mensaje = "OK#UPDATE";
+		}else{
+			$mensaje = "NO#UPDATE";
+		}
+
+		echo $mensaje;
+	}
+
 
 }
 
