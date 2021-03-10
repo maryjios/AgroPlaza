@@ -65,6 +65,21 @@
 		}
     }
 
+    public function eliminarUnidades(){
+		$unidades = new UnidadesModel();
+
+		$id = $this->request->getPostGet('id');
+		$datos = $unidades->update($id,['estado'=>'INACTIVA']);
+
+		if ($datos) {
+			$mensaje = "Eliminado";
+		}else{
+			$mensaje = "No##eliminado";
+		}
+
+		echo $mensaje;
+	}
+
 
     
 
