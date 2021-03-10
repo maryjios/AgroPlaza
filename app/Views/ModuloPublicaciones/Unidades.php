@@ -20,7 +20,7 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="<?php echo base_url(); ?>/unidades/nuevo" class="btn btn-primary">Agregar</a>
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal3" data-bs-whatever="@mdo">Agregar</button>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -43,6 +43,35 @@
         </div><!-- /.container-fluid -->
     </div><!-- /.content-header -->
 </div>
+
+
+<div class="modal fade" id="agregar_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel3">New message</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="editar_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
@@ -71,7 +100,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary cambios_modal">Actualizar</button>
+                <button type="button" class="btn btn-primary cambios_modal" data-dismiss="modal">Actualizar</button>
             </div>
         </div>
     </div>
@@ -191,11 +220,12 @@
                 console.log("complete");
             });
 
-        ('.cambios_modal').click(actualizar);
+        $('.cambios_modal').click(actualizar);
 
     }
 
     function actualizar() {
+        var id = $('#id').val();
         var nombre = $('#nombre').val();
         var abreviatura = $('#abreviatura').val();
 
@@ -204,6 +234,7 @@
             type: 'POST',
             dataType: "text",
             data: {
+                id: id,
                 nombre: nombre,
                 abreviatura: abreviatura
             }
