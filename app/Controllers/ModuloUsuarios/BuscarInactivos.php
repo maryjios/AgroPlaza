@@ -17,11 +17,11 @@ class BuscarInactivos extends BaseController {
 	public function listarinactivos(){
 		$usuarios = new UsuariosModel();
 		$usuarios = $usuarios->select('*')->where('estado','INACTIVO')->findAll();
-		if ($usuarios) {
-			 echo json_encode($usuarios);
+		if (sizeof($usuarios)==0) {
+			 echo json_encode('error');
 			
 		} else {
-			echo json_encode('error');
+			echo json_encode($usuarios);
 		
 		}
 	}
@@ -43,12 +43,12 @@ class BuscarInactivos extends BaseController {
 	public function restaurarestado(){
 		$usuarios = new UsuariosModel();
 		$doc = $this->request->getPostGet('doc');
-		$data = $usuarios->update($doc,['estado'=>'ACTIVO']);
+		$sql=$usuarios->set('estado', 'ACTIVO')->where('id', $doc)->update();
 
-		if ($data) {
-			$mensaje = "El usuario ha sido activado ";
+		if ($sql) {
+			$mensaje = "OK#UPDATE";
 		}else{
-			$mensaje = "No se ha podido modificar el estado de usuario";
+			$mensaje = "NO#UPDATE";
 		}
 
 		echo $mensaje;

@@ -52,7 +52,8 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('MostrarInactivos', 'BuscarInactivos::listarinactivos');
     $routes->add('BuscarInacId', 'BuscarInactivos::buscarinacId');
     $routes->add('ActualizarInac', 'BuscarInactivos::actualizarinac');
-    $routes->add('RestaurarUsu', 'BuscarInactivos::restaurarestado');
+
+    $routes->add('RestaurarUsuario', 'BuscarInactivos::restaurarestado');
 
     $routes->add('BuscarPendientes', 'BuscarPendientes::index');
     $routes->add('MostrarPendientes', 'BuscarPendientes::listarpendientes');
@@ -61,6 +62,7 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
 
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
     $routes->add('VerperfilUsuario', 'PerfilUsuario::detalleperfil');
+    $routes->add('BuscarDatosPerfil', 'PerfilUsuario:: buscar_session');
 });
 
 $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPublicaciones'], function ($routes) {

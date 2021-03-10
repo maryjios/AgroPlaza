@@ -67,7 +67,7 @@
             <div class="form-group">
               <label>Estado</label>
               <select class="form-control" name="estado_edit" >
-              <option value="INACTIVO">Inactivo</option>
+              <option value="INACTIVO" >Inactivo</option>
                 <option value="ACTIVO">Activo</option>
                 <option value="PENDIENTE">Pendiente</option>
               </select>
@@ -84,7 +84,7 @@
   </div>
 
    <!-- Modal -->
-   <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
            <div class="modal-dialog modal-dialog-centered" role="document">
              <div class="modal-content sm">
                <div class="modal-header">
@@ -103,8 +103,6 @@
              </div>
            </div>
          </div>
-
-
 <script>
 
 $(document).ready(iniciar);
@@ -121,13 +119,13 @@ function listarinactivos() {
      success: function(data) {
 
        var listarinactivos="";
-       
-       for (var i = 0; i < data.length; i++) {
+       if (data!='error') {
+          for (var i = 0; i < data.length; i++) {
          
          listarinactivos+='<tr>' +
-         '<td>' + data[i].id + '</td>' +
+         '<td class="doc_in">' + data[i].id + '</td>' +
          '<td>' + data[i].email + '</td>' +
-         '<td class="doc_in">' + data[i].documento + '</td>' +
+         '<td >' + data[i].documento + '</td>' +
          '<td>' + data[i].nombres + '</td>' +
          '<td>' + data[i].apellidos + '</td>' +
          '<td>' + data[i].avatar + '</td>' +
@@ -136,7 +134,9 @@ function listarinactivos() {
          '<td><button type="button" class="btn btn-primary mr-2 mod_edit"><i class="far fa-eye"></i></button><button type="button" class="btn btn-success toastrDefaultSuccess activar" data-toggle="modal"  data-target="#modal-confirma"  data-placement="top" class="btn btn-danger"><i class="fas fa-trash-restore"></i></button></td>'+
          '</tr>';
        
-     }
+     } 
+    } 
+    
       $("#tbodyusuarios").html(listarinactivos);
       $(".mod_edit").click(buscarinacId);
       $(".activar").click(restaurarestado);
@@ -171,17 +171,20 @@ function buscarinacId(){
     function restaurarestado(){
 
       var doc = $(this).parents("tr").find(".doc_in").text();
-      alert(doc);
       $.ajax({
-        url: '<?php echo base_url('/ModuloUsuarios/RestaurarUsu');?>',
+        url: '<?php echo base_url('/ModuloUsuarios/RestaurarUsuario');?>',
         type: 'POST',
         dataType:"text",
-        data:{doc : doc}
+        data:{doc : doc},
 
       }).done(function(data) {
-        console.log(data);
+        if (data=="OK#UPDATE") {
+            window.location='<?php echo base_url('/ModuloUsuarios/BuscarUsuarios');?>';
+        } else {
+          alert('no funciona');
+        }
     }).fail(function() {
-      console.log("error al enviar ");
+      alert("error al enviar ");
     });
     }
 
