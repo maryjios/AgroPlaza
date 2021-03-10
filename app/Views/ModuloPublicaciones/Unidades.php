@@ -141,7 +141,7 @@
                         '<td class="id">' + data[i].id + '</td>' +
                         '<td >' + data[i].nombre + '</td>' +
                         '<td >' + data[i].abreviatura + '</td>' +
-                        '<td><button  type="button" class="btn btn-success mr-2 mod_edit"><i class="far fa-eye"></i></button><a class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>' +
+                        '<td><button  type="button" class="btn btn-success mr-2 mod_edit"><i class="far fa-eye"></i></button><a class="btn btn-danger toastrDefaultSuccess"><i class="far fa-trash-alt"></i></a></td>' +
                         '</tr>';
 
                 }

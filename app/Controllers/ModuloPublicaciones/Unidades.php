@@ -57,13 +57,28 @@
     {
         $unidades = new UnidadesModel();
 
-        $datos = $unidades->update($this->request->getPostGet('documento'),['estado'=> $this->request->getPostGet('new_estado')]);
+        $datos = $unidades->update($this->request->getPostGet('id'),['nombre'=> $this->request->getPostGet('nombre')]);
 		if ($datos) {
 			$mensaje ='La unidad ah sido actualizada ';
 		}else{
 			$mensaje = "Error al actualizar unidad";
 		}
     }
+
+    public function eliminarUnidades(){
+		$unidades = new UnidadesModel();
+
+		$id = $this->request->getPostGet('id');
+		$datos = $unidades->update($id,['estado'=>'INACTIVA']);
+
+		if ($datos) {
+			$mensaje = "Eliminado";
+		}else{
+			$mensaje = "No##eliminado";
+		}
+
+		echo $mensaje;
+	}
 
 
     
