@@ -4,7 +4,6 @@ if (!isset($_SESSION['tipo_usuario'])) {
   die();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -32,10 +31,11 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <link rel="stylesheet" href="<?php echo base_url('public/plugins/daterangepicker/daterangepicker.css') ?>">
   <!-- summernote -->
   <link rel="stylesheet" href="<?php echo base_url('public/plugins/summernote/summernote-bs4.min.css') ?>">
- 
-  
+
   <!-- jQuery -->
   <script src="<?php echo base_url('/public/plugins/jquery/jquery.min.js'); ?>"></script>
+  <!-- sweetalert2 -->
+  <script src="<?php echo base_url('/public/plugins/sweetalert2/sweetalert2.all.min.js'); ?>"></script>
 
   <!-- Datatables -->
   <script src="<?php echo base_url('/public/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
