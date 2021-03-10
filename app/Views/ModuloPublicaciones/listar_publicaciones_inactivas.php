@@ -8,7 +8,7 @@
             <h1 class="m-0">Publicaciones</h1>
           </div><!-- /.col -->
           <div class="col-sm-6 ">
-            <a class=" btn btn-danger btn-sm " href="<?php echo base_url('ModuloPublicaciones/PublicacionesInactivas')?>">Eliminadas</a>
+            <a class=" btn btn-success btn-sm " href="<?php echo base_url('ModuloPublicaciones/ListarPublicaciones')?>">Activas</a>
           </div><!-- /.col -->
           <div class="col-12">
             <div class="card">
@@ -38,7 +38,7 @@
                         <td><?php echo $dato['nombre_usuario'] ?></td>
                         <td><?php echo $dato['fecha_insert'] ?></td>
                         <td><?php echo $dato['estado_publicacion'] ?></td>
-                        <td><?php echo "<button class='btn btn-success detalle'><i class='far fa-eye'></i></button><button class='btn btn-warning editar ml-1'><i class='far fa-edit'></i></button><button class='btn btn-danger eliminar ml-1'> <i class='far fa-trash-alt'></i></button>" ?></td>
+                        <td><?php echo "<button class='btn btn-success detalle'><i class='far fa-eye'></i></button><button class='btn btn-info activar ml-1'><i class='fas fa-hand-pointer'></i></button>" ?></td>
                       </tr>
                     <?php endforeach ?>
                     
@@ -139,27 +139,27 @@
         "language": {"url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json"},
         "responsive": true, "autoWidth": false,
       });
-      $('.eliminar').click(eliminardatos);
-      $('.editar').click(editardatos);
+
+      $('.activar').click(activarPublicacion);
     }
 
-    function eliminardatos() {
+    function activarPublicacion() {
 
       $(this).parents('tr').attr('id', 'por_eliminar');
       var id = $(this).parents("tr").find(".id").text();
       rowId = $(this).parents("tr").attr('id');
       $.ajax({
-        url: '<?php echo base_url('/ModuloPublicaciones/EliminarPublicacion');?>',
+        url: '<?php echo base_url('/ModuloPublicaciones/ActivarPublicacion');?>',
         type: 'POST',
         dataType: 'text',
         data: {id: id},
       }).done(function(data) {
         
-        if (data=="Eliminado") {
+        if (data=="Actualizado") {
           $("#publicaciones").DataTable().rows($("#"+rowId)).remove();
           $("#publicaciones").DataTable().search("").columns().search("").draw();
         }else{
-          alert("No se pudo eliminar el registro");
+          alert("No se pudo actualizar el registro");
         }
 
       })
@@ -172,68 +172,6 @@
 
     };
 
-    function editardatos() {
-
-      var id = $(this).parents("tr").find(".id").text();
-
-      $('#editar_modal').modal();
-
-      $.ajax({
-        url: '<?php echo base_url('/ModuloPublicaciones/ConsultaIndividual');?>',
-        type: 'POST',
-        dataType: 'json',
-        data: {id: id},
-      })
-      .done(function(data) {
-
-        for (var i = 0; i < data.length; i++) {
-          $('#titulo').val(data[i].titulo);
-          $('#descripcion').val(data[i].descripcion);
-          $('#stock').val(data[i].stock);
-          $('#precio').val(data[i].precio);
-          $('#precio_envio').val(data[i].precio_envio);
-          $('#descuento').val(data[i].descuento);
-         
-        }
-
-      })
-      .fail(function() {
-        console.log("error");
-      })
-      .always(function() {
-        console.log("complete");
-      });
-
-
-      $.ajax({
-        url: '<?php echo base_url('/ModuloPublicaciones/ConsultaImagenes');?>',
-        type: 'POST',
-        dataType: 'json',
-        data: {id: id},
-      })
-      .done(function(data) {
-
-        $.each(data, function( index, value ) {
-           $( ".Brand" ).append( "<img src='"+this+"' > class='imagen'" );
-        });
-
-       for (var i = 0; i < data.length; i++) {
-          var img = "<img src='<?php echo base_url('public/dist/img/publicaciones/')?>"+'/'+data[i].imagen+"' class='rounded img-size-50 mr-2'>";
-          $('.dvPreview').append(img);
-          
-        }
- 
-      })
-      .fail(function() {
-        console.log("error");
-      })
-      .always(function() {
-        console.log("complete");
-      });
-
-
-      
-    }
 
   </script>
 

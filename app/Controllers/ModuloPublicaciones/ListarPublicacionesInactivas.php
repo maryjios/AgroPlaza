@@ -4,14 +4,14 @@ use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 use App\Models\PublicacionesModel;
 
-class ListarPublicaciones extends BaseController {
+class ListarPublicacionesInactivas extends BaseController {
 
 	public function index(){
 		$publicaciones = new PublicacionesModel();
 		$consulta['datos']= $publicaciones->select('Publicaciones.*,concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, imagenes.imagen')
 							->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
 							->join('imagenes','imagenes.id_publicacion = publicaciones.id_publicaciones')
-							->where('estado_publicacion','ACTIVA')
+							->where('estado_publicacion','INACTIVA')
 							->groupBy('id_publicacion')
 							->findAll();
 
@@ -19,7 +19,7 @@ class ListarPublicaciones extends BaseController {
 		$data['opcion_selected'] = "ListarPublicaciones";
 
 		echo view('template/header', $data);
-		echo view('ModuloPublicaciones/listar_publicaciones',$consulta);
+		echo view('ModuloPublicaciones/listar_publicaciones_inactivas',$consulta);
 		echo view('template/footer');
 	}
 
@@ -64,15 +64,15 @@ class ListarPublicaciones extends BaseController {
 	}
 
 
-	public function eliminarPublicacion(){
+	public function activarPublicacion(){
 		$publicaciones = new PublicacionesModel();
 
 		$id = $this->request->getPostGet('id');
 
-		$publicaciones->update($id,['estado_publicacion'=>'INACTIVA']);
+		$publicaciones->update($id,['estado_publicacion'=>'ACTIVA']);
 
 		if ($publicaciones) {
-			$mensaje = "Eliminado";
+			$mensaje = "Actualizado";
 		}else{
 			$mensaje = "Error";
 		}

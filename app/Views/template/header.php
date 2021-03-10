@@ -38,6 +38,10 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <script src="<?php echo base_url('/public/plugins/sweetalert2/sweetalert2.all.min.js'); ?>"></script>
 
   <!-- Datatables -->
+  <link rel="stylesheet" href="<?php echo base_url('/public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('/public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('/public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
+
   <script src="<?php echo base_url('/public/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
   <script src="<?php echo base_url('/public/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
   <script src="<?php echo base_url('/public/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
