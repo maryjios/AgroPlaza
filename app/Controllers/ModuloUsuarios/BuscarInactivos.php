@@ -7,24 +7,27 @@ use App\Models\UsuariosModel;
 class BuscarInactivos extends BaseController {
 
 	public function index(){
+			$this->usuarios = new UsuariosModel();
+        $usuarios = $this->usuarios->select('*')->where('estado','INACTIVO')->findAll();
+		 $personas =['datos' => $usuarios];
 		$data['modulo_selected'] = "Usuarios";
 		$data['opcion_selected'] = "BuscarInactivos";
 
 		echo view('template/header', $data);
-		echo view('ModuloUsuarios/buscar_inactivos');
+		echo view('ModuloUsuarios/buscar_inactivos',$personas);
 		echo view('template/footer');
 	}	
-	public function listarinactivos(){
-		$usuarios = new UsuariosModel();
-		$usuarios = $usuarios->select('*')->where('estado','INACTIVO')->findAll();
-		if (sizeof($usuarios)==0) {
-			 echo json_encode('error');
+	// public function listarinactivos(){
+	// 	$usuarios = new UsuariosModel();
+	// 	$usuarios = $usuarios->select('*')->where('estado','INACTIVO')->findAll();
+	// 	if (sizeof($usuarios)==0) {
+	// 		 echo json_encode('error');
 			
-		} else {
-			echo json_encode($usuarios);
+	// 	} else {
+	// 		echo json_encode($usuarios);
 		
-		}
-	}
+	// 	}
+	// }
 
 	public function buscarinacId(){
 		$usuarios = new UsuariosModel();

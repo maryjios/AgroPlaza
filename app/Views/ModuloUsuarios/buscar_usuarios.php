@@ -21,7 +21,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="" class="table table-bordered table-striped">
+              <table id="usuarios_activos" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>Id</th>
@@ -36,7 +36,20 @@
                   </tr>
                 </thead>
                 <tbody id="tbodyusuarios">
+                  <?php foreach ($datos as $dato) { ?>
 
+                    <tr>
+                      <td ><?php echo $dato['id']; ?></td>
+                      <td ><?php echo $dato['email']; ?></td>
+                      <td class="doc"><?php echo $dato['documento']; ?></td>
+                      <td><?php echo $dato['nombres']; ?></td>
+                      <td><?php echo $dato['apellidos']; ?></td>
+                      <td><?php echo $dato['avatar']; ?></td>
+                      <td><?php echo $dato['tipo_usuario']; ?></td>
+                      <td><?php echo $dato['estado']; ?></td>
+                      <td><button type="button" class="btn btn-primary mr-2 mod_estado"><i class="far fa-eye"></i></button><a class="btn btn-danger toastrDefaultSuccess desactivar"><i class="fas fa-user-lock"></i></a></td>
+                    </tr>
+                  <?php } ?>
                 </tbody>
               </table>
             </div>
@@ -48,6 +61,8 @@
   </div><!-- /.content-header -->
 </div>
 
+
+<!--INICIO PARA  MOSTRAR LOS DATOS DEL USUARIO ACTIVO -->
 <div class="modal fade " id="mod_editar">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -85,44 +100,34 @@
   </div>
   <!-- /.modal-dialog -->
 </div>
+<!-- FIN DE MODAL PARA MOSTRAR LOS DATOS DEL USUARIO ACTIVO -->
 
 <script>
   $(document).ready(iniciar);
 
   function iniciar() {
-    listarusuarios();
-
-  }
-
-  function listarusuarios() {
-    $.ajax({
-      url: '<?php echo base_url('/ModuloUsuarios/MostrarUsuarios'); ?>',
-      type: 'POST',
-      dataType: "json",
-      success: function(data) {
-
-        var listarusuarios = "";
-        if (data != 'error') {
-          for (var i = 0; i < data.length; i++) {
-            listarusuarios += '<tr>' +
-              '<td>' + data[i].id + '</td>' +
-              '<td>' + data[i].email + '</td>' +
-              '<td class="doc">' + data[i].documento + '</td>' +
-              '<td>' + data[i].nombres + '</td>' +
-              '<td>' + data[i].apellidos + '</td>' +
-              '<td>' + data[i].avatar + '</td>' +
-              '<td>' + data[i].tipo_usuario + '</td>' +
-              '<td><span class="btn btn-success td_estado">' + data[i].estado + '</span></td>' +
-              '<td><button  type="button" class="btn btn-primary mr-2 mod_estado"><i class="far fa-eye"></i></button><a class="btn btn-danger toastrDefaultSuccess desactivar"><i class="fas fa-user-lock"></i></a></td>' +
-              '</tr>';
-          }
+    $('#usuarios_activos').DataTable({
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json"
+      },
+      "responsive": true,
+      "autoWidth": false,
+      "ordering": true,
+      "aoColumnDefs": [{
+          'bSortable': false,
+          'aTargets': [1]  },
+        {
+          'bSortable': false,
+          'aTargets': [6] },
+        {
+          'bSortable': false,
+          'aTargets': [7]
         }
-
-        $("#tbodyusuarios").html(listarusuarios);
-        $(".mod_estado").click(buscarporId);
-        $(".desactivar").click(inactivarusuario);
-      }
+      ],
     });
+
+    $(".mod_estado").click(buscarporId);
+    $(".desactivar").click(inactivarusuario);
   }
 
   function buscarporId() {

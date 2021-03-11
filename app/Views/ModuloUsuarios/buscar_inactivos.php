@@ -24,7 +24,7 @@
 
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="" class="table table-bordered table-striped">
+              <table id="usuarios_inactivos" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>Id</th>
@@ -38,7 +38,22 @@
                     <th>Acciones</th>
                   </tr>
                 </thead>
-                <tbody id="tbodyusuarios">
+               <tbody id="tbodyusuarios">
+                  <?php foreach ($datos as $dato) { ?>
+
+                    <tr>
+                      <td ><?php echo $dato['id']; ?></td>
+                      <td ><?php echo $dato['email']; ?></td>
+                      <td class="doc_in"><?php echo $dato['documento']; ?></td>
+                      <td><?php echo $dato['nombres']; ?></td>
+                      <td><?php echo $dato['apellidos']; ?></td>
+                      <td><?php echo $dato['avatar']; ?></td>
+                      <td><?php echo $dato['tipo_usuario']; ?></td>
+                      <td><?php echo $dato['estado']; ?></td>
+                      <td><button type="button" class="btn btn-success toastrDefaultSuccess activar" data-toggle="modal"  data-target="#modal-confirma"  data-placement="top" class="btn btn-danger"><i class="fas fa-trash-restore"></i></button></td>
+
+                    </tr>
+                  <?php } ?>
                 </tbody>
               </table>
             </div>
@@ -49,6 +64,8 @@
     </div><!-- /.container-fluid -->
   </div><!-- /.content-header -->
 </div>
+
+<!-- INICIO DEL MODAL CON LOS DATOS DE LOS USUARIOS INACTIVOS -->
 <div class="modal fade " id="mod_inactivos">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -81,67 +98,36 @@
   </div>
   <!-- /.modal-dialog -->
 </div>
+<!-- FIN DEL MODAL CON LOS DATOS DE LOS USUARIOS INACTIVOS -->
 
-<!-- Modal -->
-<!-- <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content sm">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Retaurar Usuario</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>¿Desea Restaurar este Usuario?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-ligth" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary btn-ok" data-dismiss="modal">Si</a>
-      </div>
-    </div>
-  </div>
-</div> -->
+
 <script>
   $(document).ready(iniciar);
 
   function iniciar() {
-    listarinactivos();
-
-  }
-
-  function listarinactivos() {
-    $.ajax({
-      url: '<?php echo base_url('/ModuloUsuarios/MostrarInactivos'); ?>',
-      type: 'POST',
-      dataType: "json",
-      success: function(data) {
-
-        var listarinactivos = "";
-        if (data != 'error') {
-          for (var i = 0; i < data.length; i++) {
-
-            listarinactivos += '<tr>' +
-              '<td class="doc_in">' + data[i].id + '</td>' +
-              '<td>' + data[i].email + '</td>' +
-              '<td >' + data[i].documento + '</td>' +
-              '<td>' + data[i].nombres + '</td>' +
-              '<td>' + data[i].apellidos + '</td>' +
-              '<td>' + data[i].avatar + '</td>' +
-              '<td>' + data[i].tipo_usuario + '</td>' +
-              '<td><span class="btn btn-danger ">' + data[i].estado + '</span></td>' +
-              '<td><button type="button" class="btn btn-success toastrDefaultSuccess activar" data-toggle="modal"  data-target="#modal-confirma"  data-placement="top" class="btn btn-danger"><i class="fas fa-trash-restore"></i></button></td>' +
-              '</tr>';
-
-          }
+    $('#usuarios_inaactivos').DataTable({
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json"
+      },
+      "responsive": true,
+      "autoWidth": false,
+      "ordering": true,
+      "aoColumnDefs": [{
+          'bSortable': false,
+          'aTargets': [1]  },
+        {
+          'bSortable': false,
+          'aTargets': [6] },
+        {
+          'bSortable': false,
+          'aTargets': [7]
         }
-
-        $("#tbodyusuarios").html(listarinactivos);
-        $(".mod_edit").click(buscarinacId);
-        $(".activar").click(restaurarestado);
-      }
+      ],
     });
+      $(".mod_edit").click(buscarinacId);
+      $(".activar").click(restaurarestado);
   }
+
 
   function buscarinacId() {
     var docum = $(this).parents("tr").find(".doc_in").text();

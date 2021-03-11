@@ -5,26 +5,22 @@ use App\Controllers\BaseController;
 use App\Models\UsuariosModel;
 
 class BuscarUsuarios extends BaseController {
-
+ 
 	public function index(){
+		$this->usuarios = new UsuariosModel();
+        $usuarios = $this->usuarios->select('*')->where('estado','ACTIVO')->findAll();
+		 $personas =['datos' => $usuarios];
+		// $usuarios = $this->$usuarios->select('*')->where('estado','ACTIVO')->findAll();
+		// $personas =['personas' => $usuarios];
+
 		$data['modulo_selected'] = "Usuarios";
 		$data['opcion_selected'] = "BuscarUsuarios";
 
 		echo view('template/header', $data);
-		echo view('ModuloUsuarios/buscar_usuarios');
+		echo view('ModuloUsuarios/buscar_usuarios',$personas);
 		echo view('template/footer');
 	}
-    public function listarusuarios(){
-		$usuarios = new UsuariosModel();
-		$usuarios = $usuarios->select('*')->where('estado','ACTIVO')->findAll();
-		if ($usuarios) {
-			 echo json_encode($usuarios);
-			
-		} else {
-			echo json_encode('error');
-		
-		}
-	}
+
 	public function buscarporId(){
 		$usuarios = new UsuariosModel();
 		$doc = $this->request->getPostGet('doc');
