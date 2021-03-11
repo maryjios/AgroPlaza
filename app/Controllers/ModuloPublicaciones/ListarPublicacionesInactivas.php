@@ -8,11 +8,11 @@ class ListarPublicacionesInactivas extends BaseController {
 
 	public function index(){
 		$publicaciones = new PublicacionesModel();
-		$consulta['datos']= $publicaciones->select('Publicaciones.*,concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, imagenes.imagen')
+		$consulta['datos']= $publicaciones->select('publicaciones.id as id_publicacion, publicaciones.titulo as titulo, publicaciones.tipo_publicacion as tipo_publicacion, publicaciones.fecha_insert as fecha_publicacion,publicaciones.estado as estado_publicacion, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, imagenes.imagen')
 							->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
-							->join('imagenes','imagenes.id_publicacion = publicaciones.id_publicaciones')
-							->where('estado_publicacion','INACTIVA')
-							->groupBy('id_publicacion')
+							->join('imagenes','imagenes.id_publicacion =publicaciones.id')
+							->where('publicaciones.estado','INACTIVA')
+							->groupBy('imagenes.id_publicacion')
 							->findAll();
 
 		$data['modulo_selected'] = "Publicaciones";
@@ -28,7 +28,7 @@ class ListarPublicacionesInactivas extends BaseController {
 		$publicaciones = new PublicacionesModel();
 
 		$id = $this->request->getPostGet('id');
-		$datos = $publicaciones->where('id_publicaciones',$id)->find();
+		$datos = $publicaciones->where('id',$id)->find();
 
 		if ($datos) {
 			echo json_encode($datos);
@@ -56,7 +56,7 @@ class ListarPublicacionesInactivas extends BaseController {
 		$publicaciones = new PublicacionesModel();
 
 		$id = $this->request->getPostGet('id');
-		$datos = $publicaciones->where('id_publicaciones',$id)->first();
+		$datos = $publicaciones->where('id',$id)->first();
 
 		echo view('template/header', $data);
 		echo view('ModuloPublicaciones/detalle_publicacion',$id);
@@ -69,7 +69,7 @@ class ListarPublicacionesInactivas extends BaseController {
 
 		$id = $this->request->getPostGet('id');
 
-		$publicaciones->update($id,['estado_publicacion'=>'ACTIVA']);
+		$publicaciones->update($id,['estado'=>'ACTIVA']);
 
 		if ($publicaciones) {
 			$mensaje = "Actualizado";
