@@ -31,12 +31,12 @@
 
                     <?php foreach ($datos as $dato ): ?>
                       <tr>
-                        <td class="id"><?php echo $dato['id_publicaciones'] ?></td>
-                        <td class="text-center"><!-- <img src="<?php //echo base_url('public/dist/img/publicaciones/').'/'.$dato['imagen'] ?>" class="rounded img-size-50 mr-2"> --></td>
+                        <td class="id"><?php echo $dato['id_publicacion'] ?></td>
+                        <td class="text-center"><img src="<?php echo base_url('public/dist/img/publicaciones/').'/publicacion'.$dato['id_publicacion'].'/'.$dato['imagen'] ?>" class="rounded img-size-50 mr-2"></td>
                         <td><?php echo $dato['titulo'] ?></td>
                         <td><?php echo $dato['tipo_publicacion'] ?></td>
                         <td><?php echo $dato['nombre_usuario'] ?></td>
-                        <td><?php echo $dato['fecha_insert'] ?></td>
+                        <td><?php echo $dato['fecha_publicacion'] ?></td>
                         <td><?php echo $dato['estado_publicacion'] ?></td>
                         <td><?php echo "<button class='btn btn-success detalle'><i class='far fa-eye'></i></button><button class='btn btn-warning editar ml-1'><i class='far fa-edit'></i></button><button class='btn btn-danger eliminar ml-1'> <i class='far fa-trash-alt'></i></button>" ?></td>
                       </tr>
@@ -52,7 +52,7 @@
       </div><!-- /.container-fluid -->
     </div><!-- /.content-header -->
   </div>
-  <!-- Modal -->
+  <!-- Modal Editar-->
   <div class="modal fade" id="editar_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
