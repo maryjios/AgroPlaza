@@ -29,7 +29,7 @@ class Inicio extends BaseController
       } else {
          if ($registros[0]["tipo_usuario"] == "CLIENTE") {
             $mensaje = 'NOT##ACCESS';
-         } if ($registros[0]["estado"] == "PENDIENTE") {
+         } else if ($registros[0]["estado"] == "PENDIENTE") {
             $mensaje = 'NOT##STATUS';
          } else {
             unset($registros[0]['password']);
@@ -37,6 +37,29 @@ class Inicio extends BaseController
             $this->session->set($registros[0]);
             $mensaje = 'OK##DATA##LOGIN';
          }
+      }
+      echo $mensaje;
+   }
+
+   public function validarDatosIngresoMovil()
+   {
+      $valor_email = $this->request->getPostGet('email');
+      $valor_pass = md5($this->request->getPostGet('password'));
+
+      $usuarios_db = new UsuariosModel();
+      $registros = $usuarios_db->where(['email' => $valor_email, 'password' => $valor_pass])->find();
+
+      if (sizeof($registros) == 0) {
+         $mensaje = 'ERROR##INVALID##DATA';
+      } else {
+         if ($registros[0]["tipo_usuario"] != "CLIENTE") {
+            $mensaje = 'NOT##ACCESS';
+         } else if ($registros[0]["estado"] == "INACTIVO") {
+            $mensaje = 'NOT##STATUS';
+         } else {
+            $mensaje = 'OK##DATA##LOGIN#&&#' . $registros[0]["id"] . "##" . $registros[0]["email"] . "##" . $registros[0]["documento"] . "##" . $registros[0]["nombres"] . "##" . $registros[0]["apellidos"] . "##" . $registros[0]["id_ciudad"] . "##" . $registros[0]["direccion"] . "##" . $registros[0]["telefono"] . "##" . $registros[0]["genero"] . "##" . $registros[0]["avatar"];
+         }
+
       }
       echo $mensaje;
    }
