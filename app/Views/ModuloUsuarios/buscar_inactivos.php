@@ -9,19 +9,19 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Lista de usuarios Inactivos</h3>
-            </div>
-            <div class="d-grid gap-2 d-md-flex mt-4 mr-4 justify-content-md-end">
+              <h2 class="card-title "><b> Lista de usuarios Inactivos</b></h2>
+            
+            <div class="d-grid d-md-flex  justify-content-md-end">
 
-              <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios') ?>" class="btn btn-app bg-success mr-4">
+              <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios') ?>" class="btn  bg-success mr-4">
                 <i class="fas fa-lock-open"></i>
                 Usuarios Activos</a>
 
-              <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes') ?>" class="btn btn-app bg-warning mr-4">
+              <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes') ?>" class="btn  bg-warning mr-4">
                 <i class="fas fa-user-clock"></i>
                 Usuarios Pendientes</a>
             </div>
-
+          </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="usuarios_inactivos" class="table table-bordered table-striped">
@@ -31,7 +31,6 @@
                     <th>Email</th>
                     <th>Documento</th>
                     <th>Nombres</th>
-                    <th>Apellidos</th>
                     <th>Avatar</th>
                     <th>Tipo Usuario</th>
                     <th>Estado</th>
@@ -42,16 +41,14 @@
                   <?php foreach ($datos as $dato) { ?>
 
                     <tr>
-                      <td ><?php echo $dato['id']; ?></td>
+                      <td class="doc_in"><?php echo $dato['id']; ?></td>
                       <td ><?php echo $dato['email']; ?></td>
-                      <td class="doc_in"><?php echo $dato['documento']; ?></td>
-                      <td><?php echo $dato['nombres']; ?></td>
-                      <td><?php echo $dato['apellidos']; ?></td>
+                      <td ><?php echo $dato['documento']; ?></td>
+                      <td><?php echo $dato['nombres'].' '.$dato['apellidos']; ?></td>
                       <td><?php echo $dato['avatar']; ?></td>
                       <td><?php echo $dato['tipo_usuario']; ?></td>
-                      <td><?php echo $dato['estado']; ?></td>
+                      <td><span class="btn bg-danger"><?php echo $dato['estado']; ?></span></td>
                       <td><button type="button" class="btn btn-success toastrDefaultSuccess activar" data-toggle="modal"  data-target="#modal-confirma"  data-placement="top" class="btn btn-danger"><i class="fas fa-trash-restore"></i></button></td>
-
                     </tr>
                   <?php } ?>
                 </tbody>

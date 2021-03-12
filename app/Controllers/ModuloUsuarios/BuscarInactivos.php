@@ -35,7 +35,9 @@ class BuscarInactivos extends BaseController {
 		$data = $usuarios->where('documento',$docum)->find();
 
 		if ($data) {
-			echo json_encode($data);
+        echo view('template/header',);
+		echo view('ModuloUsuarios/detalles_usuario',$data);
+		echo view('template/footer');
 		   
 	   } else {
 		   echo json_encode('error');

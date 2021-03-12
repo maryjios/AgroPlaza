@@ -9,15 +9,16 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Lista de usuarios activos</h3>
-            </div>
-            <div class="d-grid d-md-flex mt-4 mr-4 ml-2 justify-content-md-end">
-              <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos') ?>" class="btn btn-app bg-danger mr-4">
+              <h2 class="card-title"><b>Lista de Usuarios Activos</b></h2>
+              <div class="d-grid d-md-flex  justify-content-md-end">
+              <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos') ?>" class="btn  bg-danger mr-4">
                 <i class="fas fa-user-lock"></i>
                 Usuarios Inactivos</a>
-              <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes') ?>" class="btn btn-app bg-warning mr-4">
+              <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes') ?>" class="btn  bg-warning mr-4">
                 <i class="fas fa-user-clock"></i>
                 Usuarios Pendientes</a>
+            </div>
+
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -27,8 +28,7 @@
                     <th>Id</th>
                     <th>Email</th>
                     <th>Documento</th>
-                    <th>Nombres</th>
-                    <th>Apellidos</th>
+                    <th>Nombre </th>
                     <th>Avatar</th>
                     <th>Tipo Usuario</th>
                     <th>Estado</th>
@@ -37,17 +37,15 @@
                 </thead>
                 <tbody id="tbodyusuarios">
                   <?php foreach ($datos as $dato) { ?>
-
                     <tr>
-                      <td ><?php echo $dato['id']; ?></td>
+                      <td class="doc"><?php echo $dato['id']; ?></td>
                       <td ><?php echo $dato['email']; ?></td>
-                      <td class="doc"><?php echo $dato['documento']; ?></td>
-                      <td><?php echo $dato['nombres']; ?></td>
-                      <td><?php echo $dato['apellidos']; ?></td>
+                      <td ><?php echo $dato['documento']; ?></td>
+                      <td><?php echo $dato['nombres'].' '.$dato['apellidos']; ?></td>
                       <td><?php echo $dato['avatar']; ?></td>
                       <td><?php echo $dato['tipo_usuario']; ?></td>
-                      <td><?php echo $dato['estado']; ?></td>
-                      <td><button type="button" class="btn btn-primary mr-2 mod_estado"><i class="far fa-eye"></i></button><a class="btn btn-danger toastrDefaultSuccess desactivar"><i class="fas fa-user-lock"></i></a></td>
+                      <td><span class="btn bg-success"><?php echo $dato['estado']; ?></span></td>
+                      <td><a t type="button" class="btn btn-primary mr-2 modal_edit" href="<?php echo base_url('/ModuloUsuarios/BuscarusuId?doc=').$dato['id'];?>"><i class="far fa-eye"></i></a><a class="btn btn-danger toastrDefaultSuccess desactivar"><i class="fas fa-user-lock"></i></a></td>
                     </tr>
                   <?php } ?>
                 </tbody>
@@ -115,7 +113,7 @@
       "ordering": true,
       "aoColumnDefs": [{
           'bSortable': false,
-          'aTargets': [1]  },
+          'aTargets': [4]  },
         {
           'bSortable': false,
           'aTargets': [6] },
