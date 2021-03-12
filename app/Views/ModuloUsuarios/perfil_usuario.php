@@ -38,7 +38,7 @@
 
             <form class="form-horizontal">
               <div class="form-group row">
-                <input type="hidden" id="id_documento" name="id_documento" value="" disabled>
+                <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $_SESSION["id"]; ?>" disabled>
 
                 <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-4">
@@ -51,8 +51,12 @@
               </div>
               <div class="form-group row">
                 <label for="inputEmail" class="col-sm-2 col-form-label">Correo</label>
-                <div class="col-sm-10">
+                <div class="col-sm-4">
                   <input type="email" class="form-control form-control-border border-width-2" id="email_us" name="email_us" value="<?php echo $_SESSION["email"]; ?>" disabled>
+                </div>
+                <label for="inputName" class="col-sm-2 col-form-label">Ciudad</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control form-control-border border-width-2" id="ciudad_us" name="ciudad_us" value="<?php echo $_SESSION["id_ciudad"]; ?>" disabled>
                 </div>
               </div>
               <div class="form-group row">
@@ -60,20 +64,21 @@
                 <div class="col-sm-4">
                   <input type="text" class="form-control form-control-border border-width-2" id="direccion_us" name="direccion_us" value="<?php echo $_SESSION["direccion"]; ?>" disabled>
                 </div>
-                <label for="inputName" class="col-sm-2 col-form-label">Ciudad</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control form-control-border border-width-2" id="ciudad_us" name="ciudad_us" value="<?php echo $_SESSION["id_ciudad"]; ?>" disabled>
-                </div>
-              </div>
-
-              <div class="form-group row">
                 <label for="inputName" class="col-sm-2 col-form-label">Telefono</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control form-control-border border-width-2" id="telefono_us" name="telefono_us" value="<?php echo $_SESSION["telefono"]; ?>" disabled>
                 </div>
+              </div>
+
+              <div class="form-group row">
+
                 <label for="inputName" class="col-sm-2 col-form-label">Genero</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control form-control-border border-width-2" id="genero_us" name="genero_us" value="<?php echo $_SESSION["genero"]; ?>" disabled>
+                </div>
+                <label for="inputName" class="col-sm-2 col-form-label">Estado</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control form-control-border border-width-2" id="estado_us" name="estado_us" value="<?php echo $_SESSION["estado"]; ?>" disabled>
                 </div>
               </div>
               <div class="form-group row">
@@ -81,10 +86,7 @@
                 <div class="col-sm-4">
                   <input type="text" class="form-control form-control-border border-width-2" id="tipo_us" name="tipo_us" value="<?php echo $_SESSION["tipo_usuario"]; ?>" disabled>
                 </div>
-                <label for="inputName" class="col-sm-2 col-form-label">Estado</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control form-control-border border-width-2" id="estado_us" name="estado_us" value="<?php echo $_SESSION["estado"]; ?>" disabled>
-                </div>
+
               </div>
               <div class="form-group row">
                 <label for="inputName" class="col-sm-2 col-form-label">Fecha de Registro</label>
@@ -99,36 +101,43 @@
           <!-- /.tab-pane -->
           <div class="tab-pane" id="modal_editar">
             <!-- modal para editar perfil-->
-            <form class="row g-3">
+            <form class="row g-3" action="" method="post" id="editar_datos">
               <div class="col-md-6">
                 <label for="nombre_edit" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre_edit" value="">
+                <input type="text" class="form-control" id="nombre_edit" value="<?php echo $_SESSION["nombres"]; ?>">
               </div>
               <div class="col-md-6">
                 <label for="apellido_edit" class="form-label">apellido</label>
-                <input type="text" class="form-control" id="apellido_edit" value="">
-              </div>
-              <div class="col-12">
-                <label for="direccion_edit" class="form-label">Dirección</label>
-                <input type="text" class="form-control" id="direccion_edit" value="">
+                <input type="text" class="form-control" id="apellido_edit" value="<?php echo $_SESSION["apellidos"]; ?>">
               </div>
               <div class="col-6">
-                <label for="inputAddress2" class="form-label">Ciudad</label>
-                <input type="text" class="form-control" id="ciudad_edit" value="">
+                <label for="direccion_edit" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="direccion_edit" value="<?php echo $_SESSION["direccion"]; ?>">
               </div>
-              <div class="col-md-6">
-                <label for="inputCity" class="form-label">Departamento</label>
-                <input type="text" class="form-control" id="departamento" disabled>
-              </div>
-
+    
               <div class="col-md-6">
                 <label for="inputZip" class="form-label">telefono</label>
-                <input type="text" class="form-control" id="telefono_edit">
+                <input type="text" class="form-control" id="telefono_edit" value="<?php echo $_SESSION["telefono"]; ?>">
               </div>
-              <div class="col-md-6">
-                <label for="inputZip" class="form-label">Avatar</label>
-                <input type="file" class="form-control" id="avatar_edit">
+              <div class="col-6 mt-4">
+                <label for="inputZip" class="form-label">Departamento</label>
+                <select name="departamento" id="departamento" class="form-control ">
+                  <option value="" selected disabled>Seleccione Departamento</option>
+                  <?php
+                  foreach ($departamentos as $departamento) { ?>
+                    <option value="<?php echo $departamento['id'] ?>"><?php echo $departamento['nombre'] ?></option>
+                  <?php } ?>
+                </select>
+
               </div>
+              <div class="col-6 mt-4">
+                <label for="inputZip" class="form-label">Ciudad</label>
+                <select name="ciudad" id="ciudad" class="form-control">
+                  <option value="">Seleccione Ciudad</option>
+                </select>
+              </div>
+
+
               <div class="col-12 mt-4">
                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
               </div>
@@ -289,4 +298,36 @@
         $
       });
   }
+
+  function elegirDepartamento() {
+
+   let departamento = $(this).val();
+   var ciudades = $("#ciudad");
+
+   if (departamento != '0') {
+
+      $('#ciudad').attr("disabled", false);
+
+      $.ajax({
+         url: '<?php echo base_url('/Inicio/getCiudades'); ?>',
+         type: "POST",
+         dataType: "json",
+         data: {
+            departamento: departamento,
+         },
+      })
+      .done(function(data) {
+
+         ciudades.find('option').remove();
+
+         $(data).each(function(i, v) { 
+            ciudades.append('<option value="' + v.id + '">' + v.nombre + '</option>');
+         });
+      })
+
+      .fail(function(data) {
+         console.log("error");
+      });
+   }
+}
 </script>
