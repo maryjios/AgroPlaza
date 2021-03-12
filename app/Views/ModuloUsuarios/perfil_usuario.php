@@ -9,12 +9,17 @@
           <form enctype="multipart/form-data" method="post" id="formAvatar">
             <input type="file" name="img_avatar" accept="image/png, .jpeg, .jpg" id="img_avatar">
             <input type="hidden" name="id_user" value="<?php $_SESSION['id']; ?>" id="id_user">
+            <div id="divBtnAvatar" class="mt-3">
+            </div>
           </form>
         </div>
       </div>
-      <h3 class="profile-username text-center"><?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></h3>
-      <p class="text-muted text-center"><?php echo $_SESSION["tipo_usuario"]; ?></p>
+      <div id="contentsito">
+        <h3 class="profile-username text-center"><?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></h3>
+        <p class="text-muted text-center"><?php echo $_SESSION["tipo_usuario"]; ?></p>
+      </div>
     </div>
+
     <!-- /.card-body -->
   </div>
 
@@ -207,21 +212,51 @@
     cursor: pointer;
   }
 </style>
+
+
 <script>
   $(document).ready(iniciar);
 
   function iniciar() {
+    $('#divBtnAvatar').hide()
 
     $("#icon_btn_edit").click(function() {
       $("#img_avatar").trigger('click');
     });
 
+    function readImage(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $('#avatar').attr('src', e.target.result); // Renderizamos la imagen
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
     $('#img_avatar').on('change', function() {
-      CargarAvatar();
 
-      var val = $(this).val();
+      val = $(this).val();
       $(this).siblings('span').text(val);
+      $('#avatar').attr('src', val);
+      // Código a ejecutar cuando se detecta un cambio de archivO
+      readImage(this);
+
+      let btn = "<button type='submit' class='btn btn-primary'>Guardar Imagen</button>"
+      // $('#contentsito').remove();
+      // let cont = `<div id="contentsito">
+      //   <h3 class="profile-username text-center"><?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></h3>
+      //   <p class="text-muted text-center"><?php echo $_SESSION["tipo_usuario"]; ?></p>
+      // </div>`
+
+      $('#divBtnAvatar').html(btn)
+      $('#contentsito').css('margin-top', '3.5em')
+
+      $('#divBtnAvatar').slideDown()
+
+      $('#formAvatar').submit(CargarAvatar);
+
     })
+
 
 
   }
@@ -232,6 +267,7 @@
     e.preventDefault();
 
     var datos_formulario = new FormData($('#formAvatar')[0]);
+
     $.ajax({
         url: '<?php echo base_url('/ModuloUsuarios/CargarAvatar'); ?>',
         type: "POST",
@@ -241,7 +277,13 @@
         processData: false
       })
       .done(function(data) {
-        $('#avatar').attr('src', '<?php echo base_url("public/dist/img/avatar") . '/' . $_SESSION['avatar'] ?>')
+        if (data.respuesta = 'OK#UPDATE') {
+          $('#avatar').attr('src', '<?php echo base_url("public/dist/img/avatar")?>/'+data.ruta)
+        }else if(data.respuesta = 'ERROR#UPDATE'){
+          alert('ERRO en EL  update')
+        }else{
+          alert('ERRRO EXTERNO')
+        }
       })
       .fail(function(data) {
         $

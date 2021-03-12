@@ -21,12 +21,11 @@ class PerfilUsuario extends BaseController
 
 	public function editarAvatar()
 	{
-		$user = $this->request->getPostGet('id_user');
-
+		$user = $this->request->getPost('id_user');
 
 		$extension = explode(".", $_FILES['img_avatar']['name']);
 		$extension = strtolower($extension[sizeof($extension) - 1]);
-		$nombre_avatar = 'avatar_user_' . $user;
+		$nombre_avatar = 'avatar_user_' . $user . '.' . $extension;
 
 		if (in_array($extension, array('png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'))) {
 			$file = $this->request->getFiles()['img_avatar'];
@@ -35,27 +34,36 @@ class PerfilUsuario extends BaseController
 
 
 				$db_usuarios = new UsuariosModel();
-				$db_usuarios->set('avatar', $nombre_avatar)->where('id', $user)->update();
+				$datos = $db_usuarios->set('avatar', $nombre_avatar)->where('id', $user)->update();
 
-				$ruta_avatar = "public/dist/img/avatar/". $nombre_avatar;
+
+				$ruta_avatar = "public/dist/img/avatar/" . $nombre_avatar;
 
 				if (file_exists($ruta_avatar)) {
 					unlink($ruta_avatar);
 				}
 
 				// Subiendo foto al servidor
-				$file->move('./public/dist/img/avatar/', $nombre_avatar);
-
-				echo "OK#CORRECT#DATA";
 				
-			}else{
-				echo "MALO#INCORRECT#DATA";
+				$moveresponse = $file->move('./public/dist/img/avatar/', $nombre_avatar);
+				if ($datos) {
 
+					$avatar['respuesta'] = 'OK#UPDATE';
+					
+					$avatar['ruta'] = $nombre_avatar;
+
+
+				} else {
+					$avatar['respuesta'] = 'ERROR#UPDATE';
+				}
+			} else {
+				$avatar['respuesta'] = 'NO#VALID';
 			}
-		}else{
+		} else {
 
-			echo "FORMAT#INCORRECT";
-
+			$avatar['respuesta'] = 'FORMAT#INCORRECT';
 		}
+
+		echo json_decode($avatar);
 	}
 }
