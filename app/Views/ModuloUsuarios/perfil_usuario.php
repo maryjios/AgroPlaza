@@ -121,6 +121,10 @@
                 <label for="inputAddress2" class="form-label">Ciudad</label>
                 <input type="text" class="form-control" id="ciudad_edit" value="">
               </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> bbd1d35d5f86b50f442b363cae6347dc79e21d7d
               <div class="col-md-6">
                 <label for="inputCity" class="form-label">Departamento</label>
                 <input type="text" class="form-control" id="departamento" disabled>
