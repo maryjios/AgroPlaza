@@ -7,7 +7,7 @@ use App\Models\UsuariosModel;
 class BuscarInactivos extends BaseController {
 
 	public function index(){
-			$this->usuarios = new UsuariosModel();
+		$this->usuarios = new UsuariosModel();
         $usuarios = $this->usuarios->select('*')->where('estado','INACTIVO')->findAll();
 		 $personas =['datos' => $usuarios];
 		$data['modulo_selected'] = "Usuarios";

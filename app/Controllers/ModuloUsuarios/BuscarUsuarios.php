@@ -27,9 +27,7 @@ class BuscarUsuarios extends BaseController {
 		$data = $usuarios->where('id',$doc)->find();
 
 		if ($data) {
-	    echo view('template/header',);
-		echo view('ModuloUsuarios/detalles_usuario',$data);
-		echo view('template/footer');
+	       echo json_encode($data);
 		   
 	   } else {
 		   echo json_encode('error');

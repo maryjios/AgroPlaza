@@ -47,7 +47,7 @@ class BuscarPendientes extends BaseController {
 	   } else {
 		   echo json_encode('error');
 	   
-	   }
+	   }	
 	}
 
 	public function actualizarpen(){

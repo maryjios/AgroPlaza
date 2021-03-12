@@ -140,7 +140,7 @@
         dataType: "json",
         data: {
           doc: doc
-        }
+        },
 
       }).done(function(data) {
         console.log(data);
