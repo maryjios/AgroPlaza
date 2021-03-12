@@ -44,6 +44,7 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('CargarCiudades', 'RegistrarUsuario::cargarCiudadesMovil');
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
 
+
     $routes->add('MostrarUsuarios', 'BuscarUsuarios::listarusuarios');
     $routes->add('BuscarusuId', 'BuscarUsuarios::buscarporId');
     $routes->add('Actuaestado', 'BuscarUsuarios::actualizarest');
@@ -62,7 +63,8 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('ActualizarPen', 'BuscarPendientes::actualizarpen');
 
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
-    
+    $routes->add('CargarAvatar', 'PerfilUsuario::editarAvatar');
+    $routes->add('VerperfilUsuario', 'PerfilUsuario::detalleperfil');
     $routes->add('BuscarDatosPerfil', 'PerfilUsuario:: buscar_session');
 });
 
