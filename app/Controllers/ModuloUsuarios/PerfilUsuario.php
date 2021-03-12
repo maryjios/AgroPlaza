@@ -47,7 +47,8 @@ class PerfilUsuario extends BaseController
    
 	public function editarAvatar()
 	{
-		$user = $this->request->getPost('id_user');
+		$user = $this->request->getPostGet('id_user');
+		
 
 		$extension = explode(".", $_FILES['img_avatar']['name']);
 		$extension = strtolower($extension[sizeof($extension) - 1]);

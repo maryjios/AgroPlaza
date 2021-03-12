@@ -243,12 +243,12 @@
       }
     }
     $('#img_avatar').on('change', function() {
-
       val = $(this).val();
       $(this).siblings('span').text(val);
       $('#avatar').attr('src', val);
       // Código a ejecutar cuando se detecta un cambio de archivO
       readImage(this);
+      alert(val)
 
       let btn = "<button type='submit' class='btn btn-primary'>Guardar Imagen</button>"
       // $('#contentsito').remove();
@@ -283,7 +283,7 @@
       })
       .done(function(data) {
         if (data.respuesta = 'OK#UPDATE') {
-          $('#avatar').attr('src', '<?php echo base_url("public/dist/img/avatar") ?>/' + data.ruta)
+          $('#avatar').attr('src', '<?php echo base_url("public/dist/img/avatar") ?>' + data.avatar)
         } else if (data.respuesta = 'ERROR#UPDATE') {
           alert('ERRO en EL  update')
         } else {
