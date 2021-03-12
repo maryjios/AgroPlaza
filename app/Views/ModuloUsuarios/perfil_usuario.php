@@ -3,21 +3,16 @@
   <div class="card card-primary ">
     <div class="card-body box-profile">
       <div class="justify-content-center" align="center">
-        <form action="" method="post" enctype="multipart/form-data" id="formAvatar">
-
-          <div id="contenedor_avatar">
-            <input type="hidden" name="id_user" value="<?php echo $_SESSION["id"]; ?>">
-            <p>
-              <input type="file" onchange="previewFile(this);" class="form-control" id="photo" name="photo" accept="image/*">
-
-            </p>
-            <img id="previewImg" src="<?php echo base_url('public/dist/img/avatar') . '/' . $_SESSION['avatar']; ?>" alt="Placeholder">
-            <p>
-              <input type="submit" value="Submit">
-            </p>
-          </div>
-        </form>
-
+        <div id="contenedor_avatar">
+          <img src="<?php echo base_url("public/dist/img/avatar") . '/' . $_SESSION['avatar'] ?>" id="previewImg" class="main-profile-img" />
+          <i class="fa fa-edit iconoedit" id="icon_btn_edit"></i>
+          <form enctype="multipart/form-data" method="post" id="formAvatar">
+            <input type="file" onchange="previewFile(this);" class="form-control" id="photo" name="photo" accept="image/*">
+            <input type="hidden" name="id_user" value="<?php echo $_SESSION['id']; ?>" id="id_user">
+            <div id="divBtnAvatar" class="mt-3">
+            </div>
+          </form>
+        </div>
       </div>
       <div id="contentsito">
         <h3 class="profile-username text-center"><?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></h3>
@@ -121,10 +116,6 @@
                 <label for="inputAddress2" class="form-label">Ciudad</label>
                 <input type="text" class="form-control" id="ciudad_edit" value="">
               </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> bbd1d35d5f86b50f442b363cae6347dc79e21d7d
               <div class="col-md-6">
                 <label for="inputCity" class="form-label">Departamento</label>
                 <input type="text" class="form-control" id="departamento" disabled>
@@ -179,6 +170,63 @@
 </div>
 
 
+<style>
+  #contenedor_avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #FFFFFF;
+    box-shadow: 0 0 8px 3px #B8B8B8;
+    position: relative;
+  }
+
+  #contenedor_avatar img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  #contenedor_avatar .iconoedit {
+    position: absolute;
+    top: 20px;
+    right: -7px;
+    /* border: 1px solid; */
+    border-radius: 50%;
+    /* padding: 11px; */
+    height: 30px;
+    width: 30px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: cornflowerblue;
+    box-shadow: 0 0 8px 3px #B8B8B8;
+  }
+
+  #photo {
+    display: none;
+  }
+
+  #icon_btn_edit {
+    cursor: pointer;
+  }
+</style>
+
+
+<script>
+  $(document).ready(iniciar);
+
+  function iniciar() {
+    $('#divBtnAvatar').hide()
+
+    $("#icon_btn_edit").click(function() {
+      $("#photo").trigger('click');
+    });
+
+
+  }
+</script>
 
 
 <script>
@@ -188,6 +236,13 @@
       var reader = new FileReader();
       reader.onload = function() {
         $("#previewImg").attr("src", reader.result);
+        let btn = "<button type='submit' class='btn btn-success' id='done'><i class='fas fa-check'></i></button>"
+
+        $('#divBtnAvatar').html(btn)
+        
+        $('#contentsito').css('margin-top', '3.5em')
+
+        $('#divBtnAvatar').slideDown()
       }
 
       reader.readAsDataURL(file);
@@ -234,14 +289,21 @@
     $.ajax({
         url: '<?php echo base_url('/ModuloUsuarios/CargarAvatar'); ?>',
         type: "POST",
-        dataType: "text",
+        dataType: "json",
         data: formData,
         contentType: false,
         processData: false
       })
       .done(function(data) {
+
         if (data.respuesta = 'OK#UPDATE') {
+
           $('#avatar').attr('src', '<?php echo base_url("public/dist/img/avatar") ?>' + data.avatar)
+          $('#divBtnAvatar').slideUp();
+          $('#divBtnAvatar').html('')
+          $('#contentsito').css('margin-top', '0')
+
+
         } else if (data.respuesta = 'ERROR#UPDATE') {
           alert('ERRO en EL  update')
         } else {
@@ -249,7 +311,8 @@
         }
       })
       .fail(function(data) {
-        $
+        console.log(data)
+
       });
 
   }

@@ -38,13 +38,14 @@ class PerfilUsuario extends BaseController
 		}
 	}
 	public function getCiudades()
-    {   $ciudades_db = new CiudadesModel();
-        $departamento = $this->request->getPostGet('departamento');
-        $data = $ciudades_db->where(["id_departamento" => $departamento])->findAll();
-        echo json_encode($data);
-    }
+	{
+		$ciudades_db = new CiudadesModel();
+		$departamento = $this->request->getPostGet('departamento');
+		$data = $ciudades_db->where(["id_departamento" => $departamento])->findAll();
+		echo json_encode($data);
+	}
 
-   
+
 	public function editarAvatar()
 	{
 		$user = $this->request->getPostGet('id_user');
@@ -52,6 +53,7 @@ class PerfilUsuario extends BaseController
 
 		$extension = explode(".", $_FILES['photo']['name']);
 		$extension = strtolower($extension[sizeof($extension) - 1]);
+		$nombre_archivo = 'avatar_user_' . $user;
 		$nombre_avatar = 'avatar_user_' . $user . '.' . $extension;
 
 		if (in_array($extension, array('png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'))) {
@@ -63,18 +65,20 @@ class PerfilUsuario extends BaseController
 				$db_usuarios = new UsuariosModel();
 				$datos = $db_usuarios->set('avatar', $nombre_avatar)->where('id', $user)->update();
 
-
-				$ruta_avatar = "public/dist/img/avatar/" . $nombre_avatar;
-
-				if (file_exists($ruta_avatar)) {
-					unlink($ruta_avatar);
+				$extensiones = array('png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG');
+				foreach ($extensiones as $elemento) {
+					$ruta_avatar = "public/dist/img/avatar/" . $nombre_archivo .'.'.$elemento;
+					if (file_exists($ruta_avatar)) {
+						unlink($ruta_avatar);
+					}
 				}
 
+
 				// Subiendo foto al servidor
-
 				$moveresponse = $file->move('./public/dist/img/avatar/', $nombre_avatar);
-				if ($datos) {
+				if ($datos && $moveresponse) {
 
+					$_SESSION['avatar'] = $nombre_avatar;
 					$avatar['respuesta'] = 'OK#UPDATE';
 
 					$avatar['ruta'] = $nombre_avatar;
@@ -89,6 +93,6 @@ class PerfilUsuario extends BaseController
 			$avatar['respuesta'] = 'FORMAT#INCORRECT';
 		}
 
-		echo json_decode($avatar);
+		echo json_encode($avatar);
 	}
 }
