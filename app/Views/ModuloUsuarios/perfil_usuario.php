@@ -3,16 +3,21 @@
   <div class="card card-primary ">
     <div class="card-body box-profile">
       <div class="justify-content-center" align="center">
-        <div id="contenedor_avatar">
-          <img src="<?php echo base_url("public/dist/img/avatar") . '/' . $_SESSION['avatar'] ?>" id="avatar" class="main-profile-img" />
-          <i class="fa fa-edit" id="icon_btn_edit"></i>
-          <form enctype="multipart/form-data" method="post" id="formAvatar">
-            <input type="file" name="img_avatar" accept="image/png, .jpeg, .jpg" id="img_avatar">
-            <input type="hidden" name="id_user" value="<?php $_SESSION['id']; ?>" id="id_user">
-            <div id="divBtnAvatar" class="mt-3">
-            </div>
-          </form>
-        </div>
+        <form action="" method="post" enctype="multipart/form-data" id="formAvatar">
+
+          <div id="contenedor_avatar">
+            <input type="hidden" name="id_user" value="<?php echo $_SESSION["id"]; ?>">
+            <p>
+              <input type="file" onchange="previewFile(this);" class="form-control" id="photo" name="photo" accept="image/*">
+
+            </p>
+            <img id="previewImg" src="<?php echo base_url('public/dist/img/avatar') . '/' . $_SESSION['avatar']; ?>" alt="Placeholder">
+            <p>
+              <input type="submit" value="Submit">
+            </p>
+          </div>
+        </form>
+
       </div>
       <div id="contentsito">
         <h3 class="profile-username text-center"><?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></h3>
@@ -38,7 +43,7 @@
 
             <form class="form-horizontal">
               <div class="form-group row">
-                <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $_SESSION["id"]; ?>" disabled>
+                <input type="hidden" id="id_documento" name="id_documento" value="" disabled>
 
                 <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-4">
@@ -51,12 +56,8 @@
               </div>
               <div class="form-group row">
                 <label for="inputEmail" class="col-sm-2 col-form-label">Correo</label>
-                <div class="col-sm-4">
+                <div class="col-sm-10">
                   <input type="email" class="form-control form-control-border border-width-2" id="email_us" name="email_us" value="<?php echo $_SESSION["email"]; ?>" disabled>
-                </div>
-                <label for="inputName" class="col-sm-2 col-form-label">Ciudad</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control form-control-border border-width-2" id="ciudad_us" name="ciudad_us" value="<?php echo $_SESSION["id_ciudad"]; ?>" disabled>
                 </div>
               </div>
               <div class="form-group row">
@@ -64,21 +65,20 @@
                 <div class="col-sm-4">
                   <input type="text" class="form-control form-control-border border-width-2" id="direccion_us" name="direccion_us" value="<?php echo $_SESSION["direccion"]; ?>" disabled>
                 </div>
-                <label for="inputName" class="col-sm-2 col-form-label">Telefono</label>
+                <label for="inputName" class="col-sm-2 col-form-label">Ciudad</label>
                 <div class="col-sm-4">
-                  <input type="text" class="form-control form-control-border border-width-2" id="telefono_us" name="telefono_us" value="<?php echo $_SESSION["telefono"]; ?>" disabled>
+                  <input type="text" class="form-control form-control-border border-width-2" id="ciudad_us" name="ciudad_us" value="<?php echo $_SESSION["id_ciudad"]; ?>" disabled>
                 </div>
               </div>
 
               <div class="form-group row">
-
+                <label for="inputName" class="col-sm-2 col-form-label">Telefono</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control form-control-border border-width-2" id="telefono_us" name="telefono_us" value="<?php echo $_SESSION["telefono"]; ?>" disabled>
+                </div>
                 <label for="inputName" class="col-sm-2 col-form-label">Genero</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control form-control-border border-width-2" id="genero_us" name="genero_us" value="<?php echo $_SESSION["genero"]; ?>" disabled>
-                </div>
-                <label for="inputName" class="col-sm-2 col-form-label">Estado</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control form-control-border border-width-2" id="estado_us" name="estado_us" value="<?php echo $_SESSION["estado"]; ?>" disabled>
                 </div>
               </div>
               <div class="form-group row">
@@ -86,7 +86,10 @@
                 <div class="col-sm-4">
                   <input type="text" class="form-control form-control-border border-width-2" id="tipo_us" name="tipo_us" value="<?php echo $_SESSION["tipo_usuario"]; ?>" disabled>
                 </div>
-
+                <label for="inputName" class="col-sm-2 col-form-label">Estado</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control form-control-border border-width-2" id="estado_us" name="estado_us" value="<?php echo $_SESSION["estado"]; ?>" disabled>
+                </div>
               </div>
               <div class="form-group row">
                 <label for="inputName" class="col-sm-2 col-form-label">Fecha de Registro</label>
@@ -101,43 +104,36 @@
           <!-- /.tab-pane -->
           <div class="tab-pane" id="modal_editar">
             <!-- modal para editar perfil-->
-            <form class="row g-3" action="" method="post" id="editar_datos">
+            <form class="row g-3">
               <div class="col-md-6">
                 <label for="nombre_edit" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre_edit" value="<?php echo $_SESSION["nombres"]; ?>">
+                <input type="text" class="form-control" id="nombre_edit" value="">
               </div>
               <div class="col-md-6">
                 <label for="apellido_edit" class="form-label">apellido</label>
-                <input type="text" class="form-control" id="apellido_edit" value="<?php echo $_SESSION["apellidos"]; ?>">
+                <input type="text" class="form-control" id="apellido_edit" value="">
+              </div>
+              <div class="col-12">
+                <label for="direccion_edit" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="direccion_edit" value="">
               </div>
               <div class="col-6">
-                <label for="direccion_edit" class="form-label">Dirección</label>
-                <input type="text" class="form-control" id="direccion_edit" value="<?php echo $_SESSION["direccion"]; ?>">
+                <label for="inputAddress2" class="form-label">Ciudad</label>
+                <input type="text" class="form-control" id="ciudad_edit" value="">
               </div>
-    
+              <div class="col-md-6">
+                <label for="inputCity" class="form-label">Departamento</label>
+                <input type="text" class="form-control" id="departamento" disabled>
+              </div>
+
               <div class="col-md-6">
                 <label for="inputZip" class="form-label">telefono</label>
-                <input type="text" class="form-control" id="telefono_edit" value="<?php echo $_SESSION["telefono"]; ?>">
+                <input type="text" class="form-control" id="telefono_edit">
               </div>
-              <div class="col-6 mt-4">
-                <label for="inputZip" class="form-label">Departamento</label>
-                <select name="departamento" id="departamento" class="form-control ">
-                  <option value="" selected disabled>Seleccione Departamento</option>
-                  <?php
-                  foreach ($departamentos as $departamento) { ?>
-                    <option value="<?php echo $departamento['id'] ?>"><?php echo $departamento['nombre'] ?></option>
-                  <?php } ?>
-                </select>
-
+              <div class="col-md-6">
+                <label for="inputZip" class="form-label">Avatar</label>
+                <input type="file" class="form-control" id="avatar_edit">
               </div>
-              <div class="col-6 mt-4">
-                <label for="inputZip" class="form-label">Ciudad</label>
-                <select name="ciudad" id="ciudad" class="form-control">
-                  <option value="">Seleccione Ciudad</option>
-                </select>
-              </div>
-
-
               <div class="col-12 mt-4">
                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
               </div>
@@ -179,109 +175,63 @@
 </div>
 
 
-<style>
-  #contenedor_avatar {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border-style: solid;
-    border-color: #FFFFFF;
-    box-shadow: 0 0 8px 3px #B8B8B8;
-    position: relative;
-  }
 
-  #contenedor_avatar img {
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-  }
 
-  #contenedor_avatar i {
-    position: absolute;
-    top: 20px;
-    right: -7px;
-    /* border: 1px solid; */
-    border-radius: 50%;
-    /* padding: 11px; */
-    height: 30px;
-    width: 30px;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    color: cornflowerblue;
-    box-shadow: 0 0 8px 3px #B8B8B8;
-  }
+<script>
+  function previewFile(input) {
+    var file = $("input[type=file]").get(0).files[0];
+    if (file) {
+      var reader = new FileReader();
+      reader.onload = function() {
+        $("#previewImg").attr("src", reader.result);
+      }
 
-  #img_avatar {
-    display: none;
+      reader.readAsDataURL(file);
+    }
   }
+</script>
 
-  #icon_btn_edit {
-    cursor: pointer;
-  }
-</style>
+<script>
+  $(function() {
+    Test = {
+      UpdatePreview: function(obj) {
+        // if IE < 10 doesn't support FileReader
+        if (!window.FileReader) {
+          // don't know how to proceed to assign src to image tag
+        } else {
+          var reader = new FileReader();
+          var target = null;
 
+          reader.onload = function(e) {
+            target = e.target || e.srcElement;
+            $("#ImageId").attr("src", target.result);
+          };
+          reader.readAsDataURL(obj.files[0]);
+        }
+      }
+    };
+  });
+</script>
 
 <script>
   $(document).ready(iniciar);
 
   function iniciar() {
-    $('#divBtnAvatar').hide()
-
-    $("#icon_btn_edit").click(function() {
-      $("#img_avatar").trigger('click');
-    });
-
-    function readImage(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          $('#avatar').attr('src', e.target.result); // Renderizamos la imagen
-        }
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-    $('#img_avatar').on('change', function() {
-      val = $(this).val();
-      $(this).siblings('span').text(val);
-      $('#avatar').attr('src', val);
-      // Código a ejecutar cuando se detecta un cambio de archivO
-      readImage(this);
-      alert(val)
-
-      let btn = "<button type='submit' class='btn btn-primary'>Guardar Imagen</button>"
-      // $('#contentsito').remove();
-      // let cont = `<div id="contentsito">
-      //   <h3 class="profile-username text-center"><?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></h3>
-      //   <p class="text-muted text-center"><?php echo $_SESSION["tipo_usuario"]; ?></p>
-      // </div>`
-
-      $('#divBtnAvatar').html(btn)
-      $('#contentsito').css('margin-top', '3.5em')
-
-      $('#divBtnAvatar').slideDown()
-
-      $('#formAvatar').submit(CargarAvatar);
-
-    })
-
-
+    $('#formAvatar').submit(CargarAvatar);
 
   }
-
 
 
   function CargarAvatar(e) {
     e.preventDefault();
 
-    var datos_formulario = new FormData($('#formAvatar')[0]);
+    var formData = new FormData($("#formAvatar")[0]);
 
     $.ajax({
         url: '<?php echo base_url('/ModuloUsuarios/CargarAvatar'); ?>',
         type: "POST",
         dataType: "text",
-        data: datos_formulario,
+        data: formData,
         contentType: false,
         processData: false
       })
@@ -297,37 +247,6 @@
       .fail(function(data) {
         $
       });
+
   }
-
-  function elegirDepartamento() {
-
-   let departamento = $(this).val();
-   var ciudades = $("#ciudad");
-
-   if (departamento != '0') {
-
-      $('#ciudad').attr("disabled", false);
-
-      $.ajax({
-         url: '<?php echo base_url('/Inicio/getCiudades'); ?>',
-         type: "POST",
-         dataType: "json",
-         data: {
-            departamento: departamento,
-         },
-      })
-      .done(function(data) {
-
-         ciudades.find('option').remove();
-
-         $(data).each(function(i, v) { 
-            ciudades.append('<option value="' + v.id + '">' + v.nombre + '</option>');
-         });
-      })
-
-      .fail(function(data) {
-         console.log("error");
-      });
-   }
-}
 </script>

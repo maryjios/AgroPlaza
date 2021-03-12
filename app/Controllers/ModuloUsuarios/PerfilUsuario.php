@@ -11,54 +11,54 @@ use App\Models\DepartamentosModel;
 class PerfilUsuario extends BaseController
 {
 
-	public function index(){
+	public function index()
+	{
 		$this->departamento = new DepartamentosModel();
-		$departamentos_sql= $this->departamento->select('*')->findAll();
-		$departamentos =['departamentos' => $departamentos_sql];
+		$departamentos_sql = $this->departamento->select('*')->findAll();
+		$departamentos = ['departamentos' => $departamentos_sql];
 
 		$data['modulo_selected'] = "Usuarios";
 		$data['opcion_selected'] = "PerfilUsuario";
-        
+
 		echo view('template/header', $data);
 		echo view('ModuloUsuarios/perfil_usuario', $departamentos);
 		echo view('template/footer');
 	}
 
-	public function buscar_session(){
+	public function buscar_session()
+	{
 		$usuarios = new UsuariosModel();
 		$doc = $this->request->getPostGet('doc');
-		$data = $usuarios->where('id',$doc)->find();
+		$data = $usuarios->where('id', $doc)->find();
 
 		if ($data) {
-	    echo json_encode($data);
-		   
-	   } else {
-		   echo json_encode('error');
-	   
-	   }
+			echo json_encode($data);
+		} else {
+			echo json_encode('error');
+		}
 	}
 	public function getCiudades()
-    {
-        $valor_departamento = $this->request->getPostGet('departamento');
-        $ciudades_db = new CiudadesModel();
-        $registros = $ciudades_db->where(["id_departamento" => $valor_departamento]);
-        $registros = $ciudades_db->findAll();
+	{
+		$valor_departamento = $this->request->getPostGet('departamento');
+		$ciudades_db = new CiudadesModel();
+		$registros = $ciudades_db->where(["id_departamento" => $valor_departamento]);
+		$registros = $ciudades_db->findAll();
 
-        echo json_encode($registros);
-    }
+		echo json_encode($registros);
+	}
 
-}   
+
 	public function editarAvatar()
 	{
 		$user = $this->request->getPostGet('id_user');
-		
 
-		$extension = explode(".", $_FILES['img_avatar']['name']);
+
+		$extension = explode(".", $_FILES['photo']['name']);
 		$extension = strtolower($extension[sizeof($extension) - 1]);
 		$nombre_avatar = 'avatar_user_' . $user . '.' . $extension;
 
 		if (in_array($extension, array('png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'))) {
-			$file = $this->request->getFiles()['img_avatar'];
+			$file = $this->request->getFiles()['photo'];
 
 			if ($file->isValid() && !$file->hasMoved()) {
 
@@ -74,15 +74,13 @@ class PerfilUsuario extends BaseController
 				}
 
 				// Subiendo foto al servidor
-				
+
 				$moveresponse = $file->move('./public/dist/img/avatar/', $nombre_avatar);
 				if ($datos) {
 
 					$avatar['respuesta'] = 'OK#UPDATE';
-					
+
 					$avatar['ruta'] = $nombre_avatar;
-
-
 				} else {
 					$avatar['respuesta'] = 'ERROR#UPDATE';
 				}
