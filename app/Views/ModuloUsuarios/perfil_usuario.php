@@ -2,10 +2,16 @@
   <!-- Content Header (Page header) -->
   <div class="card card-primary ">
     <div class="card-body box-profile">
-      <div class="text-center">
-        <img class="profile-user-img img-fluid img-circle" src="<?php echo base_url('public/dist/img/avatar2.png') ?>" alt="">
+      <div class="justify-content-center" align="center">
+        <div id="contenedor_avatar">
+          <img src="<?php echo base_url("public/dist/img/avatar") . '/' . $_SESSION['avatar'] ?>" id="avatar" class="main-profile-img" />
+          <i class="fa fa-edit" id="icon_btn_edit"></i>
+          <form enctype="multipart/form-data" method="post" id="formAvatar">
+            <input type="file" name="img_avatar" accept="image/png, .jpeg, .jpg" id="img_avatar">
+            <input type="hidden" name="id_user" value="<?php $_SESSION['id']; ?>" id="id_user">
+          </form>
+        </div>
       </div>
-
       <h3 class="profile-username text-center"><?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></h3>
       <p class="text-muted text-center"><?php echo $_SESSION["tipo_usuario"]; ?></p>
     </div>
@@ -158,15 +164,87 @@
   </div>
 </div>
 
+
+<style>
+  #contenedor_avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #FFFFFF;
+    box-shadow: 0 0 8px 3px #B8B8B8;
+    position: relative;
+  }
+
+  #contenedor_avatar img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  #contenedor_avatar i {
+    position: absolute;
+    top: 20px;
+    right: -7px;
+    /* border: 1px solid; */
+    border-radius: 50%;
+    /* padding: 11px; */
+    height: 30px;
+    width: 30px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: cornflowerblue;
+    box-shadow: 0 0 8px 3px #B8B8B8;
+  }
+
+  #img_avatar {
+    display: none;
+  }
+
+  #icon_btn_edit {
+    cursor: pointer;
+  }
+</style>
 <script>
   $(document).ready(iniciar);
 
   function iniciar() {
-    buscar_session();
+
+    $("#icon_btn_edit").click(function() {
+      $("#img_avatar").trigger('click');
+    });
+
+    $('#img_avatar').on('change', function() {
+      CargarAvatar();
+
+      var val = $(this).val();
+      $(this).siblings('span').text(val);
+    })
+
+
   }
 
-  function buscar_session() {
-    var doc = $(".id_documento").val();
-    console.log("doc", doc);
+
+
+  function CargarAvatar(e) {
+    e.preventDefault();
+
+    var datos_formulario = new FormData($('#formAvatar')[0]);
+    $.ajax({
+        url: '<?php echo base_url('/ModuloUsuarios/CargarAvatar'); ?>',
+        type: "POST",
+        dataType: "text",
+        data: datos_formulario,
+        contentType: false,
+        processData: false
+      })
+      .done(function(data) {
+        $('#avatar').attr('src', '<?php echo base_url("public/dist/img/avatar") . '/' . $_SESSION['avatar'] ?>')
+      })
+      .fail(function(data) {
+        $
+      });
   }
 </script>
