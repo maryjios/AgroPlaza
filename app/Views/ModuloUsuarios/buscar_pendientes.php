@@ -10,19 +10,19 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Lista de usuarios en Proceso </h3>
+
+              <div class="d-grid d-md-flex  justify-content-md-end">
+
+                <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios') ?>" class="btn  bg-success mr-4">
+                  <i class="fas fa-lock-open"></i>
+                  Usuarios Activos</a>
+
+                <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos') ?>" class="btn  bg-danger mr-4">
+                  <i class="fas fa-user-lock"></i>
+                  Usuarios Inactivos</a>
+
+              </div>
             </div>
-            <div class="d-grid gap-2 d-md-flex mt-4 mr-4 justify-content-md-end">
-
-              <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios') ?>" class="btn btn-app bg-success mr-4">
-                <i class="fas fa-lock-open"></i>
-                Usuarios Activos</a>
-
-              <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos') ?>" class="btn btn-app bg-danger mr-4">
-                <i class="fas fa-user-lock"></i>
-                Usuarios Inactivos</a>
-
-            </div>
-
             <!-- /.card-header -->
             <div class="card-body">
               <table id="usuarios_pendientes" class="table table-bordered table-striped">
@@ -32,29 +32,28 @@
                     <th>Email</th>
                     <th>Documento</th>
                     <th>Nombres</th>
-                    <th>Apellidos</th>
                     <th>Direccion</th>
                     <th>Tipo Usuario</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
-              <tbody id="tbodyusuarios">
-                <?php foreach ($datos as $dato) { ?>
+                <tbody id="tbodyusuarios">
+                  <?php foreach ($datos as $dato) { ?>
 
-                  <tr>
-                    <td ><?php echo $dato['id']; ?></td>
-                    <td ><?php echo $dato['email']; ?></td>
-                    <td class="doc"><?php echo $dato['documento']; ?></td>
-                    <td><?php echo $dato['nombres']; ?></td>
-                    <td><?php echo $dato['apellidos']; ?></td>
-                    <td><?php echo $dato['avatar']; ?></td>
-                    <td><?php echo $dato['tipo_usuario']; ?></td>
-                    <td><?php echo $dato['estado']; ?></td>
-                    <td><button type="button" class="btn btn-primary mr-2 modal_edit" ><i class="far fa-eye"></i></button><a  class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>
-                  </tr>
-                <?php } ?>
-              </tbody>
+                    <tr>
+                      <td><?php echo $dato['id']; ?></td>
+                      <td><?php echo $dato['email']; ?></td>
+                      <td class="doc"><?php echo $dato['documento']; ?></td>
+                      <td><?php echo $dato['nombres'] . ' ' . $dato['apellidos']; ?></td>
+                      <td><?php echo $dato['avatar']; ?></td>
+                      <td><?php echo $dato['tipo_usuario']; ?></td>
+                      <td> <span  class="btn bg-warning"><?php echo $dato['estado']; ?></span></td>
+                      <td><a type="button" class="btn btn-primary mr-2 modal_edit" href="<?php echo base_url('/ModuloUsuarios/BuscarPenId?doc=').$dato['id']; ?>"><i class="far fa-eye"></i></a><a class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>
+                    </tr>
+
+                  <?php } ?>
+                </tbody>
               </table>
             </div>
             <!-- /.card-body -->
@@ -65,11 +64,11 @@
   </div><!-- /.content-header -->
 </div>
 <!--INICIO PARA  MOSTRAR LOS DATOS DEL USUARIO PENDIENTES -->
-<div class="modal fade " id="modal_editar">
+<!-- <div class="modal fade " id="modal_editar">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header ">
-        <h4 class="modal-title "><b>Datos Nuevo Usuario</b></h4>
+        <h2 class="modal-title "><b>Datos Nuevo Usuario</b></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -130,15 +129,15 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-primary admitir" data-dismiss="modal">Guardar cambios</button>
       </div>
-    </div>
-    <!-- /.modal-content -->
+    </div> -->
+    <!-- /.modal-content
   </div>
-  <!-- /.modal-dialog -->
-</div>
+  /.modal-dialog -->
+<!-- </div> --> 
 <!--FIN  PARA  MOSTRAR LOS DATOS DEL USUARIO PENDIENTES -->
 <script>
   $(document).ready(iniciar);
-   
+
   function iniciar() {
     $('#usuarios_pendientes').DataTable({
       "language": {
@@ -149,10 +148,12 @@
       "ordering": true,
       "aoColumnDefs": [{
           'bSortable': false,
-          'aTargets': [1]  },
+          'aTargets': [1]
+        },
         {
           'bSortable': false,
-          'aTargets': [6] },
+          'aTargets': [6]
+        },
         {
           'bSortable': false,
           'aTargets': [7]
@@ -160,7 +161,7 @@
       ],
     });
 
-  $(".modal_edit").click(buscarpenId);
+    $(".modal_edit").click(buscarpenId);
   }
 
 
@@ -179,6 +180,7 @@
       }).done(function(data) {
         console.log(data);
         for (var i = 0; i < data.length; i++) {
+
           $('#documento').val(data[i].documento);
           $('#nombre_us').val(data[i].nombres);
           $('#apellido_us').val(data[i].apellidos);
@@ -217,7 +219,7 @@
         Swal.fire({
           text: "Se ha modificado el estado del Usuario",
           icon: 'success',
-          confirmButtonColor: '#3085d6',
+          confirmButtonColor: '#23F672',
           confirmButtonText: 'Aceptar',
 
         }).then((result) => {

@@ -24,10 +24,12 @@ class BuscarUsuarios extends BaseController {
 	public function buscarporId(){
 		$usuarios = new UsuariosModel();
 		$doc = $this->request->getPostGet('doc');
-		$data = $usuarios->where('documento',$doc)->find();
+		$data = $usuarios->where('id',$doc)->find();
 
 		if ($data) {
-			echo json_encode($data);
+	    echo view('template/header',);
+		echo view('ModuloUsuarios/detalles_usuario',$data);
+		echo view('template/footer');
 		   
 	   } else {
 		   echo json_encode('error');
@@ -54,7 +56,7 @@ class BuscarUsuarios extends BaseController {
 	public function inactivarusuario(){
 		$usuarios = new UsuariosModel();
 		$doc = $this->request->getPostGet('doc');
-		$datos=$usuarios->set('estado', 'INACTIVO')->where('documento', $doc)->update();
+		$datos=$usuarios->set('estado', 'INACTIVO')->where('id', $doc)->update();
 
 		if ($datos) {
 			$mensaje = "OK#UPDATE";
