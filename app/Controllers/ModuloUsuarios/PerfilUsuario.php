@@ -38,16 +38,13 @@ class PerfilUsuario extends BaseController
 	   }
 	}
 	public function getCiudades()
-    {
-        $valor_departamento = $this->request->getPostGet('departamento');
-        $ciudades_db = new CiudadesModel();
-        $registros = $ciudades_db->where(["id_departamento" => $valor_departamento]);
-        $registros = $ciudades_db->findAll();
-
-        echo json_encode($registros);
+    {   $ciudades_db = new CiudadesModel();
+        $departamento = $this->request->getPostGet('departamento');
+        $data = $ciudades_db->where(["id_departamento" => $departamento])->findAll();
+        echo json_encode($data);
     }
 
-}   
+   
 	public function editarAvatar()
 	{
 		$user = $this->request->getPost('id_user');

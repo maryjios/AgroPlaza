@@ -114,7 +114,7 @@
                 <label for="direccion_edit" class="form-label">Dirección</label>
                 <input type="text" class="form-control" id="direccion_edit" value="<?php echo $_SESSION["direccion"]; ?>">
               </div>
-    
+
               <div class="col-md-6">
                 <label for="inputZip" class="form-label">telefono</label>
                 <input type="text" class="form-control" id="telefono_edit" value="<?php echo $_SESSION["telefono"]; ?>">
@@ -228,7 +228,7 @@
 
   function iniciar() {
     $('#divBtnAvatar').hide()
-
+     $("#departamento").on('change', elegirDepartamento);
     $("#icon_btn_edit").click(function() {
       $("#img_avatar").trigger('click');
     });
@@ -263,11 +263,7 @@
       $('#divBtnAvatar').slideDown()
 
       $('#formAvatar').submit(CargarAvatar);
-
     })
-
-
-
   }
 
 
@@ -287,47 +283,45 @@
       })
       .done(function(data) {
         if (data.respuesta = 'OK#UPDATE') {
-          $('#avatar').attr('src', '<?php echo base_url("public/dist/img/avatar")?>/'+data.ruta)
-        }else if(data.respuesta = 'ERROR#UPDATE'){
+          $('#avatar').attr('src', '<?php echo base_url("public/dist/img/avatar") ?>/' + data.ruta)
+        } else if (data.respuesta = 'ERROR#UPDATE') {
           alert('ERRO en EL  update')
-        }else{
+        } else {
           alert('ERRRO EXTERNO')
         }
       })
       .fail(function(data) {
         $
       });
+    
   }
 
   function elegirDepartamento() {
+    let departamento = $(this).val();
+    var ciudades = $("#ciudad");
 
-   let departamento = $(this).val();
-   var ciudades = $("#ciudad");
+    if (departamento != '0') {
+        $('#ciudad').attr("disabled", false);
 
-   if (departamento != '0') {
+        $.ajax({
+            url: '<?php echo base_url('/Inicio/getCiudades'); ?>',
+            type: "POST",
+            dataType: "json",
+            data: {
+                departamento: departamento,
+            },
+        })
+        .done(function(data) {
+            ciudades.find('option').remove();
 
-      $('#ciudad').attr("disabled", false);
-
-      $.ajax({
-         url: '<?php echo base_url('/Inicio/getCiudades'); ?>',
-         type: "POST",
-         dataType: "json",
-         data: {
-            departamento: departamento,
-         },
-      })
-      .done(function(data) {
-
-         ciudades.find('option').remove();
-
-         $(data).each(function(i, v) { 
-            ciudades.append('<option value="' + v.id + '">' + v.nombre + '</option>');
-         });
-      })
-
-      .fail(function(data) {
-         console.log("error");
-      });
-   }
+            $(data).each(function(i, v) { // indice, valor
+                ciudades.append('<option value="' + v.id + '">' + v.nombre + '</option>');
+            });
+        })
+        .fail(function(data) {
+            console.log("error en el proceso");
+            alert("sdsd");
+        });
+    }
 }
 </script>
