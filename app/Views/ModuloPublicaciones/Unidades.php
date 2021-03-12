@@ -72,8 +72,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
-                <button type="button" class="btn btn-primary">Send message</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
         </div>
     </div>
@@ -158,6 +158,9 @@
     $(document).ready(iniciar);
 
     function iniciar() {
+
+        $("#formulario_registro").submit(formRegistrarVendedor);
+
         listarUnidades();
     }
 
@@ -179,7 +182,7 @@
                         '<td >' + data[i].abreviatura + '</td>' +
                         '<td><button  type="button" class="btn btn-success mr-2 mod_edit"><i class="far fa-eye"></i></button><button class="btn btn-danger eliminar"><i class="far fa-trash-alt"></i></button></td>' +
                         '</tr>';
-                        
+
 
                 }
 
@@ -283,6 +286,114 @@
             .always(function() {
                 console.log("complete");
             });
+
+
+        function formRegistrarVendedor(e) {
+            e.preventDefault();
+            enviarInfoNuevoVendedor();
+        }
+
+        function enviarInfoNuevoVendedor() {
+            email = $("#email").val();
+            documento = $("#documento").val();
+            nombres = $("#nombres").val();
+            apellidos = $("#apellidos").val();
+            direccion = $("#direccion").val();
+            telefono = $("#telefono").val();
+            genero = $("#genero").val();
+            ciudad = $("#ciudad").val();
+            password = $("#password").val();
+            certificado = $("#certificado").val();
+            loQueVaAVender = $("input[name='loQueVaAVender']:checked").val();
+
+            if (documento != "" && nombres != "" && apellidos != "" && email != "" && direccion != "" && genero != "" && ciudad != "" && password != "" && loQueVaAVender != undefined) {
+
+                var datos_formulario = new FormData($('#formulario_registro')[0]);
+
+                $.ajax({
+                        url: '<?php echo base_url('/Inicio/InsertarVendedor'); ?>',
+                        type: "POST",
+                        dataType: "text",
+                        data: datos_formulario,
+                        contentType: false,
+                        processData: false
+                    })
+                    .done(function(data) {
+                        console.log(data);
+
+                        if (data == "FAIL#DOCUMENTO") {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Ya existes',
+                                text: 'El número de documento ya está registrado',
+                                footer: '<a href="<?php echo base_url(); ?>">Ya tienes tu cuenta? Entonces inicia sesión.</a>'
+                            })
+                        } else if (data == "FAIL#EMAIL") {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Ya existes',
+                                text: 'El correo electronico ya está registrado',
+                                footer: '<a href="<?php echo base_url(); ?>">Ya tienes tu cuenta? Entonces inicia sesión.</a>'
+                            })
+                        } else if (data == "OK#CORRECT#DATA") {
+                            if (loQueVaAVender == "Productos") {
+                                Swal.fire({
+                                    title: 'Bienvenido!',
+                                    text: "Ya has sido registrado en el sistema!",
+                                    icon: 'success',
+                                    confirmButtonColor: '#3085d6',
+                                    confirmButtonText: 'Iniciar Sesión!'
+                                }).then((result) => {
+                                    window.location = "<?php echo base_url(''); ?>";
+                                })
+                            } else {
+                                Swal.fire({
+                                    title: 'Tu solicitud ha sido enviada!',
+                                    text: "Para permitir el acceso a especialistas debes esperar a que validen tus datos.",
+                                    icon: 'warning',
+                                    footer: 'Por ahora estas "<span class="text-warning"> Pendiente </span>" por revisión. Se paciente.',
+                                    confirmButtonColor: '#3085d6',
+                                    confirmButtonText: 'Ir al login'
+                                }).then((result) => {
+                                    window.location = "<?php echo base_url(''); ?>";
+                                })
+                            }
+                        } else if (data == "OK#INVALID#DATA") {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Ocurrio algo!',
+                                text: 'Ha ocurrido un error en el servidor, no se pudo registrar la información.'
+                            })
+                        } else if ("ERROR#TIPO#INCORRECTO") {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Archivo no permitido!',
+                                text: 'Debes ingresar una imagen con alguno de los formatos especificados.'
+                            })
+                        } else if ("ERROR#SUBIENDO#CERTIFICADO") {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'No se pudo subir la imagen!',
+                                text: 'Por alguna razón la imagen no pudo guardarse. Intentalo de nuevo!'
+                            })
+                        }
+                    })
+                    .fail(function(data) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Ocurrio algo!',
+                            text: 'Ha ocurrido un error en el servidor, no se pudo registrar la información.'
+                        })
+                        console.log(data);
+                    });
+            } else {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Faltan datos',
+                    text: 'Debes llenar todos los campos del formulario'
+                })
+            }
+        }
 
     }
 </script>
