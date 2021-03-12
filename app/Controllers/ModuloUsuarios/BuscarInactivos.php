@@ -7,7 +7,7 @@ use App\Models\UsuariosModel;
 class BuscarInactivos extends BaseController {
 
 	public function index(){
-			$this->usuarios = new UsuariosModel();
+		$this->usuarios = new UsuariosModel();
         $usuarios = $this->usuarios->select('*')->where('estado','INACTIVO')->findAll();
 		 $personas =['datos' => $usuarios];
 		$data['modulo_selected'] = "Usuarios";
@@ -35,7 +35,9 @@ class BuscarInactivos extends BaseController {
 		$data = $usuarios->where('documento',$docum)->find();
 
 		if ($data) {
-			echo json_encode($data);
+        echo view('template/header',);
+		echo view('ModuloUsuarios/detalles_usuario',$data);
+		echo view('template/footer');
 		   
 	   } else {
 		   echo json_encode('error');

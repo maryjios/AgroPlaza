@@ -34,16 +34,20 @@ class BuscarPendientes extends BaseController {
 
 	public function buscarpenId(){
 		$usuarios = new UsuariosModel();
-		$docPen = $this->request->getPostGet('docPen');
-		$data = $usuarios->where('documento',$docPen)->find();
+		$docPen = $this->request->getPostGet('doc');
+		$data = $usuarios->where('id',$docPen)->find();
 
 		if ($data) {
-			echo json_encode($data);
+
+		echo view('template/header',);
+		echo view('ModuloUsuarios/detalles_usuario',$data);
+		echo view('template/footer');
+			
 		   
 	   } else {
 		   echo json_encode('error');
 	   
-	   }
+	   }	
 	}
 
 	public function actualizarpen(){
