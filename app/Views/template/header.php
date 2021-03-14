@@ -190,7 +190,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="<?php echo base_url('public/dist/img/user2-160x160.jpg') ?>" class="img-circle elevation-2" alt="User Image">
+            <img src="<?php echo base_url('public/dist/img/avatar').'/'.$_SESSION['avatar'] ?>" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="<?php echo base_url('Inicio/cargarVistaInicio'); ?>" class="d-block"><?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></a>
