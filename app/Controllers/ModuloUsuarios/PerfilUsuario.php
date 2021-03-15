@@ -24,18 +24,36 @@ class PerfilUsuario extends BaseController
 		echo view('ModuloUsuarios/perfil_usuario', $departamentos);
 		echo view('template/footer');
 	}
-
-	public function buscar_session()
-	{
+    
+	public function buscar_session(){
+		$db_usuarios = new UsuariosModel();
+		$id_perfil = $this->request->getPostGet('id_perfil');
+		$data = $db_usuarios->where('id',$id_perfil)->find();
+		if ($data) {
+	       echo json_encode($data);
+		   
+	   } else {
+		   echo json_encode('error no encontrado');
+		}
+	}
+	
+	public function enviarnewdatos(){
 		$usuarios = new UsuariosModel();
-		$doc = $this->request->getPostGet('doc');
-		$data = $usuarios->where('id', $doc)->find();
+		$id_perfil= $this->request->getPostGet('id_perfil');
+		$nombre_edit = $this->request->getPostGet('nombre_edit');
+		$apellido_edit = $this->request->getPostGet('apellido_edit');
+		$direccion_edit = $this->request->getPostGet('direccion_edit');
+		$telefono_edit = $this->request->getPostGet('tel_edit');
 
+        $data=$usuarios->set(['nombres'=> $nombre_edit ,'apellidos'=> $apellido_edit,'direccion'=> $direccion_edit,'telefono'=> $telefono_edit])->where('id', $id_perfil)->update();
+
+        
 		if ($data) {
 			echo json_encode($data);
-		} else {
-			echo json_encode('error');
+		}else{
+			echo json_encode('ERROR#UPDATE');
 		}
+
 	}
 	public function getCiudades()
 	{

@@ -102,7 +102,7 @@
   $(document).ready(iniciar);
 
   function iniciar() {
-    $('#usuarios_inaactivos').DataTable({
+    $('#usuarios_inactivos').DataTable({
       "language": {
         "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json"
       },

@@ -64,8 +64,10 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
 
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
     $routes->add('CargarAvatar', 'PerfilUsuario::editarAvatar');
-    $routes->add('VerperfilUsuario', 'PerfilUsuario::detalleperfil');
-    $routes->add('BuscarDatosPerfil', 'PerfilUsuario:: buscar_session');
+    
+    $routes->add('EditarPerfil', 'PerfilUsuario::enviarnewdatos');
+
+    $routes->add('BuscarDatosPerfil', 'PerfilUsuario::buscar_session');
 });
 
 $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPublicaciones'], function ($routes) {
