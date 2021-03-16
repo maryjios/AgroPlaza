@@ -4,15 +4,15 @@
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-2">
-            <h1 class="m-0">Publicaciones</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6 ">
-            <a class=" btn btn-danger btn-sm " href="<?php echo base_url('ModuloPublicaciones/PublicacionesInactivas')?>">Eliminadas</a>
-          </div><!-- /.col -->
           <div class="col-12">
             <div class="card">
-              <!-- /.card-header -->
+              <div class="card-header">
+                <h2 class="card-title"><b>Lista de Publicaciones Activas</b></h2>
+                <div class="d-grid d-md-flex  justify-content-md-end">
+                  <a class=" btn btn-danger mr-4" href="<?php echo base_url('ModuloPublicaciones/PublicacionesInactivas')?>"><i class="fas fa-user-lock"></i>
+                  Publicaciones Inactivas</a>
+                </div>
+              </div>
               <div class="card-body" id="actualizar">
                 <table id="publicaciones" class="table table-bordered table-striped">
                   <thead>
@@ -45,7 +45,7 @@
                   </tbody>
                 </table>
               </div>
-              <!-- /.card-body -->
+            </div>
             </div>
           </div><!-- /.col -->
         </div><!-- /.row -->
