@@ -1,166 +1,176 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-2">
-            <h1>Publicación</h1>
-          </div>
-          <div class="col-sm-2">
-            <a href="<?php echo base_url('/ModuloPublicaciones/ListarPublicaciones') ?>" type="button" class="btn btn-info">Volver</a>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-
-      <!-- Default box -->
-      <div class="card card-solid">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-12 col-sm-6">
-              <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
-              <div class="col-12">
-                <img src="../../dist/img/prod-1.jpg" class="product-image" alt="Product Image">
-              </div>
-              <div class="col-12 product-image-thumbs">
-                <div class="product-image-thumb active"><img src="../../dist/img/prod-1.jpg" alt="Product Image"></div>
-                <div class="product-image-thumb" ><img src="../../dist/img/prod-2.jpg" alt="Product Image"></div>
-                <div class="product-image-thumb" ><img src="../../dist/img/prod-3.jpg" alt="Product Image"></div>
-                <div class="product-image-thumb" ><img src="../../dist/img/prod-4.jpg" alt="Product Image"></div>
-                <div class="product-image-thumb" ><img src="../../dist/img/prod-5.jpg" alt="Product Image"></div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6">
-              <h3 class="my-3">Titulo publicación</h3>
-              <p>Descripcion: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.</p>
-
-              <hr>
-              <h4>Available Colors</h4>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-default text-center active">
-                  <input type="radio" name="color_option" id="color_option_a1" autocomplete="off" checked>
-                  Green
-                  <br>
-                  <i class="fas fa-circle fa-2x text-green"></i>
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_a2" autocomplete="off">
-                  Blue
-                  <br>
-                  <i class="fas fa-circle fa-2x text-blue"></i>
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_a3" autocomplete="off">
-                  Purple
-                  <br>
-                  <i class="fas fa-circle fa-2x text-purple"></i>
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_a4" autocomplete="off">
-                  Red
-                  <br>
-                  <i class="fas fa-circle fa-2x text-red"></i>
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_a5" autocomplete="off">
-                  Orange
-                  <br>
-                  <i class="fas fa-circle fa-2x text-orange"></i>
-                </label>
-              </div>
-
-              <h4 class="mt-3">Size <small>Please select one</small></h4>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_b1" autocomplete="off">
-                  <span class="text-xl">S</span>
-                  <br>
-                  Small
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_b2" autocomplete="off">
-                  <span class="text-xl">M</span>
-                  <br>
-                  Medium
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_b3" autocomplete="off">
-                  <span class="text-xl">L</span>
-                  <br>
-                  Large
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_b4" autocomplete="off">
-                  <span class="text-xl">XL</span>
-                  <br>
-                  Xtra-Large
-                </label>
-              </div>
-
-              <div class="bg-gray py-2 px-3 mt-4">
-                <h2 class="mb-0">
-                  $80.00
-                </h2>
-                <h4 class="mt-0">
-                  <small>Ex Tax: $80.00 </small>
-                </h4>
-              </div>
-
-              <div class="mt-4">
-                <div class="btn btn-primary btn-lg btn-flat">
-                  <i class="fas fa-cart-plus fa-lg mr-2"></i>
-                  Add to Cart
-                </div>
-
-                <div class="btn btn-default btn-lg btn-flat">
-                  <i class="fas fa-heart fa-lg mr-2"></i>
-                  Add to Wishlist
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title"><b>Publicación</b></h2>
+                <div class="d-grid d-md-flex  justify-content-md-end">
+                  <a class=" btn btn-danger mr-4" href="<?php echo base_url('/ModuloPublicaciones/ListarPublicaciones') ?>"><i class="fas fa-arrow-left"></i>
+                  Volver</a>
                 </div>
               </div>
+              <div class="card-body">
 
-              <div class="mt-4 product-share">
-                <a href="#" class="text-gray">
-                  <i class="fab fa-facebook-square fa-2x"></i>
-                </a>
-                <a href="#" class="text-gray">
-                  <i class="fab fa-twitter-square fa-2x"></i>
-                </a>
-                <a href="#" class="text-gray">
-                  <i class="fas fa-envelope-square fa-2x"></i>
-                </a>
-                <a href="#" class="text-gray">
-                  <i class="fas fa-rss-square fa-2x"></i>
-                </a>
-              </div>
+                <div class="card card-solid">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-12 col-sm-6">
+                        <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
+                        <div class="col-12">
+                          <?php 
+                          $path = "./public/dist/img/publicaciones/publicacion".$publicacion['id'];
+                          if (file_exists($path)) {
+                            $directorio = opendir($path);
+                            while ($archivo = readdir($directorio)) {
+                             if (!is_dir($archivo)) { ?>
+                              <div class=" d-inline mr-5">
+                                <a href="#"><i class="far fa-trash-alt "></i></a>
+                                <img  class="product-image" src="<?php echo base_url('/public/dist/img/publicaciones/publicacion').$publicacion['id'].'/'.$archivo ?>"> 
+                              </div>
+                              
+                            <?php }
+                          }
+                        }
 
-            </div>
-          </div>
-          <div class="row mt-4">
-            <nav class="w-100">
-              <div class="nav nav-tabs" id="product-tab" role="tablist">
-                <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Description</a>
-                <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">Comments</a>
-                <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Rating</a>
+                        ?>
+                        <img src="../../dist/img/prod-1.jpg" class="product-image" alt="Product Image">
+                      </div>
+                      <div class="col-12 product-image-thumbs">
+                        <div class="product-image-thumb active"><img src="../../dist/img/prod-1.jpg" alt="Product Image"></div>
+                        <div class="product-image-thumb" ><img src="../../dist/img/prod-2.jpg" alt="Product Image"></div>
+                        <div class="product-image-thumb" ><img src="../../dist/img/prod-3.jpg" alt="Product Image"></div>
+                        <div class="product-image-thumb" ><img src="../../dist/img/prod-4.jpg" alt="Product Image"></div>
+                        <div class="product-image-thumb" ><img src="../../dist/img/prod-5.jpg" alt="Product Image"></div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <h2 class="my-3"><?php echo $publicacion['titulo']; ?></h2>
+                      <hr>
+                      <div class="row">
+                        <div class="col">
+                          <h4>Precio</h4>
+                          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <p><span>$ </span><?php echo $publicacion['precio']." * ".$publicacion['unidad']; ?></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col">
+                          <h4>Envio</h4>
+                          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <p><span><i class="fas fa-shipping-fast mr-3"></i></span><?php if ($publicacion['envio']=="NO") {
+                              echo "No";
+                            }else{
+                              echo "Si";
+                            }; ?>
+
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col">
+                        <h4 class="text-success">Vendedor</h4>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                          <p><span><i class="fas fa-user-tag"></i></span>
+                            <?php echo $publicacion['nombre_usuario'] ?>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <h4 class="text-success">Ubicación</h4>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                          <p><span><i class="fas fa-map-marker-alt"></i></span>
+                            <?php echo $publicacion['departamento'].", ".$publicacion['ciudad'] ?>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col py-2 px-3 mt-4 bg-info">
+                        <h4 class="mb-0">
+                          Stock
+                        </h4>
+                        <h4 class="mt-0">
+                          <small><?php if ($publicacion['stock'] >0) {
+                            echo "Disponible";
+                          }else{
+                            echo "No disponible";
+                          } ?></small>
+                        </h4>
+                      </div>
+                    </div>
+
+                    <div class="mt-4">
+                      <div class="btn btn-primary btn-lg btn-flat">
+                        <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                        Comprar
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-4">
+                  <nav class="w-100">
+                    <div class="nav nav-tabs" id="product-tab" role="tablist">
+                      <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Descripción</a>
+                      <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">Comentarios</a>
+                    </div>
+                  </nav>
+                  <div class="tab-content p-3" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
+                      <p><?php echo $publicacion['descripcion']; ?></p>
+                    </div>
+                    <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
+                      <div class="card-footer card-comments">
+                        <div class="card-comment">
+                          <!-- User image -->
+                          <img src="<?php echo base_url('public/dist/img/user4-128x128.jpg') ?>" class="img-circle elevation-2" alt="User Image">
+
+                          <div class="comment-text">
+                            <span class="username">
+                              Maria Gonzales
+                              <span class="text-muted float-right">8:03 PM Today</span>
+                            </span><!-- /.username -->
+                            It is a long established fact that a reader will be distracted
+                            by the readable content of a page when looking at its layout.
+                          </div>
+                          <!-- /.comment-text -->
+                        </div>
+                        <!-- /.card-comment -->
+                        <div class="card-comment">
+                          <!-- User image -->
+                          <img src="<?php echo base_url('public/dist/img/user2-160x160.jpg') ?>" class="img-circle elevation-2" alt="User Image">
+
+                          <div class="comment-text">
+                            <span class="username">
+                              <?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?>
+                              <span class="text-muted float-right">8:03 PM Today</span>
+                            </span><!-- /.username -->
+                            The point of using Lorem Ipsum is that it hrs a morer-less
+                            normal distribution of letters, as opposed to using
+                            'Content here, content here', making it look like readable English.
+                          </div>
+                          <!-- /.comment-text -->
+                        </div>
+                        <!-- /.card-comment -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </nav>
-            <div class="tab-content p-3" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae condimentum erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed posuere, purus at efficitur hendrerit, augue elit lacinia arcu, a eleifend sem elit et nunc. Sed rutrum vestibulum est, sit amet cursus dolor fermentum vel. Suspendisse mi nibh, congue et ante et, commodo mattis lacus. Duis varius finibus purus sed venenatis. Vivamus varius metus quam, id dapibus velit mattis eu. Praesent et semper risus. Vestibulum erat erat, condimentum at elit at, bibendum placerat orci. Nullam gravida velit mauris, in pellentesque urna pellentesque viverra. Nullam non pellentesque justo, et ultricies neque. Praesent vel metus rutrum, tempus erat a, rutrum ante. Quisque interdum efficitur nunc vitae consectetur. Suspendisse venenatis, tortor non convallis interdum, urna mi molestie eros, vel tempor justo lacus ac justo. Fusce id enim a erat fringilla sollicitudin ultrices vel metus. </div>
-              <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab"> Vivamus rhoncus nisl sed venenatis luctus. Sed condimentum risus ut tortor feugiat laoreet. Suspendisse potenti. Donec et finibus sem, ut commodo lectus. Cras eget neque dignissim, placerat orci interdum, venenatis odio. Nulla turpis elit, consequat eu eros ac, consectetur fringilla urna. Duis gravida ex pulvinar mauris ornare, eget porttitor enim vulputate. Mauris hendrerit, massa nec aliquam cursus, ex elit euismod lorem, vehicula rhoncus nisl dui sit amet eros. Nulla turpis lorem, dignissim a sapien eget, ultrices venenatis dolor. Curabitur vel turpis at magna elementum hendrerit vel id dui. Curabitur a ex ullamcorper, ornare velit vel, tincidunt ipsum. </div>
-              <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> Cras ut ipsum ornare, aliquam ipsum non, posuere elit. In hac habitasse platea dictumst. Aenean elementum leo augue, id fermentum risus efficitur vel. Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis. Ut molestie, purus aliquam placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et erat. Etiam dignissim aliquam ligula, aliquet feugiat nibh rhoncus ut. Aliquam efficitur lacinia lacinia. Morbi ac molestie lectus, vitae hendrerit nisl. Nullam metus odio, malesuada in vehicula at, consectetur nec justo. Quisque suscipit odio velit, at accumsan urna vestibulum a. Proin dictum, urna ut varius consectetur, sapien justo porta lectus, at mollis nisi orci et nulla. Donec pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere. Integer finibus orci vitae vehicula placerat. </div>
             </div>
           </div>
         </div>
-        <!-- /.card-body -->
       </div>
-      <!-- /.card -->
+    </div>
+  </div><!-- /.container-fluid -->
+</div>
+</div>
+<!-- /.content-wrapper -->
 
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
 
- 

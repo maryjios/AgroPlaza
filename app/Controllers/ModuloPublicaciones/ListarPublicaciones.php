@@ -55,11 +55,17 @@ class ListarPublicaciones extends BaseController {
 	public function detallePublicacion(){
 		$publicaciones = new PublicacionesModel();
 
-		$id = $this->request->getPostGet('id');
-		$datos = $publicaciones->where('id',$id)->first();
+		$id = $this->request->getPostGet('file');
+		$datos['publicacion']= $publicaciones->select('publicaciones.*, unidades.abreviatura as unidad, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, ciudad.nombre as ciudad, departamento.nombre as departamento')
+							->join('unidades', 'publicaciones.id_unidad = unidades.id')
+							->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
+							->join('ciudad','publicaciones.id_ciudad =ciudad.id')
+							->join('departamento','ciudad.id_departamento =departamento.id')
+							->where('publicaciones.id',$id)
+							->first();
 
-		echo view('template/header', $data);
-		echo view('ModuloPublicaciones/detalle_publicacion',$id);
+		echo view('template/header');
+		echo view('ModuloPublicaciones/detalle_publicacion',$datos);
 		echo view('template/footer');	
 	}
 
