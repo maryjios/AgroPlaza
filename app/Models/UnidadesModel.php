@@ -11,11 +11,11 @@ class UnidadesModel extends Model {
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['nombre', 'abreviatura'];
+    protected $allowedFields = ['nombre', 'abreviatura','estado'];
 
     protected $useTimestamps = false;
-    protected $createdField  = '';
-    protected $updatedField  = '';
+    protected $createdField  = 'fecha_insert';
+    protected $updatedField  = 'fecha_edit';
     protected $deletedField  = '';
 
     protected $validationRules    = [];
