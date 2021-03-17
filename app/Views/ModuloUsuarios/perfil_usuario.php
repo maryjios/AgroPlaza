@@ -84,15 +84,26 @@
                 <label for="direccion_edit" class="form-label">Direccion</label>
                 <input type="text" class="form-control" id="direccion_edit" name="direccion_edit" value="" disabled>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4" id="show_city">
                 <label for="ciudad_edit" class="form-label">Ciudad</label>
                 <input type="text" class="form-control" id="ciudad_edit" name="ciudad_edit" value="" disabled>
               </div>
-              <div id="edita_ciudad" class="mt-3">
-
+              <div class='col-md-4' id="opcion_depart">
+                <label for='departamento' class='form-label'>Departamento</label>
+                <select name='departamento' id='departamento' class='form-control '>
+                  <option value=' selected disabled>Seleccione Departamento</option>
+                  <?php
+                  foreach ($departamentos as $departamento) { ?>
+                    <option value=' <?php echo $departamento['id'] ?>'><?php echo $departamento['nombre'] ?></option>
+                <?php } ?>
+                </select>
               </div>
-
-
+              <div class='col-md-4' id="opcion_city">
+                <label for='ciudad' class='form-label'>Ciudad</label>
+                <select id='ciudad' name='ciudad' class='form-control'>
+                  <option value="">Seleccione Ciudad</option>
+                </select>
+              </div>
               <div class="col-12 mt-4">
                 <button id="campos_editar" class="btn btn-primary">Editar Datos</button>
               </div>
@@ -187,7 +198,8 @@
   function iniciar() {
 
     $('#divBtnAvatar').hide()
-
+    $('#opcion_depart').hide();
+    $('#opcion_city').hide();
 
     $("#icon_btn_edit").click(function() {
       $("#photo").trigger('click');
@@ -246,6 +258,7 @@
   function iniciar() {
     $('#formAvatar').submit(CargarAvatar);
     $("#departamento").on('change', elegirDepartamento);
+
     buscardatos();
 
   }
@@ -339,7 +352,7 @@
         $('#genero').val(data[i].genero);
         $('#telefono_edit').val(data[i].telefono);
         $('#direccion_edit').val(data[i].direccion);
-        $('#ciudad_edit').val(data[i].id_ciudad);
+        $('#ciudad_edit').val(data[i].nombre);
       }
     }).fail(function(data) {
       console.log(data)
@@ -356,6 +369,9 @@
     $('#direccion_edit').prop('disabled', false);
 
     $('#campos_editar').remove();
+    $('#opcion_depart').show();
+    $('#opcion_city').show();
+    $('#show_city').hide();
     let btn = "<button type='submit' class='btn btn-primary' id='guardar'>Guardar datos</i></button>"
     $('#btn').html(btn)
     $('#guardar').on('click', guardar_cambios);
@@ -369,10 +385,11 @@
     var apellido_edit = $('#apellido_edit').val();
     var tel_edit = $('#telefono_edit').val();
     var direccion_edit = $('#direccion_edit').val();
-    console.log(nombre_edit, apellido_edit, tel_edit, direccion_edit)
+    var id_ciudad = $('#ciudad').val();
+    console.log(nombre_edit, apellido_edit, tel_edit, direccion_edit,id_ciudad)
 
     if (nombre_edit == '' || apellido_edit == '' || tel_edit == '' ||
-      direccion_edit == '') {
+      direccion_edit == ''|| id_ciudad == '') {
       Swal.fire({
         icon: 'error',
         title: 'Error',
@@ -385,26 +402,27 @@
         type: 'POST',
         dataType: "text",
         data: {
-          id_perfil:id_perfil,
-          nombre_edit:nombre_edit,
-          apellido_edit:apellido_edit,
-          tel_edit:tel_edit,
-          direccion_edit:direccion_edit
+          id_perfil: id_perfil,
+          nombre_edit: nombre_edit,
+          apellido_edit: apellido_edit,
+          tel_edit: tel_edit,
+          direccion_edit: direccion_edit,
+          id_ciudad:id_ciudad
         },
 
       }).done(function(data) {
 
         if (data) {
           Swal.fire({
-          text: "Se ha modificado el estado del Usuario",
-          icon: 'success',
-          confirmButtonColor: '#3085d6',
-          confirmButtonText: 'Aceptar',
+            text: "Se ha modificado los datos del Usuario",
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Aceptar',
 
-        }).then((result) => {
+          }).then((result) => {
 
-          window.location = '<?php echo base_url('/ModuloUsuarios/PerfilUsuario'); ?>';
-        }) 
+            window.location = '<?php echo base_url('/ModuloUsuarios/PerfilUsuario'); ?>';
+          })
         }
       }).fail(function() {
         alert("error al enviar");

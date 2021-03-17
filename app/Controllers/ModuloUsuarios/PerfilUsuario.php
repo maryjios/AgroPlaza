@@ -28,7 +28,12 @@ class PerfilUsuario extends BaseController
 	public function buscar_session(){
 		$db_usuarios = new UsuariosModel();
 		$id_perfil = $this->request->getPostGet('id_perfil');
-		$data = $db_usuarios->where('id',$id_perfil)->find();
+		$data = $db_usuarios->select('usuarios.id,usuarios.email,usuarios.documento,usuarios.nombres,usuarios.apellidos,
+		                              usuarios.id_ciudad,usuarios.direccion,usuarios.telefono,usuarios.genero,usuarios.tipo_usuario,
+									  usuarios.estado,usuarios.fecha_insert,ciudad.nombre')
+							 ->join('ciudad', 'ciudad.id=usuarios.id_ciudad')
+							 ->where('usuarios.id', $id_perfil)
+							 ->findAll();
 		if ($data) {
 	       echo json_encode($data);
 		   
@@ -44,8 +49,9 @@ class PerfilUsuario extends BaseController
 		$apellido_edit = $this->request->getPostGet('apellido_edit');
 		$direccion_edit = $this->request->getPostGet('direccion_edit');
 		$telefono_edit = $this->request->getPostGet('tel_edit');
+		$id_ciudad = $this->request->getPostGet('id_ciudad');
 
-        $data=$usuarios->set(['nombres'=> $nombre_edit ,'apellidos'=> $apellido_edit,'direccion'=> $direccion_edit,'telefono'=> $telefono_edit])->where('id', $id_perfil)->update();
+        $data=$usuarios->set(['nombres'=> $nombre_edit ,'apellidos'=> $apellido_edit,'direccion'=> $direccion_edit,'telefono'=> $telefono_edit,'id_ciudad'=> $id_ciudad])->where('id', $id_perfil)->update();
 
         
 		if ($data) {
