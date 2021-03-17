@@ -9,7 +9,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Lista Unidades</h3>
+                            <h3 class="card-title">Lista unidades activas</h3>
+                            <a class="btn btn-danger" href="<?php echo base_url('ModuloPublicaciones/UnidadesInactivas')?>">Eliminadas</a>
                         </div>
                         <div>
 
