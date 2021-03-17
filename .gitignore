@@ -4,3 +4,5 @@
 writable/session/
 
 writable/logs/
+
+.vscode/
