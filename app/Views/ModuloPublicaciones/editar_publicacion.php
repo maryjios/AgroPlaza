@@ -123,7 +123,7 @@
                            </div>
                            <div class="col-md-9">
                               <div class="custom-control custom-switch">
-                                 <input type="checkbox" name="envio" class="custom-control-input" id="envio" value="<?php echo $publicacion['envio'] ?>" <?php if($publicacion['envio']=='SI') { echo 'checked'; } ?>>
+                                 <input type="checkbox" name="envio" class="custom-control-input" id="envio" value="" <?php if($publicacion['envio']=='SI') { echo 'checked'; } ?>>
                                  <label class="custom-control-label" for="envio"></label>
                               </div>
                            </div>
@@ -240,12 +240,12 @@ function elegirCiudad() {
 }
 
 function comprobarCheck() {
-   /*var condicion = $("#envio").is(":checked");
+   var condicion = $("#envio").is(":checked");
    if (condicion) {
       $("#envio").val("SI")
    } else {
       $("#envio").val("NO")
-   }*/
+   }
 }
 
 function esconderStock() {
