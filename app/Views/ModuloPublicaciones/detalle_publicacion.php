@@ -16,8 +16,8 @@
                 <div class="row">
                   <div class="col-12 col-sm-6">
                     <div class="col-12">
-                      <div class=" d-inline mr-5 primera_imagen">
-                        <img  class="product-image" src="<?php echo base_url('/public/dist/img/publicaciones/publicacion').$publicacion['id'].'/'.$img['imagen'] ?>">
+                      <div class=" d-inline mr-5 primera_imagen " style="height: 480px; width: 260px;">
+                        <img  class="product-image img-fluid"  src="<?php echo base_url('/public/dist/img/publicaciones/publicacion').$publicacion['id'].'/'.$img['imagen'] ?>">
                       </div>        
                     </div>
                     <div class="col-12 product-image-thumbs">
@@ -38,15 +38,25 @@
                       ?>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-6">
+                  <div class="col-12 col-sm-6 img-thumbnail p-3">
                     <h2 class="my-3"><?php echo $publicacion['titulo']; ?></h2>
-                    <hr>
+                    <hr class="bg-success " style="height: 10px">
                     <div class="row">
                       <div class="col">
-                        <h4>Precio</h4>
+                        <h4>Precio:</h4>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <p><span>$ </span><?php echo $publicacion['precio']." * ".$publicacion['unidad']; ?></p>
+                            <p><span><i class="fas fa-dollar-sign"></i> </span><?php echo number_format($publicacion['precio'])." * ".$publicacion['unidad']; ?></p>
                         </div>
+                      </div>
+                      <div class="col ">
+                        <h4 class="mb-0">Stock:</h4>
+                        <h4 class="mt-0">
+                          <small><?php if ($publicacion['stock'] >0) {
+                            echo "Disponible";
+                          }else{
+                            echo "No disponible";
+                          } ?></small>
+                        </h4>
                       </div>
                     </div>
                     <div class="row mt-3">
@@ -62,9 +72,15 @@
                         </div>
                       </div>
                     </div>
+                    <hr class="bg-warning " style="height: 10px">
+                    <div class="row ">
+                      <div class="col text-center">
+                        <h5>Información del vendedor</h5>
+                      </div>
+                    </div>
                     <div class="row mt-3">
                       <div class="col">
-                        <h4 class="text-success">Vendedor</h4>
+                        <h5 class="text-success">Vendedor</h5>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                           <p><span><i class="fas fa-user-tag"></i></span>
                             <?php echo $publicacion['nombre_usuario'] ?>
@@ -72,7 +88,7 @@
                         </div>
                       </div>
                       <div class="col">
-                        <h4 class="text-success">Ubicación</h4>
+                        <h5 class="text-success">Ubicación</h5>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                           <p><span><i class="fas fa-map-marker-alt"></i></span>
                             <?php echo $publicacion['departamento'].", ".$publicacion['ciudad'] ?>
@@ -80,26 +96,9 @@
                         </div>
                       </div>
                     </div>
-
-                    <div class="row">
-                      <div class="col py-2 px-3 mt-4 bg-info">
-                        <h4 class="mb-0">
-                          Stock
-                        </h4>
-                        <h4 class="mt-0">
-                          <small><?php if ($publicacion['stock'] >0) {
-                            echo "Disponible";
-                          }else{
-                            echo "No disponible";
-                          } ?></small>
-                        </h4>
-                      </div>
-                    </div>
-
-                    <div class="mt-4">
-                      <div class="btn btn-primary btn-lg btn-flat">
-                        <i class="fas fa-cart-plus fa-lg mr-2"></i>
-                        Comprar
+                    <div class="row mt-3">
+                      <div class="col text-center">
+                        <button class="btn btn-primary btn-lg"><i class="fas fa-cart-plus fa-lg mr-2"></i>Comprar</button>  
                       </div>
                     </div>
                   </div>
