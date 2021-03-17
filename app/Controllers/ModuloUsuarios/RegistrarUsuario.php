@@ -100,7 +100,9 @@ class RegistrarUsuario extends BaseController
 
 	public function cargarCiudadesMovil()
 	{
-		$registros['ciudades'] = $this->cargarCiudades();
+		$ciudades_db = new CiudadesModel();
+
+		$registros['ciudades'] = $ciudades_db->orderBy("nombre", "ASC")->find();
 
 		return json_encode($registros);
 	}

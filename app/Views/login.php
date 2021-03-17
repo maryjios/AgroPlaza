@@ -41,7 +41,7 @@ if (isset($_SESSION['tipo_usuario'])) {
 
             <form id="formulario_ingreso" action="#" method="post">
                <div class="input-group mb-3">
-                  <input id="campo_email" type="email" class="form-control" placeholder="Correo Electronico" required>
+                  <input id="campo_email" type="email" class="form-control" placeholder="Correo Electronico" required autofocus>
                   <div class="input-group-append">
                      <div class="input-group-text">
                         <span class="fas fa-envelope"></span>
