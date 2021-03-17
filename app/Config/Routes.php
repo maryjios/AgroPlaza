@@ -77,6 +77,7 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('ConsultaImagenes', 'ListarPublicaciones::consultarImagenes');
     $routes->add('ConsultaDetalle', 'ListarPublicaciones::detallePublicacion');
     $routes->add('Busqueda', 'ListarPublicaciones::busqueda');
+    $routes->add('ActualizarPublicacion', 'EditarPublicacion::editar');
     $routes->add('EliminarPublicacion', 'ListarPublicaciones::eliminarPublicacion');
 
     $routes->add('PublicacionesInactivas', 'ListarPublicacionesInactivas::index');

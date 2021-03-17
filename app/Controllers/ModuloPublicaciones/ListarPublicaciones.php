@@ -3,6 +3,7 @@
 use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 use App\Models\PublicacionesModel;
+use App\Models\ImagenesModel;
 
 class ListarPublicaciones extends BaseController {
 
@@ -54,15 +55,28 @@ class ListarPublicaciones extends BaseController {
 
 	public function detallePublicacion(){
 		$publicaciones = new PublicacionesModel();
+		$imagenes = new ImagenesModel();
 
-		$id = $this->request->getPostGet('id');
-		$datos = $publicaciones->where('id',$id)->first();
+		$id = $this->request->getPostGet('file');
+		$info_publicaciones= $publicaciones->select('publicaciones.*, unidades.abreviatura as unidad, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, ciudad.nombre as ciudad, departamento.nombre as departamento')
+							->join('unidades', 'publicaciones.id_unidad = unidades.id')
+							->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
+							->join('ciudad','publicaciones.id_ciudad =ciudad.id')
+							->join('departamento','ciudad.id_departamento =departamento.id')
+							->where('publicaciones.id',$id)
+							->first();
 
-		echo view('template/header', $data);
-		echo view('ModuloPublicaciones/detalle_publicacion',$id);
+		$img = $imagenes->select('id, imagen')
+						->where('id_publicacion',$id)
+						->groupBy('imagenes.id_publicacion')
+						->first(); 
+		
+		$datos = ['publicacion'=>$info_publicaciones, 'img'=>$img];
+
+		echo view('template/header');
+		echo view('ModuloPublicaciones/detalle_publicacion',$datos);
 		echo view('template/footer');	
 	}
-
 
 	public function eliminarPublicacion(){
 		$publicaciones = new PublicacionesModel();
