@@ -85,7 +85,11 @@
 	}
 
 
-    
+    public function registrarUnidades(){
+
+		$nombre = $this->request->getPostGet('nombre_nuevo');
+		$abreviatura = $this->request->getPostGet('abreviatura_nuevo');
+	}
 
 
     }
