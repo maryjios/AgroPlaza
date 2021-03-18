@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Lista unidades activas</h3>
-                            <a class="btn btn-danger" href="<?php echo base_url('ModuloPublicaciones/UnidadesInactivas')?>">Eliminadas</a>
+                            <a class="btn btn-danger" href="<?php echo base_url('ModuloPublicaciones/UnidadesInactivas') ?>">Eliminadas</a>
                         </div>
                         <div>
 
@@ -55,11 +55,6 @@
             </div>
             <div class="modal-body">
                 <form id="form_nuevoUni" method="post" action="#" autocomplete="of">
-                    <div class="row">
-                        <div class="form-group col">
-                            <input type="text" class="form-control form-control-border" id="id_nuevo" placeholder="id">
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="form-group col">
                             <input type="text" class="form-control form-control-border" id="nombre_nuevo" placeholder="nombre" required>
@@ -162,6 +157,8 @@
     function iniciar() {
 
         listarUnidades();
+
+        $("#form_nuevoUni").submit(formRegistrarUnidad);
     }
 
     function listarUnidades() {
@@ -286,6 +283,32 @@
             .always(function() {
                 console.log("complete");
             });
-        
+
+    }
+
+    function formRegistrarUnidad(e) {
+        e.preventDefault();
+        enviarInfoNuevaUnidad();
+    }
+
+    function enviarInfoNuevaUnidad() {
+
+        nombre = $("#nombre_nuevo").val();
+        abreviatura = $("#abreviatura_nuevo").val();
+
+        if (nombre != "" && abreviatura != "") {
+
+            $.ajax({
+                url: '<?php echo base_url('/ModuloUsuarios/InsertarUnidad'); ?>',
+                type: "POST",
+                dataType: "text",
+                data: {
+                    nombre_nuevo: nombre,
+                    abreviatura_nuevo: abreviatura,
+                    
+                },
+            })
+
         }
+    }
 </script>
