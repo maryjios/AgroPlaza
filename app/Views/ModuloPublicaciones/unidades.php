@@ -286,46 +286,6 @@
             .always(function() {
                 console.log("complete");
             });
-
-
-        // function formRegistrarVendedor(e) {
-        //     e.preventDefault();
-        //     enviarInfoNuevoVendedor();
-        // }
-
-        // function enviarInfoNuevoVendedor() {
-        //     email = $("#email").val();
-        //     documento = $("#documento").val();
-        //     nombres = $("#nombres").val();
-
-
-        //     if (documento != "" && nombres != "" && apellidos != "" && email != "" && direccion != "" && genero != "" && ciudad != "" && password != "" && loQueVaAVender != undefined) {
-
-        //         var datos_formulario = new FormData($('#formulario_registro')[0]);
-
-        //         $.ajax({
-        //                 url: '<?php echo base_url('/Inicio/InsertarVendedor'); ?>',
-        //                 type: "POST",
-        //                 dataType: "text",
-        //                 data: datos_formulario,
-        //                 contentType: false,
-        //                 processData: false
-        //             })
-        //             .done(function(data) {
-
-        //                 if (data == "Eliminado") {
-        //                     alert("se elimino")
-        //                 }
-
-        //             })
-        //             .fail(function() {
-        //                 console.log("error");
-        //             })
-        //         }
-
-
-
-        //     }
-
+        
         }
 </script>
