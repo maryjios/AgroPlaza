@@ -23,20 +23,20 @@ class UnidadesInactivas extends BaseController{
 	}
 
 
-	public function activarUnidades(){
+	public function activarUnidad(){
 		$unidades = new UnidadesModel();
 
 		$id = $this->request->getPostGet('id');
 
-		$unidades->update($id,['estado'=>'ACTIVA']);
+		$edicion = $unidades->update($id,['estado'=>'ACTIVA']);
 
-		if ($publicaciones) {
-			$mensaje = "Actualizado";
+		if ($edicion) {
+			echo "Actualizado";
 		}else{
-			$mensaje = "Error";
+			echo "Error";
 		}
 
-		echo $mensaje;
+		
 	}
 
 
