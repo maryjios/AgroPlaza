@@ -97,15 +97,21 @@
 		if (sizeof($consulta) > 0) {
 			$mensaje = "FAIL#NOMBRE";
 		}else {
-			$registros = $unidades->save([
-				'nombre_nuevo' => $nombre,
-				'abreviatura_nuevo' => $abreviatura
-			]);
+			$consulta = $unidades->where(['abreviatura_nuevo' => $abreviatura])->find();
 
-			if ($registros) {
-				$mensaje = "OK#CORRECT#DATA";
+			if (sizeof($consulta) > 0) {
+				$mensaje = "FAIL#ABREVIATURA";
 			} else {
-				$mensaje = "OK#INVALID#DATA";
+				$registros = $unidades->save([
+					'nombre_nuevo' => $nombre,
+					'abreviatura_nuevo' => $abreviatura
+				]);
+
+				if ($registros) {
+					$mensaje = "OK#CORRECT#DATA";
+				} else {
+					$mensaje = "OK#INVALID#DATA";
+				}
 			}
 		}
 
