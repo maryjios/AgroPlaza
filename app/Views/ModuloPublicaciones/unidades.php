@@ -45,7 +45,7 @@
     </div><!-- /.content-header -->
 </div>
 
-
+<!-- Modal registrar-->
 <div class="modal fade" id="agregar_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -76,6 +76,7 @@
     </div>
 </div>
 
+<!-- Modal modificar-->
 <div class="modal fade" id="editar_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
@@ -103,14 +104,14 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary cambios_modal" data-dismiss="modal">Actualizar</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal confirma-->
+<!-- Modal eliminar-->
 <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
