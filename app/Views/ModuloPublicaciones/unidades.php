@@ -299,7 +299,7 @@
         if (nombre != "" && abreviatura != "") {
 
             $.ajax({
-                url: '<?php echo base_url('/ModuloUsuarios/InsertarUnidad'); ?>',
+                url: '<?php echo base_url('/ModuloPublicaciones/InsertarUnidad'); ?>',
                 type: "POST",
                 dataType: "text",
                 data: {
