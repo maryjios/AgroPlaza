@@ -316,33 +316,22 @@
                             title: 'Ya esta registrado en el sistema!',
                             text: 'El nombre ingresado ya esta registrado.'
                         })
-                    } else if (data == "FAIL#EMAIL") {
+                    } else if (data == "FAIL#ABREVIATURA") {
                         Swal.fire({
                             icon: 'error',
                             title: 'Ya esta registrado en el sistema!',
-                            text: 'El correo ingresado ya esta registrado.'
+                            text: 'LA abreviatura ingresada ya esta registrada.'
                         })
                     } else if (data == "OK#CORRECT#DATA") {
                         Swal.fire({
                             icon: 'success',
                             title: 'Exitoso!',
-                            text: 'Los datos del usuario han sido registrados.'
+                            text: 'Los datos de la unidad han sido registrados.'
                         })
 
-                        $("#documento").val("");
-                        $("#nombres").val("");
-                        $("#apellidos").val("");
-                        $("#direccion").val("");
-                        $("#telefono").val("");
-                        $("#email").val("");
-                        $("#genero").val("");
-                        $("#ciudad").val("");
-
-                        $("#ciudad").append('<option value="" selected>Seleccione Ciudad</option>');
-                        $('#ciudad').attr("disabled", true);
-
-                        $("#departamento").find('option').removeAttr("selected");
-                        $("#departamento-vacio").attr("selected", "true");
+                        $("#nombre_nuevo").val("");
+                        $("#abreviatura_nuevo").val("");
+                        
                     }
                 })
                 .fail(function(data) {
