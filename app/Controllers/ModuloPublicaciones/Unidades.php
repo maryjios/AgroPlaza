@@ -89,7 +89,30 @@
 
 		$nombre = $this->request->getPostGet('nombre_nuevo');
 		$abreviatura = $this->request->getPostGet('abreviatura_nuevo');
+
+		$unidades = new UnidadesModel();
+
+		$consulta = $unidades->where(['nombre_nuevo' => $nombre])->find();
+
+		if (sizeof($consulta) > 0) {
+			$mensaje = "FAIL#NOMBRE";
+		}else {
+			$registros = $unidades->save([
+				'nombre_nuevo' => $nombre,
+				'abreviatura_nuevo' => $abreviatura
+			]);
+
+			if ($registros) {
+				$mensaje = "OK#CORRECT#DATA";
+			} else {
+				$mensaje = "OK#INVALID#DATA";
+			}
+		}
+
+		echo $mensaje;
 	}
+
+	
 
 
     }
