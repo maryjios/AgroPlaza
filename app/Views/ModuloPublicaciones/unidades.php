@@ -299,16 +299,62 @@
         if (nombre != "" && abreviatura != "") {
 
             $.ajax({
-                url: '<?php echo base_url('/ModuloPublicaciones/InsertarUnidad'); ?>',
-                type: "POST",
-                dataType: "text",
-                data: {
-                    nombre_nuevo: nombre,
-                    abreviatura_nuevo: abreviatura,
-                    
-                },
-            })
+                    url: '<?php echo base_url('/ModuloPublicaciones/InsertarUnidad'); ?>',
+                    type: "POST",
+                    dataType: "text",
+                    data: {
+                        nombre_nuevo: nombre,
+                        abreviatura_nuevo: abreviatura,
 
+                    },
+                })
+                .done(function(data) {
+
+                    if (data == "FAIL#NOMBRE") {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Ya esta registrado en el sistema!',
+                            text: 'El nombre ingresado ya esta registrado.'
+                        })
+                    } else if (data == "FAIL#EMAIL") {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Ya esta registrado en el sistema!',
+                            text: 'El correo ingresado ya esta registrado.'
+                        })
+                    } else if (data == "OK#CORRECT#DATA") {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Exitoso!',
+                            text: 'Los datos del usuario han sido registrados.'
+                        })
+
+                        $("#documento").val("");
+                        $("#nombres").val("");
+                        $("#apellidos").val("");
+                        $("#direccion").val("");
+                        $("#telefono").val("");
+                        $("#email").val("");
+                        $("#genero").val("");
+                        $("#ciudad").val("");
+
+                        $("#ciudad").append('<option value="" selected>Seleccione Ciudad</option>');
+                        $('#ciudad').attr("disabled", true);
+
+                        $("#departamento").find('option').removeAttr("selected");
+                        $("#departamento-vacio").attr("selected", "true");
+                    }
+                })
+                .fail(function(data) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Ocurrio algo!',
+                        text: 'Ha ocurrido un error en el servidor, no se pudo registrar la información.'
+                    })
+                    console.log(data);
+                });
         }
+
+    }
     }
 </script>
