@@ -14,7 +14,7 @@
               </div>
             </div>
             <div class="card-body" id="actualizar">
-              <table id="publicaciones" class="table table-bordered table-striped">
+              <table id="unidades" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>Id</th>
@@ -47,7 +47,7 @@
   $(document).ready(iniciar);
   
   function iniciar() {
-    $('#publicaciones').DataTable({
+    $('#unidades').DataTable({
       "language": {"url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json"},
       "responsive": true, "autoWidth": false,
       "ordering":true,
@@ -65,15 +65,15 @@
     var id = $(this).parents("tr").find(".id").text();
     rowId = $(this).parents("tr").attr('id');
     $.ajax({
-      url: '<?php echo base_url('/ModuloPublicaciones/ActivarPublicacion');?>',
+      url: '<?php echo base_url('/ModuloPublicaciones/ActivarUnidad');?>',
       type: 'POST',
       dataType: 'text',
       data: {id: id},
     }).done(function(data) {
-
-      if (data=="Actualizado") {
-        $("#publicaciones").DataTable().rows($("#"+rowId)).remove();
-        $("#publicaciones").DataTable().search("").columns().search("").draw();
+  
+      if (data.trim()=="Actualizado") {
+        $("#unidades").DataTable().rows($("#"+rowId)).remove();
+        $("#unidades").DataTable().search("").columns().search("").draw();
       }else{
         alert("No se pudo actualizar el registro");
       }
