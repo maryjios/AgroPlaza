@@ -89,18 +89,20 @@
                 <input type="text" class="form-control" id="ciudad_edit" name="ciudad_edit" value="" disabled>
               </div>
               <div class='col-md-4' id="opcion_depart">
-                <label for='departamento' class='form-label'>Departamento</label>
+                <label  class='form-label'>Departamento</label>
+
                 <select name='departamento' id='departamento' class='form-control '>
-                  <option value=' selected disabled>Seleccione Departamento</option>
+                  <option value='selected disabled'>Seleccione Departamento</option>
                   <?php
-                  foreach ($departamentos as $departamento) { ?>
-                    <option value=' <?php echo $departamento['id'] ?>'><?php echo $departamento['nombre'] ?></option>
+                  foreach ($departamentos as $departamentos) { ?>
+                    <option value=' <?php echo $departamentos['id'] ?>'><?php echo $departamentos['nombre'] ?></option>
                 <?php } ?>
                 </select>
+                
               </div>
               <div class='col-md-4' id="opcion_city">
-                <label for='ciudad' class='form-label'>Ciudad</label>
-                <select id='ciudad' name='ciudad' class='form-control'>
+                <label class='form-label'>Ciudad</label>
+                <select name="ciudad" id="ciudad" class="form-control">
                   <option value="">Seleccione Ciudad</option>
                 </select>
               </div>
@@ -135,7 +137,6 @@
               <div class="col-12 mt-4">
                 <button type="submit" class="btn btn-primary">Guardar Nueva Confirmar</button>
               </div>
-
             </form>
           </div>
           <!-- Fin del Formulario para modificar la contraseña  -->
@@ -300,33 +301,38 @@
 
   }
 
-  function elegirDepartamento() {
-    let departamento = $(this).val();
-    var ciudades = $("#ciudad");
+function elegirDepartamento() {
 
-    if (departamento != '0') {
-      $('#ciudad').attr("disabled", false);
+let departamento = $(this).val();
+var ciudades = $("#ciudad");
 
-      $.ajax({
-          url: '<?php echo base_url('/Inicio/getCiudades'); ?>',
-          type: "POST",
-          dataType: "json",
-          data: {
-            departamento: departamento,
-          },
-        })
-        .done(function(data) {
-          ciudades.find('option').remove();
+if (departamento != '0') {
 
-          $(data).each(function(i, v) { // indice, valor
-            ciudades.append('<option value="' + v.id + '">' + v.nombre + '</option>');
-          });
-        })
-        .fail(function(data) {
-          console.log("error en el proceso");
-        });
-    }
-  }
+   $('#ciudad').attr("disabled", false);
+
+   $.ajax({
+      url: '<?php echo base_url('/Inicio/getCiudades'); ?>',
+      type: "POST",
+      dataType: "json",
+      data: {
+         departamento: departamento
+      },
+   })
+   .done(function(data) {
+
+      ciudades.find('option').remove();
+
+      $(data).each(function(i, v) { // indice, valor
+         ciudades.append('<option value="' + v.id + '">' + v.nombre + '</option>');
+      });
+   })
+
+   .fail(function(data) {
+      console.log("error en el proceso");
+      alert("sdsd");
+   });
+}
+}
 
   function buscardatos() {
     var id_perfil = $('#id_perfil').val();
@@ -386,10 +392,10 @@
     var tel_edit = $('#telefono_edit').val();
     var direccion_edit = $('#direccion_edit').val();
     var id_ciudad = $('#ciudad').val();
-    console.log(nombre_edit, apellido_edit, tel_edit, direccion_edit,id_ciudad)
+    console.log(nombre_edit, apellido_edit, tel_edit, direccion_edit, id_ciudad)
 
     if (nombre_edit == '' || apellido_edit == '' || tel_edit == '' ||
-      direccion_edit == ''|| id_ciudad == '') {
+      direccion_edit == '' || id_ciudad == '') {
       Swal.fire({
         icon: 'error',
         title: 'Error',
@@ -407,7 +413,7 @@
           apellido_edit: apellido_edit,
           tel_edit: tel_edit,
           direccion_edit: direccion_edit,
-          id_ciudad:id_ciudad
+          id_ciudad: id_ciudad
         },
 
       }).done(function(data) {

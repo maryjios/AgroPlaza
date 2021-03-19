@@ -9,7 +9,7 @@ class BuscarUsuarios extends BaseController {
 	public function index(){
 		$this->usuarios = new UsuariosModel();
         $usuarios = $this->usuarios->select('*')->where('estado','ACTIVO')->findAll();
-		 $personas =['datos' => $usuarios];
+		$personas =['datos' => $usuarios];
 		// $usuarios = $this->$usuarios->select('*')->where('estado','ACTIVO')->findAll();
 		// $personas =['personas' => $usuarios];
 
@@ -31,7 +31,6 @@ class BuscarUsuarios extends BaseController {
 		   
 	   } else {
 		   echo json_encode('error');
-	   
 	   }
 	}
 	// public function actualizarest(){
