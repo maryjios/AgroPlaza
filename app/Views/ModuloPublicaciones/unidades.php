@@ -159,7 +159,7 @@
             .done(function(data) {
                 if (data.trim() == "##Ok##insert") {
                    
-                    
+                    alert("se inserto un nuevo registro")
                     
                 }else {
                     alert("No se ha registrado");
