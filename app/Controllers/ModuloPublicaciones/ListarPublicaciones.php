@@ -106,7 +106,7 @@ class ListarPublicaciones extends BaseController
 	{
 
 		$publicaciones = new PublicacionesModel();
-		$consulta['registros_publicaciones'] = $publicaciones->select('publicaciones.id as id_publicacion, publicaciones.titulo as titulo, publicaciones.tipo_publicacion as tipo_publicacion, publicaciones.fecha_insert as fecha_publicacion,publicaciones.estado as estado_publicacion, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, imagenes.imagen')
+		$consulta['registros_publicaciones'] = $publicaciones->select('publicaciones.id as id_publicacion, publicaciones.titulo as titulo, publicaciones.tipo_publicacion as tipo_publicacion, publicaciones.fecha_insert as fecha_publicacion,publicaciones.estado as estado_publicacion, publicaciones.precio, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, imagenes.imagen')
 			->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
 			->join('imagenes', 'imagenes.id_publicacion =publicaciones.id')
 			->where('publicaciones.estado', 'ACTIVA')
