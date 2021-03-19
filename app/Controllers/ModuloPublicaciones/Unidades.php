@@ -17,27 +17,20 @@
 
 
         public function index(){
+
+        	$unidades = new UnidadesModel();
+
+			$consulta['datos'] = $unidades->where('estado','ACTIVA')->findAll();
+
             $data['modulo_selected'] = "Publicaciones";
             $data['opcion_selected'] = "Unidades";
     
     
             echo view('template/header', $data);
-            echo view('ModuloPublicaciones/unidades');
+            echo view('ModuloPublicaciones/unidades',$consulta);
             echo view('template/footer');
         }
 
-        public function consultarTodo()
-{
-		$unidades = new UnidadesModel();
-
-		$datos = $unidades->findAll();
-
-		if ($datos) {
-			echo json_encode($datos);
-		}else{
-			echo json_encode("Error");
-		}
-	}
 
     public function consultarId()
 	{
@@ -53,7 +46,7 @@
 		}
 	}
 
-    public function actualizarUni()
+    public function actualizarUnidades()
     {
         $unidades = new UnidadesModel();
         $id = $this->request->getPostGet('id');
@@ -61,19 +54,24 @@
         $abreviatura = $this->request->getPostGet('abreviatura');
 		
 
-        $datos = $unidades->set('nombre', $nombre, 'abreviatura', $abreviatura)->where('id', $id)->update();
+        $datos = $unidades->set(['nombre'=>$nombre, 'abreviatura'=>$abreviatura])
+        				  ->where('id', $id)
+        				  ->update();
+
 		if ($datos) {
-			$mensaje ='La unidad ah sido actualizada ';
+			$mensaje ='##Ok#Edit';
 		}else{
-			$mensaje = "Error al actualizar unidad";
+			$mensaje = "##Error#Edit";
 		}
+
+		echo $mensaje;
     }
 
     public function eliminarUnidades(){
 		$unidades = new UnidadesModel();
 
 		$id = $this->request->getPostGet('id');
-		$datos = $unidades->update('id', $id);
+		$datos = $unidades->update($id,['estado'=>'INACTIVA']);
 
 		if ($datos) {
 			$mensaje = "Eliminado";
@@ -87,32 +85,18 @@
 
     public function registrarUnidades(){
 
+    	$unidades = new UnidadesModel();
+
 		$nombre = $this->request->getPostGet('nombre_nuevo');
 		$abreviatura = $this->request->getPostGet('abreviatura_nuevo');
 
-		$unidades = new UnidadesModel();
 
-		$consulta = $unidades->where(['nombre_nuevo' => $nombre])->find();
+		$consulta = $unidades->insert(['nombre' => $nombre,'abreviatura'=>$abreviatura]);
 
-		if (sizeof($consulta) > 0) {
-			$mensaje = "FAIL#NOMBRE";
+		if ($consulta) {
+			$mensaje = "##Ok##insert";
 		}else {
-			$consulta = $unidades->where(['abreviatura_nuevo' => $abreviatura])->find();
-
-			if (sizeof($consulta) > 0) {
-				$mensaje = "FAIL#ABREVIATURA";
-			} else {
-				$registros = $unidades->save([
-					'nombre_nuevo' => $nombre,
-					'abreviatura_nuevo' => $abreviatura
-				]);
-
-				if ($registros) {
-					$mensaje = "OK#CORRECT#DATA";
-				} else {
-					$mensaje = "OK#INVALID#DATA";
-				}
-			}
+			$mensaje = "##No##insert";
 		}
 
 		echo $mensaje;
