@@ -88,8 +88,8 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('ActivarUnidad', 'UnidadesInactivas::activarUnidad');
 
     $routes->add('ConsultarUno', 'Unidades::consultarId');
-    $routes->add('Cambios', 'Unidades::actualizarUni');
-    $routes->add('EliminarUni', 'Unidades::eliminarUnidades');
+    $routes->add('EditarUnidad', 'Unidades::actualizarUnidades');
+    $routes->add('EliminarUnidad', 'Unidades::eliminarUnidades');
     $routes->add('InsertarUnidad', 'Unidades::registrarUnidades');
 
 });
