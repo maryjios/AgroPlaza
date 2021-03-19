@@ -71,6 +71,8 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
 
 $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPublicaciones'], function ($routes) {
     $routes->add('ListarPublicaciones', 'ListarPublicaciones::index');
+    $routes->add('ListarPublicacionesMovil', 'ListarPublicaciones::ListarPublicacionesMovil');
+
     $routes->add('InsertarPublicacion', 'CrearPublicacion::insertar');
     $routes->add('ConsultaIndividual', 'ListarPublicaciones::consultarId');
     $routes->add('ConsultaImagenes', 'ListarPublicaciones::consultarImagenes');
