@@ -69,7 +69,6 @@ class PerfilUsuario extends BaseController
 		echo json_encode($data);
 	}
 
-
 	public function editarAvatar()
 	{
 		$user = $this->request->getPostGet('id_user');

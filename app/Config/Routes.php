@@ -59,14 +59,13 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('BuscarPendientes', 'BuscarPendientes::index');
     $routes->add('MostrarPendientes', 'BuscarPendientes::listarpendientes');
     $routes->add('BuscarPenId', 'BuscarPendientes::buscarpenId');
-
+    
     $routes->add('ActualizarPen', 'BuscarPendientes::actualizarpen');
 
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
     $routes->add('CargarAvatar', 'PerfilUsuario::editarAvatar');
     
     $routes->add('EditarPerfil', 'PerfilUsuario::enviarnewdatos');
-
     $routes->add('BuscarDatosPerfil', 'PerfilUsuario::buscar_session');
 });
 

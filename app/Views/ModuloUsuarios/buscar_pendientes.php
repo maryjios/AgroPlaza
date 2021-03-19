@@ -40,7 +40,6 @@
                 </thead>
                 <tbody id="tbodyusuarios">
                   <?php foreach ($datos as $dato) { ?>
-
                     <tr>
                       <td><?php echo $dato['id']; ?></td>
                       <td><?php echo $dato['email']; ?></td>
@@ -48,9 +47,9 @@
                       <td><?php echo $dato['nombres'] . ' ' . $dato['apellidos']; ?></td>
                       <td><?php echo $dato['avatar']; ?></td>
                       <td><?php echo $dato['tipo_usuario']; ?></td>
-                      <td> <span  class="btn bg-warning"><?php echo $dato['estado']; ?></span></td>
-                      <td><a type="button" class="btn btn-primary mr-2 modal_edit" href="<?php echo base_url('/ModuloUsuarios/BuscarPenId?doc=').$dato['id']; ?>"><i class="far fa-eye"></i></a><a class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>
-                    </tr>
+                      <td> <span class="btn bg-warning"><?php echo $dato['estado']; ?></span></td>
+                      <td><a type="button" class="btn btn-primary mr-2 modal_edit" href="<?php echo base_url('/ModuloUsuarios/BuscarPenId?doc=') . $dato['id']; ?>"><i class="far fa-eye"></i></a><a class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>
+                    </tr>                                                          
 
                   <?php } ?>
                 </tbody>
@@ -130,10 +129,10 @@
         <button type="button" class="btn btn-primary admitir" data-dismiss="modal">Guardar cambios</button>
       </div>
     </div> -->
-    <!-- /.modal-content
+<!-- /.modal-content
   </div>
   /.modal-dialog -->
-<!-- </div> --> 
+<!-- </div> -->
 <!--FIN  PARA  MOSTRAR LOS DATOS DEL USUARIO PENDIENTES -->
 <script>
   $(document).ready(iniciar);
@@ -160,44 +159,11 @@
         }
       ],
     });
-
     $(".modal_edit").click(buscarpenId);
   }
 
 
-  function buscarpenId() {
-    var docPen = $(this).parents("tr").find(".doc").text();
-    $('#modal_editar').modal();
 
-    $.ajax({
-        url: '<?php echo base_url('/ModuloUsuarios/BuscarPenId'); ?>',
-        type: 'POST',
-        dataType: "json",
-        data: {
-          docPen: docPen
-        }
-
-      }).done(function(data) {
-        console.log(data);
-        for (var i = 0; i < data.length; i++) {
-
-          $('#documento').val(data[i].documento);
-          $('#nombre_us').val(data[i].nombres);
-          $('#apellido_us').val(data[i].apellidos);
-          $('#genero_us').val(data[i].genero);
-          $('#email_us').val(data[i].email);
-          $('#tipo_usuario').val(data[i].tipo_usuario);
-          $('#ciudad_us').val(data[i].id_ciudad);
-          $('#fecha_reg').val(data[i].fecha_insert);
-        }
-
-      })
-      .fail(function() {
-        console.log("error");
-      });
-
-    $(".admitir").click(actualizarpen);
-  }
 
 
   function actualizarpen() {
