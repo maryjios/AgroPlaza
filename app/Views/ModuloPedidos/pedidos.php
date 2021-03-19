@@ -11,6 +11,11 @@
                 <div class="d-grid d-md-flex  justify-content-md-end">
                   <!-- <a class=" btn btn-danger mr-4" href="<?php //echo base_url('ModuloPublicaciones/PublicacionesInactivas')?>"><i class="fas fa-user-lock"></i>
                   Publicaciones Inactivas</a> -->
+                  <select class="form-control col-2 bg-info">
+                    <option>Solicitados</option>
+                    <option>En proceso</option>
+                    <option>Finalizado</option>
+                  </select>
                 </div>
               </div>
               <div class="card-body" id="actualizar">
@@ -38,7 +43,20 @@
                         <td><?php echo $pedido['nombre_usuario'] ?></td>
                         <td><?php echo $pedido['fecha_insert'] ?></td>
                         <td><?php echo $pedido['estado_pedido'] ?></td>
-                        <td><?php echo "<a type='button' href='".base_url('/ModuloPublicaciones/ConsultaDetalle?file=').$pedido['id']."' class='btn btn-success detalle'><i class='far fa-eye'></i></a><a type='button' href='".base_url('/ModuloPublicaciones/EditarPublicacion?id=').$pedido['id']."' class='btn btn-warning editar ml-1'><i class='far fa-edit'></i></a><button class='btn btn-danger eliminar ml-1'> <i class='far fa-trash-alt'></i></button>"  ?></td>
+                        <td><?php echo '<button type="button" class="btn btn-success detalle"><i class="far fa-eye"></i></button>
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-warning">Pasar a:</button>
+                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
+                              <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu" role="menu" style="">
+                              <a class="dropdown-item" href="#">En proceso </a>
+                              <a class="dropdown-item" href="#">Entregado</a>
+                              <a class="dropdown-item" href="#">Finalizado</a>
+                              <a class="dropdown-item" href="#">Cancelado</a>
+                            </div>
+                          </div>
+                        '  ?></td>
                       </tr>
                     <?php endforeach ?>
                     
@@ -51,6 +69,50 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div><!-- /.content-header -->
+  </div>
+  <!-- Modal detalle pedido -->
+  <div class="modal fade" id="detalle_pedido" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Pedido</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col text-center img-thumbnail">
+                <h5>Producto</h5>
+                <img src="https://www.lechepuleva.es/documents/13930/203222/pi%C3%B1a_g.jpg/c585227d-e694-464d-87d7-3f2143dd33d9?t=1423480442000" class="rounded img-size-50 mr-2">
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col img-thumbnail">
+                <div class="position-relative rounded p-3 bg-success" style="height: 200px">
+                  <div class="ribbon-wrapper">
+                    <div class="ribbon bg-primary">
+                      +
+                    </div>
+                  </div>
+                  <h6>Cantidad: <span>15 Kilos</span></h6>
+                  <h6>Precio: $ <span>1500</span></h6>
+                  <h6>Descuento: <span>0</span></h6>
+                  <hr>
+                  <h6>Total: $ <span>22500</span></h6>
+                  <hr>
+                  <h6>Comprador: <span>Leonardo Lopez</span></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script >
@@ -67,8 +129,31 @@
            { 'bSortable': false, 'aTargets': [ 7 ] }
         ],
       });
-      $('.eliminar').click(eliminardatos);
+      $('.detalle').click(verPedido);
       $('.editar').click(editardatos);
+    }
+
+
+    function verPedido(){
+      $("#detalle_pedido").modal("show");
+      var id = $(this).parents("tr").find(".id").text();
+      $.ajax({
+        url: '<?php echo base_url('/ModuloPedidos/DetallePedido'); ?>',
+        type: 'POST',
+        dataType: 'json',
+        data: {id: id},
+      })
+      .done(function() {
+        console.log("success");
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
+      
+
     }
 
     function eliminardatos() {
@@ -158,9 +243,7 @@
       .always(function() {
         console.log("complete");
       });
-
-
-      
+    
     }
 
   </script>
