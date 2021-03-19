@@ -85,7 +85,40 @@
 	}
 
 
-    
+    public function registrarUnidades(){
+
+		$nombre = $this->request->getPostGet('nombre_nuevo');
+		$abreviatura = $this->request->getPostGet('abreviatura_nuevo');
+
+		$unidades = new UnidadesModel();
+
+		$consulta = $unidades->where(['nombre_nuevo' => $nombre])->find();
+
+		if (sizeof($consulta) > 0) {
+			$mensaje = "FAIL#NOMBRE";
+		}else {
+			$consulta = $unidades->where(['abreviatura_nuevo' => $abreviatura])->find();
+
+			if (sizeof($consulta) > 0) {
+				$mensaje = "FAIL#ABREVIATURA";
+			} else {
+				$registros = $unidades->save([
+					'nombre_nuevo' => $nombre,
+					'abreviatura_nuevo' => $abreviatura
+				]);
+
+				if ($registros) {
+					$mensaje = "OK#CORRECT#DATA";
+				} else {
+					$mensaje = "OK#INVALID#DATA";
+				}
+			}
+		}
+
+		echo $mensaje;
+	}
+
+	
 
 
     }

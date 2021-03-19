@@ -9,7 +9,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Lista Unidades</h3>
+                            <h3 class="card-title">Lista unidades activas</h3>
+                            <a class="btn btn-danger" href="<?php echo base_url('ModuloPublicaciones/UnidadesInactivas') ?>">Eliminadas</a>
                         </div>
                         <div>
 
@@ -44,21 +45,16 @@
     </div><!-- /.content-header -->
 </div>
 
-
+<!-- Modal registrar-->
 <div class="modal fade" id="agregar_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel3">Registrar Unidad</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="form_nuevoUni" method="post" action="#" autocomplete="of">
-                    <div class="row">
-                        <div class="form-group col">
-                            <input type="text" class="form-control form-control-border" id="id_nuevo" placeholder="id">
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="form-group col">
                             <input type="text" class="form-control form-control-border" id="nombre_nuevo" placeholder="nombre" required>
@@ -70,7 +66,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                 </form>
@@ -80,6 +76,7 @@
     </div>
 </div>
 
+<!-- Modal modificar-->
 <div class="modal fade" id="editar_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
@@ -107,14 +104,14 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary cambios_modal" data-dismiss="modal">Actualizar</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal confirma-->
+<!-- Modal eliminar-->
 <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
@@ -161,6 +158,8 @@
     function iniciar() {
 
         listarUnidades();
+
+        $("#form_nuevoUni").submit(formRegistrarUnidad);
     }
 
     function listarUnidades() {
@@ -286,45 +285,65 @@
                 console.log("complete");
             });
 
+    }
 
-        // function formRegistrarVendedor(e) {
-        //     e.preventDefault();
-        //     enviarInfoNuevoVendedor();
-        // }
+    function formRegistrarUnidad(e) {
+        e.preventDefault();
+        enviarInfoNuevaUnidad();
+    }
 
-        // function enviarInfoNuevoVendedor() {
-        //     email = $("#email").val();
-        //     documento = $("#documento").val();
-        //     nombres = $("#nombres").val();
+    function enviarInfoNuevaUnidad() {
 
+        nombre = $("#nombre_nuevo").val();
+        abreviatura = $("#abreviatura_nuevo").val();
 
-        //     if (documento != "" && nombres != "" && apellidos != "" && email != "" && direccion != "" && genero != "" && ciudad != "" && password != "" && loQueVaAVender != undefined) {
+        if (nombre != "" && abreviatura != "") {
 
-        //         var datos_formulario = new FormData($('#formulario_registro')[0]);
+            $.ajax({
+                    url: '<?php echo base_url('/ModuloPublicaciones/InsertarUnidad'); ?>',
+                    type: "POST",
+                    dataType: "text",
+                    data: {
+                        nombre_nuevo: nombre,
+                        abreviatura_nuevo: abreviatura,
 
-        //         $.ajax({
-        //                 url: '<?php echo base_url('/Inicio/InsertarVendedor'); ?>',
-        //                 type: "POST",
-        //                 dataType: "text",
-        //                 data: datos_formulario,
-        //                 contentType: false,
-        //                 processData: false
-        //             })
-        //             .done(function(data) {
+                    },
+                })
+                .done(function(data) {
 
-        //                 if (data == "Eliminado") {
-        //                     alert("se elimino")
-        //                 }
+                    if (data == "FAIL#NOMBRE") {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Ya esta registrado en el sistema!',
+                            text: 'El nombre ingresado ya esta registrado.'
+                        })
+                    } else if (data == "FAIL#ABREVIATURA") {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Ya esta registrado en el sistema!',
+                            text: 'LA abreviatura ingresada ya esta registrada.'
+                        })
+                    } else if (data == "OK#CORRECT#DATA") {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Exitoso!',
+                            text: 'Los datos de la unidad han sido registrados.'
+                        })
 
-        //             })
-        //             .fail(function() {
-        //                 console.log("error");
-        //             })
-        //         }
-
-
-
-        //     }
-
+                        $("#nombre_nuevo").val("");
+                        $("#abreviatura_nuevo").val("");
+                        
+                    }
+                })
+                .fail(function(data) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Ocurrio algo!',
+                        text: 'Ha ocurrido un error en el servidor, no se pudo registrar la información.'
+                    })
+                    console.log(data);
+                });
         }
+
+    }
 </script>
