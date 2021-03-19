@@ -44,7 +44,7 @@ class BuscarPendientes extends BaseController {
 		$data=['datos' => $usuario];
 		
 		echo view('template/header',);
-		echo view('ModuloUsuarios/detalles_usuario',$data);
+		echo view('ModuloUsuarios/detalles_pend',$data);
 		echo view('template/footer');
 
 		

@@ -27,7 +27,9 @@
 <script src="<?php echo base_url('/public/plugins/chart.js/Chart.min.js'); ?>"></script>
 <!-- Sparkline -->
 <script src="<?php echo base_url('/public/plugins/sparklines/sparkline.js'); ?>"></script>
-
+<!-- Ekko Lightbox -->
+<script src="<?php echo base_url('/public/plugins/ekko-lightbox/ekko-lightbox.min.js'); ?>"></script>
+<script src="<?php echo base_url('/public/plugins/filterizr/jquery.filterizr.min.js'); ?>"></script>
 <!-- jQuery Knob Chart -->
 <script src="<?php echo base_url('/public/plugins/jquery-knob/jquery.knob.min.js'); ?>"></script>
 <!-- daterangepicker -->

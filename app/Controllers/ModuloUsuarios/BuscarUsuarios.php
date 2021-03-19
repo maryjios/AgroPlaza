@@ -21,17 +21,24 @@ class BuscarUsuarios extends BaseController {
 		echo view('template/footer');
 	}
 
+
+
 	public function buscarporId(){
 		$usuarios = new UsuariosModel();
-		$doc = $this->request->getPostGet('doc');
-		$data = $usuarios->where('id',$doc)->find();
+		$id = $this->request->getPostGet('doc');
+		$usuario = $usuarios->select('usuarios.id,usuarios.email,usuarios.documento,usuarios.nombres,usuarios.apellidos,
+		                              usuarios.id_ciudad,usuarios.direccion,usuarios.telefono,usuarios.genero,usuarios.tipo_usuario,
+									  usuarios.estado,usuarios.avatar,usuarios.fecha_insert,ciudad.nombre')
+							 ->join('ciudad', 'ciudad.id=usuarios.id_ciudad')
+							 ->where('usuarios.id', $id)
+							 ->first();
+		$data=['datos' => $usuario];
+		
+		echo view('template/header',);
+		echo view('ModuloUsuarios/detalle_usuario',$data);
+		echo view('template/footer');
 
-		if ($data) {
-	       echo json_encode($data);
-		   
-	   } else {
-		   echo json_encode('error');
-	   }
+		
 	}
 	// public function actualizarest(){
 	// 	$usuarios = new UsuariosModel();
