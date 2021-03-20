@@ -132,7 +132,7 @@ class RegistrarUsuario extends BaseController
 				'id_ciudad' => $ciudad,
 				'telefono' => $telefono,
 				'genero' => $genero,
-				'avatar' => 'avatar.png',
+				'avatar' => 'avatar_default.png',
 				'tipo_usuario' => 'CLIENTE'
 			]);
 
