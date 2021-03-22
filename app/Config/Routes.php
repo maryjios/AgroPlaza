@@ -98,6 +98,13 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
 
 $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos'], function ($routes) {
     $routes->add('Pedidos', 'Pedidos::index');
+    $routes->add('PedidosEnProceso', 'Pedidos::enProceso');
+    $routes->add('PedidosEntregados', 'Pedidos::entregados');
+    $routes->add('PasarEnProceso', 'Pedidos::pasar_a_Proceso');
+    $routes->add('PasarCancelado', 'Pedidos::pasar_a_Cancelado');
+    $routes->add('PasarEntregado', 'Pedidos::pasar_a_Entregado');
+    $routes->add('PasarFinalizado', 'Pedidos::pasar_a_Finalizado');
+
     $routes->add('DetallePedido', 'Pedidos::detalle');
     $routes->add('HistorialPedidos', 'Pedidos::historial');
 });

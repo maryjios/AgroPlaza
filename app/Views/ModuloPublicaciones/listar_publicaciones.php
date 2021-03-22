@@ -76,6 +76,7 @@
       $(this).parents('tr').attr('id', 'por_eliminar');
       var id = $(this).parents("tr").find(".id").text();
       rowId = $(this).parents("tr").attr('id');
+      alert(rowId)
       $.ajax({
         url: '<?php echo base_url('/ModuloPublicaciones/EliminarPublicacion');?>',
         type: 'POST',

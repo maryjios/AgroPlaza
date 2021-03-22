@@ -7,15 +7,16 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h2 class="card-title"><b>Lista de pedidos Solicitados</b></h2>
+                <h2 class="card-title"><b>Lista de pedidos entregados</b></h2>
                 <div class="d-grid d-md-flex  justify-content-md-end">
                   <div class="btn-group col-2" role="group">
                       <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle form-control  bg-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Solicitados
+                        Entregados
                       </button>
                       <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <a class="dropdown-item" href="<?php echo base_url('ModuloPedidos/Pedidos') ?>">Solicitados</a>
                         <a class="dropdown-item" href="<?php echo base_url('ModuloPedidos/PedidosEnProceso') ?>">En proceso</a>
-                         <a class="dropdown-item" href="<?php echo base_url('ModuloPedidos/PedidosEntregados') ?>">Entregados</a>
+                        <a class="dropdown-item" href="<?php echo base_url('ModuloPedidos/PedidosEntregados') ?>">Entregados</a>
                       </div>
                     </div>
                 </div>
@@ -52,8 +53,7 @@
                               <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <div class="dropdown-menu" role="menu" style="">
-                              <button class="dropdown-item proceso" >En proceso </button>
-                              <button class="dropdown-item cancelado" >Cancelado</button>
+                              <button class="dropdown-item finalizado" >Finalizado</button>
                             </div>
                           </div>
                         '  ?></td>
@@ -130,8 +130,7 @@
         ],
       });
       $('.detalle').click(verPedido);
-      $(".proceso").click(pasar_a_proceso); 
-      $(".cancelado").click(pasar_a_cancelado); 
+      $('.finalizado').click(pasar_a_finalizado);
     }
 
 
@@ -155,13 +154,13 @@
       });
     }
 
-    function pasar_a_proceso(){
-      $(this).parents('tr').attr('id', 'en_proceso');
+    function pasar_a_finalizado(){
+      $(this).parents('tr').attr('id', 'a_finalizado');
       var id = $(this).parents("tr").find(".id").text();
       rowId = $(this).parents("tr").attr('id');
       alert(rowId)
       $.ajax({
-        url: '<?php echo base_url('/ModuloPedidos/PasarEnProceso');?>',
+        url: '<?php echo base_url('/ModuloPedidos/PasarFinalizado');?>',
         type: 'POST',
         dataType: 'text',
         data: {id: id},
@@ -171,7 +170,7 @@
           $("#pedidos").DataTable().rows($("#"+rowId)).remove();
           $("#pedidos").DataTable().search("").columns().search("").draw();
         }else{
-          alert("No se pudo pasar a 'en proceso', el registro");
+          alert("No se pudo pasar a 'finalizado', el registro");
         }
 
       })
@@ -182,35 +181,8 @@
         console.log("complete");
       });
     }
+  
     
-    function pasar_a_cancelado(){
-      $(this).parents('tr').attr('id', 'en_cancelado');
-      var id = $(this).parents("tr").find(".id").text();
-      rowId = $(this).parents("tr").attr('id');
-      alert(rowId)
-      $.ajax({
-        url: '<?php echo base_url('/ModuloPedidos/PasarCancelado');?>',
-        type: 'POST',
-        dataType: 'text',
-        data: {id: id},
-      }).done(function(data) {
-        
-        if (data.trim()=="Ok") {
-          $("#pedidos").DataTable().rows($("#"+rowId)).remove();
-          $("#pedidos").DataTable().search("").columns().search("").draw();
-        }else{
-          alert("No se pudo pasar a 'cancelado', el registro");
-        }
-
-      })
-      .fail(function() {
-        console.log("error");
-      })
-      .always(function() {
-        console.log("complete");
-      });
-
-    }
 
   </script>
 
