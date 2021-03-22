@@ -68,6 +68,7 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('BuscarDatosPerfil', 'PerfilUsuario::buscar_session');
 
     $routes->add('CambiarCiudadMovil', 'PerfilUsuario::editarCiudadMovil');
+    $routes->add('EditarDatosMovil', 'PerfilUsuario::editarDatosMovil');
     
 });
 

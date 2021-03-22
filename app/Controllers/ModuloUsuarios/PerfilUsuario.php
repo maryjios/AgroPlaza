@@ -129,4 +129,29 @@ class PerfilUsuario extends BaseController
 			echo json_encode("ERROR##UPDATE");
 		}
 	}
+	
+	public function editarDatosMovil()
+	{
+		$usuarios = new UsuariosModel();
+		$id_perfil = $this->request->getPostGet('id_perfil');
+		$documento = (empty($this->request->getPostGet('documento'))) ? null : $this->request->getPostGet('documento');
+		$nombres = $this->request->getPostGet('nombres');
+		$apellidos = $this->request->getPostGet('apellidos');
+		$direccion = (empty($this->request->getPostGet('direccion'))) ? null : $this->request->getPostGet('direccion');
+		$telefono = $this->request->getPostGet('telefono');
+
+		$data = $usuarios->set([
+			'documento' => $documento,
+			'nombres' => $nombres,
+			'apellidos' => $apellidos,
+			'direccion' => $direccion,
+			'telefono' => $telefono,
+		])->where('id', $id_perfil)->update();
+
+		if ($data) {
+			echo json_encode("OK##DATA##UPDATE");
+		} else {
+			echo json_encode("ERROR##UPDATE");
+		}
+	}
 }
