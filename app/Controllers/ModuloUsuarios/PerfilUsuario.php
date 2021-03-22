@@ -24,42 +24,41 @@ class PerfilUsuario extends BaseController
 		echo view('ModuloUsuarios/perfil_usuario', $departamentos);
 		echo view('template/footer');
 	}
-    
-	public function buscar_session(){
+
+	public function buscar_session()
+	{
 		$db_usuarios = new UsuariosModel();
 		$id_perfil = $this->request->getPostGet('id_perfil');
 		$data = $db_usuarios->select('usuarios.id,usuarios.email,usuarios.documento,usuarios.nombres,usuarios.apellidos,
-		                              usuarios.id_ciudad,usuarios.direccion,usuarios.telefono,usuarios.genero,usuarios.tipo_usuario,
-									  usuarios.estado,usuarios.fecha_insert,ciudad.nombre')
-							 ->join('ciudad', 'ciudad.id=usuarios.id_ciudad')
-							 ->where('usuarios.id', $id_perfil)
-							 ->findAll();
+									usuarios.id_ciudad,usuarios.direccion,usuarios.telefono,usuarios.genero,usuarios.tipo_usuario,
+									usuarios.estado,usuarios.fecha_insert,ciudad.nombre')
+			->join('ciudad', 'ciudad.id=usuarios.id_ciudad')
+			->where('usuarios.id', $id_perfil)
+			->findAll();
 		if ($data) {
-	       echo json_encode($data);
-		   
-	   } else {
-		   echo json_encode('error no encontrado');
+			echo json_encode($data);
+		} else {
+			echo json_encode('error no encontrado');
 		}
 	}
-	
-	public function enviarnewdatos(){
+
+	public function enviarnewdatos()
+	{
 		$usuarios = new UsuariosModel();
-		$id_perfil= $this->request->getPostGet('id_perfil');
+		$id_perfil = $this->request->getPostGet('id_perfil');
 		$nombre_edit = $this->request->getPostGet('nombre_edit');
 		$apellido_edit = $this->request->getPostGet('apellido_edit');
 		$direccion_edit = $this->request->getPostGet('direccion_edit');
 		$telefono_edit = $this->request->getPostGet('tel_edit');
 		$id_ciudad = $this->request->getPostGet('id_ciudad');
 
-        $data=$usuarios->set(['nombres'=> $nombre_edit ,'apellidos'=> $apellido_edit,'direccion'=> $direccion_edit,'telefono'=> $telefono_edit,'id_ciudad'=> $id_ciudad])->where('id', $id_perfil)->update();
+		$data = $usuarios->set(['nombres' => $nombre_edit, 'apellidos' => $apellido_edit, 'direccion' => $direccion_edit, 'telefono' => $telefono_edit, 'id_ciudad' => $id_ciudad])->where('id', $id_perfil)->update();
 
-        
 		if ($data) {
 			echo json_encode($data);
-		}else{
+		} else {
 			echo json_encode('ERROR#UPDATE');
 		}
-
 	}
 	public function getCiudades()
 	{
@@ -73,7 +72,6 @@ class PerfilUsuario extends BaseController
 	{
 		$user = $this->request->getPostGet('id_user');
 
-
 		$extension = explode(".", $_FILES['photo']['name']);
 		$extension = strtolower($extension[sizeof($extension) - 1]);
 		$nombre_archivo = 'avatar_user_' . $user;
@@ -84,18 +82,16 @@ class PerfilUsuario extends BaseController
 
 			if ($file->isValid() && !$file->hasMoved()) {
 
-
 				$db_usuarios = new UsuariosModel();
 				$datos = $db_usuarios->set('avatar', $nombre_avatar)->where('id', $user)->update();
 
 				$extensiones = array('png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG');
 				foreach ($extensiones as $elemento) {
-					$ruta_avatar = "public/dist/img/avatar/" . $nombre_archivo .'.'.$elemento;
+					$ruta_avatar = "public/dist/img/avatar/" . $nombre_archivo . '.' . $elemento;
 					if (file_exists($ruta_avatar)) {
 						unlink($ruta_avatar);
 					}
 				}
-
 
 				// Subiendo foto al servidor
 				$moveresponse = $file->move('./public/dist/img/avatar/', $nombre_avatar);
@@ -117,5 +113,20 @@ class PerfilUsuario extends BaseController
 		}
 
 		echo json_encode($avatar);
+	}
+
+	public function editarCiudadMovil()
+	{
+		$usuarios = new UsuariosModel();
+		$id_perfil = $this->request->getPostGet('id_perfil');
+		$id_ciudad = $this->request->getPostGet('id_ciudad');
+
+		$data = $usuarios->set(['id_ciudad' => $id_ciudad])->where('id', $id_ciudad)->update();
+
+		if ($data) {
+			echo json_encode("OK##CIUDAD##UPDATE");
+		} else {
+			echo json_encode("ERROR##UPDATE");
+		}
 	}
 }
