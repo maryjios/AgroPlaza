@@ -59,7 +59,6 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('BuscarPendientes', 'BuscarPendientes::index');
     $routes->add('MostrarPendientes', 'BuscarPendientes::listarpendientes');
     $routes->add('BuscarPenId', 'BuscarPendientes::buscarpenId');
-    
     $routes->add('ActualizarPen', 'BuscarPendientes::actualizarpen');
 
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
@@ -67,6 +66,10 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     
     $routes->add('EditarPerfil', 'PerfilUsuario::enviarnewdatos');
     $routes->add('BuscarDatosPerfil', 'PerfilUsuario::buscar_session');
+
+    $routes->add('CambiarCiudadMovil', 'PerfilUsuario::editarCiudadMovil');
+    $routes->add('EditarDatosMovil', 'PerfilUsuario::editarDatosMovil');
+    
 });
 
 $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPublicaciones'], function ($routes) {

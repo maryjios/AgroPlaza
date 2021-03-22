@@ -10,45 +10,47 @@
           <div class="card">
             <div class="card-header">
               <h2 class="card-title "><b> Lista de usuarios Inactivos</b></h2>
-            
-            <div class="d-grid d-md-flex  justify-content-md-end">
 
-              <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios') ?>" class="btn  bg-success mr-4">
-                <i class="fas fa-lock-open"></i>
-                Usuarios Activos</a>
+              <div class="d-grid d-md-flex  justify-content-md-end">
 
-              <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes') ?>" class="btn  bg-warning mr-4">
-                <i class="fas fa-user-clock"></i>
-                Usuarios Pendientes</a>
+                <a href="<?php echo base_url('/ModuloUsuarios/BuscarUsuarios') ?>" class="btn  bg-success mr-4">
+                  <i class="fas fa-lock-open"></i>
+                  Usuarios Activos</a>
+
+                <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes') ?>" class="btn  bg-warning mr-4">
+                  <i class="fas fa-user-clock"></i>
+                  Usuarios Pendientes</a>
+              </div>
             </div>
-          </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="usuarios_inactivos" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>Id</th>
+                    <th>Avatar</th>
                     <th>Email</th>
                     <th>Documento</th>
                     <th>Nombres</th>
-                    <th>Avatar</th>
                     <th>Tipo Usuario</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
-               <tbody id="tbodyusuarios">
+                <tbody id="tbodyusuarios">
                   <?php foreach ($datos as $dato) { ?>
 
                     <tr>
                       <td class="doc_in"><?php echo $dato['id']; ?></td>
-                      <td ><?php echo $dato['email']; ?></td>
-                      <td ><?php echo $dato['documento']; ?></td>
-                      <td><?php echo $dato['nombres'].' '.$dato['apellidos']; ?></td>
-                      <td><?php echo $dato['avatar']; ?></td>
+                      <td class="text-center">
+                        <img src="<?php echo base_url("public/dist/img/avatar") . '/' . $dato['avatar'] ?>" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      </td>
+                      <td><?php echo $dato['email']; ?></td>
+                      <td><?php echo $dato['documento']; ?></td>
+                      <td><?php echo $dato['nombres'] . ' ' . $dato['apellidos']; ?></td>
                       <td><?php echo $dato['tipo_usuario']; ?></td>
                       <td><span class="btn bg-danger"><?php echo $dato['estado']; ?></span></td>
-                      <td><button type="button" class="btn btn-success toastrDefaultSuccess activar" data-toggle="modal"  data-target="#modal-confirma"  data-placement="top" class="btn btn-danger"><i class="fas fa-trash-restore"></i></button></td>
+                      <td><button type="button" class="btn btn-success toastrDefaultSuccess activar" data-toggle="modal" data-target="#modal-confirma" data-placement="top" class="btn btn-danger"><i class="fas fa-trash-restore"></i></button></td>
                     </tr>
                   <?php } ?>
                 </tbody>
@@ -111,18 +113,20 @@
       "ordering": true,
       "aoColumnDefs": [{
           'bSortable': false,
-          'aTargets': [1]  },
+          'aTargets': [1]
+        },
         {
           'bSortable': false,
-          'aTargets': [6] },
+          'aTargets': [6]
+        },
         {
           'bSortable': false,
           'aTargets': [7]
         }
       ],
     });
-      $(".mod_edit").click(buscarinacId);
-      $(".activar").click(restaurarestado);
+    $(".mod_edit").click(buscarinacId);
+    $(".activar").click(restaurarestado);
   }
 
 
