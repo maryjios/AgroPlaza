@@ -87,7 +87,7 @@ class Inicio extends BaseController
       $valor_departamento = $this->request->getPostGet('departamento');
       $ciudades_db = new CiudadesModel();
       $registros = $ciudades_db->where(["id_departamento" => $valor_departamento]);
-      $registros = $ciudades_db->findAll();
+      $registros = $ciudades_db->orderBy("nombre", "ASC")->findAll();
 
       echo json_encode($registros);
    }
