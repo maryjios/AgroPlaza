@@ -42,7 +42,7 @@ class RegistrarUsuario extends BaseController
 		$data['opcion_selected'] = "RegistrarAdministrador";
 
 		$departamentos_db = new DepartamentosModel();
-		$registros['departamentos'] = $departamentos_db->select()->findAll();
+		$registros['departamentos'] = $departamentos_db->select()->orderBy("nombre", "ASC")->findAll();
 
 		echo view('template/header', $data);
 		echo view('ModuloUsuarios/registrar_admin', $registros);

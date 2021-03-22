@@ -13,13 +13,28 @@ class ListarPublicaciones extends BaseController
 	public function index()
 	{
 		$publicaciones = new PublicacionesModel();
-		$consulta['datos'] = $publicaciones->select('publicaciones.id as id_publicacion, publicaciones.titulo as titulo, publicaciones.tipo_publicacion as tipo_publicacion, publicaciones.fecha_insert as fecha_publicacion,publicaciones.estado as estado_publicacion, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, imagenes.imagen')
-			->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
-			->join('imagenes', 'imagenes.id_publicacion =publicaciones.id')
-			->where('publicaciones.estado', 'ACTIVA')
-			->groupBy('imagenes.id_publicacion')
-			->findAll();
 
+		$id =$_SESSION['id'];
+		$tipo_usuario = $_SESSION['tipo_usuario'];
+
+		if ($tipo_usuario == "ADMINISTRADOR") {
+			$consulta['datos'] = $publicaciones->select('publicaciones.id as id_publicacion, publicaciones.titulo as titulo, publicaciones.tipo_publicacion as tipo_publicacion, publicaciones.fecha_insert as fecha_publicacion,publicaciones.estado as estado_publicacion, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, imagenes.imagen')
+				->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
+				->join('imagenes', 'imagenes.id_publicacion =publicaciones.id')
+				->where('publicaciones.estado', 'ACTIVA')
+				->groupBy('imagenes.id_publicacion')
+				->findAll();
+
+		}else {
+			$consulta['datos'] = $publicaciones->select('publicaciones.id as id_publicacion, publicaciones.titulo as titulo, publicaciones.tipo_publicacion as tipo_publicacion, publicaciones.fecha_insert as fecha_publicacion,publicaciones.estado as estado_publicacion, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, imagenes.imagen')
+				->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
+				->join('imagenes', 'imagenes.id_publicacion =publicaciones.id')
+				->where('publicaciones.estado', 'ACTIVA')
+				->where('publicaciones.id_usuario',$id)
+				->groupBy('imagenes.id_publicacion')
+				->findAll();
+		}
+	
 		$data['modulo_selected'] = "Publicaciones";
 		$data['opcion_selected'] = "ListarPublicaciones";
 
@@ -65,13 +80,31 @@ class ListarPublicaciones extends BaseController
 		$imagenes = new ImagenesModel();
 
 		$id = $this->request->getPostGet('file');
-		$info_publicaciones = $publicaciones->select('publicaciones.*, unidades.abreviatura as unidad, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, ciudad.nombre as ciudad, departamento.nombre as departamento')
-			->join('unidades', 'publicaciones.id_unidad = unidades.id')
-			->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
-			->join('ciudad', 'publicaciones.id_ciudad =ciudad.id')
-			->join('departamento', 'ciudad.id_departamento =departamento.id')
-			->where('publicaciones.id', $id)
-			->first();
+
+		$tipo_publicacion = $publicaciones->select('tipo_publicacion')
+										  ->where('id',$id)
+										  ->first();
+		
+		
+		if ($tipo_publicacion = "PRODUCTO") {
+			$info_publicaciones = $publicaciones->select('publicaciones.*, unidades.abreviatura as unidad, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, ciudad.nombre as ciudad, departamento.nombre as departamento')
+				->join('unidades', 'publicaciones.id_unidad = unidades.id')
+				->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
+				->join('ciudad', 'publicaciones.id_ciudad =ciudad.id')
+				->join('departamento', 'ciudad.id_departamento =departamento.id')
+				->where('publicaciones.id', $id)
+				->first();
+		}else if($tipo_publicacion = "SERVICIO"){
+			$info_publicaciones = $publicaciones->select('publicaciones.*,concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, ciudad.nombre as ciudad, departamento.nombre as departamento')
+				->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
+				->join('ciudad', 'publicaciones.id_ciudad =ciudad.id')
+				->join('departamento', 'ciudad.id_departamento =departamento.id')
+				->where('publicaciones.id', $id)
+				->first();
+		}
+
+		var_dump($info_publicaciones);
+		
 
 		$img = $imagenes->select('id, imagen')
 			->where('id_publicacion', $id)
@@ -79,6 +112,8 @@ class ListarPublicaciones extends BaseController
 			->first();
 
 		$datos = ['publicacion' => $info_publicaciones, 'img' => $img];
+
+		
 
 		echo view('template/header');
 		echo view('ModuloPublicaciones/detalle_publicacion', $datos);

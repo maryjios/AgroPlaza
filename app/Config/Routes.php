@@ -59,7 +59,6 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('BuscarPendientes', 'BuscarPendientes::index');
     $routes->add('MostrarPendientes', 'BuscarPendientes::listarpendientes');
     $routes->add('BuscarPenId', 'BuscarPendientes::buscarpenId');
-    
     $routes->add('ActualizarPen', 'BuscarPendientes::actualizarpen');
 
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
@@ -71,7 +70,9 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
 
     // Rutas para consultar y modificar la ciudad del usuario (AppMovil)
     $routes->add('nombreCiudad', 'PerfilUsuario::consultarNombreCiudad');
-
+    $routes->add('CambiarCiudadMovil', 'PerfilUsuario::editarCiudadMovil');
+    $routes->add('EditarDatosMovil', 'PerfilUsuario::editarDatosMovil');
+    
 });
 
 $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPublicaciones'], function ($routes) {
@@ -106,6 +107,13 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
 
 $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos'], function ($routes) {
     $routes->add('Pedidos', 'Pedidos::index');
+    $routes->add('PedidosEnProceso', 'Pedidos::enProceso');
+    $routes->add('PedidosEntregados', 'Pedidos::entregados');
+    $routes->add('PasarEnProceso', 'Pedidos::pasar_a_Proceso');
+    $routes->add('PasarCancelado', 'Pedidos::pasar_a_Cancelado');
+    $routes->add('PasarEntregado', 'Pedidos::pasar_a_Entregado');
+    $routes->add('PasarFinalizado', 'Pedidos::pasar_a_Finalizado');
+
     $routes->add('DetallePedido', 'Pedidos::detalle');
     $routes->add('HistorialPedidos', 'Pedidos::historial');
 });

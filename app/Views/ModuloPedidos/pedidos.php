@@ -7,19 +7,21 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h2 class="card-title"><b>Lista de Pedidos Solicitados</b></h2>
+                <h2 class="card-title"><b>Lista de pedidos Solicitados</b></h2>
                 <div class="d-grid d-md-flex  justify-content-md-end">
-                  <!-- <a class=" btn btn-danger mr-4" href="<?php //echo base_url('ModuloPublicaciones/PublicacionesInactivas')?>"><i class="fas fa-user-lock"></i>
-                  Publicaciones Inactivas</a> -->
-                  <select class="form-control col-2 bg-info">
-                    <option>Solicitados</option>
-                    <option>En proceso</option>
-                    <option>Finalizado</option>
-                  </select>
+                  <div class="btn-group col-2" role="group">
+                      <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle form-control  bg-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Solicitados
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <a class="dropdown-item" href="<?php echo base_url('ModuloPedidos/PedidosEnProceso') ?>">En proceso</a>
+                         <a class="dropdown-item" href="<?php echo base_url('ModuloPedidos/PedidosEntregados') ?>">Entregados</a>
+                      </div>
+                    </div>
                 </div>
               </div>
               <div class="card-body" id="actualizar">
-                <table id="publicaciones" class="table table-bordered table-striped">
+                <table id="pedidos" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>Id</th>
@@ -50,10 +52,8 @@
                               <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <div class="dropdown-menu" role="menu" style="">
-                              <a class="dropdown-item" href="#">En proceso </a>
-                              <a class="dropdown-item" href="#">Entregado</a>
-                              <a class="dropdown-item" href="#">Finalizado</a>
-                              <a class="dropdown-item" href="#">Cancelado</a>
+                              <button class="dropdown-item proceso" >En proceso </button>
+                              <button class="dropdown-item cancelado" >Cancelado</button>
                             </div>
                           </div>
                         '  ?></td>
@@ -119,7 +119,7 @@
     $(document).ready(iniciar);
   
     function iniciar() {
-      $('#publicaciones').DataTable({
+      $('#pedidos').DataTable({
         "language": {"url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json"},
         "responsive": true, "autoWidth": false,
          "ordering":true,
@@ -130,7 +130,8 @@
         ],
       });
       $('.detalle').click(verPedido);
-      $('.editar').click(editardatos);
+      $(".proceso").click(pasar_a_proceso); 
+      $(".cancelado").click(pasar_a_cancelado); 
     }
 
 
@@ -152,27 +153,25 @@
       .always(function() {
         console.log("complete");
       });
-      
-
     }
 
-    function eliminardatos() {
-
-      $(this).parents('tr').attr('id', 'por_eliminar');
+    function pasar_a_proceso(){
+      $(this).parents('tr').attr('id', 'en_proceso');
       var id = $(this).parents("tr").find(".id").text();
       rowId = $(this).parents("tr").attr('id');
+      alert(rowId)
       $.ajax({
-        url: '<?php echo base_url('/ModuloPublicaciones/EliminarPublicacion');?>',
+        url: '<?php echo base_url('/ModuloPedidos/PasarEnProceso');?>',
         type: 'POST',
         dataType: 'text',
         data: {id: id},
       }).done(function(data) {
         
-        if (data=="Eliminado") {
-          $("#publicaciones").DataTable().rows($("#"+rowId)).remove();
-          $("#publicaciones").DataTable().search("").columns().search("").draw();
+        if (data.trim()=="Ok") {
+          $("#pedidos").DataTable().rows($("#"+rowId)).remove();
+          $("#pedidos").DataTable().search("").columns().search("").draw();
         }else{
-          alert("No se pudo eliminar el registro");
+          alert("No se pudo pasar a 'en proceso', el registro");
         }
 
       })
@@ -182,68 +181,35 @@
       .always(function() {
         console.log("complete");
       });
-
-    };
-
-    function editardatos() {
-
-      var id = $(this).parents("tr").find(".id").text();
-
-      $('#editar_modal').modal();
-
-      $.ajax({
-        url: '<?php echo base_url('/ModuloPublicaciones/ConsultaIndividual');?>',
-        type: 'POST',
-        dataType: 'json',
-        data: {id: id},
-      })
-      .done(function(data) {
-
-        for (var i = 0; i < data.length; i++) {
-          $('#titulo').val(data[i].titulo);
-          $('#descripcion').val(data[i].descripcion);
-          $('#stock').val(data[i].stock);
-          $('#precio').val(data[i].precio);
-          $('#precio_envio').val(data[i].precio_envio);
-          $('#descuento').val(data[i].descuento);
-         
-        }
-
-      })
-      .fail(function() {
-        console.log("error");
-      })
-      .always(function() {
-        console.log("complete");
-      });
-
-
-      $.ajax({
-        url: '<?php echo base_url('/ModuloPublicaciones/ConsultaImagenes');?>',
-        type: 'POST',
-        dataType: 'json',
-        data: {id: id},
-      })
-      .done(function(data) {
-
-        $.each(data, function( index, value ) {
-           $( ".Brand" ).append( "<img src='"+this+"' > class='imagen'" );
-        });
-
-       for (var i = 0; i < data.length; i++) {
-          var img = "<img src='<?php echo base_url('public/dist/img/publicaciones/')?>"+'/'+data[i].imagen+"' class='rounded img-size-50 mr-2'>";
-          $('.dvPreview').append(img);
-          
-        }
- 
-      })
-      .fail(function() {
-        console.log("error");
-      })
-      .always(function() {
-        console.log("complete");
-      });
+    }
     
+    function pasar_a_cancelado(){
+      $(this).parents('tr').attr('id', 'en_cancelado');
+      var id = $(this).parents("tr").find(".id").text();
+      rowId = $(this).parents("tr").attr('id');
+      alert(rowId)
+      $.ajax({
+        url: '<?php echo base_url('/ModuloPedidos/PasarCancelado');?>',
+        type: 'POST',
+        dataType: 'text',
+        data: {id: id},
+      }).done(function(data) {
+        
+        if (data.trim()=="Ok") {
+          $("#pedidos").DataTable().rows($("#"+rowId)).remove();
+          $("#pedidos").DataTable().search("").columns().search("").draw();
+        }else{
+          alert("No se pudo pasar a 'cancelado', el registro");
+        }
+
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
+
     }
 
   </script>

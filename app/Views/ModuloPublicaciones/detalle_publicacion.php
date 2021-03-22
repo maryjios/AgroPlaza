@@ -16,8 +16,8 @@
                 <div class="row">
                   <div class="col-12 col-sm-6">
                     <div class="col-12">
-                      <div class=" d-inline mr-5 primera_imagen " style="height: 480px; width: 260px;">
-                        <img  class="product-image img-fluid"  src="<?php echo base_url('/public/dist/img/publicaciones/publicacion').$publicacion['id'].'/'.$img['imagen'] ?>">
+                      <div class=" d-inline mr-5 primera_imagen " style="height: 480px; width: 600px;">
+                        <img  class="product-image img-fluid " src="<?php echo base_url('/public/dist/img/publicaciones/publicacion').$publicacion['id'].'/'.$img['imagen'] ?>">
                       </div>        
                     </div>
                     <div class="col-12 product-image-thumbs">
@@ -45,7 +45,7 @@
                       <div class="col">
                         <h4>Precio:</h4>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <p><span><i class="fas fa-dollar-sign"></i> </span><?php echo number_format($publicacion['precio'])." * ".$publicacion['unidad']; ?></p>
+                            <p><span><i class="fas fa-dollar-sign"></i> </span><?php echo number_format($publicacion['precio'])?> <?php if ($publicacion['tipo_publicacion']=="PRODUCTO"){ echo " * ".$publicacion['unidad'];} ?></p>
                         </div>
                       </div>
                       <div class="col ">
