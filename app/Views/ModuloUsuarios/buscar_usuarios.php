@@ -11,13 +11,13 @@
             <div class="card-header">
               <h2 class="card-title"><b>Lista de Usuarios Activos</b></h2>
               <div class="d-grid d-md-flex  justify-content-md-end">
-              <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos') ?>" class="btn  bg-danger mr-4">
-                <i class="fas fa-user-lock"></i>
-                Usuarios Inactivos</a>
-              <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes') ?>" class="btn  bg-warning mr-4">
-                <i class="fas fa-user-clock"></i>
-                Usuarios Pendientes</a>
-            </div>
+                <a href="<?php echo base_url('/ModuloUsuarios/BuscarInactivos') ?>" class="btn  bg-danger mr-4">
+                  <i class="fas fa-user-lock"></i>
+                  Usuarios Inactivos</a>
+                <a href="<?php echo base_url('/ModuloUsuarios/BuscarPendientes') ?>" class="btn  bg-warning mr-4">
+                  <i class="fas fa-user-clock"></i>
+                  Usuarios Pendientes</a>
+              </div>
 
             </div>
             <!-- /.card-header -->
@@ -25,11 +25,12 @@
               <table id="usuarios_activos" class="table table-bordered table-striped">
                 <thead>
                   <tr>
+
                     <th>Id</th>
+                    <th>Avatar</th>
                     <th>Email</th>
                     <th>Documento</th>
                     <th>Nombre </th>
-                    <th>Avatar</th>
                     <th>Tipo Usuario</th>
                     <th>Estado</th>
                     <th>Acciones</th>
@@ -39,13 +40,15 @@
                   <?php foreach ($datos as $dato) { ?>
                     <tr>
                       <td class="doc"><?php echo $dato['id']; ?></td>
-                      <td ><?php echo $dato['email']; ?></td>
-                      <td ><?php echo $dato['documento']; ?></td>
-                      <td><?php echo $dato['nombres'].' '.$dato['apellidos']; ?></td>
-                      <td><?php echo $dato['avatar']; ?></td>
+                      <td class="text-center"> 
+                        <img src="<?php echo base_url("public/dist/img/avatar") . '/' . $dato['avatar'] ?>" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      </td>
+                      <td><?php echo $dato['email']; ?></td>
+                      <td><?php echo $dato['documento']; ?></td>
+                      <td><?php echo $dato['nombres'] . ' ' . $dato['apellidos']; ?></td>
                       <td><?php echo $dato['tipo_usuario']; ?></td>
                       <td><span class="btn bg-success"><?php echo $dato['estado']; ?></span></td>
-                      <td><a t type="button" class="btn btn-primary mr-2 modal_edit" href="<?php echo base_url('/ModuloUsuarios/BuscarusuId?doc=').$dato['id'];?>"><i class="far fa-eye"></i></a><a class="btn btn-danger toastrDefaultSuccess desactivar"><i class="fas fa-user-lock"></i></a></td>
+                      <td><a t type="button" class="btn btn-primary mr-2 modal_edit" href="<?php echo base_url('/ModuloUsuarios/BuscarusuId?doc=') . $dato['id']; ?>"><i class="far fa-eye"></i></a><a class="btn btn-danger toastrDefaultSuccess desactivar"><i class="fas fa-user-lock"></i></a></td>
                     </tr>
                   <?php } ?>
                 </tbody>
@@ -113,10 +116,12 @@
       "ordering": true,
       "aoColumnDefs": [{
           'bSortable': false,
-          'aTargets': [4]  },
+          'aTargets': [4]
+        },
         {
           'bSortable': false,
-          'aTargets': [6] },
+          'aTargets': [6]
+        },
         {
           'bSortable': false,
           'aTargets': [7]

@@ -29,10 +29,10 @@
                 <thead>
                   <tr>
                     <th>Id</th>
+                    <th>Avatar</th>
                     <th>Email</th>
                     <th>Documento</th>
                     <th>Nombres</th>
-                    <th>Direccion</th>
                     <th>Tipo Usuario</th>
                     <th>Estado</th>
                     <th>Acciones</th>
@@ -42,14 +42,16 @@
                   <?php foreach ($datos as $dato) { ?>
                     <tr>
                       <td><?php echo $dato['id']; ?></td>
+                      <td class="text-center">
+                        <img src="<?php echo base_url("public/dist/img/avatar") . '/' . $dato['avatar'] ?>" alt="Product 1" class="img-circle  img-size-32 mr-2">
+                      </td>
                       <td><?php echo $dato['email']; ?></td>
                       <td class="doc"><?php echo $dato['documento']; ?></td>
                       <td><?php echo $dato['nombres'] . ' ' . $dato['apellidos']; ?></td>
-                      <td><?php echo $dato['avatar']; ?></td>
                       <td><?php echo $dato['tipo_usuario']; ?></td>
                       <td> <span class="btn bg-warning"><?php echo $dato['estado']; ?></span></td>
                       <td><a type="button" class="btn btn-primary mr-2 modal_edit" href="<?php echo base_url('/ModuloUsuarios/BuscarPenId?doc=') . $dato['id']; ?>"><i class="far fa-eye"></i></a><a class="btn btn-danger toastrDefaultSuccess"><i class="fas fa-user-lock"></i></a></td>
-                    </tr>                                                          
+                    </tr>
 
                   <?php } ?>
                 </tbody>
