@@ -118,4 +118,25 @@ class PerfilUsuario extends BaseController
 
 		echo json_encode($avatar);
 	}
+
+	public function consultarNombreCiudad()
+	{
+
+		$ciudad = $this->request->getPostGet('ciudad');
+            
+        if(!empty($ciudad)){
+            $db_ciudades = new CiudadesModel();
+
+            $datos['nCiudadyDepartamento'] = $db_ciudades->select('ciudad.nombre AS la_ciudad, departamento.nombre AS el_departamento')
+							 ->join('departamento', 'departamento.id=ciudad.id_departamento')
+							 ->where('ciudad.id', $ciudad)
+							 ->findAll();
+			
+		}else{
+            $datos['nCiudadyDepartamento'] = "Erro en el envio de datos";
+        }
+        		
+
+		echo json_encode($datos);
+	}
 }

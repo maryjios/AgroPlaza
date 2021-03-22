@@ -67,11 +67,18 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     
     $routes->add('EditarPerfil', 'PerfilUsuario::enviarnewdatos');
     $routes->add('BuscarDatosPerfil', 'PerfilUsuario::buscar_session');
+
+
+    // Rutas para consultar y modificar la ciudad del usuario (AppMovil)
+    $routes->add('nombreCiudad', 'PerfilUsuario::consultarNombreCiudad');
+
 });
 
 $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPublicaciones'], function ($routes) {
     $routes->add('ListarPublicaciones', 'ListarPublicaciones::index');
     $routes->add('ListarPublicacionesMovil', 'ListarPublicaciones::ListarPublicacionesMovil');
+    $routes->add('getImagenesPublicacion', 'ListarPublicaciones::getImagenesPublicacion');
+
 
     $routes->add('InsertarPublicacion', 'CrearPublicacion::insertar');
     $routes->add('ConsultaIndividual', 'ListarPublicaciones::consultarId');
@@ -93,6 +100,7 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('EditarUnidad', 'Unidades::actualizarUnidades');
     $routes->add('EliminarUnidad', 'Unidades::eliminarUnidades');
     $routes->add('InsertarUnidad', 'Unidades::registrarUnidades');
+
 
 });
 
