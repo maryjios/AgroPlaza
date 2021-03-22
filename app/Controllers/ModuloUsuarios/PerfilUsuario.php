@@ -121,7 +121,7 @@ class PerfilUsuario extends BaseController
 		$id_perfil = $this->request->getPostGet('id_perfil');
 		$id_ciudad = $this->request->getPostGet('id_ciudad');
 
-		$data = $usuarios->set(['id_ciudad' => $id_ciudad])->where('id', $id_ciudad)->update();
+		$data = $usuarios->set(['id_ciudad' => $id_ciudad])->where('id', $id_perfil)->update();
 
 		if ($data) {
 			echo json_encode("OK##CIUDAD##UPDATE");
