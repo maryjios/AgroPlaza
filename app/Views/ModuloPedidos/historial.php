@@ -115,8 +115,27 @@
         ],
       });
       $('.detalle').click(verPedido);
-      $(".proceso").click(pasar_a_proceso); 
-      $(".cancelado").click(pasar_a_cancelado); 
+      
+    }
+
+    function verPedido(){
+      $("#detalle_pedido").modal("show");
+      var id = $(this).parents("tr").find(".id").text();
+      $.ajax({
+        url: '<?php echo base_url('/ModuloPedidos/DetallePedido'); ?>',
+        type: 'POST',
+        dataType: 'json',
+        data: {id: id},
+      })
+      .done(function() {
+        console.log("success");
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
     }
 
 
