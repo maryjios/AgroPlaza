@@ -301,7 +301,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
                 <li class="nav-item">
                   <a href="<?php echo base_url('/ModuloPedidos/HistorialPedidos') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'Historial') ? 'active' : ''; ?> ">
                     <i class="nav-icon fas fa-circle "></i>
-                    <p>Historia</p>
+                    <p>Historial</p>
                   </a>
                 </li>
 

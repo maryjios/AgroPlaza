@@ -72,8 +72,19 @@
     }).done(function(data) {
   
       if (data.trim()=="Actualizado") {
-        $("#unidades").DataTable().rows($("#"+rowId)).remove();
-        $("#unidades").DataTable().search("").columns().search("").draw();
+        Swal.fire({
+          title: 'Desea activar este registro?',
+          showCancelButton: true,
+          confirmButtonText: `Aceptar`,
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            Swal.fire('Activado!', '', 'success');
+            $("#unidades").DataTable().rows($("#"+rowId)).remove();
+            $("#unidades").DataTable().search("").columns().search("").draw();
+          } 
+        })
+        
       }else{
         alert("No se pudo actualizar el registro");
       }

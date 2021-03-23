@@ -76,7 +76,6 @@
       $(this).parents('tr').attr('id', 'por_eliminar');
       var id = $(this).parents("tr").find(".id").text();
       rowId = $(this).parents("tr").attr('id');
-      alert(rowId)
       $.ajax({
         url: '<?php echo base_url('/ModuloPublicaciones/EliminarPublicacion');?>',
         type: 'POST',
@@ -85,8 +84,19 @@
       }).done(function(data) {
         
         if (data=="Eliminado") {
-          $("#publicaciones").DataTable().rows($("#"+rowId)).remove();
-          $("#publicaciones").DataTable().search("").columns().search("").draw();
+          Swal.fire({
+            title: 'Desea eliminar este registro?',
+            showCancelButton: true,
+            confirmButtonText: `Aceptar`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              Swal.fire('Eliminado!', '', 'success');
+              $("#publicaciones").DataTable().rows($("#"+rowId)).remove();
+              $("#publicaciones").DataTable().search("").columns().search("").draw();
+            } 
+          })
+          
         }else{
           alert("No se pudo eliminar el registro");
         }
