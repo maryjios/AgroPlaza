@@ -9,7 +9,7 @@
             <div class="card-header">
               <h2 class="card-title"><b>Lista de unidades inactivas</b></h2>
               <div class="d-grid d-md-flex  justify-content-md-end">
-                <a class=" btn btn-success mr-4" href="<?php echo base_url('ModuloPublicaciones/Unidades')?>"><i class="fas fa-lock-open"></i>
+                <a class=" btn btn-success mr-4" href="<?php echo base_url('ModuloPublicaciones/Unidades')?>"><i class="fas fa-balance-scale-left"></i>
                 Unidades Activas</a>
               </div>
             </div>
