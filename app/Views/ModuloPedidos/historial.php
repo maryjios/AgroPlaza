@@ -7,13 +7,8 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h2 class="card-title"><b>Lista de pedidos cancelados</b></h2>
+              <h2 class="card-title"><b>Lista de pedidos cancelados y finalizados</b></h2>
               <div class="d-grid d-md-flex  justify-content-md-end">
-                <div class="btn-group col-2" role="group">
-                  <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle form-control  bg-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    En proceso
-                  </button>
-                </div>
               </div>
             </div>
             <div class="card-body" id="actualizar">
