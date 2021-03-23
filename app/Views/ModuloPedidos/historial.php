@@ -22,6 +22,7 @@
                     <th>Comprador</th>
                     <th>Fecha de pedido</th>
                     <th>Estado</th>
+                    <th>Ver</th>
                   </tr>
                 </thead>
                 <tbody id="lista">
