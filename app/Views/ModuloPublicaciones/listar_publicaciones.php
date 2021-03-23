@@ -9,7 +9,7 @@
               <div class="card-header">
                 <h2 class="card-title"><b>Lista de Publicaciones Activas</b></h2>
                 <div class="d-grid d-md-flex  justify-content-md-end">
-                  <a class=" btn btn-danger mr-4" href="<?php echo base_url('ModuloPublicaciones/PublicacionesInactivas')?>"><i class="fas fa-user-lock"></i>
+                  <a class=" btn btn-danger mr-4" href="<?php echo base_url('ModuloPublicaciones/PublicacionesInactivas')?>"><i class="far fa-newspaper"></i>
                   Publicaciones Inactivas</a>
                 </div>
               </div>
