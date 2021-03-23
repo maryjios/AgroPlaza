@@ -117,13 +117,12 @@ class PerfilUsuario extends BaseController
 
 	public function consultarNombreCiudad()
 	{
-
 		$ciudad = $this->request->getPostGet('ciudad');
 
 		if (!empty($ciudad)) {
 			$db_ciudades = new CiudadesModel();
 
-			$datos['nCiudadyDepartamento'] = $db_ciudades->select('ciudad.nombre AS la_ciudad, departamento.nombre AS el_departamento')
+			$datos['nCiudadyDepartamento'] = $db_ciudades->select('ciudad.nombre AS la_ciudad, departamento.nombre AS el_departamento, departamento.id AS id_departamento')
 				->join('departamento', 'departamento.id=ciudad.id_departamento')
 				->where('ciudad.id', $ciudad)
 				->findAll();
@@ -133,7 +132,6 @@ class PerfilUsuario extends BaseController
 		echo json_encode($datos);
 	}
 
-
 	public function editarCiudadMovil()
 	{
 		$usuarios = new UsuariosModel();
@@ -141,7 +139,6 @@ class PerfilUsuario extends BaseController
 		$id_ciudad = $this->request->getPostGet('id_ciudad');
 
 		$data = $usuarios->set(['id_ciudad' => $id_ciudad])->where('id', $id_perfil)->update();
-
 		if ($data) {
 			echo json_encode("OK##CIUDAD##UPDATE");
 		} else {

@@ -148,21 +148,25 @@ class ListarPublicaciones extends BaseController
 
 
 	public function ListarPublicacionesMovil()
-	{
+	{	
+		$departamento = $this->request->getPostGet('departamento');
 
 		$publicaciones = new PublicacionesModel();
 		$consulta['registros_publicaciones'] = $publicaciones->select('publicaciones.id as id_publicacion,
 		 	publicaciones.titulo as titulo,
 		 	publicaciones.tipo_publicacion as tipo_publicacion,
-		   	publicaciones.fecha_insert as fecha_publicacion,
+		   	publicaciones.fecha_insert as fecha_publicacion, unidades.abreviatura,
 		   	publicaciones.estado as estado_publicacion, 
 		   	publicaciones.precio, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,
 		    imagenes.imagen, publicaciones.envio,
 			publicaciones.descuento,
-			publicaciones.descripcion')
+			publicaciones.descripcion, publicaciones.stock')
 			->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
 			->join('imagenes', 'imagenes.id_publicacion =publicaciones.id')
+			->join('ciudad', 'ciudad.id =publicaciones.id_ciudad')
+			->join('unidades', 'unidades.id =publicaciones.id_unidad')
 			->where('publicaciones.estado', 'ACTIVA')
+			->where('ciudad.id_departamento', $departamento)
 			->groupBy('imagenes.id_publicacion')
 			->findAll();
 
