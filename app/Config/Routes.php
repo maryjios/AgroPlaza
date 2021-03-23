@@ -73,6 +73,7 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('CambiarCiudadMovil', 'PerfilUsuario::editarCiudadMovil');
     $routes->add('EditarDatosMovil', 'PerfilUsuario::editarDatosMovil');
     $routes->add('EditarEmailMovil', 'PerfilUsuario::editarCorreoMovil');
+    $routes->add('EditarPasswordMovil', 'PerfilUsuario::editarPasswordMovil');
     
 });
 

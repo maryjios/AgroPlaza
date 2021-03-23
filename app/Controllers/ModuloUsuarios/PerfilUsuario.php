@@ -204,7 +204,7 @@ class PerfilUsuario extends BaseController
 				$data = $usuarios->set([
 					'email' => $email,
 				])->where('id', $id_perfil)->update();
-	
+
 				if ($data) {
 					echo json_encode('OK##EMAIL##UPDATE');
 				} else {
@@ -215,6 +215,30 @@ class PerfilUsuario extends BaseController
 			}
 		} else {
 			echo json_encode('INVALID##EMAIL');
+		}
+	}
+
+	public function editarPasswordMovil()
+	{
+		$usuarios = new UsuariosModel();
+		$id_perfil = $this->request->getPostGet('id_perfil');
+		$pass_actual = md5($this->request->getPostGet('pass_actual'));
+		$password = md5($this->request->getPostGet('password'));
+
+		$verificar = $usuarios->where('password', $pass_actual)->where('id', $id_perfil)->find();
+
+		if ($verificar) {
+			$data = $usuarios->set([
+				'password' => $password,
+			])->where('id', $id_perfil)->update();
+
+			if ($data) {
+				echo json_encode('OK##PASSWORD##UPDATE');
+			} else {
+				echo json_encode('ERROR##UPDATE');
+			}
+		} else {
+			echo json_encode('INVALID##PASSWORD');
 		}
 	}
 }
