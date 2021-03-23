@@ -104,22 +104,38 @@
                   </div>
                 </div>
                 <div class="row mt-4">
-                  <nav class="w-100">
-                    <div class="nav nav-tabs" id="publicacion_tab" role="tablist">
-                      <a class="nav-item nav-link active" id="publicacion_descripcion_tab" data-toggle="tab" href="#publicacion_descripcion" role="tab" aria-controls="publicacion_descripcion" aria-selected="true">Descripción</a>
-                      <a class="nav-item nav-link" id="publicacion_pqr_tab" data-toggle="tab" href="#publicacion_pqr" role="tab" aria-controls="publicacion_pqr" aria-selected="false">Preguntas y Respuestas</a>
-                      <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Calificaciones</a>
-                    </div>
-                  </nav>
-                  <div class="tab-content p-3" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="publicacion_descripcion" role="tabpanel" aria-labelledby="publicacion_tab">
-                      <p><?php echo $publicacion['descripcion']; ?></p>
-                    </div>
-                    <div class="tab-pane fade" id="publicacion_pqr" role="tabpanel" aria-labelledby="publicacion_pqr_tab">
-                      <p>preguntas y respuestas</p>
-                    </div>
-                    <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
-                      <p>Calificaciones</p>
+                  <div class="col">
+                    <nav class="w-100">
+                      <div class="nav nav-tabs" id="publicacion_tab" role="tablist">
+                        <a class="nav-item nav-link active" id="publicacion_descripcion_tab" data-toggle="tab" href="#publicacion_descripcion" role="tab" aria-controls="publicacion_descripcion" aria-selected="true">Descripción</a>
+                        <a class="nav-item nav-link" id="publicacion_pqr_tab" data-toggle="tab" href="#publicacion_pqr" role="tab" aria-controls="publicacion_pqr" aria-selected="false">Preguntas y Respuestas</a>
+                        <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Calificaciones</a>
+                      </div>
+                    </nav>
+                    <div class="tab-content p-3" id="nav-tabContent">
+                      <div class="tab-pane fade show active" id="publicacion_descripcion" role="tabpanel" aria-labelledby="publicacion_tab">
+                        <p><?php echo $publicacion['descripcion']; ?></p>
+                      </div>
+                      <div class="tab-pane fade" id="publicacion_pqr" role="tabpanel" aria-labelledby="publicacion_pqr_tab">
+                        <p>preguntas y respuestas</p>
+                      </div>
+                      <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
+                        <?php foreach ($valoraciones as $valoracion): ?>
+                          <div class="border border-warning rounded p-3 mt-2">
+                            <?php if ($valoracion['valoracion']>0) { ?>
+                              <i class="fas fa-star"></i>
+                            <?php }else { ?>
+                              <i class="far fa-star"></i>
+                            <?php } ?>
+                             <span><?php echo $valoracion['valoracion']; ?> </span>
+                            <?php if ($valoracion['foto']!=null) {?>
+                              <img src="" alt="Muestra">
+                            <?php } ?>
+                            <p class="text-secondary"> Por: <?php echo $valoracion['nombre_usuario']." Fecha: ".$valoracion['fecha_valoracion'] ?> </span></p>
+                            <p><?php echo $valoracion['descripcion'] ?></p>
+                          </div>
+                        <?php endforeach ?>
+                      </div>
                     </div>
                   </div>
                 </div>

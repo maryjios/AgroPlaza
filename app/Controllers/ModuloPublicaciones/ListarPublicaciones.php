@@ -6,6 +6,7 @@ use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 use App\Models\PublicacionesModel;
 use App\Models\ImagenesModel;
+use App\Models\ValoracionesModel;
 
 class ListarPublicaciones extends BaseController
 {
@@ -78,6 +79,7 @@ class ListarPublicaciones extends BaseController
 	{
 		$publicaciones = new PublicacionesModel();
 		$imagenes = new ImagenesModel();
+		$valoraciones = new ValoracionesModel();
 
 		$id = $this->request->getPostGet('file');
 
@@ -85,6 +87,10 @@ class ListarPublicaciones extends BaseController
 										  ->where('id',$id)
 										  ->first();
 		
+		$total_valoraciones = $valoraciones->select('valoracion, descripcion,foto, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, valoraciones.fecha_insert as fecha_valoracion')
+			->join('usuarios', 'valoraciones.id_usuario = usuarios.id')
+			->where('id_publicacion',$id)
+			->findAll();
 		
 		if ($tipo_publicacion = "PRODUCTO") {
 			$info_publicaciones = $publicaciones->select('publicaciones.*, unidades.abreviatura as unidad, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, ciudad.nombre as ciudad, departamento.nombre as departamento')
@@ -103,7 +109,7 @@ class ListarPublicaciones extends BaseController
 				->first();
 		}
 
-		var_dump($info_publicaciones);
+		
 		
 
 		$img = $imagenes->select('id, imagen')
@@ -111,8 +117,11 @@ class ListarPublicaciones extends BaseController
 			->groupBy('imagenes.id_publicacion')
 			->first();
 
-		$datos = ['publicacion' => $info_publicaciones, 'img' => $img];
+		$datos = ['publicacion' => $info_publicaciones, 
+				  'img' => $img, 
+				  'valoraciones'=>$total_valoraciones];
 
+		var_dump($datos);
 		
 
 		echo view('template/header');
