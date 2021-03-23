@@ -41,7 +41,7 @@
                     <tr>
                       <td class="doc"><?php echo $dato['id']; ?></td>
                       <td class="text-center"> 
-                        <img src="<?php echo base_url("public/dist/img/avatar") . '/' . $dato['avatar'] ?>" alt="Product 1" class="img-circle img-size-32 mr-2">
+                        <img src="<?php echo base_url("public/dist/img/avatar") . '/' . $dato['avatar'] ?>" alt="avatar" class="img-circle img-size-32 mr-2">
                       </td>
                       <td><?php echo $dato['email']; ?></td>
                       <td><?php echo $dato['documento']; ?></td>
