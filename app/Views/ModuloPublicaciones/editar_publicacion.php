@@ -8,10 +8,15 @@
                <div class="card">
                   <div class="card-header bg-light">
                      <p class="card-title text-secondary font-weight-bold pr-2">
-                        <i class="far fa-edit"></i></i>
+                        <i class="far fa-edit"></i>
                         Editar Publicación
-                        <p class="text-secondary font-weight-bold small mt-1"> (todos los campos son obligatorios)</p>
+                        <span class="text-secondary font-weight-bold small mt-1"> (todos los campos son obligatorios)</span>
                      </p>
+                     <div class="d-grid d-md-flex  justify-content-md-end">
+                     <a class=" btn btn-info mr-4" href="<?php echo base_url('/ModuloPublicaciones/ListarPublicaciones') ?>"><i class="fas fa-chevron-circle-left"></i>
+                        Volver
+                     </a>
+                </div>
                   </div>
                   
                   <div class="card-body">

@@ -255,8 +255,19 @@
         .done(function(data) {
 
             if (data.trim()=="Eliminado") {
-              $("#unidades").DataTable().rows($("#"+rowId)).remove();
-              $("#unidades").DataTable().search("").columns().search("").draw();
+              Swal.fire({
+                title: 'Desea eliminar este registro?',
+                showCancelButton: true,
+                confirmButtonText: `Aceptar`,
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                  Swal.fire('Eliminado!', '', 'success');
+                  $("#unidades").DataTable().rows($("#"+rowId)).remove();
+                  $("#unidades").DataTable().search("").columns().search("").draw();
+                } 
+              })
+              
             }else{
               alert("No se pudo eliminar el registro");
             }
