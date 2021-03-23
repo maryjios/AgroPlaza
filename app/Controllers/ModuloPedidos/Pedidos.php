@@ -133,11 +133,20 @@ class Pedidos extends BaseController
 
     public function historial()
     {
+
+        $pedidos = new PedidosModel();
+        $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo')
+                            ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
+                            ->join('publicaciones','pedidos.id_publicacion = publicaciones.id')
+                            ->where('pedidos.estado','CANCELADO')
+                            ->findAll();
+
+
         $data['modulo_selected'] = "Pedidos";
         $data['opcion_selected'] = "Historial";
 
         echo view('template/header', $data);
-        echo view('ModuloPedidos/historial');
+        echo view('ModuloPedidos/historial',$consulta);
         echo view('template/footer');
     }
 }

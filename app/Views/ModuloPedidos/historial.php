@@ -114,6 +114,22 @@
 
   $(document).ready(iniciar);
 
+  function iniciar() {
+      $('#pedidos').DataTable({
+        "language": {"url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json"},
+        "responsive": true, "autoWidth": false,
+         "ordering":true,
+         "aoColumnDefs": [
+           { 'bSortable': false, 'aTargets': [ 1 ] },
+           { 'bSortable': false, 'aTargets': [ 6 ] },
+           { 'bSortable': false, 'aTargets': [ 7 ] }
+        ],
+      });
+      $('.detalle').click(verPedido);
+      $(".proceso").click(pasar_a_proceso); 
+      $(".cancelado").click(pasar_a_cancelado); 
+    }
+
 
 
 
