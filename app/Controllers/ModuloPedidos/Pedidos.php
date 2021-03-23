@@ -138,7 +138,7 @@ class Pedidos extends BaseController
         $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo')
                             ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
                             ->join('publicaciones','pedidos.id_publicacion = publicaciones.id')
-                            ->where('pedidos.estado','CANCELADO')
+                            ->where('(pedidos.estado = "CANCELADO" OR pedidos.estado = "FINALIZADO")')
                             ->findAll();
 
 
