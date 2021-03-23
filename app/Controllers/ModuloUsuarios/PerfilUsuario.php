@@ -162,7 +162,7 @@ class PerfilUsuario extends BaseController
 				$existe = true;
 			}
 		}
-		
+
 		if ($existe == false) {
 			$id_perfil = $this->request->getPostGet('id_perfil');
 			$nombres = $this->request->getPostGet('nombres');
@@ -185,6 +185,36 @@ class PerfilUsuario extends BaseController
 			}
 		} else {
 			echo json_encode("INVALID##DOCUMENT");
+		}
+	}
+
+	public function editarCorreoMovil()
+	{
+		$usuarios = new UsuariosModel();
+		$id_perfil = $this->request->getPostGet('id_perfil');
+		$email = $this->request->getPostGet('email');
+		$password = md5($this->request->getPostGet('password'));
+
+		$verificar = $usuarios->where('email', $email)->find();
+
+		if (!$verificar) {
+			$verificar = $usuarios->where('password', $password)->where('id', $id_perfil)->find();
+
+			if ($verificar) {
+				$data = $usuarios->set([
+					'email' => $email,
+				])->where('id', $id_perfil)->update();
+	
+				if ($data) {
+					echo json_encode('OK##EMAIL##UPDATE');
+				} else {
+					echo json_encode('ERROR##UPDATE');
+				}
+			} else {
+				echo json_encode('INVALID##PASSWORD');
+			}
+		} else {
+			echo json_encode('INVALID##EMAIL');
 		}
 	}
 }
