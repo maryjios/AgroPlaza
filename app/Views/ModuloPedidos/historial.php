@@ -27,7 +27,6 @@
                     <th>Comprador</th>
                     <th>Fecha de pedido</th>
                     <th>Estado</th>
-                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody id="lista">
@@ -41,17 +40,7 @@
                       <td><?php echo $pedido['nombre_usuario'] ?></td>
                       <td><?php echo $pedido['fecha_insert'] ?></td>
                       <td><?php echo $pedido['estado_pedido'] ?></td>
-                      <td><?php echo '<button type="button" class="btn btn-success detalle"><i class="far fa-eye"></i></button>
-                          <div class="btn-group">
-                            <button type="button" class="btn btn-warning">Pasar a:</button>
-                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
-                              <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <div class="dropdown-menu" role="menu" style="">
-                              <button class="dropdown-item entregado" >Entregado</button>
-                            </div>
-                          </div>
-                        '  ?></td>
+                      <td><?php echo '<button type="button" class="btn btn-success detalle"><i class="far fa-eye"></i></button>' ?></td>
                     </tr>
                   <?php endforeach ?>
 
