@@ -6,6 +6,7 @@ use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 use App\Models\PublicacionesModel;
 use App\Models\ImagenesModel;
+use App\Models\UnidadesModel;
 use App\Models\ValoracionesModel;
 
 class ListarPublicaciones extends BaseController
@@ -80,12 +81,16 @@ class ListarPublicaciones extends BaseController
 		$publicaciones = new PublicacionesModel();
 		$imagenes = new ImagenesModel();
 		$valoraciones = new ValoracionesModel();
+		$unidades = new UnidadesModel();
 
 		$id = $this->request->getPostGet('file');
 
 		$tipo_publicacion = $publicaciones->select('tipo_publicacion')
 										  ->where('id',$id)
 										  ->first();
+		$id_unidad = $publicaciones->select('id_unidad')
+								   ->where('id',$id)
+								   ->first();
 		
 		$total_valoraciones = $valoraciones->select('valoracion, descripcion,foto, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, valoraciones.fecha_insert as fecha_valoracion')
 			->join('usuarios', 'valoraciones.id_usuario = usuarios.id')
@@ -111,7 +116,6 @@ class ListarPublicaciones extends BaseController
 
 		$datos = ['publicacion' => $info_publicaciones, 
 				  'img' => $img, 
-				  'img' => $img,
 				  'unidad'=>$unidad, 
 				  'valoraciones'=>$total_valoraciones];
 		
