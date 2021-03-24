@@ -35,6 +35,7 @@ $routes->get('/Login', 'Inicio::index');
 $routes->get('/Inicio', 'Inicio::cargarVistaInicio');
 $routes->get('/Registrar', 'Inicio::RegistrarVendedor');
 $routes->get('/InsertarVendedor', 'Inicio::InsertarVendedor');
+$routes->get('/LoginMovil', 'Inicio::validarDatosIngresoMovil');
 
 // Rutas para el modulo de GestionUsuarios
 $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios'], function ($routes) {
@@ -70,10 +71,12 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
 
     // Rutas para consultar y modificar la ciudad del usuario (AppMovil)
     $routes->add('nombreCiudad', 'PerfilUsuario::consultarNombreCiudad');
+
     $routes->add('CambiarCiudadMovil', 'PerfilUsuario::editarCiudadMovil');
     $routes->add('EditarDatosMovil', 'PerfilUsuario::editarDatosMovil');
     $routes->add('EditarEmailMovil', 'PerfilUsuario::editarCorreoMovil');
     $routes->add('EditarPasswordMovil', 'PerfilUsuario::editarPasswordMovil');
+    $routes->add('DesactivarCuentaMovil', 'PerfilUsuario::desactivarUsuarioMovil');
     
 });
 

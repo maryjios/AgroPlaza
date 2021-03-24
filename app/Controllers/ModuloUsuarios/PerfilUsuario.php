@@ -238,4 +238,18 @@ class PerfilUsuario extends BaseController
 			echo json_encode('INVALID##PASSWORD');
 		}
 	}
+
+	public function desactivarUsuarioMovil()
+	{
+		$usuarios = new UsuariosModel();
+		$id_perfil = $this->request->getPostGet('id_perfil');
+
+		$data = $usuarios->set(['estado' => 'INACTIVO'])->where('id', $id_perfil)->update();
+
+		if ($data) {
+			echo json_encode('OK##STATUS##UPDATE');
+		} else {
+			echo json_encode('ERROR##UPDATE');
+		}
+	}
 }
