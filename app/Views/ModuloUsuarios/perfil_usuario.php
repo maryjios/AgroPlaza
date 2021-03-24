@@ -261,7 +261,9 @@
     $("#departamento").on('change', elegirDepartamento);
 
     buscardatos();
-
+    // setInterval(() => {
+    //   console.log("Hola mundo");
+    // }, 5000);
   }
 
 
@@ -282,11 +284,21 @@
 
         if (data.respuesta = 'OK#UPDATE') {
 
-          $('#avatar').attr('src', '<?php echo base_url("public/dist/img/avatar") ?>' + data.avatar)
+          $('#avatar').attr('src', '<?php echo base_url("public/dist/img/avatar") ?>/' + data.ruta)
+          $('#avatar_menu').attr('src', '<?php echo base_url("public/dist/img/avatar") ?>/' + data.ruta)
           $('#divBtnAvatar').slideUp();
           $('#divBtnAvatar').html('')
           $('#contentsito').css('margin-top', '0')
 
+          var file = $("input[type=file]").get(0).files[0];
+          var reader = new FileReader();
+          var target = null;
+
+          reader.onload = function(e) {
+            target = e.target || e.srcElement;
+            $("#avatar_menu").attr("src", target.result);
+          };
+          reader.readAsDataURL(file);
 
         } else if (data.respuesta = 'ERROR#UPDATE') {
           alert('ERRO en EL  update')
