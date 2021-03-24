@@ -92,36 +92,28 @@ class ListarPublicaciones extends BaseController
 			->where('id_publicacion',$id)
 			->findAll();
 		
-		if ($tipo_publicacion = "PRODUCTO") {
-			$info_publicaciones = $publicaciones->select('publicaciones.*, unidades.abreviatura as unidad, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, ciudad.nombre as ciudad, departamento.nombre as departamento')
-				->join('unidades', 'publicaciones.id_unidad = unidades.id')
-				->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
-				->join('ciudad', 'publicaciones.id_ciudad =ciudad.id')
-				->join('departamento', 'ciudad.id_departamento =departamento.id')
-				->where('publicaciones.id', $id)
-				->first();
-		}else if($tipo_publicacion = "SERVICIO"){
-			$info_publicaciones = $publicaciones->select('publicaciones.*,concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, ciudad.nombre as ciudad, departamento.nombre as departamento')
-				->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
-				->join('ciudad', 'publicaciones.id_ciudad =ciudad.id')
-				->join('departamento', 'ciudad.id_departamento =departamento.id')
-				->where('publicaciones.id', $id)
-				->first();
-		}
-
-		
-		
-
+		$info_publicaciones = $publicaciones->select('publicaciones.*,concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, ciudad.nombre as ciudad, departamento.nombre as departamento')
+			->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
+			->join('ciudad', 'publicaciones.id_ciudad =ciudad.id')
+			->join('departamento', 'ciudad.id_departamento =departamento.id')
+			->where('publicaciones.id', $id)
+			->first();
+	
 		$img = $imagenes->select('id, imagen')
 			->where('id_publicacion', $id)
 			->groupBy('imagenes.id_publicacion')
 			->first();
 
+		$unidad = $unidades->select('abreviatura')
+						   ->where('id',$id_unidad)
+						   ->first();
+
+
 		$datos = ['publicacion' => $info_publicaciones, 
 				  'img' => $img, 
+				  'img' => $img,
+				  'unidad'=>$unidad, 
 				  'valoraciones'=>$total_valoraciones];
-
-		var_dump($datos);
 		
 
 		echo view('template/header');

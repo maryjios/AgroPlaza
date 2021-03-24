@@ -45,7 +45,7 @@
                       <div class="col">
                         <h4>Precio:</h4>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <p><span><i class="fas fa-dollar-sign"></i> </span><?php echo number_format($publicacion['precio'])?> <?php if ($publicacion['tipo_publicacion']=="PRODUCTO"){ echo " * ".$publicacion['unidad'];} ?></p>
+                            <p><span><i class="fas fa-dollar-sign"></i> </span><?php echo number_format($publicacion['precio'])?> <?php if ($publicacion['tipo_publicacion']=="PRODUCTO"){ echo " * ".$unidad['abreviatura'];} ?></p>
                         </div>
                       </div>
                       <div class="col ">
