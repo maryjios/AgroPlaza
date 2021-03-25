@@ -258,9 +258,7 @@ class PerfilUsuario extends BaseController
 		$usuarios = new UsuariosModel();
 
 		$id_perfil = $this->request->getPostGet('id_perfil');
-		$imagen_base64 = $_POST['imagen'];
-
-		#$base64 = explode(',', $imagen_base64);
+		$imagen_base64 = $this->request->getPostGet('imagen');
 
 		$imagen = base64_decode($imagen_base64);
 
@@ -277,7 +275,7 @@ class PerfilUsuario extends BaseController
 					}
 				}
 
-			$ruta_avatar = '/public/dist/img/avatar/' . $nombre_avatar;
+			$ruta_avatar = './public/dist/img/avatar/' . $nombre_avatar;
 
 			file_put_contents($ruta_avatar, $imagen);
 
