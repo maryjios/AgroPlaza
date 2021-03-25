@@ -77,6 +77,7 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('EditarEmailMovil', 'PerfilUsuario::editarCorreoMovil');
     $routes->add('EditarPasswordMovil', 'PerfilUsuario::editarPasswordMovil');
     $routes->add('DesactivarCuentaMovil', 'PerfilUsuario::desactivarUsuarioMovil');
+    $routes->add('ActualizarImagenPerfil', 'PerfilUsuario::editarAvatarMovil');
     
 });
 
