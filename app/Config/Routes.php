@@ -93,6 +93,10 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('Busqueda', 'ListarPublicaciones::busqueda');
     $routes->add('ActualizarPublicacion', 'EditarPublicacion::editar');
     $routes->add('EliminarPublicacion', 'ListarPublicaciones::eliminarPublicacion');
+    $routes->add('TraerPreguntas', 'Preguntas::listarPreguntas');
+    $routes->add('PreguntaIndividual', 'Preguntas::consultarPregunta');
+    $routes->add('RespuestaPregunta', 'Preguntas::guardarRespuesta');
+
 
     $routes->add('PublicacionesInactivas', 'ListarPublicacionesInactivas::index');
     $routes->add('ActivarPublicacion', 'ListarPublicacionesInactivas::activarPublicacion');

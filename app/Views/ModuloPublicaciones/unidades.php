@@ -57,7 +57,7 @@
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
               </div>
               <div class="modal-body">
-                  <form id="form_nuevoUni" method="post" action="#" autocomplete="of">
+                  <form id="form_nuevoUni" method="post"  autocomplete="of">
                       <div class="row">
                           <div class="form-group col">
                               <input type="text" class="form-control form-control-border" id="nombre_nuevo" placeholder="Nombre" required>

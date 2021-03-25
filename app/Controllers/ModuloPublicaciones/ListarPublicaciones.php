@@ -9,6 +9,7 @@ use App\Models\ImagenesModel;
 use App\Models\UnidadesModel;
 use App\Models\ValoracionesModel;
 use App\Models\PreguntasModel;
+use App\Models\RespuestasModel;
 
 class ListarPublicaciones extends BaseController
 {
@@ -83,7 +84,7 @@ class ListarPublicaciones extends BaseController
 		$imagenes = new ImagenesModel();
 		$valoraciones = new ValoracionesModel();
 		$unidades = new UnidadesModel();
-		$preguntas = new PreguntasModel();
+		
 
 		$id = $this->request->getPostGet('file');
 
@@ -99,10 +100,7 @@ class ListarPublicaciones extends BaseController
 			->where('id_publicacion',$id)
 			->findAll();
 
-		$preguntas_publicacion = $preguntas->select('preguntas.descripcion as pregunta,concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,preguntas.fecha_insert as fecha')
-										   ->join('usuarios', 'preguntas.id_usuario = usuarios.id')
-										   ->where('preguntas.id_publicacion',$id)
-										   ->findAll();
+		
 		
 		$info_publicaciones = $publicaciones->select('publicaciones.*,concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, ciudad.nombre as ciudad, departamento.nombre as departamento')
 			->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
@@ -124,14 +122,14 @@ class ListarPublicaciones extends BaseController
 		$datos = ['publicacion' => $info_publicaciones, 
 				  'img' => $img, 
 				  'unidad'=>$unidad, 
-				  'valoraciones'=>$total_valoraciones,
-				  'preguntas'=>$preguntas_publicacion];
+				  'valoraciones'=>$total_valoraciones];
 		
 
 		echo view('template/header');
 		echo view('ModuloPublicaciones/detalle_publicacion', $datos);
 		echo view('template/footer');
 	}
+
 
 	public function eliminarPublicacion()
 	{

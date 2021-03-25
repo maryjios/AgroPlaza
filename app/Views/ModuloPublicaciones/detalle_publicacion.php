@@ -118,21 +118,9 @@
                       </div>
                       <div class="tab-pane fade" id="publicacion_pqr" role="tabpanel" aria-labelledby="publicacion_pqr_tab">
 
-                        <?php foreach ($preguntas as $pregunta): ?>
-                          <div class="timeline-item mb-3">
-                            <span class="time float-right"><i class="fas fa-clock"></i>Fecha: <?php echo $pregunta['fecha'] ?></span>
-                            <h6 class="timeline-header"><?php echo $pregunta['pregunta'] ?></h6>
-                            <div class="timeline-body">
-                            </div>
-                            <div class="timeline-footer">
-                              <button class="btn btn-warning btn-sm">Responder</button>
-                            </div>
-                          </div>
-                          <hr>
-          
-                        <?php endforeach ?>
+                       
                       </div>
-                      <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
+                      <div class="tab-pane fade overflow-auto"  id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
                         <?php foreach ($valoraciones as $valoracion): ?>
                           <div class="callout callout-warning p-3 mt-2">
                             <?php if ($valoracion['valoracion']>0) { ?>
@@ -160,6 +148,39 @@
       </div><!-- /.container-fluid -->
     </div><!-- /.content-header -->
   </div>
+  <!-- Modal responder-->
+  <div class="modal fade" id="agregar_modal" >
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel3">Respuesta</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              </div>
+              <div class="modal-body">
+                  <form id="form_nuevoUni" method="post"  autocomplete="of">
+                      <div class="row">
+                          <div class="form-group col">
+                              <input type="hidden" id="enviar_id" >
+                              <textarea type="text" class="form-control mt-3 mb-3" disabled name="" id="texto_pregunta"></textarea>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="form-group col">
+                            <textarea></textarea>
+                              
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default " data-dismiss="modal">Cerrar</button>
+                          <button type="submit" class="btn btn-primary guardar" data-dismiss="modal">Guardar</button>
+                      </div>
+                  </form>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
   <script>
     $(document).ready(function() {
       $('.product-image-thumb').on('click', function () {
@@ -167,8 +188,79 @@
       $('.product-image').prop('src', $image_element.attr('src'))
       $('.product-image-thumb.active').removeClass('active')
       $(this).addClass('active')
-      })
+      });
+
+      traerPreguntas();
+      
+
     })
+
+    function traerPreguntas() {
+      $.ajax({
+        url: '<?php echo base_url('/ModuloPublicaciones/TraerPreguntas?id=').$publicacion['id'];?>',
+        type: 'GET',   
+        dataType: 'json',
+        success: function(data){
+          console.log(data)
+          var preguntas= "";
+          for (var i = 0; i < data.length; i++) {
+
+            preguntas ='<div class="div_preguntas">';
+            preguntas+=   '<input class="preg" type="hidden" value="'+data[i].id_pregunta+'">';
+            preguntas+=   '<h6>'+data[i].pregunta+'</h6>';
+            preguntas+=    '<button class="btn btn-info btn-sm responder mr-2">Responder</button>';
+            preguntas+=    '<button class="btn btn-sm btn-danger rechazar">Rechazar</button>';
+            preguntas+=    '<div class="div_respuesta"></div>';
+            preguntas+= '</div>';
+            preguntas+= '<hr>';
+
+            $("#publicacion_pqr").append(preguntas);
+
+          } 
+          
+          $(".responder").click(abrirInput);
+        }
+      });
+    }
+
+
+    function abrirInput (){
+      var id = $(this).parents(".div_preguntas").find('.preg').val();
+
+      input = `<form class="form-horizontal formulario">
+                  <div class="form-group margin-bottom-none row mt-3">
+                    <div class="col-sm-6">
+                      <input  id="texto_respuesta" type="hidden" value="`+$id+`">
+                      <input class="form-control input-sm texto_respuesta" id="texto_respuesta" placeholder="Response">
+                    </div>
+                    <div class="col-sm-2">
+                      <button type="submit" class="btn btn-success pull-right btn-block btn-sm disabled enviar">Enviar</button>
+                    </div>
+                    <div class="col-sm-2">
+                      <button type="button" class="btn btn-danger pull-right btn-block btn-sm cancelar">Cancelar</button>
+                    </div>
+                  </div>
+                </form>`;
+
+      $(this).parents(".div_preguntas").find('.div_respuesta').html(input);
+      $(".cancelar").click(cerrarInput);
+
+      $(".texto_respuesta").keyup(habilitarEnviar);
+
+    }
+
+    function habilitarEnviar (){
+      if ($(this).val()!= "") {
+        $(this).parents(".div_preguntas").find('.enviar').removeClass('disabled');
+      }else{
+        $(this).parents(".div_preguntas").find('.enviar').addClass('disabled');
+      }
+    }
+
+    function cerrarInput (){
+        $(this).parents(".formulario").remove();
+    }
+    
   </script>
 
  
