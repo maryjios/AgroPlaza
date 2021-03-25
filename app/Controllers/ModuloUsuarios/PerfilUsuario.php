@@ -99,7 +99,7 @@ class PerfilUsuario extends BaseController
 
 					$_SESSION['avatar'] = $nombre_avatar;
 					$avatar['respuesta'] = 'OK#UPDATE';
-
+					
 					$avatar['ruta'] = $nombre_avatar;
 				} else {
 					$avatar['respuesta'] = 'ERROR#UPDATE';

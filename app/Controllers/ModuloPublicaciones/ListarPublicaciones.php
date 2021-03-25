@@ -168,7 +168,7 @@ class ListarPublicaciones extends BaseController
 			->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
 			->join('imagenes', 'imagenes.id_publicacion =publicaciones.id')
 			->join('ciudad', 'ciudad.id =publicaciones.id_ciudad')
-			->join('unidades', 'unidades.id =publicaciones.id_unidad')
+			->join('unidades', 'unidades.id=publicaciones.id_unidad')
 			->where('publicaciones.estado', 'ACTIVA')
 			->where('ciudad.id_departamento', $departamento)
 			->groupBy('imagenes.id_publicacion')
