@@ -8,6 +8,7 @@ use App\Models\PublicacionesModel;
 use App\Models\ImagenesModel;
 use App\Models\UnidadesModel;
 use App\Models\ValoracionesModel;
+use App\Models\PreguntasModel;
 
 class ListarPublicaciones extends BaseController
 {
@@ -82,6 +83,7 @@ class ListarPublicaciones extends BaseController
 		$imagenes = new ImagenesModel();
 		$valoraciones = new ValoracionesModel();
 		$unidades = new UnidadesModel();
+		$preguntas = new PreguntasModel();
 
 		$id = $this->request->getPostGet('file');
 
@@ -96,6 +98,11 @@ class ListarPublicaciones extends BaseController
 			->join('usuarios', 'valoraciones.id_usuario = usuarios.id')
 			->where('id_publicacion',$id)
 			->findAll();
+
+		$preguntas_publicacion = $preguntas->select('preguntas.descripcion as pregunta,concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,preguntas.fecha_insert as fecha')
+										   ->join('usuarios', 'preguntas.id_usuario = usuarios.id')
+										   ->where('preguntas.id_publicacion',$id)
+										   ->findAll();
 		
 		$info_publicaciones = $publicaciones->select('publicaciones.*,concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, ciudad.nombre as ciudad, departamento.nombre as departamento')
 			->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
@@ -117,7 +124,8 @@ class ListarPublicaciones extends BaseController
 		$datos = ['publicacion' => $info_publicaciones, 
 				  'img' => $img, 
 				  'unidad'=>$unidad, 
-				  'valoraciones'=>$total_valoraciones];
+				  'valoraciones'=>$total_valoraciones,
+				  'preguntas'=>$preguntas_publicacion];
 		
 
 		echo view('template/header');
@@ -179,4 +187,30 @@ class ListarPublicaciones extends BaseController
 		echo json_encode($query);
 
 	}
+
+	public function ListarProductosMovil()
+		{	
+			$departamento = $this->request->getPostGet('departamento');
+
+			$publicaciones = new PublicacionesModel();
+			$consulta['registros_publicaciones'] = $publicaciones->select('publicaciones.id as id_publicacion,
+			 	publicaciones.titulo as titulo,
+			 	publicaciones.tipo_publicacion as tipo_publicacion,
+			   	publicaciones.fecha_insert as fecha_publicacion, unidades.abreviatura,
+			   	publicaciones.estado as estado_publicacion, 
+			   	publicaciones.precio, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,
+			    imagenes.imagen, publicaciones.envio,
+				publicaciones.descuento,
+				publicaciones.descripcion, publicaciones.stock')
+				->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
+				->join('imagenes', 'imagenes.id_publicacion =publicaciones.id')
+				->join('ciudad', 'ciudad.id =publicaciones.id_ciudad')
+				->join('unidades', 'unidades.id =publicaciones.id_unidad')
+				->where('(publicaciones.estado = "ACTIVA" AND publicaciones.tipo_publicacion = "PRODUCTO")')
+				->where('ciudad.id_departamento', $departamento)
+				->groupBy('imagenes.id_publicacion')
+				->findAll();
+
+			echo json_encode($consulta);
+		}
 }

@@ -117,11 +117,24 @@
                         <p><?php echo $publicacion['descripcion']; ?></p>
                       </div>
                       <div class="tab-pane fade" id="publicacion_pqr" role="tabpanel" aria-labelledby="publicacion_pqr_tab">
-                        <p>preguntas y respuestas</p>
+
+                        <?php foreach ($preguntas as $pregunta): ?>
+                          <div class="timeline-item mb-3">
+                            <span class="time float-right"><i class="fas fa-clock"></i>Fecha: <?php echo $pregunta['fecha'] ?></span>
+                            <h6 class="timeline-header"><?php echo $pregunta['pregunta'] ?></h6>
+                            <div class="timeline-body">
+                            </div>
+                            <div class="timeline-footer">
+                              <button class="btn btn-warning btn-sm">Responder</button>
+                            </div>
+                          </div>
+                          <hr>
+          
+                        <?php endforeach ?>
                       </div>
                       <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
                         <?php foreach ($valoraciones as $valoracion): ?>
-                          <div class="border border-warning rounded p-3 mt-2">
+                          <div class="callout callout-warning p-3 mt-2">
                             <?php if ($valoracion['valoracion']>0) { ?>
                               <i class="fas fa-star"></i>
                             <?php }else { ?>

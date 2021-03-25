@@ -143,6 +143,7 @@
 
         nombre = $("#nombre_nuevo").val();
         abreviatura = $("#abreviatura_nuevo").val();
+        tabla_unidades = $("#unidades").DataTable();
 
         if (nombre != "" && abreviatura != "") {
 
@@ -159,7 +160,8 @@
             .done(function(data) {
                 if (data.trim() == "##Ok##insert") {
                    
-                    alert("se inserto un nuevo registro")
+                    //alert("se inserto un nuevo registro")
+                    tabla_unidades.ajax.reload(null,false);
                     
                 }else {
                     alert("No se ha registrado");
