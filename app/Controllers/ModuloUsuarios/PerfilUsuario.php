@@ -99,7 +99,7 @@ class PerfilUsuario extends BaseController
 
 					$_SESSION['avatar'] = $nombre_avatar;
 					$avatar['respuesta'] = 'OK#UPDATE';
-					
+
 					$avatar['ruta'] = $nombre_avatar;
 				} else {
 					$avatar['respuesta'] = 'ERROR#UPDATE';
@@ -248,6 +248,38 @@ class PerfilUsuario extends BaseController
 
 		if ($data) {
 			echo json_encode('OK##STATUS##UPDATE');
+		} else {
+			echo json_encode('ERROR##UPDATE');
+		}
+	}
+
+	public function editarAvatarMovil()
+	{
+		$usuarios = new UsuariosModel();
+
+		$id_perfil = $this->request->getPostGet('id_perfil');
+		$imagen_base64 = $this->request->getPostGet('imagen');
+
+		$imagen = base64_decode($imagen_base64);
+
+		$nombre_avatar = 'avatar_user_' . $id_perfil . '.png';
+
+		$data = $usuarios->set(['avatar' => $nombre_avatar])->where('id', $id_perfil)->update();
+
+		if ($data) {
+			$extensiones = array('png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG');
+				foreach ($extensiones as $elemento) {
+					$ruta_avatar = "public/dist/img/avatar/avatar_user_" . $id_perfil . '.' . $elemento;
+					if (file_exists($ruta_avatar)) {
+						unlink($ruta_avatar);
+					}
+				}
+
+			$ruta_avatar = './public/dist/img/avatar/' . $nombre_avatar;
+
+			file_put_contents($ruta_avatar, $imagen);
+
+			echo json_encode("OK##IMAGE##UPDATE");
 		} else {
 			echo json_encode('ERROR##UPDATE');
 		}

@@ -1,152 +1,166 @@
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <div class="card card-primary ">
-    <div class="card-body box-profile">
-      <div class="justify-content-center" align="center">
-        <div id="contenedor_avatar">
-          <img src="<?php echo base_url("public/dist/img/avatar") . '/' . $_SESSION['avatar'] ?>" id="previewImg" class="main-profile-img" />
-          <i class="fa fa-edit iconoedit" id="icon_btn_edit"></i>
-          <form enctype="multipart/form-data" method="post" id="formAvatar">
-            <input type="file" onchange="previewFile(this);" class="form-control" id="photo" name="photo" accept="image/*">
-            <input type="hidden" name="id_user" value="<?php echo $_SESSION['id']; ?>" id="id_user">
-            <div id="divBtnAvatar" class="mt-3">
+<div class="content-wrapper"><!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title" >Detalles Perfil Usuario</h3>
             </div>
-          </form>
-        </div>
-      </div>
-      <div id="contentsito">
-        <h3 class="profile-username text-center"><?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></h3>
-        <p class="text-muted text-center"><?php echo $_SESSION["tipo_usuario"]; ?></p>
-      </div>
+
+            <section class="content">
+              <!-- Default box -->
+              <div class="card-body">
+                <div class="row">
+                 <div class="col-8 col-md-8 col-lg-3 order-2 order-md-1">
+                  <div class="m-2">
+
+                   <div id="contenedor_avatar">
+                    <img src="<?php echo base_url("public/dist/img/avatar") . '/' . $_SESSION['avatar'] ?>" id="previewImg" class="main-profile-img" />
+                    <i class="fa fa-edit iconoedit" id="icon_btn_edit"></i>
+                    <form enctype="multipart/form-data" method="post" id="formAvatar">
+                      <input type="file" onchange="previewFile(this);" class="form-control" id="photo" name="photo" accept="image/*">
+                      <input type="hidden" name="id_user" value="<?php echo $_SESSION['id']; ?>" id="id_user">
+                      <div id="divBtnAvatar" class="m-4">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-12 col-md-12 col-lg-8 order-1 order-md-4" >
+                <h3 class="text-success"><i class="fas fa-address-book mr-4"></i> <b>Datos Perfil</b></h3>
+
+              <div class="card-header p-2">
+                     <ul class="nav nav-pills">
+                       <li class="nav-item"><a class="nav-link active" href="#modal_editar" data-toggle="tab">Datos Perfil</a></li>
+                       <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Seguridad</a></li>
+                     </ul>
+
+                   </div><!-- /.card-header -->
+                   <div class="card-body">
+                     <div class="tab-content">
+
+                       <!-- /.tab-pane -->
+                       <div class="active tab-pane" id="modal_editar">
+                         <!-- modal para editar perfil-->
+                         <form class="row g-3" id="editar_datos" action="#" method="post">
+                           <div class="col-md-4">
+                             <!-- id usuario  -->
+                             <input type="hidden" id="id_perfil" value="<?php echo $_SESSION["id"]; ?>">
+
+                             <label for="documento_edit" class="form-label">Documento</label>
+                             <input type="text" class="form-control" id="documento_edit" name="documento_edit" value="" disabled>
+                           </div>
+                           <div class="col-md-4">
+                             <label for="nombre_edit" class="form-label">Nombre</label>
+                             <input type="text" class="form-control" id="nombre_edit" name="nombre_edit" value="" disabled>
+                           </div>
+                           <div class="col-md-4">
+                             <label for="apellido_edit" class="form-label">Apellido</label>
+                             <input type="text" class="form-control" id="apellido_edit" name="apellido_edit" value="" disabled>
+                           </div>
+                           <div class="col-md-4">
+                             <label for="email_edit" class="form-label">Correo</label>
+                             <input type="email" class="form-control" id="email_edit" name="email_edit" value="" disabled>
+                           </div>
+                           <div class="col-md-4">
+                             <label for="tipous_edit" class="form-label">Tipo Usuario</label>
+                             <input type="text" class="form-control" id="tipous_edit" name="tipous_edit" value="" disabled>
+                           </div>
+                           <div class="col-md-4">
+                             <label for="estado_edit" class="form-label">Estado</label>
+                             <input type="text" class="form-control" id="estado_edit" name="estado_edit" value="" disabled>
+                           </div>
+
+                           <div class="col-md-4">
+                             <label for="fecha_insert" class="form-label">Fecha de Registro</label>
+                             <input type="text" class="form-control" id="fecha_insert" name="fecha_insert" value="" disabled>
+                           </div>
+                           <div class="col-md-4">
+                             <label for="genero" class="form-label">Genero</label>
+                             <input type="text" class="form-control" id="genero" name="genero" value="" disabled>
+                           </div>
+
+                           <div class="col-md-4">
+                             <label for="telefono" class="form-label">telefono</label>
+                             <input type="text" class="form-control" id="telefono_edit" name="telefono_edit" value="" disabled>
+                           </div>
+                           <div class="col-md-4">
+                             <label for="direccion_edit" class="form-label">Direccion</label>
+                             <input type="text" class="form-control" id="direccion_edit" name="direccion_edit" value="" disabled>
+                           </div>
+                           <div class="col-md-4" id="show_city">
+                             <label for="ciudad_edit" class="form-label">Ciudad</label>
+                             <input type="text" class="form-control" id="ciudad_edit" name="ciudad_edit" value="" disabled>
+                           </div>
+                           <div class='col-md-4' id="opcion_depart">
+                             <label  class='form-label'>Departamento</label>
+
+                             <select name='departamento' id='departamento' class='form-control '>
+                               <option value='selected disabled'>Seleccione Departamento</option>
+                               <?php
+                               foreach ($departamentos as $departamentos) { ?>
+                                 <option value=' <?php echo $departamentos['id'] ?>'><?php echo $departamentos['nombre'] ?></option>
+                             <?php } ?>
+                             </select>
+                             
+                           </div>
+                           <div class='col-md-4' id="opcion_city">
+                             <label class='form-label'>Ciudad</label>
+                             <select name="ciudad" id="ciudad" class="form-control">
+                               <option value="">Seleccione Ciudad</option>
+                             </select>
+                           </div>
+                           <div class="col-12 mt-4">
+                             <button id="campos_editar" class="btn btn-primary">Editar Datos</button>
+                           </div>
+                           <div id="btn" class="mt-3">
+
+                           </div>
+                         </form>
+                       </div>
+                       <!-- /.tab-pane -->
+                       <!-- Formulario para modificar la contraseña  -->
+                       <div class="tab-pane" id="settings">
+                         <form class="row g-3" method="POST">
+                           <div class="col-md-6">
+                             <label for="inputEmail4" class="form-label">Correo</label>
+                             <input type="email" class="form-control" id="inputEmail4">
+                           </div>
+                           <div class="col-md-6">
+                             <label for="apellido_edit" class="form-label">Contraseña</label>
+                             <input type="password" class="form-control" id="password">
+                           </div>
+                           <div class="col-md-6">
+                             <label for="apellido_edit" class="form-label">Nueva Contraseña</label>
+                             <input type="password" class="form-control" id="new_password">
+                           </div>
+                           <div class="col-md-6">
+                             <label for="apellido_edit" class="form-label">Confirmar Contraseña</label>
+                             <input type="password" class="form-control" id="conf_passwosd">
+                           </div>
+                           <div class="col-12 mt-4">
+                             <button type="submit" class="btn btn-primary">Guardar Nueva Confirmar</button>
+                           </div>
+                         </form>
+                       </div>
+                       <!-- Fin del Formulario para modificar la contraseña  -->
+                       <!-- /.tab-pane -->
+                     </div>
+                     <!-- /.tab-content -->
+                   </div><!-- /.card-body -->
+              </div>
+            </div>
+            </div>
+                <!-- /.card-body -->
+              <!-- /.card -->
+            </section>
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div><!-- /.content-header -->
     </div>
-
-    <!-- /.card-body -->
-  </div>
-
-  <div class="col-md-12">
-    <div class="card">
-      <div class="card-header p-2">
-        <ul class="nav nav-pills">
-          <li class="nav-item"><a class="nav-link active" href="#modal_editar" data-toggle="tab">Datos Perfil</a></li>
-          <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Seguridad</a></li>
-        </ul>
-
-      </div><!-- /.card-header -->
-      <div class="card-body">
-        <div class="tab-content">
-
-          <!-- /.tab-pane -->
-          <div class="active tab-pane" id="modal_editar">
-            <!-- modal para editar perfil-->
-            <form class="row g-3" id="editar_datos" action="#" method="post">
-              <div class="col-md-4">
-                <!-- id usuario  -->
-                <input type="hidden" id="id_perfil" value="<?php echo $_SESSION["id"]; ?>">
-
-                <label for="documento_edit" class="form-label">Documento</label>
-                <input type="text" class="form-control" id="documento_edit" name="documento_edit" value="" disabled>
-              </div>
-              <div class="col-md-4">
-                <label for="nombre_edit" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre_edit" name="nombre_edit" value="" disabled>
-              </div>
-              <div class="col-md-4">
-                <label for="apellido_edit" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="apellido_edit" name="apellido_edit" value="" disabled>
-              </div>
-              <div class="col-md-4">
-                <label for="email_edit" class="form-label">Correo</label>
-                <input type="email" class="form-control" id="email_edit" name="email_edit" value="" disabled>
-              </div>
-              <div class="col-md-4">
-                <label for="tipous_edit" class="form-label">Tipo Usuario</label>
-                <input type="text" class="form-control" id="tipous_edit" name="tipous_edit" value="" disabled>
-              </div>
-              <div class="col-md-4">
-                <label for="estado_edit" class="form-label">Estado</label>
-                <input type="text" class="form-control" id="estado_edit" name="estado_edit" value="" disabled>
-              </div>
-
-              <div class="col-md-4">
-                <label for="fecha_insert" class="form-label">Fecha de Registro</label>
-                <input type="text" class="form-control" id="fecha_insert" name="fecha_insert" value="" disabled>
-              </div>
-              <div class="col-md-4">
-                <label for="genero" class="form-label">Genero</label>
-                <input type="text" class="form-control" id="genero" name="genero" value="" disabled>
-              </div>
-
-              <div class="col-md-4">
-                <label for="telefono" class="form-label">telefono</label>
-                <input type="text" class="form-control" id="telefono_edit" name="telefono_edit" value="" disabled>
-              </div>
-              <div class="col-md-4">
-                <label for="direccion_edit" class="form-label">Direccion</label>
-                <input type="text" class="form-control" id="direccion_edit" name="direccion_edit" value="" disabled>
-              </div>
-              <div class="col-md-4" id="show_city">
-                <label for="ciudad_edit" class="form-label">Ciudad</label>
-                <input type="text" class="form-control" id="ciudad_edit" name="ciudad_edit" value="" disabled>
-              </div>
-              <div class='col-md-4' id="opcion_depart">
-                <label  class='form-label'>Departamento</label>
-
-                <select name='departamento' id='departamento' class='form-control '>
-                  <option value='selected disabled'>Seleccione Departamento</option>
-                  <?php
-                  foreach ($departamentos as $departamentos) { ?>
-                    <option value=' <?php echo $departamentos['id'] ?>'><?php echo $departamentos['nombre'] ?></option>
-                <?php } ?>
-                </select>
-                
-              </div>
-              <div class='col-md-4' id="opcion_city">
-                <label class='form-label'>Ciudad</label>
-                <select name="ciudad" id="ciudad" class="form-control">
-                  <option value="">Seleccione Ciudad</option>
-                </select>
-              </div>
-              <div class="col-12 mt-4">
-                <button id="campos_editar" class="btn btn-primary">Editar Datos</button>
-              </div>
-              <div id="btn" class="mt-3">
-
-              </div>
-            </form>
-          </div>
-          <!-- /.tab-pane -->
-          <!-- Formulario para modificar la contraseña  -->
-          <div class="tab-pane" id="settings">
-            <form class="row g-3" method="POST">
-              <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Correo</label>
-                <input type="email" class="form-control" id="inputEmail4">
-              </div>
-              <div class="col-md-6">
-                <label for="apellido_edit" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password">
-              </div>
-              <div class="col-md-6">
-                <label for="apellido_edit" class="form-label">Nueva Contraseña</label>
-                <input type="password" class="form-control" id="new_password">
-              </div>
-              <div class="col-md-6">
-                <label for="apellido_edit" class="form-label">Confirmar Contraseña</label>
-                <input type="password" class="form-control" id="conf_passwosd">
-              </div>
-              <div class="col-12 mt-4">
-                <button type="submit" class="btn btn-primary">Guardar Nueva Confirmar</button>
-              </div>
-            </form>
-          </div>
-          <!-- Fin del Formulario para modificar la contraseña  -->
-          <!-- /.tab-pane -->
-        </div>
-        <!-- /.tab-content -->
-      </div><!-- /.card-body -->
-    </div>
-    <!-- /.card -->
-  </div>
+  </div> 
 </div>
 
 <style>
@@ -217,7 +231,7 @@
       var reader = new FileReader();
       reader.onload = function() {
         $("#previewImg").attr("src", reader.result);
-        let btn = "<button type='submit' class='btn btn-success' id='done'><i class='fas fa-check'></i></button>"
+        let btn = "<button type='submit' class='btn btn-success ml-4' id='done'><i class='fas fa-check'></i></button>"
 
         $('#divBtnAvatar').html(btn)
 
