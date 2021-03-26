@@ -66,7 +66,7 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
 
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
     $routes->add('CargarAvatar', 'PerfilUsuario::editarAvatar');
-    
+
     $routes->add('EditarPerfil', 'PerfilUsuario::enviarnewdatos');
     $routes->add('BuscarDatosPerfil', 'PerfilUsuario::buscar_session');
 
@@ -80,7 +80,7 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('EditarPasswordMovil', 'PerfilUsuario::editarPasswordMovil');
     $routes->add('DesactivarCuentaMovil', 'PerfilUsuario::desactivarUsuarioMovil');
     $routes->add('ActualizarImagenPerfil', 'PerfilUsuario::editarAvatarMovil');
-    
+
 });
 
 $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPublicaciones'], function ($routes) {
@@ -129,7 +129,8 @@ $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos']
 
     $routes->add('DetallePedido', 'Pedidos::detalle');
     $routes->add('HistorialPedidos', 'Pedidos::historial');
-    $routes->add('TotalPedidos', 'Pedidos::totalPedidos');
+
+    $routes->add('GenerarPedidoMovil', 'GestionPedidosMovil::generarPedido');
 });
 
 
