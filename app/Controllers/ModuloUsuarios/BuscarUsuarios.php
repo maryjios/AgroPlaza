@@ -37,8 +37,6 @@ class BuscarUsuarios extends BaseController {
 		echo view('template/header',);
 		echo view('ModuloUsuarios/detalle_usuario',$data);
 		echo view('template/footer');
-
-		
 	}
 	// public function actualizarest(){
 	// 	$usuarios = new UsuariosModel();
@@ -55,8 +53,6 @@ class BuscarUsuarios extends BaseController {
 	// 	echo $mensaje;
 	// }
 
-
-
 	public function inactivarusuario(){
 		$usuarios = new UsuariosModel();
 		$doc = $this->request->getPostGet('doc');
@@ -71,6 +67,17 @@ class BuscarUsuarios extends BaseController {
 		echo $mensaje;
 	}
 
+
+	public function totalUsuarios (){
+		$usuarios = new UsuariosModel();
+
+		$datos=$usuarios
+		  //->where('estado',"ACTIVO")
+		  ->from("id")
+		  ->countAll();
+
+		  echo $datos;
+	}
 
 }
 

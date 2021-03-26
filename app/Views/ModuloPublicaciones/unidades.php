@@ -132,10 +132,7 @@
 
         $("#agregar_modal").modal("show");
 
-        $(".guardar").on("click", function(e){
-             e.preventDefault();
-             enviarInfoNuevaUnidad(); 
-        });
+        $(".guardar").on("click", enviarInfoNuevaUnidad);
                
     }
 
@@ -159,9 +156,9 @@
             })
             .done(function(data) {
                 if (data.trim() == "##Ok##insert") {
-                   
+                    location.reload();
                     //alert("se inserto un nuevo registro")
-                    tabla_unidades.ajax.reload(null,false);
+                    //tabla_unidades.ajax.reload(null,false);
                     
                 }else {
                     alert("No se ha registrado");
@@ -227,9 +224,9 @@
 
             
             if (data.trim()=="##Ok#Edit") {
-                alert("Actualizado")
+                location.reload();
             }else{
-                alert("pailas");
+                alert("No se pudo actualizar la unidad");
             }
 
         }).fail(function() {

@@ -300,36 +300,21 @@ function formEditarPublicacion(e) {
          data: datos_formulario,
          contentType: false,
          processData: false,
-         success: function(data){
-            console.log(data)
-         }
-      })/*
+         
+      })
       .done(function(data) {
          console.log(data);
 
-         if (data == "OK#CORRECTO") {
+         if (data == "Ok##actualizo") {
             Swal.fire({
                icon: 'success',
                title: 'Exitoso!',
                text: 'La publicacion ha sido registrada con exito.'
             })
 
-            $("#titulo").val('');
-            $("#descripcion").val('');
-            $("#stock").val('');
-            $("#precio").val('');
-            $("#envio").val('');
-            $("#fotos").val('');
-            $("#unidad").val('');
-            $("ciudad").val('');
-            $("#descuento").val('');
-            $("#dvPreview").html('');
-
-            $("#ciudad").append('<option value="" selected>Seleccione Ciudad</option>');
-            $('#ciudad').attr("disabled", true);
-
-            $("#departamento").find('option').removeAttr("selected");
-            $("#departamento-vacio").attr("selected", "true");
+            setTimeout(function() {
+               window.location = "<?php echo base_url('/ModuloPublicaciones/ListarPublicaciones') ?>";
+            },2000); 
 
          } else if (data == "OK#INVALID#DATA") {
             alert("OCURRIO UN ERROR AL INSERTAR LA PUBLICACION");
@@ -340,7 +325,7 @@ function formEditarPublicacion(e) {
       .fail(function(data) {
          alert("error en el proceso");
          console.log(data);
-      });*/
+      });
    } else {
       alert('todos los campos son oblicatorios')
    }

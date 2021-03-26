@@ -5,6 +5,7 @@ namespace App\Controllers\ModuloPedidos;
 use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 use App\Models\PedidosModel;
+use App\Models\PublicacionesModel;
 
 class Pedidos extends BaseController
 {
@@ -149,4 +150,35 @@ class Pedidos extends BaseController
         echo view('ModuloPedidos/historial',$consulta);
         echo view('template/footer');
     }
+
+    public function detalle(){
+        $pedidos = new PedidosModel();
+
+        $id_pedido = $this->request->getPostGet('id');
+
+        $consulta = $pedidos->select('pedidos.id, pedidos.cantidad,pedidos.valor_compra, pedidos.valor_envio, pedidos.descuento, pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.id as id_publicacion,publicaciones.titulo,imagenes.imagen')
+                            ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
+                            ->join('publicaciones','pedidos.id_publicacion = publicaciones.id')
+                            ->join('imagenes', 'publicaciones.id =imagenes.id_publicacion')
+                            ->where('pedidos.id',$id_pedido)
+                            ->groupBy('imagenes.id_publicacion')
+                            ->find();
+
+        echo json_encode($consulta);
+    }
+
+
+    public function totalPedidos (){
+        $pedidos = new PedidosModel();
+
+        $datos=$pedidos
+          //->where('estado',"ACTIVO")
+          ->from("id")
+          ->countAll();
+
+          echo $datos;
+    }
+
+
+    
 }

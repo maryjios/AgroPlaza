@@ -11,7 +11,7 @@ class PedidosModel extends Model {
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['cantidad', 'valor_compra','valor_envio','descuento','valor_total','evidencia_pedido','id_usuario','id_publicacion','estado'];
+    protected $allowedFields = ['cantidad', 'valor_compra','valor_envio','descuento','valor_total','direccion','evidencia_pedido','id_usuario','id_publicacion','estado'];
 
     protected $useTimestamps = false;
     protected $createdField  = 'fecha_insert';

@@ -149,6 +149,7 @@ class PerfilUsuario extends BaseController
 	public function editarDatosMovil()
 	{
 		$usuarios = new UsuariosModel();
+		$id_perfil = $this->request->getPostGet('id_perfil');
 		$documento = (empty($this->request->getPostGet('documento'))) ? null : $this->request->getPostGet('documento');
 		$existe = false;
 
@@ -156,12 +157,15 @@ class PerfilUsuario extends BaseController
 			$verificar = $usuarios->where('documento', $documento)->find();
 
 			if ($verificar) {
-				$existe = true;
+				$verificar = $usuarios->where('documento', $documento)->where('id', $id_perfil)->find();
+
+				if (!$verificar) {
+					$existe = true;
+				}
 			}
 		}
 
 		if ($existe == false) {
-			$id_perfil = $this->request->getPostGet('id_perfil');
 			$nombres = $this->request->getPostGet('nombres');
 			$apellidos = $this->request->getPostGet('apellidos');
 			$direccion = (empty($this->request->getPostGet('direccion'))) ? null : $this->request->getPostGet('direccion');
