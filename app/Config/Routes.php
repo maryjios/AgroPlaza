@@ -99,6 +99,7 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('PreguntaIndividual', 'Preguntas::consultarPregunta');
     $routes->add('RespuestaPregunta', 'Preguntas::guardarRespuesta');
 
+    $routes->add('getDatosPublicacion', 'ListarPublicaciones::traerDatosParaCompra');
 
     $routes->add('PublicacionesInactivas', 'ListarPublicacionesInactivas::index');
     $routes->add('ActivarPublicacion', 'ListarPublicacionesInactivas::activarPublicacion');
@@ -128,6 +129,8 @@ $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos']
 
     $routes->add('DetallePedido', 'Pedidos::detalle');
     $routes->add('HistorialPedidos', 'Pedidos::historial');
+
+    $routes->add('GenerarPedidoMovil', 'GestionPedidosMovil::generarPedido');
 
 });
 
