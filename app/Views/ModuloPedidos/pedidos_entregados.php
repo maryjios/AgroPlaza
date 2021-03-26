@@ -10,7 +10,7 @@
                 <h2 class="card-title"><b>Lista de pedidos entregados</b></h2>
                 <div class="d-grid d-md-flex  justify-content-md-end">
                   <div class="btn-group col-2" role="group">
-                      <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle form-control  bg-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle form-control  bg-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Entregados
                       </button>
                       <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -84,25 +84,26 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col text-center img-thumbnail">
-                <h5>Producto</h5>
-                <img src="https://www.lechepuleva.es/documents/13930/203222/pi%C3%B1a_g.jpg/c585227d-e694-464d-87d7-3f2143dd33d9?t=1423480442000" class="rounded img-size-50 mr-2">
+                <h5 id="titulo"></h5>
+                <img id="img_producto" src="" class="rounded img-size-50 mr-2">
               </div>
             </div>
             <div class="row mt-2">
               <div class="col img-thumbnail">
-                <div class="position-relative rounded p-3 bg-success" style="height: 200px">
+                <div class="position-relative rounded p-3 bg-success" style="height: 230px">
                   <div class="ribbon-wrapper">
                     <div class="ribbon bg-primary">
                       +
                     </div>
                   </div>
-                  <h6>Cantidad: <span>15 Kilos</span></h6>
-                  <h6>Precio: $ <span>1500</span></h6>
-                  <h6>Descuento: <span>0</span></h6>
+                  <h6>Cantidad: <span id="cantidad"></span></h6>
+                  <h6>Precio: $ <span id="valor_compra">1500</span></h6>
+                  <h6>Envio: $ <span id="valor_envio"></span></h6>
+                  <h6>Descuento: <span id="descuento"></span></h6>
                   <hr>
-                  <h6>Total: $ <span>22500</span></h6>
+                  <h6>Total: $ <span id="total"></span></h6>
                   <hr>
-                  <h6>Comprador: <span>Leonardo Lopez</span></h6>
+                  <h6>Comprador: <span id="comprador"></span></h6>
                 </div>
               </div>
             </div>
@@ -143,8 +144,19 @@
         dataType: 'json',
         data: {id: id},
       })
-      .done(function() {
-        console.log("success");
+      .done(function(data) {
+        console.log(data);
+        for (var i =0; i< data.length; i++) {
+          img = '<?php echo base_url('public/dist/img/publicaciones/').'/publicacion'?>'+data[i].id_publicacion+ "/"+data[i].imagen;
+          $("#img_producto").attr('src', img);
+          $("#titulo").text(data[i].titulo);
+          $("#cantidad").text(data[i].cantidad);
+          $("#valor_compra").text(data[i].valor_compra);
+          $("#valor_envio").text(data[i].valor_envio);
+          $("#descuento").text(data[i].descuento);
+          $("#total").text(data[i].valor_total);
+          $("#comprador").text(data[i].nombre_usuario);
+        }
       })
       .fail(function() {
         console.log("error");
@@ -158,7 +170,6 @@
       $(this).parents('tr').attr('id', 'a_finalizado');
       var id = $(this).parents("tr").find(".id").text();
       rowId = $(this).parents("tr").attr('id');
-      alert(rowId)
       $.ajax({
         url: '<?php echo base_url('/ModuloPedidos/PasarFinalizado');?>',
         type: 'POST',
