@@ -135,7 +135,7 @@ class EditarPublicacion extends BaseController
 		}*/
 
 		if ($registros) {
-			$mensaje = "Se actualizo";
+			$mensaje = "Ok##actualizo";
 		}else{
 			$mensaje = "Error";
 		}

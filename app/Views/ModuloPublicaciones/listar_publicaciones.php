@@ -38,7 +38,20 @@
                         <td><?php echo $dato['nombre_usuario'] ?></td>
                         <td><?php echo $dato['fecha_publicacion'] ?></td>
                         <td><?php echo $dato['estado_publicacion'] ?></td>
-                        <td><?php echo "<a type='button' href='".base_url('/ModuloPublicaciones/ConsultaDetalle?file=').$dato['id_publicacion']."' class='btn btn-success detalle'><i class='far fa-eye'></i></a><a type='button' href='".base_url('/ModuloPublicaciones/EditarPublicacion?id=').$dato['id_publicacion']."' class='btn btn-warning editar ml-1'><i class='far fa-edit'></i></a><button class='btn btn-danger eliminar ml-1'> <i class='far fa-trash-alt'></i></button>"  ?></td>
+                        <td>
+                          <a type='button' href='<?php echo base_url('/ModuloPublicaciones/ConsultaDetalle?file=').$dato['id_publicacion'] ?>' class='btn btn-success detalle'>
+                            <i class='far fa-eye'></i>
+                          </a>
+                          <?php if($_SESSION['tipo_usuario']!="ADMINISTRADOR") { ?>
+                          <a type='button' href='<?php echo base_url('/ModuloPublicaciones/EditarPublicacion?id=').$dato['id_publicacion'] ?>' class='btn btn-warning editar ml-1'>
+                            <i class='far fa-edit'></i>
+                          </a>
+                          <?php } ?>
+                          <button class='btn btn-danger eliminar ml-1'> 
+                            <i class='far fa-trash-alt'></i>
+                          </button>
+                          
+                        </td>
                       </tr>
                     <?php endforeach ?>
                     

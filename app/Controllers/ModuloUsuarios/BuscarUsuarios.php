@@ -73,7 +73,7 @@ class BuscarUsuarios extends BaseController {
 
 		$datos=$usuarios
 		  //->where('estado',"ACTIVO")
-		  ->from("Id")
+		  ->from("id")
 		  ->countAll();
 
 		  echo $datos;

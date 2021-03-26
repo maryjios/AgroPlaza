@@ -5,6 +5,7 @@ namespace App\Controllers\ModuloPedidos;
 use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 use App\Models\PedidosModel;
+use App\Models\PublicacionesModel;
 
 class Pedidos extends BaseController
 {
@@ -149,4 +150,19 @@ class Pedidos extends BaseController
         echo view('ModuloPedidos/historial',$consulta);
         echo view('template/footer');
     }
+
+
+    public function totalPedidos (){
+        $pedidos = new PedidosModel();
+
+        $datos=$pedidos
+          //->where('estado',"ACTIVO")
+          ->from("id")
+          ->countAll();
+
+          echo $datos;
+    }
+
+
+    
 }

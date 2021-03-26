@@ -6,66 +6,52 @@
       <div class="row mb-2">
         <div class="col-12">
           <div class="row">
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  <h3 id="n_usuarios"></h3>
-
-                  <p>Usuarios Registrados</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-person-add"></i>
-                </div>
-                <a  class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
-              </div>
+            <div class="col">
+              <H3>Bienvenido <?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></H3>
             </div>
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-info">
-                <div class="inner">
-                  <h3>150</h3>
-
-                  <p>Numero de pedidos</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col border border-danger">
+             <img class="img-fluid "  src="https://www.caracteristicas.co/wp-content/uploads/2016/04/campo-1-e1558303226877.jpg">
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-success">
-                <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                  <p>Bounce Rate</p>
+          </div>
+          <div class="row">
+            <?php if($_SESSION['tipo_usuario']=="ADMINISTRADOR"){  ?>
+              <!-- ./col -->
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                  <div class="inner">
+                    <h3 id="n_usuarios"></h3>
+                    <p>Usuarios Registrados</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <a  class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-                <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-info">
-                <div class="inner">
-                  <h3>65</h3>
+              <!-- ./col -->
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3 id="n_pedidos"></h3>
 
-                  <p>Numero de visitas</p>
+                    <p>Numero de pedidos</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-bag"></i>
+                  </div>
+                  <a class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-                <div class="icon">
-                  <i class="ion ion-android-globe"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
-            </div>
-            <!-- ./col -->
+              <!-- ./col -->
+            <?php } ?>
+
+            
+            
+            
           </div>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -88,5 +74,21 @@
       
     });
   
+    //  Cantidad de pedidos activos
+
+    id_usuario = '<?php echo $_SESSION['id'] ?>';
+    //alert(id_usuario)
+    $.ajax({
+      url: '<?php echo base_url('/ModuloPedidos/TotalPedidos');?>',
+      type: 'POST',
+      dataType: 'text',
+      data: {
+        id_usuario : id_usuario
+      },
+      success:function (data) {
+        $("#n_pedidos").text(data);
+      }
+      
+    });
   }
 </script>
