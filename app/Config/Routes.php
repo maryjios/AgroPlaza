@@ -50,6 +50,8 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('BuscarusuId', 'BuscarUsuarios::buscarporId');
     $routes->add('Actuaestado', 'BuscarUsuarios::actualizarest');
     $routes->add('DesactivarUs', 'BuscarUsuarios::inactivarusuario');
+    $routes->add('CantidadUsuarios', 'BuscarUsuarios::totalUsuarios');
+
 
     $routes->add('BuscarInactivos', 'BuscarInactivos::index');
     $routes->add('MostrarInactivos', 'BuscarInactivos::listarinactivos');
@@ -97,6 +99,7 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('TraerPreguntas', 'Preguntas::listarPreguntas');
     $routes->add('PreguntaIndividual', 'Preguntas::consultarPregunta');
     $routes->add('RespuestaPregunta', 'Preguntas::guardarRespuesta');
+    $routes->add('ConsultarRespuesta', 'Preguntas::consultarRespuesta');
 
 
     $routes->add('PublicacionesInactivas', 'ListarPublicacionesInactivas::index');

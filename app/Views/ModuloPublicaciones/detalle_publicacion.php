@@ -180,7 +180,6 @@
           </div>
       </div>
   </div>
-
   <script>
     $(document).ready(function() {
       $('.product-image-thumb').on('click', function () {
@@ -189,10 +188,7 @@
       $('.product-image-thumb.active').removeClass('active')
       $(this).addClass('active')
       });
-
-      traerPreguntas();
-      
-
+      traerPreguntas();    
     })
 
     function traerPreguntas() {
@@ -215,23 +211,22 @@
             preguntas+= '<hr>';
 
             $("#publicacion_pqr").append(preguntas);
-
           } 
-          
-          $(".responder").click(abrirInput);
+          $(".responder").click(abrirInput);  
         }
       });
     }
 
 
     function abrirInput (){
+      $(".div_respuesta").empty();
       var id = $(this).parents(".div_preguntas").find('.preg').val();
 
-      input = `<form class="form-horizontal formulario">
+      input = `<form class="form-horizontal" id="formulario" method="post">
                   <div class="form-group margin-bottom-none row mt-3">
-                    <div class="col-sm-6">
-                      <input  id="texto_respuesta" type="hidden" value="`+$id+`">
-                      <input class="form-control input-sm texto_respuesta" id="texto_respuesta" placeholder="Response">
+                    <div class="col-sm-6 contenedor">
+                      <input  id="id_respuesta" type="hidden" value="`+id+`">
+                      <input class="form-control input-sm texto_respuesta" id="texto_respuesta" placeholder="Responder">
                     </div>
                     <div class="col-sm-2">
                       <button type="submit" class="btn btn-success pull-right btn-block btn-sm disabled enviar">Enviar</button>
@@ -244,22 +239,66 @@
 
       $(this).parents(".div_preguntas").find('.div_respuesta').html(input);
       $(".cancelar").click(cerrarInput);
-
       $(".texto_respuesta").keyup(habilitarEnviar);
-
+      $("#formulario").submit(enviarRespuesta);
     }
 
     function habilitarEnviar (){
       if ($(this).val()!= "") {
         $(this).parents(".div_preguntas").find('.enviar').removeClass('disabled');
+
       }else{
         $(this).parents(".div_preguntas").find('.enviar').addClass('disabled');
       }
     }
 
     function cerrarInput (){
-        $(this).parents(".formulario").remove();
+      $(this).parents("#formulario").remove();
     }
+
+    function enviarRespuesta(e) {
+      e.preventDefault();
+      id = $("#id_respuesta").val();
+      descripcion = $("#texto_respuesta").val();
+      var respuesta = "";
+      $.ajax({
+        url: '<?php echo base_url('/ModuloPublicaciones/RespuestaPregunta');?>',
+        type: 'POST',
+        dataType: 'text',
+        data: {id: id, descripcion: descripcion},
+        success: function(data){
+          if (data.trim()=="Ok##insert") {
+            $.ajax({
+              url: '<?php echo base_url('/ModuloPublicaciones/ConsultarRespuesta');?>',
+              type: 'POST',
+              dataType: 'json',
+              data: {id: id},
+              success: function(data){
+                console.log(data)
+                 $("#formulario").remove();
+                
+                
+                for (var i = 0; i < data.length; i++) {
+                  
+                  respuesta = `<p>`+data[i].descripcion+`</p>`;
+                  $(".div_respuesta").append(respuesta);
+                }
+
+                
+              }
+            });
+
+          }else{
+            alert("no se inserto");
+          }
+        }
+      })
+      
+      //$(this).parents(".div_respuesta").append(respuesta);
+      
+    }
+
+    
     
   </script>
 

@@ -6,6 +6,21 @@
       <div class="row mb-2">
         <div class="col-12">
           <div class="row">
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-warning">
+                <div class="inner">
+                  <h3 id="n_usuarios"></h3>
+
+                  <p>Usuarios Registrados</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <a  class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
             <div class="col-lg-3 col-6">
               <!-- small box -->
               <div class="small-box bg-info">
@@ -38,21 +53,6 @@
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  <h3>44</h3>
-
-                  <p>Usuarios Registrados</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
                   <h3>65</h3>
@@ -76,21 +76,17 @@
   $(document).ready(iniciar);
 
   function iniciar() {
-    $.ajax({
-      url: '',
-      type: 'default GET (Other values: POST)',
-      dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-      data: {param1: 'value1'},
-    })
-    .done(function() {
-      console.log("success");
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
-    });
     
+//  Cantidad de usuarios activos
+    $.ajax({
+      url: '<?php echo base_url('/ModuloUsuarios/CantidadUsuarios');?>',
+      type: 'POST',
+      dataType: 'text',
+      success:function (data) {
+        $("#n_usuarios").text(data);
+      }
+      
+    });
+  
   }
 </script>

@@ -52,6 +52,17 @@
     		echo $mensaje;
     	}
 
+    	public function consultarRespuesta()
+    	{
+    		$respuesta = new RespuestasModel();
+
+    		$id_pregunta = $this->request->getPostGet('id');
+ 
+    		$respuesta = $respuesta ->where('id_pregunta',$id_pregunta)->findAll();
+
+    		echo json_encode($respuesta);
+    	}
+
     }
 
 
