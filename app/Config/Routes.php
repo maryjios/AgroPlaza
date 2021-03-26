@@ -85,7 +85,8 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('ListarPublicaciones', 'ListarPublicaciones::index');
     $routes->add('ListarPublicacionesMovil', 'ListarPublicaciones::ListarPublicacionesMovil');
     $routes->add('getImagenesPublicacion', 'ListarPublicaciones::getImagenesPublicacion');
-
+    $routes->add('RegistrarPregunta', 'GestionarPreguntasAppMovil::InsertarPregunta');
+    $routes->add('ConsultarPreguntas', 'GestionarPreguntasAppMovil::getPreguntas');
 
     $routes->add('InsertarPublicacion', 'CrearPublicacion::insertar');
     $routes->add('ConsultaIndividual', 'ListarPublicaciones::consultarId');
@@ -113,6 +114,7 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('InsertarUnidad', 'Unidades::registrarUnidades');
 
 
+
 });
 
 $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos'], function ($routes) {
@@ -126,6 +128,7 @@ $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos']
 
     $routes->add('DetallePedido', 'Pedidos::detalle');
     $routes->add('HistorialPedidos', 'Pedidos::historial');
+
 });
 
 
