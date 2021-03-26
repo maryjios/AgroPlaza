@@ -48,20 +48,23 @@
                             <p><span><i class="fas fa-dollar-sign"></i> </span><?php echo number_format($publicacion['precio'])?> <?php if ($publicacion['tipo_publicacion']=="PRODUCTO"){ echo " * ".$unidad['abreviatura'];} ?></p>
                         </div>
                       </div>
-                      <div class="col ">
-                        <h4 class="mb-0">Stock:</h4>
-                        <h4 class="mt-0">
-                          <small><i class="fas fa-layer-group"></i> <?php if ($publicacion['stock'] >0) {
-                            echo "Disponible";
-                          }else{
-                            echo "No disponible";
-                          } ?></small>
-                        </h4>
-                      </div>
+                      <?php if ($publicacion['tipo_publicacion']=="PRODUCTO"): ?>
+                        <div class="col ">
+                          <h4 class="mb-0">Stock:</h4>
+                          <h4 class="mt-0">
+                            <small><i class="fas fa-layer-group"></i> <?php if ($publicacion['stock'] >0) {
+                              echo "Disponible";
+                            }else{
+                              echo "No disponible";
+                            } ?></small>
+                          </h4>
+                        </div>
+                      <?php endif ?>
                     </div>
                     <div class="row mt-3">
                       <div class="col">
-                        <h4>Envio</h4>
+                        <?php if($publicacion['tipo_publicacion']!="PRODUCTO"){  ?>
+                        <h4>Servicio al domicilio:</h4>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                           <p><span><i class="fas fa-shipping-fast mr-3"></i></span><?php if ($publicacion['envio']=="NO") {
                             echo "No";
@@ -70,6 +73,17 @@
                           }; ?>
                           </p>
                         </div>
+                      <?php }else{  ?>
+                          <h4>Envio</h4>
+                          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <p><span><i class="fas fa-shipping-fast mr-3"></i></span><?php if ($publicacion['envio']=="NO") {
+                              echo "No";
+                            }else{
+                              echo "Si";
+                            }; ?>
+                            </p>
+                          </div>
+                      <?php } ?>
                       </div>
                     </div>
                     <hr class="bg-warning " style="height: 10px">
@@ -94,11 +108,6 @@
                             <?php echo $publicacion['departamento'].", ".$publicacion['ciudad'] ?>
                           </p>
                         </div>
-                      </div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col text-center">
-                        <button class="btn btn-primary btn-lg"><i class="fas fa-cart-plus fa-lg mr-2"></i>Comprar</button>  
                       </div>
                     </div>
                   </div>
