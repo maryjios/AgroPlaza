@@ -85,7 +85,7 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('ListarPublicaciones', 'ListarPublicaciones::index');
     $routes->add('ListarPublicacionesMovil', 'ListarPublicaciones::ListarPublicacionesMovil');
     $routes->add('getImagenesPublicacion', 'ListarPublicaciones::getImagenesPublicacion');
-
+    $routes->add('getDatosPublicacion', 'ListarPublicaciones::traerDatosParaCompra');
 
     $routes->add('InsertarPublicacion', 'CrearPublicacion::insertar');
     $routes->add('ConsultaIndividual', 'ListarPublicaciones::consultarId');
