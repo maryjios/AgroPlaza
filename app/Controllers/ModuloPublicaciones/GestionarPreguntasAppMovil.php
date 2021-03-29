@@ -36,23 +36,17 @@ class GestionarPreguntasAppMovil extends BaseController
 
         $preguntas_db = new PreguntasModel();
 
-        $id_publicacion = $this->request->getPostGet('id_publicacion');
+        $id_publicacion = $this->request->getPostGet('publicacion');
 
-		$consulta['registros_comentarios'] = $preguntas_db->select('preguntas.descripcion as descripcion_p,
-        preguntas.fecha_insert as titulo,
-				publicaciones.tipo_publicacion as tipo_publicacion,
-				publicaciones.fecha_insert as fecha_publicacion')
+		$consulta['registros_preguntas'] = $preguntas_db->select('preguntas.descripcion as pregunta_c,
+        preguntas.fecha_insert as fecha_pregunta_c,
+        preguntas.id AS id_c, respuestas.id AS id_v,
+				respuestas.descripcion as respuesta_v,
+				respuestas.fecha_insert as fecha_pregunta_v')
 			->join('respuestas', 'respuestas.id_pregunta = preguntas.id')
 			->where('preguntas.id_publicacion', $id_publicacion)
 			->findAll();
 
-		echo json_encode($consulta);
-        if ($consulta) {
-            $mensaje = "##Ok##insert";
-        } else {
-            $mensaje = "##No##insert";
-        }
-
-        echo $mensaje;
+        echo json_encode($consulta);
     }
 }
