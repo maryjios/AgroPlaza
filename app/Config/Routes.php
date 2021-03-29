@@ -44,6 +44,7 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('InsertarMovil', 'RegistrarUsuario::insertarMovil');
     $routes->add('CargarCiudades', 'RegistrarUsuario::cargarCiudadesMovil');
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
+    $routes->add('CantidadUsuarios', 'BuscarUsuarios::totalUsuarios');
 
 
     $routes->add('MostrarUsuarios', 'BuscarUsuarios::listarusuarios');
@@ -99,6 +100,7 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('PreguntaIndividual', 'Preguntas::consultarPregunta');
     $routes->add('RespuestaPregunta', 'Preguntas::guardarRespuesta');
 
+    $routes->add('getDatosPublicacion', 'ListarPublicaciones::traerDatosParaCompra');
 
     $routes->add('PublicacionesInactivas', 'ListarPublicacionesInactivas::index');
     $routes->add('ActivarPublicacion', 'ListarPublicacionesInactivas::activarPublicacion');
@@ -125,9 +127,12 @@ $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos']
     $routes->add('PasarCancelado', 'Pedidos::pasar_a_Cancelado');
     $routes->add('PasarEntregado', 'Pedidos::pasar_a_Entregado');
     $routes->add('PasarFinalizado', 'Pedidos::pasar_a_Finalizado');
+    $routes->add('TotalPedidos', 'Pedidos::totalPedidos');
 
     $routes->add('DetallePedido', 'Pedidos::detalle');
     $routes->add('HistorialPedidos', 'Pedidos::historial');
+
+    $routes->add('GenerarPedidoMovil', 'GestionPedidosMovil::generarPedido');
 
 });
 

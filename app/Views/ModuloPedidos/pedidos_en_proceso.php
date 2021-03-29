@@ -45,7 +45,11 @@
                         <td><?php echo $pedido['nombre_usuario'] ?></td>
                         <td><?php echo $pedido['fecha_insert'] ?></td>
                         <td><?php echo $pedido['estado_pedido'] ?></td>
-                        <td><?php echo '<button type="button" class="btn btn-success detalle"><i class="far fa-eye"></i></button>
+                        <td>
+                          <button type="button" class="btn btn-success detalle">
+                            <i class="far fa-eye"></i>
+                          </button>
+                          <?php if($_SESSION['tipo_usuario']!="ADMINISTRADOR") { ?>
                           <div class="btn-group">
                             <button type="button" class="btn btn-warning">Pasar a:</button>
                             <button type="button" class="btn btn-warning dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
@@ -55,7 +59,8 @@
                               <button class="dropdown-item entregado" >Entregado</button>
                             </div>
                           </div>
-                        '  ?></td>
+                        <?php } ?>
+                        </td>
                       </tr>
                     <?php endforeach ?>
                     
@@ -163,7 +168,7 @@
         console.log("complete");
       });
     }
-    
+
     function pasar_a_entregado(){
       $(this).parents('tr').attr('id', 'a_entregado');
       var id = $(this).parents("tr").find(".id").text();
