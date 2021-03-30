@@ -17,7 +17,7 @@ class PerfilUsuario extends BaseController
 		$departamentos_sql = $this->departamento->select('*')->findAll();
 		$departamentos = ['departamentos' => $departamentos_sql];
 
-		$data['modulo_selected'] = "Usuarios";
+		$data['modulo_selected'] = "Perfil";
 		$data['opcion_selected'] = "PerfilUsuario";
 
 		echo view('template/header', $data);
