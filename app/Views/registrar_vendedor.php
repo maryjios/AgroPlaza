@@ -50,7 +50,7 @@ if (isset($_SESSION['tipo_usuario'])) {
                         <h3 class="mb-0">Crear Cuenta</h3>
                      </div>
                      <div class="card-body">
-                        <form id="formulario_registro" enctype="multipart/form-data" method="post">
+                        <form id="formulario_registro" enctype="multipart/form-data" method="post" autocomplete="off">
                            <div class="input-group mb-3">
                               <input type="text" class="form-control" name="documento" id="documento" placeholder="Documento de Identidad">
                               <div class="input-group-append">
@@ -295,30 +295,35 @@ if (isset($_SESSION['tipo_usuario'])) {
 
       if (valor_seleccionado != 'Productos' && valor_seleccionado != undefined) {
 
-         datos = `<div class="row mt-5" id="divProfesion">
-                     <label class="ml-2">Profesion:</label><br>
-                     <input type="text" class="form-control" name="n_especializacion" id="n_especializacion"></textarea>
-                  </div>
+         datos = `<div class="row">
+                     <div class="col-12" id="divProfesion">
+                        <label class="ml-2">Titulo de especializacion:</label><br>
+                        <input type="text" class="form-control" name="n_especializacion" id="n_especializacion" placeholder="Nombre de la especializacion."></textarea>
+                     </div>
 
-                  <div class="row mt-5">
-                     <label class="ml-2">Descripción:</label>
-                     <textarea class="form-control bg-light" name="descripcion" id="descripcion" class="" cols="30" rows="4" placeholder="Cuentanos mas de ti..."></textarea>
-                  </div>
+                     <div class="col-12 mt-3">
+                        <label class="ml-2">Descripción:</label>
+                        <textarea class="form-control bg-light" name="descripcion" id="descripcion" class="" cols="30" rows="4" placeholder="Cuentanos a que te dedicas en tu especializacion."></textarea>
+                     </div>
 
-                  <br>
-                  <div>
-                     <input type="file" class="form-control" id="certificado" name="foto_certificado" accept="image/*">
-                     <br>
-                     <br>
-                     <img id="frame" src="" width="100px" height="100px"/>
-                     <p class="text-danger">El formato de la imagen debe ser jpg, png o jpeg</p>
+                     <div class="col-12 mt-3">
+                        <label class="ml-2">Foto de certificado:</label>
+                        <input type="file" class="form-control" id="certificado" name="foto_certificado" accept="image/*">
+                     </div>
+
+                     <div class="col-12">
+                        <p class="text-danger">El formato de la imagen debe ser jpg, png o jpeg</p>
+                     </div>
+                     
+                     <div class="col-4 mt-3 mx-auto">
+                        <img id="frame" src="" width="100px" height="100px"/>
+                     </div>
                   </div>`;
 
          $('#datosEspecialista').html(datos);
          $('#datosEspecialista').show();
          $('#frame').hide();
          $('#certificado').on('change', preview);
-
       } else {
          $('#datosEspecialista').hide();
       }
@@ -345,89 +350,101 @@ if (isset($_SESSION['tipo_usuario'])) {
       genero = $("#genero").val();
       ciudad = $("#ciudad").val();
       password = $("#password").val();
-      certificado = $("#certificado").val();
+      
       loQueVaAVender = $("input[name='loQueVaAVender']:checked").val();
 
       if (documento != "" && nombres != "" && apellidos != "" && email != "" && direccion != "" && genero != "" && ciudad != "" && password != "" && loQueVaAVender != undefined) {
 
-         var datos_formulario = new FormData($('#formulario_registro')[0]);
+         certificado = $("#certificado").val();
+         n_especializacion = $("#n_especializacion").val();
+         descripcion = $("#descripcion").val();
+         
+         if (loQueVaAVender == 'Productos' || (certificado != "" && n_especializacion != "" && descripcion != "")) {
+            var datos_formulario = new FormData($('#formulario_registro')[0]);
 
-         $.ajax({
-            url: '<?php echo base_url('/Inicio/InsertarVendedor'); ?>',
-            type: "POST",
-            dataType: "text",
-            data: datos_formulario,
-            contentType: false,
-            processData: false
-         })
-         .done(function(data) {
-            console.log(data);
+            $.ajax({
+               url: '<?php echo base_url('/Inicio/InsertarVendedor'); ?>',
+               type: "POST",
+               dataType: "text",
+               data: datos_formulario,
+               contentType: false,
+               processData: false
+            })
+            .done(function(data) {
+               console.log(data);
 
-            if (data == "FAIL#DOCUMENTO") {
-               Swal.fire({
-                  icon: 'error',
-                  title: 'Ya existes',
-                  text: 'El número de documento ya está registrado',
-                  footer: '<a href="<?php echo base_url(); ?>">Ya tienes tu cuenta? Entonces inicia sesión.</a>'
-               })
-            } else if (data == "FAIL#EMAIL") {
-               Swal.fire({
-                  icon: 'error',
-                  title: 'Ya existes',
-                  text: 'El correo electronico ya está registrado',
-                  footer: '<a href="<?php echo base_url(); ?>">Ya tienes tu cuenta? Entonces inicia sesión.</a>'
-               })
-            } else if (data == "OK#CORRECT#DATA") {
-               if (loQueVaAVender == "Productos") {
+               if (data == "FAIL#DOCUMENTO") {
                   Swal.fire({
-                     title: 'Bienvenido!',
-                     text: "Ya has sido registrado en el sistema!",
-                     icon: 'success',
-                     confirmButtonColor: '#3085d6',
-                     confirmButtonText: 'Iniciar Sesión!'
-                  }).then((result) => {
-                     window.location = "<?php echo base_url(''); ?>";
+                     icon: 'error',
+                     title: 'Ya existes',
+                     text: 'El número de documento ya está registrado',
+                     footer: '<a href="<?php echo base_url(); ?>">Ya tienes tu cuenta? Entonces inicia sesión.</a>'
                   })
-               } else {
+               } else if (data == "FAIL#EMAIL") {
                   Swal.fire({
-                     title: 'Tu solicitud ha sido enviada!',
-                     text: "Para permitir el acceso a especialistas debes esperar a que validen tus datos.",
-                     icon: 'warning',
-                     footer: 'Por ahora estas "<span class="text-warning"> Pendiente </span>" por revisión. Se paciente.',
-                     confirmButtonColor: '#3085d6',
-                     confirmButtonText: 'Ir al login'
-                  }).then((result) => {
-                     window.location = "<?php echo base_url(''); ?>";
+                     icon: 'error',
+                     title: 'Ya existes',
+                     text: 'El correo electronico ya está registrado',
+                     footer: '<a href="<?php echo base_url(); ?>">Ya tienes tu cuenta? Entonces inicia sesión.</a>'
+                  })
+               } else if (data == "OK#CORRECT#DATA") {
+                  if (loQueVaAVender == "Productos") {
+                     Swal.fire({
+                        title: 'Bienvenido!',
+                        text: "Ya has sido registrado en el sistema!",
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Iniciar Sesión!'
+                     }).then((result) => {
+                        window.location = "<?php echo base_url(''); ?>";
+                     })
+                  } else {
+                     Swal.fire({
+                        title: 'Tu solicitud ha sido enviada!',
+                        text: "Para permitir el acceso a especialistas debes esperar a que validen tus datos.",
+                        icon: 'warning',
+                        footer: 'Por ahora estas "<span class="text-warning"> Pendiente </span>" por revisión. Se paciente.',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Ir al login'
+                     }).then((result) => {
+                        window.location = "<?php echo base_url(''); ?>";
+                     })
+                  }
+               } else if (data == "OK#INVALID#DATA") {
+                  Swal.fire({
+                     icon: 'error',
+                     title: 'Ocurrio algo!',
+                     text: 'Ha ocurrido un error en el servidor, no se pudo registrar la información.'
+                  })
+               } else if ("ERROR#TIPO#INCORRECTO") {
+                  Swal.fire({
+                     icon: 'error',
+                     title: 'Archivo no permitido!',
+                     text: 'Debes ingresar una imagen con alguno de los formatos especificados.'
+                  })
+               } else if ("ERROR#SUBIENDO#CERTIFICADO") {
+                  Swal.fire({
+                     icon: 'error',
+                     title: 'No se pudo subir la imagen!',
+                     text: 'Por alguna razón la imagen no pudo guardarse. Intentalo de nuevo!'
                   })
                }
-            } else if (data == "OK#INVALID#DATA") {
+            })
+            .fail(function(data) {
                Swal.fire({
                   icon: 'error',
                   title: 'Ocurrio algo!',
                   text: 'Ha ocurrido un error en el servidor, no se pudo registrar la información.'
                })
-            } else if ("ERROR#TIPO#INCORRECTO") {
-               Swal.fire({
-                  icon: 'error',
-                  title: 'Archivo no permitido!',
-                  text: 'Debes ingresar una imagen con alguno de los formatos especificados.'
-               })
-            } else if ("ERROR#SUBIENDO#CERTIFICADO") {
-               Swal.fire({
-                  icon: 'error',
-                  title: 'No se pudo subir la imagen!',
-                  text: 'Por alguna razón la imagen no pudo guardarse. Intentalo de nuevo!'
-               })
-            }
-         })
-         .fail(function(data) {
+               console.log(data);
+            });
+         } else {
             Swal.fire({
-               icon: 'error',
-               title: 'Ocurrio algo!',
-               text: 'Ha ocurrido un error en el servidor, no se pudo registrar la información.'
+               icon: 'warning',
+               title: 'Faltan datos',
+               text: 'Debes llenar todos los campos del formulario'
             })
-            console.log(data);
-         });
+         }
       } else {
          Swal.fire({
             icon: 'warning',

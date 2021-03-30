@@ -39,7 +39,7 @@ if (isset($_SESSION['tipo_usuario'])) {
             <img class="ml-5 mb-4" src="<?php echo base_url('public/dist/img/logo3.png') ?>" alt="">
             <p class="login-box-msg">INICIAR SESION</p>
 
-            <form id="formulario_ingreso" action="#" method="post">
+            <form id="formulario_ingreso" action="#" method="post" autocomplete="off">
                <div class="input-group mb-3">
                   <input id="campo_email" type="email" class="form-control" placeholder="Correo Electronico" required autofocus>
                   <div class="input-group-append">
@@ -67,7 +67,7 @@ if (isset($_SESSION['tipo_usuario'])) {
             <!-- /.social-auth-links -->
 
             <p class="mb-1">
-               <a href="forgot-password.html">He olvidado mi contraseña</a>
+               <a href="#">He olvidado mi contraseña</a>
             </p>
             <p class="mb-0">
                <a href="<?php echo base_url('Registrar') ?>" class="text-center">Deseo registrarme!</a>
@@ -128,6 +128,14 @@ if (isset($_SESSION['tipo_usuario'])) {
                   title: 'Aun sigues pendiente por revision!',
                   text: 'La informacion de tu profesión aun no ha sido revisada.',
                   footer: 'Por favor, ten paciencia...'
+               })
+            } else if (data == "NOT##STATUS##OFF") {
+               $("#campo_password").val("");
+               Swal.fire({
+                  icon: 'error',
+                  title: 'Has sido inactivado del sistema!',
+                  text: 'Tu usuario ahora mismo se encuentra inactivo en el sistema, no podrás ingresar.',
+                  footer: 'Si fue un error entonces puedes enviar un mensaje al correo:<i class="text-success">agroplaza@gmail.com</i>'
                })
             } else {
                $("#campo_password").val("");
