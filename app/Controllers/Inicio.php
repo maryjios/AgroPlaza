@@ -31,6 +31,8 @@ class Inicio extends BaseController
             $mensaje = 'NOT##ACCESS';
          } else if ($registros[0]["estado"] == "PENDIENTE") {
             $mensaje = 'NOT##STATUS';
+         } else if ($registros[0]["estado"] == "INACTIVO") {
+            $mensaje = 'NOT##STATUS##OFF';
          } else {
             unset($registros[0]['password']);
 
