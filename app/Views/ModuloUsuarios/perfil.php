@@ -4,15 +4,17 @@
   <div class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
-        <div class="col-12">
+        <div class="card col-12">
           <div class="row">
-            <div class="col">
-              <H3>Bienvenido <?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></H3>
+         
+            <div class=" card-header col">
+              <h3><b> Bienvenido</b> <?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></h3>
             </div>
           </div>
+           <br>
           <div class="row mb-4">
-            <div class="col border border-danger">
-             <img class="img-fluid "  src="https://www.caracteristicas.co/wp-content/uploads/2016/04/campo-1-e1558303226877.jpg">
+            <div class="col ">
+             <img class="img-fluid"  src="https://www.allianz-assistance.es/blog/viajes/datos-eje-cafetero-colombia/_jcr_content/root/stage/stageimage.img.jpeg/1579783414426/datos-eje-cafetero-colombia-stage.jpeg">
             </div>
           </div>
           <div class="row">
@@ -20,13 +22,26 @@
               <!-- ./col -->
               <div class="col-lg-3 col-6">
                 <!-- small box -->
-                <div class="small-box bg-warning">
+                <div class="small-box bg-success">
                   <div class="inner">
                     <h3 id="n_usuarios"></h3>
                     <p>Usuarios Registrados</p>
                   </div>
                   <div class="icon">
-                    <i class="ion ion-person-add"></i>
+                    <i class="fas fa-users"></i>
+                  </div>
+                  <a  class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                  <div class="inner">
+                    <h3 id="pendientes"></h3>
+                    <p>Usuarios Pendientes</p>
+                  </div>
+                  <div class="icon">
+                  <i class="fas fa-user-clock"></i>
                   </div>
                   <a  class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
                 </div>
@@ -73,6 +88,17 @@
       }
       
     });
+    //  Cantidad de usuarios Pendientes
+    $.ajax({
+      url: '<?php echo base_url('/ModuloUsuarios/CantidadPendientes');?>',
+      type: 'POST',
+      dataType: 'text',
+      success:function (data) {
+        $("#pendientes").text(data);
+      }
+      
+    });
+  
   
     //  Cantidad de pedidos activos
 

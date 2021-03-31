@@ -17,7 +17,7 @@ class PerfilUsuario extends BaseController
 		$departamentos_sql = $this->departamento->select('*')->findAll();
 		$departamentos = ['departamentos' => $departamentos_sql];
 
-		$data['modulo_selected'] = "Usuarios";
+		$data['modulo_selected'] = "Perfil";
 		$data['opcion_selected'] = "PerfilUsuario";
 
 		echo view('template/header', $data);
@@ -60,6 +60,29 @@ class PerfilUsuario extends BaseController
 			echo json_encode('ERROR#UPDATE');
 		}
 	}
+	public function password_edit(){
+
+		$usuarios = new UsuariosModel();
+		$id_perfil = $this->request->getPostGet('id_perfil');
+		$password_db = md5($this->request->getPostGet('password_db'));
+		$new_password = md5($this->request->getPostGet('new_password'));
+
+		$consulta_pass = $usuarios->where('password', $password_db)->where('id', $id_perfil)->find();
+
+		if ($consulta_pass) {
+			$data = $usuarios->set(['password' => $new_password])->where('id', $id_perfil)->update();
+
+			if ($data) {
+				echo json_encode('OK##UPDATE');
+			} else {
+				echo json_encode('ERROR##UPDATE');
+			}
+		} else {
+			echo json_encode('INVALID##PASSWORD');
+		}
+	}
+
+
 	public function getCiudades()
 	{
 		$ciudades_db = new CiudadesModel();

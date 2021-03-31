@@ -79,5 +79,13 @@ class BuscarUsuarios extends BaseController {
 		  echo $datos;
 	}
 
+	public function totalPendientes(){
+		$usuarios = new UsuariosModel();
+
+		$datos=$usuarios->where('estado','PENDIENTE')->countAll();
+
+		  echo $datos;
+	}
+
 }
 

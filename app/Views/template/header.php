@@ -309,8 +309,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
             </li>
 
 
-            <li class="nav-item">
-              <a href="<?php echo base_url('/ModuloUsuarios/PerfilUsuario') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'configuracionPerfil') ? 'active' : ''; ?> ">
+            <li class="nav-item <?php echo (isset($modulo_selected) && $modulo_selected == 'Perfil') ? 'menu-is-opening menu-open' : ''; ?>">
+              <a href="<?php echo base_url('/ModuloUsuarios/PerfilUsuario') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'PerfilUsuario') ? 'active' : ''; ?> ">
                 <i class="nav-icon fas fa-user-cog"></i>
                 <p>Ver Perfil</p>
               </a>

@@ -45,6 +45,7 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('CargarCiudades', 'RegistrarUsuario::cargarCiudadesMovil');
     $routes->add('BuscarUsuarios', 'BuscarUsuarios::index');
     $routes->add('CantidadUsuarios', 'BuscarUsuarios::totalUsuarios');
+    $routes->add('CantidadPendientes', 'BuscarUsuarios::totalPendientes');
 
 
     $routes->add('MostrarUsuarios', 'BuscarUsuarios::listarusuarios');
@@ -62,12 +63,16 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('MostrarPendientes', 'BuscarPendientes::listarpendientes');
     $routes->add('BuscarPenId', 'BuscarPendientes::buscarpenId');
     $routes->add('ActualizarPen', 'BuscarPendientes::actualizarpen');
-
+     
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
     $routes->add('CargarAvatar', 'PerfilUsuario::editarAvatar');
-    
-    $routes->add('EditarPerfil', 'PerfilUsuario::enviarnewdatos');
+    // Buscar y Editar datos generales del perfil 
     $routes->add('BuscarDatosPerfil', 'PerfilUsuario::buscar_session');
+    $routes->add('EditarPerfil', 'PerfilUsuario::enviarnewdatos');
+    
+    //  Editar datos  de seguridad del perfil 
+    $routes->add('PasswordPerfil', 'PerfilUsuario::password_edit');
+    
 
 
     // Rutas para consultar y modificar la ciudad del usuario (AppMovil)
