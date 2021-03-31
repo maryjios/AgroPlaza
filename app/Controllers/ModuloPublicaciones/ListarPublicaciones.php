@@ -83,6 +83,8 @@ class ListarPublicaciones extends BaseController
 		$imagenes = new ImagenesModel();
 		$valoraciones = new ValoracionesModel();
 		$unidades = new UnidadesModel();
+		$preguntas = new PreguntasModel();
+		$respuestas = new RespuestasModel();
 
 
 		$id = $this->request->getPostGet('file');
@@ -116,14 +118,28 @@ class ListarPublicaciones extends BaseController
 		$unidad = $unidades->select('abreviatura')
 			->where('id', $id_unidad)
 			->first();
+	
+    	$preguntas_publicacion = $preguntas->select('preguntas.id as id_pregunta,preguntas.descripcion as pregunta,concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, usuarios.avatar,preguntas.fecha_insert as fecha')
+    		->join('usuarios', 'preguntas.id_usuario = usuarios.id')
+    		->where('preguntas.id_publicacion',$id)
+    		->findAll();
+
+
+
+    	$respuestas_publicacion = $respuestas->select('id, descripcion, id_pregunta, fecha_insert')
+    										->findAll();
 
 
 		$datos = [
 			'publicacion' => $info_publicaciones,
 			'img' => $img,
 			'unidad' => $unidad,
-			'valoraciones' => $total_valoraciones
+			'valoraciones' => $total_valoraciones,
+			'preguntas' =>$preguntas_publicacion,
+			'respuestas'=>$respuestas_publicacion
 		];
+
+		var_dump($datos);
 
 
 		echo view('template/header');

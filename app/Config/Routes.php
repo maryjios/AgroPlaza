@@ -99,6 +99,7 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('TraerPreguntas', 'Preguntas::listarPreguntas');
     $routes->add('PreguntaIndividual', 'Preguntas::consultarPregunta');
     $routes->add('RespuestaPregunta', 'Preguntas::guardarRespuesta');
+    $routes->add('ConsultarRespuesta', 'Preguntas::consultarRespuesta');
 
     $routes->add('getDatosPublicacion', 'ListarPublicaciones::traerDatosParaCompra');
 

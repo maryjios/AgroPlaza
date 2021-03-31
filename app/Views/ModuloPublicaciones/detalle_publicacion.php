@@ -45,7 +45,8 @@
                       <div class="col">
                         <h4>Precio:</h4>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <p><span><i class="fas fa-dollar-sign"></i> </span><?php echo number_format($publicacion['precio'])?> <?php if ($publicacion['tipo_publicacion']=="PRODUCTO"){ echo " * ".$unidad['abreviatura'];} ?></p>
+                            <p><span><i class="fas fa-dollar-sign"></i> </span><?php  echo
+                             number_format($publicacion['precio'])?> <?php if ($publicacion['tipo_publicacion']=="PRODUCTO"){ echo " * ".$unidad['abreviatura'];} ?></p>
                         </div>
                       </div>
                       <?php if ($publicacion['tipo_publicacion']=="PRODUCTO"): ?>
@@ -66,7 +67,7 @@
                         <?php if($publicacion['tipo_publicacion']!="PRODUCTO"){  ?>
                         <h4>Servicio al domicilio:</h4>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                          <p><span><i class="fas fa-shipping-fast mr-3"></i></span><?php if ($publicacion['envio']=="NO") {
+                          <p><span><i class="fas fa-running"></i> </span><?php if ($publicacion['envio']=="NO") {
                             echo "No";
                           }else{
                             echo "Si";
@@ -125,26 +126,71 @@
                       <div class="tab-pane fade show active" id="publicacion_descripcion" role="tabpanel" aria-labelledby="publicacion_tab">
                         <p><?php echo $publicacion['descripcion']; ?></p>
                       </div>
-                      <div class="tab-pane fade" id="publicacion_pqr" role="tabpanel" aria-labelledby="publicacion_pqr_tab">
+                      <div class="tab-pane fade " id="publicacion_pqr" role="tabpanel" aria-labelledby="publicacion_pqr_tab">
+                        
 
-                       
+                        <?php foreach ($preguntas as $pregunta) {?>
+                          <div class="div_preguntas">
+                            <!-- Listado de preguntas -->
+                            <div class="direct-chat-msg ">
+                              <div class="direct-chat-infos clearfix">
+                                <span class="direct-chat-name float-right"><?php echo $pregunta['nombre_usuario'] ?></span>
+                                <span class="direct-chat-timestamp float-left"><?php echo $pregunta['fecha'] ?></span>
+                              </div>
+                              <!-- /.direct-chat-infos -->
+                              <img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar').'/'.$pregunta['avatar'] ?>" alt="message user image">
+                              <!-- /.direct-chat-img -->
+                              <div class="direct-chat-text">
+                                <?php echo $pregunta['pregunta']; ?>
+                              </div>
+                              <!-- /.direct-chat-text -->
+                            </div>
+                            <!-- Mensaje de respuesta -->
+                            <div class="direct-chat-msg right">
+                              <?php foreach ($respuestas as $respuesta): ?>
+                                <?php if($respuesta['id_pregunta'] == $pregunta['id_pregunta']) {?>
+                                  <div class="direct-chat-infos clearfix">
+                                    <span class="direct-chat-name float-right"></span>
+                                    <span class="direct-chat-timestamp float-left"><?php echo $respuesta['fecha_insert'] ?></span>
+                                  </div>
+                                  <!-- /.direct-chat-infos -->
+                                  <img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="message user image">
+                                  <!-- /.direct-chat-img -->
+                                  <div class="direct-chat-text">
+                                    <?php echo $respuesta['descripcion'] ?>
+                                  </div>
+                                  <!-- /.direct-chat-text -->
+                                <?php } ?>
+                              <?php endforeach ?>                         
+                            </div>
+
+                            <button class="btn btn-info btn-sm responder mr-2">Responder</button>
+                            <button class="btn btn-sm btn-danger rechazar">Rechazar</button>
+                            <div class="div_formulario"></div>
+                            <hr>
+                          </div>
+                        <?php } ?> 
                       </div>
                       <div class="tab-pane fade overflow-auto"  id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
-                        <?php foreach ($valoraciones as $valoracion): ?>
-                          <div class="callout callout-warning p-3 mt-2">
-                            <?php if ($valoracion['valoracion']>0) { ?>
-                              <i class="fas fa-star"></i>
-                            <?php }else { ?>
-                              <i class="far fa-star"></i>
-                            <?php } ?>
-                             <span><?php echo $valoracion['valoracion']; ?> </span>
-                            <?php if ($valoracion['foto']!=null) {?>
-                              <img src="" alt="Muestra">
-                            <?php } ?>
-                            <p class="text-secondary"> Por: <?php echo $valoracion['nombre_usuario']." Fecha: ".$valoracion['fecha_valoracion'] ?> </span></p>
-                            <p><?php echo $valoracion['descripcion'] ?></p>
-                          </div>
-                        <?php endforeach ?>
+                        <?php if($valoraciones != null){ ?>
+                          <?php foreach ($valoraciones as $valoracion): ?>
+                            <div class="callout callout-warning p-3 mt-2">
+                              <?php if ($valoracion['valoracion']>0) { ?>
+                                <i class="fas fa-star"></i>
+                              <?php }else { ?>
+                                <i class="far fa-star"></i>
+                              <?php } ?>
+                              <span><?php echo $valoracion['valoracion']; ?> </span>
+                              <?php if ($valoracion['foto']!=null) {?>
+                                <img src="" alt="Muestra">
+                              <?php } ?>
+                              <p class="text-secondary"> Por: <?php echo $valoracion['nombre_usuario']." Fecha: ".$valoracion['fecha_valoracion'] ?> </span></p>
+                              <p><?php echo $valoracion['descripcion'] ?></p>
+                            </div>
+                          <?php endforeach ?>
+                        <?php }else { ?>
+                          <h6>Aún no hay calificaciones para esta publicación.</h6>
+                        <?php } ?>
                       </div>
                     </div>
                   </div>
@@ -157,38 +203,6 @@
       </div><!-- /.container-fluid -->
     </div><!-- /.content-header -->
   </div>
-  <!-- Modal responder-->
-  <div class="modal fade" id="agregar_modal" >
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel3">Respuesta</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-              </div>
-              <div class="modal-body">
-                  <form id="form_nuevoUni" method="post"  autocomplete="of">
-                      <div class="row">
-                          <div class="form-group col">
-                              <input type="hidden" id="enviar_id" >
-                              <textarea type="text" class="form-control mt-3 mb-3" disabled name="" id="texto_pregunta"></textarea>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="form-group col">
-                            <textarea></textarea>
-                              
-                          </div>
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-default " data-dismiss="modal">Cerrar</button>
-                          <button type="submit" class="btn btn-primary guardar" data-dismiss="modal">Guardar</button>
-                      </div>
-                  </form>
-              </div>
-
-          </div>
-      </div>
-  </div>
   <script>
     $(document).ready(function() {
       $('.product-image-thumb').on('click', function () {
@@ -197,38 +211,50 @@
       $('.product-image-thumb.active').removeClass('active')
       $(this).addClass('active')
       });
-      traerPreguntas();    
+      $(".responder").click(abrirInput);   
     })
 
-    function traerPreguntas() {
+   /* function traerPreguntas() {
       $.ajax({
         url: '<?php echo base_url('/ModuloPublicaciones/TraerPreguntas?id=').$publicacion['id'];?>',
         type: 'GET',   
         dataType: 'json',
         success: function(data){
-          console.log(data)
-          var preguntas= "";
-          for (var i = 0; i < data.length; i++) {
 
-            preguntas ='<div class="div_preguntas">';
-            preguntas+=   '<input class="preg" type="hidden" value="'+data[i].id_pregunta+'">';
-            preguntas+=   '<h6>'+data[i].pregunta+'</h6>';
-            preguntas+=    '<button class="btn btn-info btn-sm responder mr-2">Responder</button>';
-            preguntas+=    '<button class="btn btn-sm btn-danger rechazar">Rechazar</button>';
-            preguntas+=    '<div class="div_respuesta"></div>';
-            preguntas+= '</div>';
-            preguntas+= '<hr>';
+          if (data!= "") {
+            console.log(data)
+            var preguntas= "";
+            for (var i = 0; i < data.length; i++) {
 
+              preguntas ='<div class="div_preguntas">';
+              preguntas+=   '<input class="preg" type="hidden" value="'+data[i].id_pregunta+'">';
+              preguntas+=   '<h6>'+data[i].pregunta+'</h6>';
+              preguntas+=    '<div class="div_respuesta"></div>';
+              preguntas+=    '<button class="btn btn-info btn-sm responder mr-2">Responder</button>';
+              preguntas+=    '<button class="btn btn-sm btn-danger rechazar">Rechazar</button>';
+              preguntas+=    '<div class="div_formulario"></div>';
+              preguntas+= '</div>';
+              preguntas+= '<hr>';
+
+              $("#publicacion_pqr").append(preguntas);
+            } 
+            $(".responder").click(abrirInput);  
+
+          }else{
+
+            preguntas = "<h6>Aún no hay preguntas para esta publicación.</h6>";
             $("#publicacion_pqr").append(preguntas);
-          } 
-          $(".responder").click(abrirInput);  
+          }
+          
         }
       });
-    }
+    }*/
 
 
     function abrirInput (){
-      $(".div_respuesta").empty();
+
+      $(".div_formulario").empty();
+      $(this).parents(".div_preguntas").find('.div_respuesta').addClass('ver_respuesta');
       var id = $(this).parents(".div_preguntas").find('.preg').val();
 
       input = `<form class="form-horizontal" id="formulario" method="post">
@@ -246,10 +272,11 @@
                   </div>
                 </form>`;
 
-      $(this).parents(".div_preguntas").find('.div_respuesta').html(input);
+      $(this).parents(".div_preguntas").find('.div_formulario').html(input);
       $(".cancelar").click(cerrarInput);
       $(".texto_respuesta").keyup(habilitarEnviar);
       $("#formulario").submit(enviarRespuesta);
+
     }
 
     function habilitarEnviar (){
@@ -262,7 +289,9 @@
     }
 
     function cerrarInput (){
+      $(this).parents(".div_preguntas").find('.div_respuesta').removeClass('ver_respuesta');
       $(this).parents("#formulario").remove();
+
     }
 
     function enviarRespuesta(e) {
@@ -286,12 +315,12 @@
                 console.log(data)
                  $("#formulario").remove();
                 
-                
-                for (var i = 0; i < data.length; i++) {
+                /*for (var i = 0; i < data.length; i++) {
                   
                   respuesta = `<p>`+data[i].descripcion+`</p>`;
-                  $(".div_respuesta").append(respuesta);
-                }
+                  //$(".ver_respuesta").append(respuesta);
+                 
+                }*/
 
                 
               }
@@ -302,13 +331,15 @@
           }
         }
       })
-      
+       $(".ver_respuesta").append(descripcion);
+       $(this).parents(".div_preguntas").find('.div_respuesta').removeClass('ver_respuesta');
       //$(this).parents(".div_respuesta").append(respuesta);
       
     }
 
-    
-    
   </script>
+
+
+
 
  
