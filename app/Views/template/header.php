@@ -80,61 +80,10 @@ if (!isset($_SESSION['tipo_usuario'])) {
       <ul class="navbar-nav ml-auto">
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
+          <a class="nav-link" data-toggle="dropdown" type="button" id="abrir_chat">
             <i class="far fa-comments"></i>
             <span class="badge badge-danger navbar-badge">3</span>
           </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="<?php echo base_url('public/dist/img/user1-128x128.jpg') ?>" alt="User Avatar" id="avatar_menu" class="img-size-50 mr-3 img-circle">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Brad Diesel
-                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">Llámame siempre que puedas ... </p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>Hace 4 horas</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="<?php echo base_url('public/dist/img/user8-128x128.jpg') ?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    John Pierce
-                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">Tengo tu mensaje hermano</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>Hace 4 horas</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="<?php echo base_url('public/dist/img/user3-128x128.jpg') ?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Nora Silvester
-                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">El tema va aquí </p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>Hace 4 horas</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">Mirar todos los mensajes</a>
-          </div>
         </li>
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
@@ -145,7 +94,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-item dropdown-header">15 Notificaciones</span>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
+            <a type="button" class="dropdown-item" >
               <i class="fas fa-envelope mr-2"></i> 4 nuevos mensajes
               <span class="float-right text-muted text-sm">3 mins</span>
             </a>
@@ -168,11 +117,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
             <i class="fas fa-expand-arrows-alt"></i>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-            <i class="fas fa-th-large"></i>
-          </a>
-        </li>
+        
       </ul>
     </nav>
     <!-- /.navbar -->
@@ -332,3 +277,161 @@ if (!isset($_SESSION['tipo_usuario'])) {
       </div>
       <!-- /.sidebar -->
     </aside>
+    <!-- chat -->
+    <div class="col-3 " style="float: right; " >  
+      <div class="card direct-chat direct-chat-primary d-none mt-3" id="div_chat">
+        <div class="card-header ui-sortable-handle" style="cursor: move;">
+          <h3 class="card-title">Chat </h3>
+
+          <div class="card-tools">
+            <span title="3 New Messages" class="badge badge-primary">3</span>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
+              <i class="fas fa-comments"></i>
+            </button>
+            <button type="button" class="btn btn-tool" id="btn_cerrar">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body" style="display: block;">
+          <!-- Conversations are loaded here -->
+          <div class="direct-chat-messages">
+            <!-- Message. Default to the left -->
+            <div class="direct-chat-msg">
+              <div class="direct-chat-infos clearfix">
+                <span class="direct-chat-name float-left">Alexander Pierce</span>
+                <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+              </div>
+              <!-- /.direct-chat-infos -->
+              <img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="message user image">
+              <!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                Mensaje recibido
+              </div>
+              <!-- /.direct-chat-text -->
+            </div>
+            <!-- /.direct-chat-msg -->
+
+            <!-- Message to the right -->
+            <div class="direct-chat-msg right">
+              <div class="direct-chat-infos clearfix">
+                <span class="direct-chat-name float-right">Sarah Bullock</span>
+                <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+              </div>
+              <!-- /.direct-chat-infos -->
+              <img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="message user image">
+              <!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                Mensaje Enviado
+              </div>
+              <!-- /.direct-chat-text -->
+            </div>
+            <!-- /.direct-chat-msg -->
+
+          </div>
+          <!--/.direct-chat-messages-->
+
+          <!-- Contacts are loaded here -->
+          <div class="direct-chat-contacts">
+            <ul class="contacts-list">
+              <li>
+                <a href="#">
+                  <img class="contacts-list-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="User Avatar">
+
+                  <div class="contacts-list-info">
+                    <span class="contacts-list-name">
+                      Count Dracula
+                      <small class="contacts-list-date float-right">2/28/2015</small>
+                    </span>
+                    <span class="contacts-list-msg">How have you been? I was...</span>
+                  </div>
+                  <!-- /.contacts-list-info -->
+                </a>
+              </li>
+              <!-- End Contact Item -->
+              <li>
+                <a href="#">
+                  <img class="contacts-list-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="User Avatar">
+
+                  <div class="contacts-list-info">
+                    <span class="contacts-list-name">
+                      Sarah Doe
+                      <small class="contacts-list-date float-right">2/23/2015</small>
+                    </span>
+                    <span class="contacts-list-msg">I will be waiting for...</span>
+                  </div>
+                  <!-- /.contacts-list-info -->
+                </a>
+              </li>
+              <!-- End Contact Item -->
+              <li>
+                <a href="#">
+                  <img class="contacts-list-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="User Avatar">
+
+                  <div class="contacts-list-info">
+                    <span class="contacts-list-name">
+                      Nadia Jolie
+                      <small class="contacts-list-date float-right">2/20/2015</small>
+                    </span>
+                    <span class="contacts-list-msg">I'll call you back at...</span>
+                  </div>
+                  <!-- /.contacts-list-info -->
+                </a>
+              </li>
+              <!-- End Contact Item -->
+              <li>
+                <a href="#">
+                  <img class="contacts-list-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="User Avatar">
+
+                  <div class="contacts-list-info">
+                    <span class="contacts-list-name">
+                      Nora S. Vans
+                      <small class="contacts-list-date float-right">2/10/2015</small>
+                    </span>
+                    <span class="contacts-list-msg">Where is your new...</span>
+                  </div>
+                  <!-- /.contacts-list-info -->
+                </a>
+              </li>
+              <!-- End Contact Item -->
+            </ul>
+            <!-- /.contacts-list -->
+          </div>
+          <!-- /.direct-chat-pane -->
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer" style="display: block;">
+          <form action="#" method="post">
+            <div class="input-group">
+              <input type="text" name="message" placeholder="Escribir mensaje ..." class="form-control">
+              <span class="input-group-append">
+                <button type="button" class="btn btn-primary">Enviar</button>
+              </span>
+            </div>
+          </form>
+        </div>
+        <!-- /.card-footer-->
+      </div>  
+    </div>  
+
+    <script >
+  $(document).ready(iniciar);
+
+  function iniciar (){
+    $("#abrir_chat").click(abrirChat);
+      $("#btn_cerrar").click(cerrarChat);
+  }
+
+  function abrirChat(){
+      $("#div_chat").removeClass('d-none');
+  }
+
+  function cerrarChat(){
+      $("#div_chat").addClass('d-none');
+  }
+</script>
+    

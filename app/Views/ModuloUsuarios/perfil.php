@@ -64,8 +64,7 @@
               <!-- ./col -->
             <?php } ?>
 
-            
-            
+                
             
           </div>
         </div><!-- /.col -->
@@ -77,7 +76,8 @@
   $(document).ready(iniciar);
 
   function iniciar() {
-    
+  
+     
 //  Cantidad de usuarios activos
     $.ajax({
       url: '<?php echo base_url('/ModuloUsuarios/CantidadUsuarios');?>',
@@ -117,4 +117,7 @@
       
     });
   }
+
+ 
+
 </script>
