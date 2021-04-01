@@ -21,6 +21,7 @@
                     <th>Id</th>
                     <th>Nombre</th>
                     <th>Abreviatura</th>
+                    <th>Cantidad x Unidad</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                   </tr>
@@ -32,6 +33,7 @@
                         <td class="id"><?php echo $dato['id'] ?></td>
                         <td><?php echo $dato['nombre'] ?></td>
                         <td><?php echo $dato['abreviatura'] ?></td>
+                        <td><?php echo $dato['cantidad*unidad'] ?></td>
                         <td><?php echo $dato['estado'] ?></td>
                         <td><?php echo "<button type='button'class='btn btn-warning editar ml-1'><i class='far fa-edit'></i></button><button class='btn btn-danger eliminar ml-1'> <i class='far fa-trash-alt'></i></button>" ?></td>
                       </tr>
@@ -68,6 +70,11 @@
                               <input type="text" class="form-control form-control-border" id="abreviatura_nuevo" placeholder="Abreviatura" required>
                           </div>
                       </div>
+                      <div class="row">
+                          <div class="form-group col">
+                              <input type="text" class="form-control form-control-border" id="cantidad_unidad" placeholder="Cuanto desea vender por unidad" required>
+                          </div>
+                      </div>
                       <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                           <button type="submit" class="btn btn-primary guardar" data-dismiss="modal">Guardar</button>
@@ -99,6 +106,11 @@
                   <div class="row">
                       <div class="form-group col">
                           <input type="text" class="form-control form-control-border" id="abreviatura" placeholder="abreviatura" required>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="form-group col">
+                          <input type="text" class="form-control form-control-border" id="c_unidad" placeholder="Cuanto desea vender por unidad" required>
                       </div>
                   </div>
               </div>
@@ -138,9 +150,10 @@
 
     function enviarInfoNuevaUnidad() {
 
-        nombre = $("#nombre_nuevo").val();
-        abreviatura = $("#abreviatura_nuevo").val();
-        tabla_unidades = $("#unidades").DataTable();
+        nombre          = $("#nombre_nuevo").val();
+        abreviatura     = $("#abreviatura_nuevo").val();
+        cantidad_unidad =  $("#cantidad_unidad").val();
+        tabla_unidades  = $("#unidades").DataTable();
 
         if (nombre != "" && abreviatura != "") {
 
@@ -151,6 +164,7 @@
                 data: {
                     nombre_nuevo: nombre,
                     abreviatura_nuevo: abreviatura,
+                    cantidad_unidad: cantidad_unidad
 
                 },
             })
@@ -191,6 +205,7 @@
                     $('#id').val(data[i].id);
                     $('#nombre').val(data[i].nombre);
                     $('#abreviatura').val(data[i].abreviatura);
+                    $('#c_unidad').val(data[i].cantidad_unidad);
 
                 }
             })
@@ -210,6 +225,8 @@
         var id = $('#id').val();
         var nombre = $('#nombre').val();
         var abreviatura = $('#abreviatura').val();
+        var cantidad_unidad= $('#c_unidad').val();
+
 
         $.ajax({
             url: '<?php echo base_url('/ModuloPublicaciones/EditarUnidad'); ?>',
@@ -218,7 +235,8 @@
             data: {
                 id: id,
                 nombre: nombre,
-                abreviatura: abreviatura
+                abreviatura: abreviatura,
+                cantidad_unidad: cantidad_unidad
             },
         }).done(function(data) {
 

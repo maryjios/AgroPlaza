@@ -11,7 +11,7 @@ class UnidadesModel extends Model {
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['nombre', 'abreviatura','estado'];
+    protected $allowedFields = ['nombre', 'abreviatura','cantidad*unidad','estado'];
 
     protected $useTimestamps = false;
     protected $createdField  = 'fecha_insert';

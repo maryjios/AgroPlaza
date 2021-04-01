@@ -20,6 +20,7 @@
                     <th>Id</th>
                     <th>Nombre</th>
                     <th>Abreviatura</th>
+                    <th>Cantidad x Unidad</th>
                     <th>Activar</th>
                   </tr>
                 </thead>
@@ -29,6 +30,7 @@
                       <td class="id"><?php echo $unidad['id'] ?></td>
                       <td><?php echo $unidad['nombre'] ?></td>
                       <td><?php echo $unidad['abreviatura'] ?></td>
+                      <th><?php echo $unidad['cantidad*unidad'] ?></th>
                       <td><?php echo "<button class='btn btn-info activar ml-1'><i class='fas fa-hand-pointer'></i></button>" ?></td>
                     </tr>
                   <?php endforeach ?>

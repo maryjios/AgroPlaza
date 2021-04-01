@@ -37,7 +37,8 @@
 		$unidades = new UnidadesModel();
 
 		$id = $this->request->getPostGet('id');
-		$datos = $unidades->where('id',$id)->find();
+		$datos = $unidades->select('id,nombre,abreviatura, cantidad*unidad as cantidad_unidad')
+						  ->where('id',$id)->find();
 
 		if ($datos) {
 			echo json_encode($datos);
@@ -52,9 +53,9 @@
         $id = $this->request->getPostGet('id');
 		$nombre = $this->request->getPostGet('nombre');
         $abreviatura = $this->request->getPostGet('abreviatura');
-		
+		$cantidad_unidad = $this->request->getPostGet('cantidad_unidad'); 
 
-        $datos = $unidades->set(['nombre'=>$nombre, 'abreviatura'=>$abreviatura])
+        $datos = $unidades->set(['nombre'=>$nombre, 'abreviatura'=>$abreviatura,'cantidad*unidad'=>$cantidad_unidad])
         				  ->where('id', $id)
         				  ->update();
 
@@ -89,9 +90,10 @@
 
 		$nombre = $this->request->getPostGet('nombre_nuevo');
 		$abreviatura = $this->request->getPostGet('abreviatura_nuevo');
+		$cantidad_unidad = $this->request->getPostGet('cantidad_unidad'); 
 
 
-		$consulta = $unidades->insert(['nombre' => $nombre,'abreviatura'=>$abreviatura]);
+		$consulta = $unidades->insert(['nombre' => $nombre,'abreviatura'=>$abreviatura, 'cantidad*unidad'=>$cantidad_unidad]);
 
 		if ($consulta) {
 			$mensaje = "##Ok##insert";

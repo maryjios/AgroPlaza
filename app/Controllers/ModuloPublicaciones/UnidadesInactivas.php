@@ -12,7 +12,7 @@ class UnidadesInactivas extends BaseController{
 	public function index(){
 		$unidades = new UnidadesModel();
 
-		$datos['unidades']= $unidades->select('id,nombre,abreviatura')
+		$datos['unidades']= $unidades->select('id,nombre,abreviatura,cantidad*unidad')
 									 ->where('estado','INACTIVA')
 									 ->findAll();
 
