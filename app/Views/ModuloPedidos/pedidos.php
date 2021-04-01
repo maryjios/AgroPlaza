@@ -27,6 +27,7 @@
                     <th>Id</th>
                     <th>Producto</th>
                     <th>Cantidad</th>
+                    <th>Valor envio</th>
                     <th>Valor total</th>
                     <th>Comprador</th>
                     <th>Fecha de pedido</th>
@@ -41,6 +42,11 @@
                         <td class="id"><?php echo $pedido['id'] ?></td>
                         <td><?php echo $pedido['titulo'] ?></td>
                         <td><?php echo $pedido['cantidad'] ?></td>
+                        <td>
+                          <form method="post">
+                            <input type="number" class="form-control col-6 v_envio" value="<?php echo $pedido['valor_envio'] ?>">
+                          </form>
+                        </td>
                         <td><?php echo $pedido['valor_total'] ?></td>
                         <td><?php echo $pedido['nombre_usuario'] ?></td>
                         <td><?php echo $pedido['fecha_insert'] ?></td>
@@ -101,9 +107,10 @@
                     </div>
                   </div>
                   <h6>Cantidad: <span id="cantidad"></span></h6>
-                  <h6>Precio: $ <span id="valor_compra">1500</span></h6>
+                  <h6>Precio producto: $ <span id="valor_compra"></span></h6>
+                  <h6>Subtotal: $ <span id="valor_subtotal"></span></h6>
                   <h6>Envio: $ <span id="valor_envio"></span></h6>
-                  <h6>Descuento: <span id="descuento"></span></h6>
+                  <h6>Descuento: $ <span id="descuento"></span></h6>
                   <hr>
                   <h6>Total: $ <span id="total"></span></h6>
                   <hr>
@@ -136,7 +143,8 @@
       });
       $('.detalle').click(verPedido);
       $(".proceso").click(pasar_a_proceso); 
-      $(".cancelado").click(pasar_a_cancelado); 
+      $(".cancelado").click(pasar_a_cancelado);
+      $(".v_envio").blur(editarEnvio); 
     }
 
 
@@ -158,8 +166,12 @@
           $("#cantidad").text(data[i].cantidad);
           $("#valor_compra").text(data[i].valor_compra);
           $("#valor_envio").text(data[i].valor_envio);
-          $("#descuento").text(data[i].descuento);
-          $("#total").text(data[i].valor_total);
+          subtotal= (data[i].cantidad * data[i].valor_compra);
+          $("#valor_subtotal").text(subtotal);
+          descuento = (parseInt(data[i].descuento)/100) * parseInt(subtotal);
+          total = (subtotal +parseInt(data[i].valor_envio))-descuento;
+          $("#descuento").text(descuento);
+          $("#total").text(total);
           $("#comprador").text(data[i].nombre_usuario);
         }
       })
@@ -224,6 +236,35 @@
         console.log("complete");
       });
 
+    }
+
+
+    function editarEnvio(){
+      id = $(this).parents("tr").find(".id").text();
+      nuevo_costo = $(this).parents("tr").find(".v_envio").val();
+      $.ajax({
+        url: '<?php echo base_url('/ModuloPedidos/EditarPedidos');?>',
+        type: 'POST',
+        dataType: 'text',
+        data: {id: id, nuevo_costo : nuevo_costo},
+      })
+      .done(function(data) {
+        alert(data)
+        Swal.fire({
+          text: "Se ha modificado el costo de envio del pedido",
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+
+        })
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
+      
     }
 
   </script>

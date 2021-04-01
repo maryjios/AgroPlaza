@@ -18,13 +18,13 @@ class Pedidos extends BaseController
         $tipo_usuario = $_SESSION['tipo_usuario'];
 
         if ($tipo_usuario == "ADMINISTRADOR") {
-        $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo')
+        $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad,pedidos.valor_envio, pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo')
                             ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
                             ->join('publicaciones','pedidos.id_publicacion = publicaciones.id')
                             ->where('pedidos.estado','SOLICITADO')
                             ->findAll();
         }else{
-            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo')
+            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_envio,pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo')
                                 ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
                                 ->join('publicaciones','pedidos.id_publicacion = publicaciones.id')
                                 ->where('publicaciones.id_usuario',$id)
@@ -39,6 +39,25 @@ class Pedidos extends BaseController
         echo view('template/header', $data);
         echo view('ModuloPedidos/pedidos',$consulta);
         echo view('template/footer');
+    }
+
+    public function editarPedido(){
+        $pedidos = new PedidosModel();
+
+        $id = $this->request->getPostGet('id');
+        $valor = $this->request->getPostGet('nuevo_costo');
+
+        $pedidos->update($id, ['valor_envio' => $valor]);
+
+        if ($pedidos) {
+            $mensaje = "Ok##edit";
+        } else {
+            $mensaje = "Error##edit";
+        }
+
+        echo $mensaje;
+
+
     }
 
     public function enProceso()

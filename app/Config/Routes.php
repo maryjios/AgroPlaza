@@ -105,6 +105,7 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('PreguntaIndividual', 'Preguntas::consultarPregunta');
     $routes->add('RespuestaPregunta', 'Preguntas::guardarRespuesta');
     $routes->add('ConsultarRespuesta', 'Preguntas::consultarRespuesta');
+    $routes->add('EliminarPregunta', 'Preguntas::eliminarPregunta');
 
     $routes->add('getDatosPublicacion', 'ListarPublicaciones::traerDatosParaCompra');
 
@@ -134,6 +135,7 @@ $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos']
     $routes->add('PasarEntregado', 'Pedidos::pasar_a_Entregado');
     $routes->add('PasarFinalizado', 'Pedidos::pasar_a_Finalizado');
     $routes->add('TotalPedidos', 'Pedidos::totalPedidos');
+    $routes->add('EditarPedidos', 'Pedidos::editarPedido');
 
     $routes->add('DetallePedido', 'Pedidos::detalle');
     $routes->add('HistorialPedidos', 'Pedidos::historial');
