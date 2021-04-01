@@ -94,7 +94,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-item dropdown-header">15 Notificaciones</span>
             <div class="dropdown-divider"></div>
-            <a type="button" class="dropdown-item" >
+            <a type="button" class="dropdown-item">
               <i class="fas fa-envelope mr-2"></i> 4 nuevos mensajes
               <span class="float-right text-muted text-sm">3 mins</span>
             </a>
@@ -117,7 +117,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
             <i class="fas fa-expand-arrows-alt"></i>
           </a>
         </li>
-        
+
       </ul>
     </nav>
     <!-- /.navbar -->
@@ -135,7 +135,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="<?php echo base_url('public/dist/img/avatar').'/'.$_SESSION['avatar'] ?>" class="img-circle elevation-2" alt="User Image">
+            <img src="<?php echo base_url('public/dist/img/avatar') . '/' . $_SESSION['avatar'] ?>" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="<?php echo base_url('Inicio/cargarVistaInicio'); ?>" class="d-block"><?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?></a>
@@ -179,9 +179,6 @@ if (!isset($_SESSION['tipo_usuario'])) {
 
             <?php } ?>
 
-
-
-
             <li class="nav-item <?php echo (isset($modulo_selected) && $modulo_selected == 'Publicaciones') ? 'menu-is-opening menu-open' : ''; ?> ">
               <a href="#" class="nav-link <?php echo (isset($modulo_selected) && $modulo_selected == 'Publicaciones') ? 'active' : ''; ?> ">
                 <i class="nav-icon fas fa-newspaper"></i>
@@ -224,7 +221,6 @@ if (!isset($_SESSION['tipo_usuario'])) {
               </ul>
             </li>
 
-
             <!-- Modulo Pedidos -->
             <li class="nav-item <?php echo (isset($modulo_selected) && $modulo_selected == 'Pedidos') ? 'menu-is-opening menu-open' : ''; ?> ">
               <a href="#" class="nav-link <?php echo (isset($modulo_selected) && $modulo_selected == 'Pedidos') ? 'active' : ''; ?> ">
@@ -253,15 +249,12 @@ if (!isset($_SESSION['tipo_usuario'])) {
               </ul>
             </li>
 
-
             <li class="nav-item <?php echo (isset($modulo_selected) && $modulo_selected == 'Perfil') ? 'menu-is-opening menu-open' : ''; ?>">
               <a href="<?php echo base_url('/ModuloUsuarios/PerfilUsuario') ?>" class="nav-link <?php echo (isset($opcion_selected) && $opcion_selected == 'PerfilUsuario') ? 'active' : ''; ?> ">
                 <i class="nav-icon fas fa-user-cog"></i>
                 <p>Ver Perfil</p>
               </a>
             </li>
-
-
 
             <li class="nav-item ">
               <a href="<?php echo base_url('Inicio/cerrarSession') ?>" class="nav-link">
@@ -278,7 +271,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
       <!-- /.sidebar -->
     </aside>
     <!-- chat -->
-    <div class="col-3 " style="float: right; " >  
+    <div class="col-3 " style="float: right; ">
       <div class="card direct-chat direct-chat-primary d-none mt-3" id="div_chat">
         <div class="card-header ui-sortable-handle" style="cursor: move;">
           <h3 class="card-title">Chat </h3>
@@ -300,37 +293,6 @@ if (!isset($_SESSION['tipo_usuario'])) {
         <div class="card-body" style="display: block;">
           <!-- Conversations are loaded here -->
           <div class="direct-chat-messages">
-            <!-- Message. Default to the left -->
-            <div class="direct-chat-msg">
-              <div class="direct-chat-infos clearfix">
-                <span class="direct-chat-name float-left">Alexander Pierce</span>
-                <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
-              </div>
-              <!-- /.direct-chat-infos -->
-              <img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="message user image">
-              <!-- /.direct-chat-img -->
-              <div class="direct-chat-text">
-                Mensaje recibido
-              </div>
-              <!-- /.direct-chat-text -->
-            </div>
-            <!-- /.direct-chat-msg -->
-
-            <!-- Message to the right -->
-            <div class="direct-chat-msg right">
-              <div class="direct-chat-infos clearfix">
-                <span class="direct-chat-name float-right">Sarah Bullock</span>
-                <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
-              </div>
-              <!-- /.direct-chat-infos -->
-              <img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="message user image">
-              <!-- /.direct-chat-img -->
-              <div class="direct-chat-text">
-                Mensaje Enviado
-              </div>
-              <!-- /.direct-chat-text -->
-            </div>
-            <!-- /.direct-chat-msg -->
 
           </div>
           <!--/.direct-chat-messages-->
@@ -340,7 +302,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
             <ul class="contacts-list">
               <li>
                 <a href="#">
-                  <img class="contacts-list-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="User Avatar">
+                  <img class="contacts-list-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png') ?>" alt="User Avatar">
 
                   <div class="contacts-list-info">
                     <span class="contacts-list-name">
@@ -355,7 +317,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
               <!-- End Contact Item -->
               <li>
                 <a href="#">
-                  <img class="contacts-list-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="User Avatar">
+                  <img class="contacts-list-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png') ?>" alt="User Avatar">
 
                   <div class="contacts-list-info">
                     <span class="contacts-list-name">
@@ -370,7 +332,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
               <!-- End Contact Item -->
               <li>
                 <a href="#">
-                  <img class="contacts-list-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="User Avatar">
+                  <img class="contacts-list-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png') ?>" alt="User Avatar">
 
                   <div class="contacts-list-info">
                     <span class="contacts-list-name">
@@ -385,7 +347,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
               <!-- End Contact Item -->
               <li>
                 <a href="#">
-                  <img class="contacts-list-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="User Avatar">
+                  <img class="contacts-list-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png') ?>" alt="User Avatar">
 
                   <div class="contacts-list-info">
                     <span class="contacts-list-name">
@@ -405,33 +367,138 @@ if (!isset($_SESSION['tipo_usuario'])) {
         </div>
         <!-- /.card-body -->
         <div class="card-footer" style="display: block;">
-          <form action="#" method="post">
+          <form action="#" method="post" id="enviar_msg_chat" autocomplete="off">
             <div class="input-group">
-              <input type="text" name="message" placeholder="Escribir mensaje ..." class="form-control">
+              <input type="text" id="mensaje_chat" name="message" placeholder="Escribir mensaje ..." class="form-control">
               <span class="input-group-append">
-                <button type="button" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
               </span>
             </div>
           </form>
         </div>
         <!-- /.card-footer-->
-      </div>  
-    </div>  
+      </div>
+    </div>
 
-    <script >
-  $(document).ready(iniciar);
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script>
+      var WebSocket_URL;
+      var client;
 
-  function iniciar (){
-    $("#abrir_chat").click(abrirChat);
-      $("#btn_cerrar").click(cerrarChat);
-  }
+      $(document).ready(iniciar);
 
-  function abrirChat(){
-      $("#div_chat").removeClass('d-none');
-  }
+      function iniciar() {
+        $("#abrir_chat").click(abrirChat);
+        $("#btn_cerrar").click(cerrarChat);
 
-  function cerrarChat(){
-      $("#div_chat").addClass('d-none');
-  }
-</script>
-    
+        conexionMqtt();
+        $("#enviar_msg_chat").submit(guardarMensajeServidor);
+      }
+
+      function abrirChat() {
+        $("#div_chat").removeClass('d-none');
+      }
+
+      function cerrarChat() {
+        $("#div_chat").addClass('d-none');
+      }
+
+      function conexionMqtt() {
+        // Opciones de coneccion
+        const options = {
+          connectTimeout: 10000,
+          clienteId: "<?php echo 'client_id_' . $_SESSION['id'] ?>",
+          keepalive: 60,
+          clean: true,
+        }
+
+        // WebSocket connect url
+        WebSocket_URL = 'ws://18.221.49.32:8083/mqtt';
+        client = mqtt.connect(WebSocket_URL, options);
+
+        client.on('connect', () => {
+          console.log('MQTT conectado por Web Socket. Exitoso!');
+          // Suscripcion
+          client.subscribe('prueba_chat', {
+            qos: 0
+          }, (error) => {
+            if (!error) {
+              console.log('Suscripcion Exitosa');
+            } else {
+              console.log('Falla en la Suscripcion');
+            }
+          });
+        });
+
+        client.on('message', (topic, message) => {
+
+          var result = "";
+          for (var i = 0; i < message.length; i++) {
+            //console.log ("Convirtiendo: "+message[i]+" en -> "+String.fromCharCode(message[i]))
+            result += String.fromCharCode(message[i]);
+          }
+          //console.log(result);
+          datosMessage = JSON.parse(result);
+          if (topic == "prueba_chat" && datosMessage.id != "<?php echo $_SESSION["id"]; ?>") {
+
+            textHtml = '<div class="direct-chat-msg">';
+            textHtml += '<div class="direct-chat-infos clearfix">'
+            textHtml += '<span class="direct-chat-name float-left">' + datosMessage.usuario + '</span>';
+            textHtml += '<span class="direct-chat-timestamp float-right">' + datosMessage.fecha.split(' ')[1] + '</span>';
+            textHtml += '</div>';
+            textHtml += '<img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar') . '/'; ?>' + datosMessage.avatar + '" alt="avatar">';
+            textHtml += '<div class="direct-chat-text">';
+            textHtml += decodeURIComponent(escape(datosMessage.mensaje));
+            textHtml += '</div>';
+            textHtml += '</div>';
+            $(".direct-chat-messages").append(textHtml);
+          }
+        });
+
+      }
+
+      function guardarMensajeServidor(e) {
+        e.preventDefault();
+
+        mensaje = $("#mensaje_chat").val();
+
+        if (mensaje != "") {
+          var fechaActual = new Date();
+          usuario = "<?php echo explode(" ", $_SESSION["nombres"])[0] . " " . explode(" ", $_SESSION["apellidos"])[0]; ?>";
+          fecha = fechaActual.getFullYear() + "-" + ((fechaActual.getMonth() < 10) ? "0" : "") + fechaActual.getMonth() + "-" + ((fechaActual.getDay() < 10) ? "0" : "") + fechaActual.getDay() + " " + ((fechaActual.getHours() < 10) ? "0" : "") + fechaActual.getHours() + ":" + ((fechaActual.getMinutes() < 10) ? "0" : "") + fechaActual.getMinutes() + ":" + ((fechaActual.getSeconds() < 10) ? "0" : "") + fechaActual.getSeconds();
+          id = "<?php echo $_SESSION["id"]; ?>";
+          avatar = "<?php echo $_SESSION["avatar"]; ?>";
+          datos = {
+            'id': id,
+            'usuario': usuario,
+            'mensaje': mensaje,
+            'fecha': fecha,
+            'avatar': avatar
+          };
+
+          textHtml = '<div class="direct-chat-msg right">';
+          textHtml += '<div class="direct-chat-infos clearfix">'
+          textHtml += '<span class="direct-chat-name float-right">' + usuario + '</span>';
+          textHtml += '<span class="direct-chat-timestamp float-left">' + fecha.split(' ')[1] + '</span>';
+          textHtml += '</div>';
+          textHtml += '<img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar') . '/' . $_SESSION["avatar"]; ?>" alt="avatar">';
+          textHtml += '<div class="direct-chat-text">';
+          textHtml += mensaje;
+          textHtml += '</div>';
+          textHtml += '</div>';
+          $(".direct-chat-messages").append(textHtml);
+
+          enviarMensajeMQTT(datos);
+        }
+
+      }
+
+      function enviarMensajeMQTT(datos) {
+        client.publish('prueba_chat', JSON.stringify(datos), (error) => {
+          console.log(error || 'Mensaje enviado a Broker MQTT.');
+          if (!error) {
+            $("#mensaje_chat").val("");
+          }
+        });
+      }
+    </script>
