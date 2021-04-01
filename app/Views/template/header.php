@@ -397,6 +397,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 
       function abrirChat() {
         $("#div_chat").removeClass('d-none');
+        document.getElementById("mensaje_chat").focus();
       }
 
       function cerrarChat() {
@@ -452,6 +453,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
             textHtml += '</div>';
             textHtml += '</div>';
             $(".direct-chat-messages").append(textHtml);
+
+            $('.direct-chat-messages').scrollTop( $('.direct-chat-messages').prop('scrollHeight') );
           }
         });
 
@@ -487,6 +490,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
           textHtml += '</div>';
           textHtml += '</div>';
           $(".direct-chat-messages").append(textHtml);
+
+          $('.direct-chat-messages').scrollTop( $('.direct-chat-messages').prop('scrollHeight') );
 
           enviarMensajeMQTT(datos);
         }
