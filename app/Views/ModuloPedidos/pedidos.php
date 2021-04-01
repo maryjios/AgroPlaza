@@ -100,7 +100,7 @@
             </div>
             <div class="row mt-2">
               <div class="col img-thumbnail">
-                <div class="position-relative rounded p-3 bg-success" style="height: 230px">
+                <div class="position-relative rounded p-3 bg-success" style="height: 260px">
                   <div class="ribbon-wrapper">
                     <div class="ribbon bg-primary">
                       +

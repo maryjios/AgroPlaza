@@ -94,16 +94,17 @@
             </div>
             <div class="row mt-2">
               <div class="col img-thumbnail">
-                <div class="position-relative rounded p-3 bg-success" style="height: 230px">
+                <div class="position-relative rounded p-3 bg-success" style="height: 260px">
                   <div class="ribbon-wrapper">
                     <div class="ribbon bg-primary">
                       +
                     </div>
                   </div>
                   <h6>Cantidad: <span id="cantidad"></span></h6>
-                  <h6>Precio: $ <span id="valor_compra">1500</span></h6>
+                  <h6>Precio producto: $ <span id="valor_compra"></span></h6>
+                  <h6>Subtotal: $ <span id="valor_subtotal"></span></h6>
                   <h6>Envio: $ <span id="valor_envio"></span></h6>
-                  <h6>Descuento: <span id="descuento"></span></h6>
+                  <h6>Descuento: $ <span id="descuento"></span></h6>
                   <hr>
                   <h6>Total: $ <span id="total"></span></h6>
                   <hr>
@@ -157,8 +158,12 @@
           $("#cantidad").text(data[i].cantidad);
           $("#valor_compra").text(data[i].valor_compra);
           $("#valor_envio").text(data[i].valor_envio);
-          $("#descuento").text(data[i].descuento);
-          $("#total").text(data[i].valor_total);
+          subtotal= (data[i].cantidad * data[i].valor_compra);
+          $("#valor_subtotal").text(subtotal);
+          descuento = (parseInt(data[i].descuento)/100) * parseInt(subtotal);
+          total = (subtotal +parseInt(data[i].valor_envio))-descuento;
+          $("#descuento").text(descuento);
+          $("#total").text(total);
           $("#comprador").text(data[i].nombre_usuario);
         }
       })
