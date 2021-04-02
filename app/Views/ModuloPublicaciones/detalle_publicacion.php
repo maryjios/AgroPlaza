@@ -46,7 +46,7 @@
                         <h4>Precio:</h4>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <p><span><i class="fas fa-dollar-sign"></i> </span><?php  echo
-                             number_format($publicacion['precio'])?> <?php if ($publicacion['tipo_publicacion']=="PRODUCTO"){ echo " * ".$unidad['abreviatura'];} ?></p>
+                             number_format($publicacion['precio'])?> <?php if ($publicacion['tipo_publicacion']=="PRODUCTO"){ echo " * ".$unidad['cantidad*unidad']. " ".$unidad['abreviatura'];} ?></p>
                         </div>
                       </div>
                       <?php if ($publicacion['tipo_publicacion']=="PRODUCTO"): ?>
@@ -126,52 +126,67 @@
                       <div class="tab-pane fade show active" id="publicacion_descripcion" role="tabpanel" aria-labelledby="publicacion_tab">
                         <p><?php echo $publicacion['descripcion']; ?></p>
                       </div>
-                      <div class="tab-pane fade " id="publicacion_pqr" role="tabpanel" aria-labelledby="publicacion_pqr_tab">
-                        
+                      <div class="tab-pane fade mostrar_pregunta" id="publicacion_pqr" role="tabpanel" aria-labelledby="publicacion_pqr_tab">
+                        <?php if ($preguntas != null) { ?>
 
-                        <?php foreach ($preguntas as $pregunta) {?>
-                          <div class="div_preguntas">
-                            <!-- Listado de preguntas -->
-                            <div class="direct-chat-msg ">
-                              <div class="direct-chat-infos clearfix">
-                                <span class="direct-chat-name float-right"><?php echo $pregunta['nombre_usuario'] ?></span>
-                                <span class="direct-chat-timestamp float-left"><?php echo $pregunta['fecha'] ?></span>
+                          <?php foreach ($preguntas as $pregunta) {?>
+                            <div class="div_preguntas" data-pregunta_id="<?php echo $pregunta['id_pregunta'] ?>">
+                              <!-- Listado de preguntas -->
+                              <div class="direct-chat-msg ">
+                                <div class="direct-chat-infos clearfix">
+                                  <span class="direct-chat-name float-right"><?php echo $pregunta['nombre_usuario'] ?></span>
+                                  <span class="direct-chat-timestamp float-left"><?php echo $pregunta['fecha'] ?></span>
+                                </div>
+                                <!-- /.direct-chat-infos -->
+                                <img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar').'/'.$pregunta['avatar'] ?>" alt="message user image">
+                                <!-- /.direct-chat-img -->
+                                <div class="direct-chat-text">
+                                  <input class="preg" type="hidden" value="<?php echo $pregunta['id_pregunta'] ?>">
+                                  <?php echo $pregunta['pregunta']; ?>
+                                </div>
+                                <!-- /.direct-chat-text -->
                               </div>
-                              <!-- /.direct-chat-infos -->
-                              <img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar').'/'.$pregunta['avatar'] ?>" alt="message user image">
-                              <!-- /.direct-chat-img -->
-                              <div class="direct-chat-text">
-                                <?php echo $pregunta['pregunta']; ?>
+                              <!-- Mensaje de respuesta -->
+                              <div class="direct-chat-msg right div_respuesta ">
+                                <?php foreach ($respuestas as $respuesta): ?>
+                                  <?php if($respuesta['id_pregunta'] == $pregunta['id_pregunta']) {?>
+                                    <div class="direct-chat-infos clearfix">
+                                      
+                                      <span class="direct-chat-timestamp float-left"><?php echo $respuesta['fecha_insert'] ?></span>
+                                    </div>
+                                    <input type="hidden" id="codigo_respuesta" value="<?php echo $respuesta['id']?>">
+                                    <!-- /.direct-chat-infos -->
+                                    <img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="message user image">
+                                    <!-- /.direct-chat-img -->
+                                    
+                                    <div class="direct-chat-text campo_respuesta" >
+                                      <?php echo $respuesta['descripcion'] ?>
+                                    </div>
+                                    <div class="btn-group" role="group">
+                                        <button id="btnGroupDrop1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                          <button class="dropdown-item editar" >Editar</button>
+                                          <button class="dropdown-item eliminar" >Eliminar Pregunta</button>
+                                        </div>
+                                      </div>
+                                    <!-- /.direct-chat-text -->
+                                  <?php } ?>
+                                <?php endforeach ?>                         
                               </div>
-                              <!-- /.direct-chat-text -->
-                            </div>
-                            <!-- Mensaje de respuesta -->
-                            <div class="direct-chat-msg right">
-                              <?php foreach ($respuestas as $respuesta): ?>
-                                <?php if($respuesta['id_pregunta'] == $pregunta['id_pregunta']) {?>
-                                  <div class="direct-chat-infos clearfix">
-                                    <span class="direct-chat-name float-right"></span>
-                                    <span class="direct-chat-timestamp float-left"><?php echo $respuesta['fecha_insert'] ?></span>
-                                  </div>
-                                  <!-- /.direct-chat-infos -->
-                                  <img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="message user image">
-                                  <!-- /.direct-chat-img -->
-                                  <div class="direct-chat-text">
-                                    <?php echo $respuesta['descripcion'] ?>
-                                  </div>
-                                  <!-- /.direct-chat-text -->
-                                <?php } ?>
-                              <?php endforeach ?>                         
-                            </div>
 
-                            <button class="btn btn-info btn-sm responder mr-2">Responder</button>
-                            <button class="btn btn-sm btn-danger rechazar">Rechazar</button>
-                            <div class="div_formulario"></div>
-                            <hr>
-                          </div>
-                        <?php } ?> 
+                              <button class="btn btn-info btn-sm responder mr-2">Responder</button>
+                              <button class="btn btn-sm btn-danger rechazar">Rechazar</button>
+                              <div class="div_formulario"></div>
+                              <hr>
+                            </div>
+                          <?php } ?> 
+                        <?php }else { ?>
+                          <h6>Aún no hay preguntas para esta publicación.</h6>
+                       <?php } ?>
                       </div>
-                      <div class="tab-pane fade overflow-auto"  id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
+                      <div class="tab-pane fade overflow-auto "  id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
                         <?php if($valoraciones != null){ ?>
                           <?php foreach ($valoraciones as $valoracion): ?>
                             <div class="callout callout-warning p-3 mt-2">
@@ -212,49 +227,21 @@
       $(this).addClass('active')
       });
       $(".responder").click(abrirInput);   
+      $(".rechazar").click(rechazarPregunta); 
+
+      $(".editar").click(editarRespuesta);  
+      $(".eliminar").click(eliminar_Pregunta_Respuesta);
+      $(".campo_respuesta").each(function(){
+       $(this).parent('.div_respuesta').next().remove();
+       $(this).parent('.div_respuesta').siblings('.rechazar').remove();
+     });
+    
     })
-
-   /* function traerPreguntas() {
-      $.ajax({
-        url: '<?php echo base_url('/ModuloPublicaciones/TraerPreguntas?id=').$publicacion['id'];?>',
-        type: 'GET',   
-        dataType: 'json',
-        success: function(data){
-
-          if (data!= "") {
-            console.log(data)
-            var preguntas= "";
-            for (var i = 0; i < data.length; i++) {
-
-              preguntas ='<div class="div_preguntas">';
-              preguntas+=   '<input class="preg" type="hidden" value="'+data[i].id_pregunta+'">';
-              preguntas+=   '<h6>'+data[i].pregunta+'</h6>';
-              preguntas+=    '<div class="div_respuesta"></div>';
-              preguntas+=    '<button class="btn btn-info btn-sm responder mr-2">Responder</button>';
-              preguntas+=    '<button class="btn btn-sm btn-danger rechazar">Rechazar</button>';
-              preguntas+=    '<div class="div_formulario"></div>';
-              preguntas+= '</div>';
-              preguntas+= '<hr>';
-
-              $("#publicacion_pqr").append(preguntas);
-            } 
-            $(".responder").click(abrirInput);  
-
-          }else{
-
-            preguntas = "<h6>Aún no hay preguntas para esta publicación.</h6>";
-            $("#publicacion_pqr").append(preguntas);
-          }
-          
-        }
-      });
-    }*/
-
 
     function abrirInput (){
 
       $(".div_formulario").empty();
-      $(this).parents(".div_preguntas").find('.div_respuesta').addClass('ver_respuesta');
+      //$(this).parents(".div_preguntas").find('.div_respuesta').addClass('ver_respuesta');
       var id = $(this).parents(".div_preguntas").find('.preg').val();
 
       input = `<form class="form-horizontal" id="formulario" method="post">
@@ -279,22 +266,61 @@
 
     }
 
+    function editarRespuesta (){
+
+      $(".div_formulario").empty();
+      $(this).parents(".div_respuesta").find('.campo_respuesta').addClass('act_respuesta');
+      var id = $(this).parents(".div_respuesta").find('#codigo_respuesta').val();
+      var respuesta = $(this).parents(".div_respuesta").find('.campo_respuesta').text();
+
+
+      input = `<form class="form-horizontal" id="formulario" method="post">
+                  <div class="form-group margin-bottom-none row mt-3">
+                    <div class="col-sm-6 contenedor">
+                      <input  id="id_respuesta" type="hidden" value="`+id+`">
+                      <input class="form-control input-sm texto_respuesta" value="`+respuesta.trim()+`" id="texto_respuesta" placeholder="Responder">
+                    </div>
+                    <div class="col-sm-2">
+                      <button type="submit" class="btn btn-success pull-right btn-block btn-sm  enviar">Enviar</button>
+                    </div>
+                    <div class="col-sm-2">
+                      <button type="button" class="btn btn-danger pull-right btn-block btn-sm cancelar">Cancelar</button>
+                    </div>
+                  </div>
+                </form>`;
+
+      $(this).parents(".div_preguntas").find('.div_formulario').html(input);
+      $(".cancelar").click(cerrarInput);
+      $(".texto_respuesta").keyup(habilitarEnviar);
+      $("#formulario").submit(actualizarRespuesta);
+
+    }
+
     function habilitarEnviar (){
       if ($(this).val()!= "") {
+        $(this).parents(".div_preguntas").find('.div_respuesta').addClass('ver_respuesta');
         $(this).parents(".div_preguntas").find('.enviar').removeClass('disabled');
 
       }else{
         $(this).parents(".div_preguntas").find('.enviar').addClass('disabled');
+
+        clase = $(this).parents(".div_preguntas").find('.enviar').attr('class');
+
+        if (clase.indexOf("disabled") > -1) {
+          $(this).parents(".div_preguntas").find('.div_respuesta').removeClass('ver_respuesta');
+        }
+        
       }
     }
 
     function cerrarInput (){
       $(this).parents(".div_preguntas").find('.div_respuesta').removeClass('ver_respuesta');
+      $(this).parents('.div_preguntas').find(".campo_respuesta").removeClass('act_respuesta');
       $(this).parents("#formulario").remove();
-
     }
 
     function enviarRespuesta(e) {
+
       e.preventDefault();
       id = $("#id_respuesta").val();
       descripcion = $("#texto_respuesta").val();
@@ -302,41 +328,173 @@
       $.ajax({
         url: '<?php echo base_url('/ModuloPublicaciones/RespuestaPregunta');?>',
         type: 'POST',
-        dataType: 'text',
+        dataType: 'json',
         data: {id: id, descripcion: descripcion},
         success: function(data){
-          if (data.trim()=="Ok##insert") {
-            $.ajax({
-              url: '<?php echo base_url('/ModuloPublicaciones/ConsultarRespuesta');?>',
-              type: 'POST',
-              dataType: 'json',
-              data: {id: id},
-              success: function(data){
-                console.log(data)
-                 $("#formulario").remove();
-                
-                /*for (var i = 0; i < data.length; i++) {
-                  
-                  respuesta = `<p>`+data[i].descripcion+`</p>`;
-                  //$(".ver_respuesta").append(respuesta);
-                 
-                }*/
+          console.log(data)
+          if (data!="") {
+            respuesta="";
 
-                
-              }
-            });
-
-          }else{
-            alert("no se inserto");
+            for (var i = 0; i < data.length; i++) {
+              
+              respuesta = `<div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right"></span>
+                      <span class="direct-chat-timestamp float-left">`+data[i].fecha_insert+`</span>
+                      </div>
+                      <input type="hidden" id="codigo_respuesta" value="`+data[i].id+`">
+                      <!-- /.direct-chat-infos -->
+                      <img class="direct-chat-img" src="<?php echo base_url('public/dist/img/avatar/avatar_default.png')?>" alt="message user image">
+                      <!-- /.direct-chat-img -->
+                      <div class="direct-chat-text campo_respuesta">
+                       `+data[i].descripcion+` 
+                      </div>
+                      <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                    
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                          <button class="dropdown-item editar" >Editar</button>
+                          <button class="dropdown-item eliminar" >Eliminar Pregunta</button>
+                        </div>
+                      </div>
+                        <!-- /.direct-chat-text -->`;
+              
+            }
+            $(".ver_respuesta").append(respuesta);
           }
+          $(".editar").click(editarRespuestaVista);  
+          $(".eliminar").click(eliminar_Pregunta_Respuesta);
         }
-      })
-       $(".ver_respuesta").append(descripcion);
-       $(this).parents(".div_preguntas").find('.div_respuesta').removeClass('ver_respuesta');
-      //$(this).parents(".div_respuesta").append(respuesta);
+      });
+      
+
+       //$(".ver_respuesta").append(respuesta);
+       //$(this).parents(".div_preguntas").find('.div_respuesta').removeClass('ver_respuesta');
+       $(this).parents('.div_preguntas').find(".responder").remove();
+       $(this).parents('.div_preguntas').find('.rechazar').remove();
+       $("#formulario").remove();
       
     }
 
+    function editarRespuestaVista (){
+
+      $(".div_formulario").empty();
+      $(this).parents(".div_respuesta").find('.campo_respuesta').addClass('act_respuesta');
+      var id =  $(this).parents(".div_respuesta").find('#codigo_respuesta').val(); //('#codigo_respuesta').val();
+      var respuesta = $(this).parents(".div_respuesta").find('.campo_respuesta').text();
+      
+
+      input = `<form class="form-horizontal" id="formulario" method="post">
+                  <div class="form-group margin-bottom-none row mt-3">
+                    <div class="col-sm-6 contenedor">
+                      <input  id="id_respuesta" type="hidden" value="`+id+`">
+                      <input class="form-control input-sm texto_respuesta" value="`+respuesta.trim()+`" id="texto_respuesta" placeholder="Responder">
+                    </div>
+                    <div class="col-sm-2">
+                      <button type="submit" class="btn btn-success pull-right btn-block btn-sm  enviar">Enviar</button>
+                    </div>
+                    <div class="col-sm-2">
+                      <button type="button" class="btn btn-danger pull-right btn-block btn-sm cancelar">Cancelar</button>
+                    </div>
+                  </div>
+                </form>`;
+
+      $(this).parents(".div_preguntas").find('.div_formulario').html(input);
+      $(".cancelar").click(cerrarInput);
+      $(".texto_respuesta").keyup(habilitarEnviar);
+      $("#formulario").submit(actualizarRespuesta);
+
+    }
+
+    function rechazarPregunta(){
+      var id = $(this).parents(".div_preguntas").find('.preg').val();
+      
+
+      Swal.fire({
+          title: 'Desea rechazar esta pregunta?',
+          showCancelButton: true,
+          confirmButtonText: `Aceptar`,
+        }).then((result) => {
+         
+          if (result.isConfirmed) {
+            $(this).parent(".div_preguntas").addClass('rechazar');
+            $.ajax({
+              url: '<?php echo base_url('/ModuloPublicaciones/EliminarPregunta');?>',
+              type: 'POST',
+              dataType: 'text',
+              data: {id: id},
+            })
+            .done(function() {
+                $(".rechazar").remove();
+            })
+            .fail(function() {
+              console.log("error");
+            })
+            .always(function() {
+              console.log("complete");
+            });
+            
+          } 
+        })
+        
+    }
+
+    function actualizarRespuesta(e) {
+
+      e.preventDefault();
+      id = $("#id_respuesta").val();
+      descripcion = $("#texto_respuesta").val();
+      var respuesta = "";
+      $.ajax({
+        url: '<?php echo base_url('/ModuloPublicaciones/EditarRespuesta');?>',
+        type: 'POST',
+        dataType: 'text',
+        data: {id: id, descripcion: descripcion},
+        success: function(data){
+          $("#formulario").remove();
+        }
+      })
+      $(".act_respuesta").text(descripcion);
+      $(this).parents('.div_preguntas').find(".campo_respuesta").removeClass('act_respuesta');
+    
+    }
+
+
+    function eliminar_Pregunta_Respuesta(){
+      id_pregunta = $(this).parents(".div_preguntas").find(".preg").val();
+      id_respuesta = $(this).parents(".div_preguntas").find("#codigo_respuesta").val();
+      data = $(this).parents(".div_preguntas").data('pregunta_id');
+      Swal.fire({
+          title: 'Desea eliminar esta pregunta?',
+          showCancelButton: true,
+          confirmButtonText: `Aceptar`,
+        }).then((result) => {
+         
+          if (result.isConfirmed) {
+            if (data == id_pregunta) {
+              $(this).parents(".div_preguntas").addClass('eliminar');
+            }
+            
+            $.ajax({
+              url: '<?php echo base_url('/ModuloPublicaciones/EliminarPregunta_Respuesta');?>',
+              type: 'POST',
+              dataType: 'text',
+              data: {id_pregunta: id_pregunta, id_respuesta:id_respuesta},
+            })
+            .done(function() {
+                $(".eliminar").remove();
+                
+            })
+            .fail(function() {
+              console.log("error");
+            })
+            .always(function() {
+              console.log("complete");
+            });
+            
+          } 
+        })
+      
+    }
   </script>
 
 

@@ -115,7 +115,7 @@ class ListarPublicaciones extends BaseController
 			->groupBy('imagenes.id_publicacion')
 			->first();
 
-		$unidad = $unidades->select('abreviatura')
+		$unidad = $unidades->select('abreviatura, cantidad*unidad')
 			->where('id', $id_unidad)
 			->first();
 	
