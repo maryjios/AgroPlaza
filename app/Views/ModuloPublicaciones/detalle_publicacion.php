@@ -162,6 +162,7 @@
                                     <div class="direct-chat-text campo_respuesta" >
                                       <?php echo $respuesta['descripcion'] ?>
                                     </div>
+                                    <?php if($_SESSION['tipo_usuario']!="ADMINISTRADOR") { ?>
                                     <div class="btn-group" role="group">
                                         <button id="btnGroupDrop1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                           
@@ -171,14 +172,17 @@
                                           <button class="dropdown-item eliminar" >Eliminar Pregunta</button>
                                         </div>
                                       </div>
+                                    <?php } ?>
                                     <!-- /.direct-chat-text -->
                                   <?php } ?>
                                 <?php endforeach ?>                         
                               </div>
-
+                             <?php if($_SESSION['tipo_usuario']!="ADMINISTRADOR") { ?>
                               <button class="btn btn-info btn-sm responder mr-2">Responder</button>
                               <button class="btn btn-sm btn-danger rechazar">Rechazar</button>
                               <div class="div_formulario"></div>
+                              <?php } ?>
+                              <hr>
                               <hr>
                             </div>
                           <?php } ?> 

@@ -139,9 +139,6 @@ class ListarPublicaciones extends BaseController
 			'respuestas'=>$respuestas_publicacion
 		];
 
-		var_dump($datos);
-
-
 		echo view('template/header');
 		echo view('ModuloPublicaciones/detalle_publicacion', $datos);
 		echo view('template/footer');
