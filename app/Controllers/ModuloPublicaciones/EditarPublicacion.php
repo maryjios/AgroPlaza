@@ -94,34 +94,56 @@ class EditarPublicacion extends BaseController
 			'id_usuario'       => $id_usuario
 		])->where('id',$id_publicacion)->update();
 
-		/*if ($registros) {
+		if ($registros) {
 
 			$files = $this->request->getFileMultiple('fotos');
+
+			foreach ($files as $file) {
+				if ($file->getExtension() !="") {
+					$imagenes = new ImagenesModel();
+					$imagenes->where('id_publicacion',$id_publicacion)->delete();
+
+					$imagenes = glob('./public/dist/img/publicaciones/publicacion'.$id_publicacion.'/*'); //obtenemos todos los nombres de los ficheros
+					foreach($imagenes as $imagen){
+					    if(is_file($imagen))
+					    unlink($imagen); //elimino el fichero
+					}
+					/*if(file_exists('./public/dist/img/publicaciones/publicacion'.$id_publicacion)){
+					    rmdir('./public/dist/img/publicaciones/publicacion'.$id_publicacion);
+					}*/
+					
+				}
+
+				break;
+			}
+
+			
 
 			$contador = 1;
 			foreach ($files as $file) {
 
 				$extension = $file->getExtension();
+	
 
 				if (in_array($extension, array('png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'))) {
 
 					$nombre_foto = 'foto_' . $contador.'.'.$extension;
 
+
 					$db_imagenes = new ImagenesModel();
 					$isnertada = $db_imagenes->insert([
 						'imagen' => $nombre_foto,
-						'id_publicacion' => $db_publicaciones->getInsertID()
+						'id_publicacion' => $id_publicacion
 					]);
 
 
-
-					$ruta = "./public/dist/img/publicaciones/publicacion".$db_publicaciones->getInsertID();
+					$ruta = "./public/dist/img/publicaciones/publicacion".$id_publicacion;
 
 					if (!file_exists($ruta)) {
 						mkdir($ruta, 0777, false);
 					}
 
-					$file->move('./public/dist/img/publicaciones/publicacion' . $db_publicaciones->getInsertID(), $nombre_foto);
+					$file->move('./public/dist/img/publicaciones/publicacion' . $id_publicacion, $nombre_foto);
 
 					if ($isnertada) {
 						$mensaje = "OK#CORRECTO";
@@ -132,7 +154,7 @@ class EditarPublicacion extends BaseController
 			}
 		} else {
 			$mensaje = "OK#INVALID#DATA";
-		}*/
+		}
 
 		if ($registros) {
 			$mensaje = "Ok##actualizo";

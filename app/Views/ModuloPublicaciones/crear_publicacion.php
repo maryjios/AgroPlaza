@@ -153,7 +153,7 @@ $(function() {
             if (regex.test(file[0].name.toLowerCase())) {
                var reader = new FileReader();
                reader.onload = function(e) {
-                  var img = $("<img />");
+                  var img = $("<img class='rounded img-fluid mr-5' />");
                   img.attr("style", "height:100px;width: 100px");
                   img.attr("src", e.target.result);
                   dvPreview.append(img);
