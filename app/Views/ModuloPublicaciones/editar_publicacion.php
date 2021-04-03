@@ -136,7 +136,7 @@
                         <br>
                         <div class="col-md-12" align="center">
                            <input id="fotos" type="file" name="fotos[]" multiple="multiple" accept="image/*" />
-                           <p class="text-danger">Puedes seleccionar varias imagenes.</p>
+                           <p class="text-danger">Al elegir nuevas imagenes, se cambiaran todas las imagenes que se previsualizan en la parte inferior.</p>
                            <hr />
                            <b>Vista Previa</b>
                            <br />
