@@ -17,7 +17,7 @@ class Chat extends BaseController
 
         $chat = new ChatModel();
 
-        $data = $chat->save(['pedido' => $id_pedido, 'usuario' => $id_usuario, 'mensaje' => $mensaje]);
+        $data = $chat->insert(['pedido' => $id_pedido, 'usuario' => $id_usuario, 'mensaje' => $mensaje]);
 
         if ($data) {
             $mensaje = "OK##INSERT##CHAT";
@@ -25,6 +25,20 @@ class Chat extends BaseController
             $mensaje = "ERROR##INSERT";
         }
 
-        json_encode($mensaje);
+        echo json_encode($mensaje);
+    }
+
+    public function cargarMensajes()
+    {
+        $id_pedido = $this->request->getPostGet('pedido');
+
+        $chat = new ChatModel();
+
+        $consulta = $chat->select('chat.id, chat.usuario, chat.mensaje, chat.fecha, usuarios.id as id_usuario, SUBSTRING_INDEX(usuarios.nombres, " ", 1) as nombre, SUBSTRING_INDEX(usuarios.apellidos, " ", 1) as apellido, usuarios.avatar')
+                ->join('usuarios', 'chat.usuario = usuarios.id')
+                ->where('chat.pedido', $id_pedido)
+                ->findAll();
+
+        echo json_encode($consulta);
     }
 }
