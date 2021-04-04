@@ -408,7 +408,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
         // Opciones de coneccion
         const options = {
           connectTimeout: 10000,
-          clienteId: "<?php echo 'client_id_' . $_SESSION['id'] ?>",
+          clienteId: "<?php echo 'user_id_' . $_SESSION['id'] ?>",
           keepalive: 60,
           clean: true,
         }
