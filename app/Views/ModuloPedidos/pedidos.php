@@ -68,7 +68,7 @@
                           </div>
                           <button type="button" class="btn btn-info abrir_chat">
                             <i class="far fa-comments"></i>
-                            <span class="badge badge-danger navbar-badge mensajes_nuevos">3</span>
+                            <span class="badge badge-danger navbar-badge mensajes_nuevos"></span>
                           </button>
                         <?php } ?>
                       </td>
