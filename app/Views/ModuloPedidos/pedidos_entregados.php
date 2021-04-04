@@ -56,7 +56,7 @@
                             <button type="button" class="btn btn-warning dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
                               <span class="sr-only">Toggle Dropdown</span>
                             </button>
-                            <div class="dropdown-menu" role="menu" style="">
+                            <div class="dropdown-menu" role="menu">
                               <button class="dropdown-item finalizado">Finalizado</button>
                             </div>
                           </div>
