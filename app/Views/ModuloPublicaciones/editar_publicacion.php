@@ -136,7 +136,7 @@
                         <br>
                         <div class="col-md-12" align="center">
                            <input id="fotos" type="file" name="fotos[]" multiple="multiple" accept="image/*" />
-                           <p class="text-danger">Puedes seleccionar varias imagenes.</p>
+                           <p class="text-danger">Al elegir nuevas imagenes, se cambiaran todas las imagenes que se previsualizan en la parte inferior.</p>
                            <hr />
                            <b>Vista Previa</b>
                            <br />
@@ -148,8 +148,7 @@
                                     $directorio = opendir($path);
                                     while ($archivo = readdir($directorio)) {
                                        if (!is_dir($archivo)) { ?>
-                                          <div class=" d-inline mr-5">
-                                            <a href="#"><i class="far fa-trash-alt "></i></a>
+                                          <div class=" d-inline mr-5 " data="<?php echo $path ?>">
                                              <img  class="rounded" style="width: 100px;" src="<?php echo base_url('/public/dist/img/publicaciones/publicacion').$publicacion['id'].'/'.$archivo ?>"> 
                                           </div>
                                           
@@ -184,20 +183,20 @@ $(function() {
             if (regex.test(file[0].name.toLowerCase())) {
                var reader = new FileReader();
                reader.onload = function(e) {
-                  var img = $("<img />");
+                  var img = $("<img class='rounded img-fluid mr-5' />");
                   img.attr("style", "height:100px;width: 100px");
                   img.attr("src", e.target.result);
                   dvPreview.append(img);
                }
                reader.readAsDataURL(file[0]);
             } else {
-               alert(file[0].name + " is not a valid image file.");
+               alert(file[0].name + ". Este archivo no es valido.");
                dvPreview.html("");
                return false;
             }
          });
       } else {
-         alert("This browser does not support HTML5 FileReader.");
+         alert("Este navegador no es compatible con HTML5 FileReader.");
       }
    });
 });
@@ -212,6 +211,14 @@ function iniciar() {
    $("#envio").click(comprobarCheck);
    esconderStock();
    $("#tipo_producto").click(esconderStock);
+
+   $(".delete").click(function(){
+      var parent = $(this).parent().attr('id');
+      var service = $(this).parent().attr('data');
+      var dataString = 'id='+service;
+
+      alert(parent)
+   })
 }
 
 function elegirCiudad() {
@@ -239,9 +246,7 @@ function elegirCiudad() {
    .fail(function(data) {
       console.log("error en el proceso");
       alert("sdsd");
-   });
-   
-   
+   });  
 }
 
 function comprobarCheck() {
@@ -303,13 +308,13 @@ function formEditarPublicacion(e) {
          
       })
       .done(function(data) {
-         console.log(data);
+         //alert(data);
 
          if (data == "Ok##actualizo") {
             Swal.fire({
                icon: 'success',
                title: 'Exitoso!',
-               text: 'La publicacion ha sido registrada con exito.'
+               text: 'La publicación ha sido editada con exito.'
             })
 
             setTimeout(function() {
@@ -317,9 +322,9 @@ function formEditarPublicacion(e) {
             },2000); 
 
          } else if (data == "OK#INVALID#DATA") {
-            alert("OCURRIO UN ERROR AL INSERTAR LA PUBLICACION");
+            alert("OCURRIO UN ERROR AL EDITAR LA PUBLICACION");
          } else {
-            alert(data);
+            //alert(data);
          }
       })
       .fail(function(data) {
