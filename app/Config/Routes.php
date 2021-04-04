@@ -143,6 +143,7 @@ $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos']
     $routes->add('HistorialPedidos', 'Pedidos::historial');
 
     $routes->add('GenerarPedidoMovil', 'GestionPedidosMovil::generarPedido');
+    $routes->add('ConsultarPedidosUsuario', 'GestionPedidosMovil::getPedidos');
 
 });
 
