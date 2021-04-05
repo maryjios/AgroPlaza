@@ -90,6 +90,7 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
 $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPublicaciones'], function ($routes) {
     $routes->add('ListarPublicaciones', 'ListarPublicaciones::index');
     $routes->add('ListarPublicacionesMovil', 'ListarPublicaciones::ListarPublicacionesMovil');
+    $routes->add('ListarPublicacionesPerfilMovil', 'ListarPublicaciones::ListarPublicacionesPerfilMovil');
     $routes->add('getImagenesPublicacion', 'ListarPublicaciones::getImagenesPublicacion');
     $routes->add('RegistrarPregunta', 'GestionarPreguntasAppMovil::InsertarPregunta');
     $routes->add('ConsultarPreguntas', 'GestionarPreguntasAppMovil::getPreguntas');
@@ -145,10 +146,12 @@ $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos']
     $routes->add('GenerarPedidoMovil', 'GestionPedidosMovil::generarPedido');
     $routes->add('ConsultarPedidosUsuario', 'GestionPedidosMovil::getPedidos');
     $routes->add('DatosDetallePedido', 'GestionPedidosMovil::detallePedido');
+    $routes->add('nombreEspecializacionVendedor', 'GestionPedidosMovil::getEspecializacionVendedor');
 
     $routes->add('GuardarMensajeChat', 'Chat::insertarMensaje');
     $routes->add('CargarMensajesChat', 'Chat::cargarMensajes');
     $routes->add('CargarMensajesChatMovil', 'Chat::cargarMensajesMovil');
+    
 });
 
 

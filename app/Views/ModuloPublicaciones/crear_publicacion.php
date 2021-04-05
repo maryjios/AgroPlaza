@@ -10,7 +10,6 @@
                      <p class="card-title text-secondary font-weight-bold pr-2">
                         <i class="fas fa-plus mr-1"></i>
                         Crear Publicación
-                        <p class="text-secondary font-weight-bold small mt-1"> (todos los campos son obligatorios)</p>
                      </p>
                   </div>
                   <div class="card-body">
@@ -120,6 +119,8 @@
                         </div>
                         <br>
                         <div class="col-md-12" align="center">
+                        <p class="text-secondary">Selecciona las imagenes de tu publicacion :</p>
+
                            <input id="fotos" type="file" name="fotos[]" multiple="multiple" accept="image/*" />
                            <p class="text-danger">Puedes seleccionar varias imagenes.</p>
                            <hr />

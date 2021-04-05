@@ -4,6 +4,7 @@ namespace App\Controllers\ModuloPedidos;
 
 use CodeIgniter\Controller;
 use App\Controllers\BaseController;
+use App\Models\EspecializacionModel;
 use App\Models\PedidosModel;
 use App\Models\UsuariosModel;
 use App\Models\PublicacionesModel;
@@ -87,10 +88,27 @@ class GestionPedidosMovil extends BaseController
         $db_pedidos = new PedidosModel();
         
         $sentencia['datos'] = $db_pedidos->select('p.titulo AS titulo_p, p.precio AS precio_p, p.envio AS envio_p, pedidos.descuento AS descuento_p, 
-        concat(u.nombres," ",u.apellidos) AS nombre_vendedor, pedidos.valor_total AS total_p, pedidos.cantidad AS cantidad_p')
+        concat(u.nombres," ",u.apellidos) AS nombre_vendedor, u.tipo_usuario AS tipo_v, u.id AS id_u, c.nombre AS ciudad_v, d.nombre AS departamento_v,  pedidos.valor_total AS total_p, pedidos.cantidad AS cantidad_p')
         ->join('publicaciones p', 'p.id = pedidos.id_publicacion')
-        ->join('usuarios u', 'u.id = p.id_usuario')->where('pedidos.id', $pedido)->findAll();
+        ->join('usuarios u', 'u.id = p.id_usuario')
+        ->join('ciudad c', 'c.id = u.id_ciudad')
+        ->join('departamento d', 'd.id = c.id_departamento')->where('pedidos.id', $pedido)->findAll();
 
         echo json_encode($sentencia);
     }
+
+    public function getEspecializacionVendedor(){
+        
+        $user = $this->request->getPostGet('usuario');
+        $db_usuario = new UsuariosModel();
+        
+        $dato = $db_usuario->select('e.nombre')
+        ->join('especializacion e', 'e.id_usuario = usuarios.id')->where(['usuarios.id' => $user, 'usuarios.tipo_usuario' => 'VENDEDOR_ESPECIALISTA'])->first();
+
+        if($dato){
+            echo json_encode($dato);
+        }else{
+            echo json_encode("El vendedor no es especialista");
+        }
+    }   
 }
