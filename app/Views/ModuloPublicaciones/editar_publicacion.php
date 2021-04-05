@@ -29,7 +29,7 @@
                               <p class="float-right text-secondary">Titulo :</p>
                            </div>
                            <div class="col-md-9">
-                              <input type="hidden" name="id_publicacion" value="<?php echo $publicacion['id'] ?>">
+                              <input type="hidden" id="id_publicacion" name="id_publicacion" value="<?php echo $publicacion['id'] ?>">
                               <input type="text" value="<?php echo $publicacion['titulo'] ?>" name="titulo" id="titulo" class="form-control" required>
                            </div>
                         </div>
@@ -142,21 +142,7 @@
                            <br />
                            <br />
                            <div id="dvPreview">
-                              <?php 
-                                 $path = "./public/dist/img/publicaciones/publicacion".$publicacion['id'];
-                                 if (file_exists($path)) {
-                                    $directorio = opendir($path);
-                                    while ($archivo = readdir($directorio)) {
-                                       if (!is_dir($archivo)) { ?>
-                                          <div class=" d-inline mr-5 " data="<?php echo $path ?>">
-                                             <img  class="rounded" style="width: 100px;" src="<?php echo base_url('/public/dist/img/publicaciones/publicacion').$publicacion['id'].'/'.$archivo ?>"> 
-                                          </div>
-                                          
-                                    <?php }
-                                    }
-                                 }
-
-                              ?>
+                              
                            </div>
                         </div>
                         <br>
@@ -219,6 +205,34 @@ function iniciar() {
 
       alert(parent)
    })
+
+   cargarImagenes();
+}
+
+function cargarImagenes() {
+   id = $("#id_publicacion").val();
+   $.ajax({
+      url: '<?php echo base_url('/ModuloPublicaciones/traerImagenes') ?>',
+      type: 'POST',
+      dataType: 'json',
+      data: {id_publicacion: id},
+   })
+   .done(function(data) {
+      imagenes="";
+       for (var i = 0; i < data.length; i++) {
+         imagenes = '<div class=" d-inline mr-5 " >';
+         imagenes += '<img  class="rounded" src="<?php echo base_url("public/dist/img/publicaciones/publicacion")?>'+data[i].id_publicacion+'/'+data[i].imagen+'" style="width: 100px;" ></div>'; 
+         
+         $("#dvPreview").append(imagenes);                              
+      }
+   })
+   .fail(function() {
+      console.log("error");
+   })
+   .always(function() {
+      console.log("complete");
+   });
+   
 }
 
 function elegirCiudad() {
@@ -290,6 +304,7 @@ function esconderStock() {
 }
 
 function formEditarPublicacion(e) {
+
    e.preventDefault();
    titulo = $("#titulo").val();
    descripcion = $("#descripcion").val();
@@ -308,18 +323,11 @@ function formEditarPublicacion(e) {
          
       })
       .done(function(data) {
-         //alert(data);
+         console.log(data);
 
          if (data == "Ok##actualizo") {
-            Swal.fire({
-               icon: 'success',
-               title: 'Exitoso!',
-               text: 'La publicación ha sido editada con exito.'
-            })
-
-            setTimeout(function() {
-               window.location = "<?php echo base_url('/ModuloPublicaciones/ListarPublicaciones') ?>";
-            },2000); 
+          window.location.reload(true);
+             
 
          } else if (data == "OK#INVALID#DATA") {
             alert("OCURRIO UN ERROR AL EDITAR LA PUBLICACION");
@@ -336,5 +344,4 @@ function formEditarPublicacion(e) {
    }
 }
 
-   
 </script>

@@ -55,6 +55,18 @@ class EditarPublicacion extends BaseController
 		echo view('template/footer');
 	}
 
+	public function cargarImagenes()
+	{
+		$imagenes = new ImagenesModel();
+
+		$id_publicacion = $this->request->getPostGet('id_publicacion'); 
+
+		$lista_img = $imagenes->where('id_publicacion', $id_publicacion)->findAll();
+
+		echo json_encode($lista_img); 
+	}
+
+
 	public function editar()
 	{
 		$id_publicacion = $this->request->getPostGet('id_publicacion');
@@ -98,13 +110,15 @@ class EditarPublicacion extends BaseController
 
 			$files = $this->request->getFileMultiple('fotos');
 
+			//var_dump($files);
+
 			foreach ($files as $file) {
 				if ($file->getExtension() !="") {
 					$imagenes = new ImagenesModel();
 					$imagenes->where('id_publicacion',$id_publicacion)->delete();
 
-					$imagenes = glob('./public/dist/img/publicaciones/publicacion'.$id_publicacion.'/*'); //obtenemos todos los nombres de los ficheros
-					foreach($imagenes as $imagen){
+					$imagenes_publicacion = glob('./public/dist/img/publicaciones/publicacion'.$id_publicacion.'/*'); //obtenemos todos los nombres de los ficheros
+					foreach($imagenes_publicacion as $imagen){
 					    if(is_file($imagen))
 					    unlink($imagen); //elimino el fichero
 					}

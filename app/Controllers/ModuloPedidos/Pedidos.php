@@ -24,7 +24,7 @@ class Pedidos extends BaseController
                 ->where('pedidos.estado', 'SOLICITADO')
                 ->findAll();
         } else {
-            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_envio,pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo')
+            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_envio,, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo, publicaciones.precio')
                 ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
                 ->join('publicaciones', 'pedidos.id_publicacion = publicaciones.id')
                 ->where('publicaciones.id_usuario', $id)

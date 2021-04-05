@@ -101,6 +101,8 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('ConsultaDetalle', 'ListarPublicaciones::detallePublicacion');
     $routes->add('Busqueda', 'ListarPublicaciones::busqueda');
     $routes->add('ActualizarPublicacion', 'EditarPublicacion::editar');
+    $routes->add('traerImagenes', 'EditarPublicacion::cargarImagenes');
+
     $routes->add('EliminarPublicacion', 'ListarPublicaciones::eliminarPublicacion');
     $routes->add('TraerPreguntas', 'Preguntas::listarPreguntas');
     $routes->add('PreguntaIndividual', 'Preguntas::consultarPregunta');
