@@ -34,7 +34,7 @@ class Chat extends BaseController
 
         $chat = new ChatModel();
 
-        $consulta = $chat->select('chat.id, chat.usuario, chat.mensaje, chat.fecha, usuarios.id as id_usuario, SUBSTRING_INDEX(usuarios.nombres, " ", 1) as nombre, SUBSTRING_INDEX(usuarios.apellidos, " ", 1) as apellido, usuarios.avatar')
+        $consulta = $chat->select('chat.usuario, chat.mensaje, chat.fecha, usuarios.id as id_usuario, SUBSTRING_INDEX(usuarios.nombres, " ", 1) as nombre, SUBSTRING_INDEX(usuarios.apellidos, " ", 1) as apellido, usuarios.avatar')
                 ->join('usuarios', 'chat.usuario = usuarios.id')
                 ->where('chat.pedido', $id_pedido)
                 ->findAll();
@@ -48,7 +48,7 @@ class Chat extends BaseController
 
         $chat = new ChatModel();
 
-        $consulta['registros'] = $chat->select('chat.id, chat.usuario, chat.mensaje, chat.fecha, usuarios.id as id_usuario, SUBSTRING_INDEX(usuarios.nombres, " ", 1) as nombre, SUBSTRING_INDEX(usuarios.apellidos, " ", 1) as apellido, usuarios.avatar')
+        $consulta['registros'] = $chat->select('chat.usuario as usuario, chat.mensaje, chat.fecha, SUBSTRING_INDEX(usuarios.nombres, " ", 1) as nombre, SUBSTRING_INDEX(usuarios.apellidos, " ", 1) as apellido, usuarios.avatar')
                 ->join('usuarios', 'chat.usuario = usuarios.id')
                 ->where('chat.pedido', $id_pedido)
                 ->findAll();
