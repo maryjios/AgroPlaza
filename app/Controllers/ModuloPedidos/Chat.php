@@ -41,4 +41,18 @@ class Chat extends BaseController
 
         echo json_encode($consulta);
     }
+
+    public function cargarMensajesMovil()
+    {
+        $id_pedido = $this->request->getPostGet('pedido');
+
+        $chat = new ChatModel();
+
+        $consulta['registros'] = $chat->select('chat.id, chat.usuario, chat.mensaje, chat.fecha, usuarios.id as id_usuario, SUBSTRING_INDEX(usuarios.nombres, " ", 1) as nombre, SUBSTRING_INDEX(usuarios.apellidos, " ", 1) as apellido, usuarios.avatar')
+                ->join('usuarios', 'chat.usuario = usuarios.id')
+                ->where('chat.pedido', $id_pedido)
+                ->findAll();
+
+        echo json_encode($consulta);
+    }
 }
