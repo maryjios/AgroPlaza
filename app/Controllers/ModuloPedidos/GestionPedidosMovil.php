@@ -6,6 +6,7 @@ use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 use App\Models\PedidosModel;
 use App\Models\UsuariosModel;
+use App\Models\PublicacionesModel;
 
 class GestionPedidosMovil extends BaseController
 {
@@ -76,6 +77,19 @@ class GestionPedidosMovil extends BaseController
             ->where('pedidos.id_usuario', $user)
             ->orderBy('pedidos.id','desc')
             ->findAll();
+
+        echo json_encode($sentencia);
+    }
+
+    public function detallePedido(){
+        
+        $pedido = $this->request->getPostGet('pedido');
+        $db_pedidos = new PedidosModel();
+        
+        $sentencia['datos'] = $db_pedidos->select('p.titulo AS titulo_p, p.precio AS precio_p, p.envio AS envio_p, pedidos.descuento AS descuento_p, 
+        concat(u.nombres," ",u.apellidos) AS nombre_vendedor, pedidos.valor_total AS total_p, pedidos.cantidad AS cantidad_p')
+        ->join('publicaciones p', 'p.id = pedidos.id_publicacion')
+        ->join('usuarios u', 'u.id = p.id_usuario')->where('pedidos.id', $pedido)->findAll();
 
         echo json_encode($sentencia);
     }

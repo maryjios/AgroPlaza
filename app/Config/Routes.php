@@ -144,6 +144,7 @@ $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos']
 
     $routes->add('GenerarPedidoMovil', 'GestionPedidosMovil::generarPedido');
     $routes->add('ConsultarPedidosUsuario', 'GestionPedidosMovil::getPedidos');
+    $routes->add('DatosDetallePedido', 'GestionPedidosMovil::detallePedido');
 
     $routes->add('GuardarMensajeChat', 'Chat::insertarMensaje');
     $routes->add('CargarMensajesChat', 'Chat::cargarMensajes');
