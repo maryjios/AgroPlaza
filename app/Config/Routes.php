@@ -148,6 +148,7 @@ $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos']
 
     $routes->add('GuardarMensajeChat', 'Chat::insertarMensaje');
     $routes->add('CargarMensajesChat', 'Chat::cargarMensajes');
+    $routes->add('CargarMensajesChatMovil', 'Chat::cargarMensajesMovil');
 });
 
 

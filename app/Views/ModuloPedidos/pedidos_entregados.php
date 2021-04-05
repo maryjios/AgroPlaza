@@ -230,7 +230,6 @@
       .done(function(data) {
         console.log(data)
         id_sesion = <?php echo $_SESSION["id"]; ?>;
-        alert(id_sesion + "");
 
         $(data).each(function(i, v) {
           if (id_sesion == v.id_usuario) {
