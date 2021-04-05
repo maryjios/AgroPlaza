@@ -26,9 +26,9 @@
                   <tr>
                     <th>Id</th>
                     <th>Producto</th>
+                    <th>Precio $</th>
                     <th>Cantidad</th>
-                    <th>Valor envio</th>
-                    <th>Valor total</th>
+                    <th>Valor envio $</th>
                     <th>Comprador</th>
                     <th>Fecha de pedido</th>
                     <th>Estado</th>
@@ -41,13 +41,13 @@
                     <tr>
                       <td class="id"><?php echo $pedido['id'] ?></td>
                       <td class="titulo"><?php echo $pedido['titulo'] ?></td>
+                      <td class="valor_total"> <?php echo number_format($pedido['precio'])  ?></td>
                       <td class="cantidad"><?php echo $pedido['cantidad'] ?></td>
                       <td class="valor_envio">
                         <form method="post">
                           <input type="number" class="form-control col-6 v_envio" value="<?php echo $pedido['valor_envio'] ?>" <?php echo ($_SESSION['tipo_usuario'] == "ADMINISTRADOR") ? "disabled" : ""; ?>>
                         </form>
                       </td>
-                      <td class="valor_total"><?php echo $pedido['valor_total'] ?></td>
                       <td class="nombre_usuario"><?php echo $pedido['nombre_usuario'] ?></td>
                       <td class="fecha_insert"><?php echo $pedido['fecha_insert'] ?></td>
                       <td class="estado"><?php echo $pedido['estado_pedido'] ?></td>
@@ -519,7 +519,6 @@
         },
       })
       .done(function(data) {
-        alert(data)
         Swal.fire({
           text: "Se ha modificado el costo de envio del pedido",
           icon: 'success',
@@ -527,6 +526,8 @@
           confirmButtonText: 'Aceptar',
 
         })
+
+
       })
       .fail(function() {
         console.log("error");
