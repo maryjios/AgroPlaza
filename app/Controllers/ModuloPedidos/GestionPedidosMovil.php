@@ -145,7 +145,7 @@ class GestionPedidosMovil extends BaseController
 
             $nom_foto = "valoracion_user_" . $id_usuario . ".jpeg";
         } else {
-            $nom_foto = "";
+            $nom_foto = null;
         }
 
         $valoraciones = new ValoracionesModel();
