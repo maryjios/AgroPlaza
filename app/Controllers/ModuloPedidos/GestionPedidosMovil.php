@@ -140,9 +140,13 @@ class GestionPedidosMovil extends BaseController
         $descripcion = $this->request->getPostGet('descripcion');
         $imagen = $this->request->getPostGet('imagen');
 
-        $foto = base64_decode($imagen);
+        if ($imagen != "") {
+            $foto = base64_decode($imagen);
 
-        $nom_foto = "valoracion_user_" . $id_usuario . ".jpeg";
+            $nom_foto = "valoracion_user_" . $id_usuario . ".jpeg";
+        } else {
+            $nom_foto = "";
+        }
 
         $valoraciones = new ValoracionesModel();
 
@@ -161,9 +165,11 @@ class GestionPedidosMovil extends BaseController
                 mkdir($ruta, 0777, false);
             }
 
-            $ruta_valoracion = $ruta . "/" . $nom_foto;
+            if ($imagen != "") {
+                $ruta_valoracion = $ruta . "/" . $nom_foto;
 
-            file_put_contents($ruta_valoracion, $foto);
+                file_put_contents($ruta_valoracion, $foto);
+            }
 
             echo json_encode("OK##INSERT");
         } else {
