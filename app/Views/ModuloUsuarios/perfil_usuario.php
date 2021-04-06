@@ -504,11 +504,7 @@
       title: 'la contraseña no coinciden',
       text: 'Intenta Nuevamente!',
     })
-    
-  }
-
-
-
+    }
   }
   // function datos_modificar() {
   //   var doc = $('#id_usuario').val();
