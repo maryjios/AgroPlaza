@@ -159,7 +159,7 @@ class GestionPedidosMovil extends BaseController
         ]);
 
         if ($data) {
-            $ruta = "./public/dist/img/publicaciones/publicacion" . $id_publicacion . "/valoraciones";
+            $ruta = "./public/dist/img/valoraciones/publicacion" . $id_publicacion;
 
             if (!file_exists($ruta)) {
                 mkdir($ruta, 0777, false);
