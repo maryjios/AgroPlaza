@@ -96,7 +96,7 @@ class ListarPublicaciones extends BaseController
 			->where('id', $id)
 			->first();
 
-		$total_valoraciones = $valoraciones->select('valoracion, descripcion,foto, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, valoraciones.fecha_insert as fecha_valoracion')
+		$total_valoraciones = $valoraciones->select('valoracion, descripcion,foto, id_publicacion, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, valoraciones.fecha_insert as fecha_valoracion')
 			->join('usuarios', 'valoraciones.id_usuario = usuarios.id')
 			->where('id_publicacion', $id)
 			->findAll();
