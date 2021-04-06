@@ -1,8 +1,11 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ValoracionesModel extends Model {
+class ValoracionesModel extends Model
+{
     protected $table      = 'valoraciones';
     protected $primaryKey = 'id';
 
@@ -11,7 +14,7 @@ class ValoracionesModel extends Model {
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['valoracion', 'descripcion','foto','id_publicacion','id_usuario'];
+    protected $allowedFields = ['valoracion', 'descripcion', 'foto', 'id_publicacion', 'id_usuario'];
 
     protected $useTimestamps = false;
     protected $createdField  = 'fecha_insert';

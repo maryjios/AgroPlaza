@@ -71,7 +71,6 @@ class PerfilUsuario extends BaseController
 
 		if ($consulta_pass) {
 			$data = $usuarios->set(['password' => $new_password])->where('id', $id_perfil)->update();
-
 			if ($data) {
 				echo json_encode('OK##UPDATE');
 			} else {

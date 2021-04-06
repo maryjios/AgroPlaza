@@ -230,7 +230,7 @@ class ListarPublicaciones extends BaseController
 		$consulta['registros_publicaciones'] = $publicaciones->select('publicaciones.id as id_publicacion,
 				publicaciones.titulo as titulo,
 				publicaciones.tipo_publicacion as tipo_publicacion,
-				publicaciones.fecha_insert as fecha_publicacion, unidades.abreviatura,
+				publicaciones.fecha_insert as fecha_publicacion, unidades.abreviatura, unidades.cantidad*unidad as valor_unidad
 				publicaciones.estado as estado_publicacion, 
 				publicaciones.precio, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,
 				imagenes.imagen, publicaciones.envio,

@@ -201,7 +201,7 @@
                               <?php } ?>
                               <span><?php echo $valoracion['valoracion']; ?> </span>
                               <?php if ($valoracion['foto']!=null) {?>
-                                <img src="" alt="Muestra">
+                                <img src="<?php echo base_url('public/dist/img/publicaciones/').'/publicacion'.$valoracion['id_publicacion'].'valoraciones/'.$valoracion['foto'] ?>" alt="Muestra">
                               <?php } ?>
                               <p class="text-secondary"> Por: <?php echo $valoracion['nombre_usuario']." Fecha: ".$valoracion['fecha_valoracion'] ?> </span></p>
                               <p><?php echo $valoracion['descripcion'] ?></p>
