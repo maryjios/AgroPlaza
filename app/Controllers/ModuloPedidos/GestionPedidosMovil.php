@@ -178,26 +178,30 @@ class GestionPedidosMovil extends BaseController
     }
 
 
-    public function ListarVentasPerfilMovil(){
+    public function ListarVentasPerfilMovil()
+    {
         $pedidos = new PedidosModel();
-       
-		$user = $this->request->getPostGet('usuario');
-        $consulta = $pedidos->select('')
-        ->where(['id_usuario' => $user,'estado'=>'FINALIZADO'])
-        ->count();
 
-	     echo json_encode($consulta);
-	} 
-   
+        $user = $this->request->getPostGet('usuario');
+        $consulta = $pedidos->select('COUNT(pedidos.id) as cantidad')
+            ->join('publicaciones', 'publicaciones.id = pedidos.id_publicacion')
+            ->where(['publicaciones.id_usuario' => $user, 'pedidos.estado' => 'FINALIZADO'])
+            ->find();
 
-    public function PublicacionesPerfilMovil(){
+        echo $consulta[0]['cantidad'];
+    }
+
+
+    public function PublicacionesPerfilMovil()
+    {
         $pedidos = new PedidosModel();
-       
-		$user = $this->request->getPostGet('usuario');
-        $consulta = $pedidos->select('*')
-        ->where('id_usuario' , $user)
-        ->count();
 
-	     echo json_encode($consulta);
-	} 
+        $user = $this->request->getPostGet('usuario');
+        $consulta['registro'] = $pedidos->select('COUNT(publicaciones.id) as cantidad')
+            ->join('publicaciones', 'publicaciones.id = pedidos.id_publicacion')
+            ->where('publicaciones.id_usuario', $user)
+            ->find();
+
+        echo $consulta[0]['cantidad'];
+    }
 }
