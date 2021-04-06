@@ -88,11 +88,12 @@ class GestionPedidosMovil extends BaseController
         $pedido = $this->request->getPostGet('pedido');
         $db_pedidos = new PedidosModel();
 
-        $sentencia['datos'] = $db_pedidos->select('p.id AS id_publicacion, p.titulo AS titulo_p, p.precio AS precio_p, p.envio AS envio_p, pedidos.descuento AS descuento_p, 
+        $sentencia['datos'] = $db_pedidos->select('p.id AS id_publicacion, p.titulo AS titulo_p, p.precio AS precio_p, p.envio AS envio_p, pedidos.descuento AS descuento_p, v.id AS id_valoracion,
         concat(u.nombres," ",u.apellidos) AS nombre_vendedor, u.tipo_usuario AS tipo_v, u.id AS id_u, c.nombre AS ciudad_v, d.nombre AS departamento_v,  pedidos.valor_total AS total_p, pedidos.cantidad AS cantidad_p')
             ->join('publicaciones p', 'p.id = pedidos.id_publicacion')
             ->join('usuarios u', 'u.id = p.id_usuario')
             ->join('ciudad c', 'c.id = u.id_ciudad')
+            ->join('valoraciones v', 'p.id = v.id_publicacion')
             ->join('departamento d', 'd.id = c.id_departamento')->where('pedidos.id', $pedido)->findAll();
 
         echo json_encode($sentencia);
