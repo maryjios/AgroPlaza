@@ -251,10 +251,12 @@ class ListarPublicaciones extends BaseController
 	public function traerDatosParaCompra()
 	{
 		$id = $this->request->getPostGet('id');
+		$tipo = $this->request->getPostGet('tipo');
 
 		$publicaciones = new PublicacionesModel();
 
-		$consulta['datos_publicacion'] = $publicaciones->select('publicaciones.titulo as titulo,
+		if ($tipo == "PRODUCTO") {
+			$consulta['datos_publicacion'] = $publicaciones->select('publicaciones.titulo as titulo,
 			publicaciones.tipo_publicacion as tipo_publicacion, unidades.abreviatura, 
 			publicaciones.precio, imagenes.imagen, 
 			concat(usuarios.nombres," ",usuarios.apellidos) nombre_usuario,
@@ -265,6 +267,18 @@ class ListarPublicaciones extends BaseController
 			->where('publicaciones.id', $id)
 			->groupBy('imagenes.id_publicacion')
 			->findAll();
+		} else {
+			$consulta['datos_publicacion'] = $publicaciones->select('publicaciones.titulo as titulo,
+			publicaciones.tipo_publicacion as tipo_publicacion,
+			publicaciones.precio, imagenes.imagen, 
+			concat(usuarios.nombres," ",usuarios.apellidos) nombre_usuario,
+			publicaciones.envio, publicaciones.descuento')
+			->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
+			->join('imagenes', 'imagenes.id_publicacion = publicaciones.id')
+			->where('publicaciones.id', $id)
+			->groupBy('imagenes.id_publicacion')
+			->findAll();
+		}
 
 		echo json_encode($consulta);
 	}
