@@ -152,6 +152,9 @@ $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos']
     $routes->add('FinalizarPedido', 'GestionPedidosMovil::estadoFinalizadoPedido');
     $routes->add('CalificarPublicacion', 'GestionPedidosMovil::calificarPublicacion');
 
+    $routes->add('CantVentaPerfil', 'GestionPedidosMovil::ListarVentasPerfilMovil');
+    $routes->add('CantPostPerfil', 'GestionPedidosMovil::PublicacionesPerfilMovil');
+
     $routes->add('GuardarMensajeChat', 'Chat::insertarMensaje');
     $routes->add('CargarMensajesChat', 'Chat::cargarMensajes');
     $routes->add('CargarMensajesChatMovil', 'Chat::cargarMensajesMovil');

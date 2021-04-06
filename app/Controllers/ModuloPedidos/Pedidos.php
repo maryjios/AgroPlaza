@@ -236,8 +236,8 @@ class Pedidos extends BaseController
         echo json_encode($consulta);
     }
 
-    public function totalPedidos()
-    {
+
+    public function totalPedidos(){
         $pedidos = new PedidosModel();
 
         $datos = $pedidos
@@ -247,4 +247,5 @@ class Pedidos extends BaseController
 
         echo $datos;
     }
+   
 }

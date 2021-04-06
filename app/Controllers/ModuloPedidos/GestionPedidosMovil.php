@@ -176,4 +176,28 @@ class GestionPedidosMovil extends BaseController
             echo json_encode("ERROR##INSERT");
         }
     }
+
+
+    public function ListarVentasPerfilMovil(){
+        $pedidos = new PedidosModel();
+       
+		$user = $this->request->getPostGet('usuario');
+        $consulta = $pedidos->select('')
+        ->where(['id_usuario' => $user,'estado'=>'FINALIZADO'])
+        ->count();
+
+	     echo json_encode($consulta);
+	} 
+   
+
+    public function PublicacionesPerfilMovil(){
+        $pedidos = new PedidosModel();
+       
+		$user = $this->request->getPostGet('usuario');
+        $consulta = $pedidos->select('*')
+        ->where('id_usuario' , $user)
+        ->count();
+
+	     echo json_encode($consulta);
+	} 
 }
