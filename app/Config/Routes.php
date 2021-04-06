@@ -154,6 +154,7 @@ $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos']
 
     $routes->add('CantVentaPerfil', 'GestionPedidosMovil::ListarVentasPerfilMovil');
     $routes->add('CantPostPerfil', 'GestionPedidosMovil::PublicacionesPerfilMovil');
+    $routes->add('PromedioPerfil', 'GestionPedidosMovil::PromedioPerfilMovil');
 
     $routes->add('GuardarMensajeChat', 'Chat::insertarMensaje');
     $routes->add('CargarMensajesChat', 'Chat::cargarMensajes');
