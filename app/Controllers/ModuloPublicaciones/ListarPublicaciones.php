@@ -96,7 +96,7 @@ class ListarPublicaciones extends BaseController
 			->where('id', $id)
 			->first();
 
-		$total_valoraciones = $valoraciones->select('valoracion, descripcion,foto, id_publicacion, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, valoraciones.fecha_insert as fecha_valoracion')
+		$total_valoraciones = $valoraciones->select('valoracion, descripcion,foto, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario, valoraciones.fecha_insert as fecha_valoracion')
 			->join('usuarios', 'valoraciones.id_usuario = usuarios.id')
 			->where('id_publicacion', $id)
 			->findAll();
@@ -165,13 +165,10 @@ class ListarPublicaciones extends BaseController
 
 	public function ListarPublicacionesMovil()
 	{
-		$publicaciones = new PublicacionesModel();
-
 		$departamento = $this->request->getPostGet('departamento');
-		$tipo = $this->request->getPostGet('tipo');
 
-		if ($tipo == "PRODUCTO") {
-			$consulta['registros_publicaciones'] = $publicaciones->select('publicaciones.id as id_publicacion,
+		$publicaciones = new PublicacionesModel();
+		$consulta['registros_publicaciones'] = $publicaciones->select('publicaciones.id as id_publicacion,
 				publicaciones.titulo as titulo,
 				publicaciones.tipo_publicacion as tipo_publicacion,
 				publicaciones.fecha_insert as fecha_publicacion, unidades.abreviatura, unidades.cantidad*unidad as valor_unidad,
@@ -180,35 +177,16 @@ class ListarPublicaciones extends BaseController
 				imagenes.imagen, publicaciones.envio,
 				publicaciones.descuento,
 				publicaciones.descripcion, publicaciones.stock')
-				->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
-				->join('imagenes', 'imagenes.id_publicacion =publicaciones.id')
-				->join('ciudad', 'ciudad.id =publicaciones.id_ciudad')
-				->join('unidades', 'unidades.id=publicaciones.id_unidad')
-				->where(['publicaciones.estado' => 'ACTIVA', 'ciudad.id_departamento' => $departamento, 'tipo_publicacion' => $tipo])
-				->groupBy('imagenes.id_publicacion')
-				->findAll();
+			->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
+			->join('imagenes', 'imagenes.id_publicacion =publicaciones.id')
+			->join('ciudad', 'ciudad.id =publicaciones.id_ciudad')
+			->join('unidades', 'unidades.id=publicaciones.id_unidad')
+			->where('publicaciones.estado', 'ACTIVA')
+			->where('ciudad.id_departamento', $departamento)
+			->groupBy('imagenes.id_publicacion')
+			->findAll();
 
-			echo json_encode($consulta);
-		} else if($tipo == "SERVICIO") {
-
-			$consulta['registros_publicaciones'] = $publicaciones->select('publicaciones.id as id_publicacion,
-				publicaciones.titulo as titulo,
-				publicaciones.tipo_publicacion as tipo_publicacion,
-				publicaciones.fecha_insert as fecha_publicacion,
-				publicaciones.estado as estado_publicacion, 
-				publicaciones.precio, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,
-				imagenes.imagen, publicaciones.envio,
-				publicaciones.descuento,
-				publicaciones.descripcion, publicaciones.stock')
-				->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
-				->join('imagenes', 'imagenes.id_publicacion =publicaciones.id')
-				->join('ciudad', 'ciudad.id =publicaciones.id_ciudad')
-				->where(['publicaciones.estado' => 'ACTIVA', 'ciudad.id_departamento' => $departamento, 'tipo_publicacion' => $tipo])
-				->groupBy('imagenes.id_publicacion')
-				->findAll();
-
-				echo json_encode($consulta);
-		}
+		echo json_encode($consulta);
 	}
 
 	public function getImagenesPublicacion()
@@ -248,15 +226,39 @@ class ListarPublicaciones extends BaseController
 		echo json_encode($consulta);
 	}
 
+	public function ServiciosPublicacionesMovil()
+	{
+		$departamento = $this->request->getPostGet('departamento');
+
+		$publicaciones = new PublicacionesModel();
+		$consulta['registros_publicaciones'] = $publicaciones->select('publicaciones.id as id_publicacion,
+				publicaciones.titulo as titulo,
+				publicaciones.tipo_publicacion as tipo_publicacion,
+				publicaciones.fecha_insert as fecha_publicacion, 
+				publicaciones.estado as estado_publicacion, 
+				publicaciones.precio, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,
+				imagenes.imagen, publicaciones.envio,
+				publicaciones.descuento,
+				publicaciones.descripcion')
+			->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
+			->join('imagenes', 'imagenes.id_publicacion =publicaciones.id')
+			->join('ciudad', 'ciudad.id =publicaciones.id_ciudad')
+			->join('unidades', 'unidades.id =publicaciones.id_unidad')
+			->where('publicaciones.estado = "ACTIVA" AND publicaciones.tipo_publicacion = "SERVICIOS"')
+			->where('ciudad.id_departamento', $departamento)
+			->groupBy('imagenes.id_publicacion')
+			->findAll();
+
+		echo json_encode($consulta);
+	}
+
 	public function traerDatosParaCompra()
 	{
 		$id = $this->request->getPostGet('id');
-		$tipo = $this->request->getPostGet('tipo');
 
 		$publicaciones = new PublicacionesModel();
 
-		if ($tipo == "PRODUCTO") {
-			$consulta['datos_publicacion'] = $publicaciones->select('publicaciones.titulo as titulo,
+		$consulta['datos_publicacion'] = $publicaciones->select('publicaciones.titulo as titulo,
 			publicaciones.tipo_publicacion as tipo_publicacion, unidades.abreviatura, 
 			publicaciones.precio, imagenes.imagen, 
 			concat(usuarios.nombres," ",usuarios.apellidos) nombre_usuario,
@@ -267,18 +269,6 @@ class ListarPublicaciones extends BaseController
 			->where('publicaciones.id', $id)
 			->groupBy('imagenes.id_publicacion')
 			->findAll();
-		} else {
-			$consulta['datos_publicacion'] = $publicaciones->select('publicaciones.titulo as titulo,
-			publicaciones.tipo_publicacion as tipo_publicacion,
-			publicaciones.precio, imagenes.imagen, 
-			concat(usuarios.nombres," ",usuarios.apellidos) nombre_usuario,
-			publicaciones.envio, publicaciones.descuento')
-			->join('usuarios', 'publicaciones.id_usuario = usuarios.id')
-			->join('imagenes', 'imagenes.id_publicacion = publicaciones.id')
-			->where('publicaciones.id', $id)
-			->groupBy('imagenes.id_publicacion')
-			->findAll();
-		}
 
 		echo json_encode($consulta);
 	}
@@ -304,6 +294,19 @@ class ListarPublicaciones extends BaseController
 			->where(['publicaciones.estado' => 'ACTIVA', 'publicaciones.id_usuario' => $user])
 			->groupBy('imagenes.id_publicacion')
 			->limit(5)
+			->findAll();
+
+		echo json_encode($consulta);
+	}
+
+	public function getValoracionesPublicacion()
+	{
+		$id = $this->request->getPostGet('publicacion');
+
+		$valoraciones = new ValoracionesModel();
+		$consulta['registro'] = $valoraciones->select('concat(usuarios.nombres," ",usuarios.apellidos) as nombre_usuario, valoraciones.valoracion, valoraciones.		fecha_insert, valoraciones.descripcion, valoraciones.foto')
+			->join('usuarios', 'usuarios.id = valoraciones.id_usuario')
+			->where('id', $id)
 			->findAll();
 
 		echo json_encode($consulta);

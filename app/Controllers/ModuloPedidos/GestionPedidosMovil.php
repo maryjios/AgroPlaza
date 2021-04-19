@@ -176,4 +176,45 @@ class GestionPedidosMovil extends BaseController
             echo json_encode("ERROR##INSERT");
         }
     }
+
+
+    public function ListarVentasPerfilMovil()
+    {
+        $pedidos = new PedidosModel();
+
+        $user = $this->request->getPostGet('usuario');
+        $consulta = $pedidos->select('COUNT(pedidos.id) as cantidad')
+            ->join('publicaciones', 'publicaciones.id = pedidos.id_publicacion')
+            ->where(['publicaciones.id_usuario' => $user, 'pedidos.estado' => 'FINALIZADO'])
+            ->find();
+
+        echo $consulta[0]['cantidad'];
+    }
+
+
+    public function PublicacionesPerfilMovil()
+    {
+        $pedidos = new PedidosModel();
+
+        $user = $this->request->getPostGet('usuario');
+        $consulta = $pedidos->select('COUNT(publicaciones.id) as cantidad')
+            ->join('publicaciones', 'publicaciones.id = pedidos.id_publicacion')
+            ->where('publicaciones.id_usuario', $user)
+            ->find();
+
+        echo $consulta[0]['cantidad'];
+    }
+
+    public function PromedioPerfilMovil()
+    {
+        $valoraciones = new ValoracionesModel();
+
+        $user = $this->request->getPostGet('usuario');
+        $consulta = $valoraciones->select('AVG(valoraciones.valoracion) as promedio')
+            ->join('publicaciones', 'publicaciones.id = valoraciones.id_publicacion')
+            ->where('publicaciones.id_usuario', $user)
+            ->find();
+
+        echo $consulta[0]['promedio'];
+    }
 }

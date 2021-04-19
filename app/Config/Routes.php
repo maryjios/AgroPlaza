@@ -63,17 +63,16 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('MostrarPendientes', 'BuscarPendientes::listarpendientes');
     $routes->add('BuscarPenId', 'BuscarPendientes::buscarpenId');
     $routes->add('ActualizarPen', 'BuscarPendientes::actualizarpen');
-     
+
     $routes->add('PerfilUsuario', 'PerfilUsuario::index');
     $routes->add('CargarAvatar', 'PerfilUsuario::editarAvatar');
     // Buscar y Editar datos generales del perfil 
     $routes->add('BuscarDatosPerfil', 'PerfilUsuario::buscar_session');
     $routes->add('EditarPerfil', 'PerfilUsuario::enviarnewdatos');
-    
+
     //  Editar datos  de seguridad del perfil 
     $routes->add('PasswordPerfil', 'PerfilUsuario::password_edit');
-    $routes->add('ListarNotificaciones', 'Notificaciones::infoNotificaciones');
-    
+
 
 
     // Rutas para consultar y modificar la ciudad del usuario (AppMovil)
@@ -85,7 +84,6 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     $routes->add('EditarPasswordMovil', 'PerfilUsuario::editarPasswordMovil');
     $routes->add('DesactivarCuentaMovil', 'PerfilUsuario::desactivarUsuarioMovil');
     $routes->add('ActualizarImagenPerfil', 'PerfilUsuario::editarAvatarMovil');
-    
 });
 
 $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPublicaciones'], function ($routes) {
@@ -105,6 +103,7 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('traerImagenes', 'EditarPublicacion::cargarImagenes');
 
     $routes->add('EliminarPublicacion', 'ListarPublicaciones::eliminarPublicacion');
+    $routes->add('ListarValoracionesPublicacion', 'ListarPublicaciones::getValoracionesPublicacion');
     $routes->add('TraerPreguntas', 'Preguntas::listarPreguntas');
     $routes->add('PreguntaIndividual', 'Preguntas::consultarPregunta');
     $routes->add('RespuestaPregunta', 'Preguntas::guardarRespuesta');
@@ -127,9 +126,6 @@ $routes->group('ModuloPublicaciones', ['namespace' => 'App\Controllers\ModuloPub
     $routes->add('EditarUnidad', 'Unidades::actualizarUnidades');
     $routes->add('EliminarUnidad', 'Unidades::eliminarUnidades');
     $routes->add('InsertarUnidad', 'Unidades::registrarUnidades');
-
-
-
 });
 
 $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos'], function ($routes) {
@@ -153,10 +149,13 @@ $routes->group('ModuloPedidos', ['namespace' => 'App\Controllers\ModuloPedidos']
     $routes->add('FinalizarPedido', 'GestionPedidosMovil::estadoFinalizadoPedido');
     $routes->add('CalificarPublicacion', 'GestionPedidosMovil::calificarPublicacion');
 
+    $routes->add('CantVentaPerfil', 'GestionPedidosMovil::ListarVentasPerfilMovil');
+    $routes->add('CantPostPerfil', 'GestionPedidosMovil::PublicacionesPerfilMovil');
+    $routes->add('PromedioPerfil', 'GestionPedidosMovil::PromedioPerfilMovil');
+
     $routes->add('GuardarMensajeChat', 'Chat::insertarMensaje');
     $routes->add('CargarMensajesChat', 'Chat::cargarMensajes');
     $routes->add('CargarMensajesChatMovil', 'Chat::cargarMensajesMovil');
-    
 });
 
 

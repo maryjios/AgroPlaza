@@ -134,7 +134,7 @@ class Inicio extends BaseController
             } else {
                $registros = $usuarios->insert([
                   'email' => $email, 'password' => md5($password), 'documento' => $documento, 'nombres' => $nombres, 'apellidos' => $apellidos, 'id_ciudad' => $ciudad, 'direccion' => $direccion,
-                  'telefono' => $telefono, 'genero' => $genero, 'avatar' => 'avatar.png', 'tipo_usuario' => $tipo_usuario,
+                  'telefono' => $telefono, 'genero' => $genero, 'avatar_default.png' => 'avatar.png', 'tipo_usuario' => $tipo_usuario,
                ]);
 
                if ($registros) {
