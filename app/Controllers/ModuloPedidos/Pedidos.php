@@ -24,7 +24,7 @@ class Pedidos extends BaseController
                 ->where('pedidos.estado', 'SOLICITADO')
                 ->findAll();
         } else {
-            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_envio,, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo, publicaciones.precio')
+            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_envio, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo, publicaciones.precio')
                 ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
                 ->join('publicaciones', 'pedidos.id_publicacion = publicaciones.id')
                 ->where('publicaciones.id_usuario', $id)
@@ -67,13 +67,13 @@ class Pedidos extends BaseController
         $tipo_usuario = $_SESSION['tipo_usuario'];
 
         if ($tipo_usuario == "ADMINISTRADOR") {
-            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo,publicaciones.precio')
+            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_envio, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo,publicaciones.precio')
                 ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
                 ->join('publicaciones', 'pedidos.id_publicacion = publicaciones.id')
                 ->where('pedidos.estado', 'EN PROCESO')
                 ->findAll();
         } else {
-            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo, publicaciones.precio')
+            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_envio, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo, publicaciones.precio')
                 ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
                 ->join('publicaciones', 'pedidos.id_publicacion = publicaciones.id')
                 ->where('publicaciones.id_usuario', $id)
@@ -97,13 +97,13 @@ class Pedidos extends BaseController
         $tipo_usuario = $_SESSION['tipo_usuario'];
 
         if ($tipo_usuario == "ADMINISTRADOR") {
-            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo,publicaciones.precio')
+            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_envio, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo,publicaciones.precio')
                 ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
                 ->join('publicaciones', 'pedidos.id_publicacion = publicaciones.id')
                 ->where('pedidos.estado', 'ENTREGADO')
                 ->findAll();
         } else {
-            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo, publicaciones.precio')
+            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_envio, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo, publicaciones.precio')
                 ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
                 ->join('publicaciones', 'pedidos.id_publicacion = publicaciones.id')
                 ->where('publicaciones.id_usuario', $id)
@@ -197,13 +197,13 @@ class Pedidos extends BaseController
         $tipo_usuario = $_SESSION['tipo_usuario'];
 
         if ($tipo_usuario == "ADMINISTRADOR") {
-            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo, publicaciones.precio')
+            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_envio, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo,publicaciones.precio')
                 ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
                 ->join('publicaciones', 'pedidos.id_publicacion = publicaciones.id')
                 ->where('(pedidos.estado = "CANCELADO" OR pedidos.estado = "FINALIZADO")')
                 ->findAll();
         } else {
-            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_total, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo, publicaciones.precio')
+            $consulta['pedidos'] = $pedidos->select('pedidos.id, pedidos.cantidad, pedidos.valor_envio, pedidos.estado as estado_pedido,pedidos.fecha_insert, concat(usuarios.nombres," ",usuarios.apellidos)nombre_usuario,publicaciones.titulo,publicaciones.precio')
                 ->join('usuarios', 'pedidos.id_usuario = usuarios.id')
                 ->join('publicaciones', 'pedidos.id_publicacion = publicaciones.id')
                 ->where('publicaciones.id_usuario', $id)

@@ -45,7 +45,7 @@
                       <td class="cantidad"><?php echo $pedido['cantidad'] ?></td>
                       <td class="valor_envio">
                         <form method="post">
-                          <input type="number" class="form-control col-6 v_envio" value="<?php echo $pedido['valor_envio'] ?>" <?php echo ($_SESSION['tipo_usuario'] == "ADMINISTRADOR") ? "disabled" : ""; ?>>
+                          <input type="number" class="form-control col-7 v_envio" value="<?php echo $pedido['valor_envio'] ?>" <?php echo ($_SESSION['tipo_usuario'] == "ADMINISTRADOR") ? "disabled" : ""; ?>>
                         </form>
                       </td>
                       <td class="nombre_usuario"><?php echo $pedido['nombre_usuario'] ?></td>
@@ -105,19 +105,20 @@
           </div>
           <div class="row mt-2">
             <div class="col img-thumbnail">
-              <div class="position-relative rounded p-3 bg-success" style="height: 260px">
+              <div class="position-relative rounded p-3 bg-success" style="height: 280px">
                 <div class="ribbon-wrapper">
                   <div class="ribbon bg-primary">
                     +
                   </div>
                 </div>
                 <h6>Cantidad: <span id="cantidad"></span></h6>
-                <h6>Precio producto: $ <span id="valor_compra"></span></h6>
-                <h6>Subtotal: $ <span id="valor_subtotal"></span></h6>
-                <h6>Envio: $ <span id="valor_envio"></span></h6>
-                <h6>Descuento: $ <span id="descuento"></span></h6>
+                <h6>Precio producto: <span id="valor_compra"></span></h6>
                 <hr>
-                <h6>Total: $ <span id="total"></span></h6>
+                <h6>Subtotal:  <span id="valor_subtotal"></span></h6>
+                <h6>Envio:  <span id="valor_envio"></span></h6>
+                <h6>Descuento:  <span id="descuento"></span></h6>
+                <hr>
+                <h6>Total:  <span id="total"></span></h6>
                 <hr>
                 <h6>Comprador: <span id="comprador"></span></h6>
               </div>
@@ -192,15 +193,11 @@
       "ordering": true,
       "aoColumnDefs": [{
           'bSortable': false,
-          'aTargets': [1]
-        },
-        {
-          'bSortable': false,
-          'aTargets': [6]
-        },
-        {
-          'bSortable': false,
           'aTargets': [7]
+        },
+        {
+          'bSortable': false,
+          'aTargets': [8]
         }
       ],
     });
@@ -422,19 +419,24 @@
       })
       .done(function(data) {
         console.log(data);
+        const formatterPeso = new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              minimumFractionDigits: 0
+            })
         for (var i = 0; i < data.length; i++) {
           img = '<?php echo base_url('public/dist/img/publicaciones/') . '/publicacion' ?>' + data[i].id_publicacion + "/" + data[i].imagen;
           $("#img_producto").attr('src', img);
           $("#titulo").text(data[i].titulo);
           $("#cantidad").text(data[i].cantidad);
-          $("#valor_compra").text(data[i].valor_compra);
-          $("#valor_envio").text(data[i].valor_envio);
-          subtotal = (data[i].cantidad * data[i].valor_compra);
-          $("#valor_subtotal").text(subtotal);
+          $("#valor_compra").text(formatterPeso.format(data[i].precio));
+          $("#valor_envio").text(formatterPeso.format(data[i].valor_envio));
+          subtotal = (data[i].cantidad * data[i].precio);
+          $("#valor_subtotal").text(formatterPeso.format(subtotal));
           descuento = (parseInt(data[i].descuento) / 100) * parseInt(subtotal);
           total = (subtotal + parseInt(data[i].valor_envio)) - descuento;
-          $("#descuento").text(descuento);
-          $("#total").text(total);
+          $("#descuento").text(formatterPeso.format(descuento));
+          $("#total").text(formatterPeso.format(total));
           $("#comprador").text(data[i].nombre_usuario);
         }
       })
