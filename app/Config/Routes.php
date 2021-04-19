@@ -72,6 +72,7 @@ $routes->group('ModuloUsuarios', ['namespace' => 'App\Controllers\ModuloUsuarios
     
     //  Editar datos  de seguridad del perfil 
     $routes->add('PasswordPerfil', 'PerfilUsuario::password_edit');
+    $routes->add('ListarNotificaciones', 'Notificaciones::infoNotificaciones');
     
 
 

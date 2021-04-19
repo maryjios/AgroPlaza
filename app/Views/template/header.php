@@ -79,7 +79,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
+          <a id="notifi" class="nav-link" data-toggle="dropdown" href="#">
             <i class="far fa-bell"></i>
             <span class="badge badge-warning navbar-badge">15</span>
           </a>
@@ -264,3 +264,31 @@ if (!isset($_SESSION['tipo_usuario'])) {
     </aside>
     
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script>
+      $(document).ready(iniciar);
+
+      function iniciar() {
+        $("#notifi").click(abrirNotificaciones);
+      }
+
+      function abrirNotificaciones() {
+        id_usuario = '<?php echo $_SESSION['id'] ?>'; 
+        
+        $.ajax({
+          url: '<?php echo base_url('/ModuloUsuarios/ListarNotificaciones');?>',
+          type: 'POST',
+          dataType: 'text',
+          data: {id_usuario: id_usuario},
+        })
+        .done(function(data) {
+          console.log(data);
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+          console.log("complete");
+        });
+        
+      }
+    </script>

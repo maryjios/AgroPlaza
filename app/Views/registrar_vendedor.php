@@ -193,7 +193,7 @@ if (isset($_SESSION['tipo_usuario'])) {
                                  <div class="icheck-primary">
                                     <input type="checkbox" id="agreeTerms" name="terms" value="agree">
                                     <label for="agreeTerms">
-                                       Acepto los <a href="#">Terminos y Condiciones</a> y autorizo el uso de mis datos
+                                       Acepto los <a target="_blank" href="<?php echo base_url('public/dist/TerminosCondiciones.pdf') ?>">Terminos y Condiciones</a> y autorizo el uso de mis datos
                                     </label>
                                  </div>
                               </div>
